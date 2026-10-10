@@ -195,6 +195,8 @@ let inMiniGameFlow = false;
 let activeQuestionsList = [];
 let practiceCycleRawPool = [];
 let pendingTopicQuiz = null;
+// Mục 4.2/4.3: ghi nhớ lựa chọn Gợi ý khi bé chuyển câu (không ghi vào storage).
+let mulDivHintEnabled_ = true;
 let currentQIndex = 0;
 let score = 0;
 let userAnswers = {};
@@ -2813,9 +2815,14 @@ function buildMulDivTableVisual_(q, math) {
         : (perGroup >= 9 ? 21 : perGroup >= 7 ? 23 : 26);
     const rowMinHeight = groups === 2 ? 62 : 42;
 
-    const rowHtml = Array.from({ length: groups }, (_, rowIdx) => `
-        <div class="flex items-center justify-center gap-[3px] rounded-xl border ${rowIdx % 2 === 0 ? 'border-pink-200 bg-pink-50/70' : 'border-purple-200 bg-purple-50/70'} px-2 py-1.5" style="min-height:${rowMinHeight}px">
-            ${Array.from({ length: perGroup }, () => `<span class="leading-none select-none" style="font-size:${emojiSize}px">${emoji}</span>`).join('')}
+    const rowHtml = Array.from({ length: groups }, () => `
+        <div class="px-2 py-1.5" style="min-height:${rowMinHeight}px">
+            <div class="flex items-center justify-center gap-1.5 flex-wrap md:flex-nowrap">
+                ${Array.from({ length: perGroup }, (_, itemIdx) => {
+                    const fiveGroup = itemIdx < 5 ? 'first' : 'after';
+                    return `<span class="math-muldiv-five-cell inline-flex items-center justify-center rounded-lg leading-none select-none" data-five-group="${fiveGroup}" style="box-sizing:border-box;width:${groups === 2 ? 42 : 34}px;height:${groups === 2 ? 42 : 34}px;font-size:${emojiSize}px">${emoji}</span>`;
+                }).join('')}
+            </div>
         </div>`).join('');
 
     const conceptTitle = isMultiply ? 'PHÉP NHÂN = CỘNG CÁC NHÓM BẰNG NHAU' : 'PHÉP CHIA = CHIA ĐỀU THÀNH CÁC NHÓM';
@@ -2826,6 +2833,10 @@ function buildMulDivTableVisual_(q, math) {
     const feedback = isMultiply
         ? `${repeated} = ${result} &nbsp;→&nbsp; ${left} × ${right} = ${result}`
         : `${left} = ${repeated} &nbsp;→&nbsp; ${left} ÷ ${right} = ${result}`;
+    // Hai thẻ 4.2 và 4.3 dùng nguồn sub 3.2/3.3 trong học liệu gốc.
+    const canToggleHint = Number(pendingTopicQuiz?.topicNum) === 4
+        && ['3.2', '3.3'].includes(String(q.sub_id || q.sub_topic || '').trim());
+    const hintVisible = !canToggleHint || mulDivHintEnabled_;
 
     return {
         prompt: '',
@@ -2842,13 +2853,21 @@ function buildMulDivTableVisual_(q, math) {
                 </div>
 
                 <div class="rounded-3xl border-2 border-pink-200 bg-gradient-to-br from-white via-pink-50/60 to-purple-50/60 shadow-sm px-4 py-3 md:px-5 md:py-4 flex flex-col justify-center text-center relative">
-                    <button onclick="speakCurrentQuestion()" class="absolute top-2.5 right-2.5 w-9 h-9 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi">
+                    ${canToggleHint ? `<div class="flex items-center justify-between gap-2 mb-2">
+                        <label class="inline-flex items-center gap-2 cursor-pointer select-none rounded-xl border border-purple-200 bg-purple-50/85 hover:bg-purple-100 px-3 py-1.5 text-sm font-black text-purple-700">
+                            <input type="checkbox" data-muldiv-hint-toggle ${mulDivHintEnabled_ ? 'checked' : ''} style="width:18px;height:18px;accent-color:#8b5cf6;flex:none;cursor:pointer">
+                            <span>💡 Gợi ý</span>
+                        </label>
+                        <button onclick="speakCurrentQuestion()" class="w-9 h-9 shrink-0 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>` : `<button onclick="speakCurrentQuestion()" class="absolute top-2.5 right-2.5 w-9 h-9 rounded-xl bg-pink-50 hover:bg-pink-100 text-pink-600 border border-pink-200 flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                         <i class="fa-solid fa-volume-high"></i>
-                    </button>
-                    <div class="text-4xl md:text-5xl font-black text-slate-800 leading-none pr-8">
+                    </button>`}
+                    <div class="text-4xl md:text-5xl font-black text-slate-800 leading-none ${canToggleHint ? '' : 'pr-8'}">
                         ${left} <span class="text-pink-500">${mainOp}</span> ${right} <span class="text-purple-400">= ?</span>
                     </div>
-                    <div class="mt-3 rounded-2xl border border-purple-200 bg-white/80 px-3 py-3">
+                    <div data-muldiv-hint class="${hintVisible ? '' : 'hidden '}mt-3 rounded-2xl border border-purple-200 bg-white/80 px-3 py-3">
                         <div class="text-xs md:text-sm font-black tracking-wide text-purple-500">${conceptTitle}</div>
                         <div class="mt-1.5 text-base md:text-lg font-black leading-snug">${conceptLine}</div>
                     </div>
@@ -4588,6 +4607,15 @@ function loadQuestion() {
 
     const questionBox = document.getElementById('question-box');
     questionBox.innerHTML = html;
+    // Đổi Gợi ý tại chỗ, không dựng lại câu/không làm mất đáp án đã chọn.
+    // Mỗi lần chuyển câu, HTML mới đọc lại mulDivHintEnabled_.
+    const mulDivHintToggle = questionBox.querySelector('[data-muldiv-hint-toggle]');
+    if (mulDivHintToggle) {
+        mulDivHintToggle.addEventListener('change', (event) => {
+            mulDivHintEnabled_ = !!event.currentTarget.checked;
+            questionBox.querySelector('[data-muldiv-hint]')?.classList.toggle('hidden', !mulDivHintEnabled_);
+        });
+    }
     normalizeMathAnswerPalette_();
 
     // Riêng Cộng/Trừ có nhớ: khối bài giảng + đáp án cần đủ chiều cao để flex không co
@@ -4687,6 +4715,8 @@ function restoreQuestionState(q) {
             revealOperationTermsFeedback_(q);
             revealCarryConceptFeedback_(q);
             revealCarryPracticeAnswer_(q);
+            // Trở về câu đúng vẫn hiện lời giải, kể cả khi Gợi ý đang tắt.
+            if (q.explore_type === 'mul_div_table_visual') revealMulDivFeedback_();
             revealTopic56Solution_(q);
             revealTopic811Solution_(q);
         }
@@ -20915,6 +20945,17 @@ const MATH_UI_FINAL_AUDIT_CSS_ = `
 #class2-math-runtime #question-box .option-btn:hover{border-color:#c084fc!important;}
 #class2-math-runtime #question-box .option-btn:disabled{border-color:#e2e8f0!important;}
 #class2-math-runtime #question-box [class*="rounded-"][class*="bg-"]{border-width:1px!important;border-style:solid!important;}
+
+/* Riêng bài 4.2/4.3: nhóm 5 dùng viền 2px tím/xanh lá, không tô nền.
+   Selector có 2 ID để thắng rule !important ép mọi ô bo góc về viền xám 1px. */
+#class2-math-runtime #question-box .math-muldiv-five-cell{
+  border:2px solid #7c3aed!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#class2-math-runtime #question-box .math-muldiv-five-cell[data-five-group="after"]{
+  border-color:#16a34a!important;
+}
 
 /* Danh sách mục con: trước đây chỉ có background nên một số màn nhìn như không viền. */
 #class2-math-runtime #lecture-subtopics-list > button:nth-child(6n+1){border:1px solid #f9a8d4!important;}
