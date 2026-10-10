@@ -1588,9 +1588,8 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
         const displayTitle = beautifySubtopicName(groupLabels[subName]).replace(/^\s*\d+(?:\.\d+)?[.)]?\s*/, '').trim();
         const displayCode = `${Number(topicNum)}.${idx + 1}`;
         const rawCount = groupMap[subName].length;
-        // UI 3.4 (raw sub_code 2.3) has TWO learning modes using the SAME 75-question pool:
-        // 3.4.1 guided + 3.4.2 practice. The outer card therefore displays 150 learning items.
-        const count = (Number(topicNum) === 3 && String(subName) === '2.3') ? rawCount * 2 : rawCount;
+        // Đếm số câu hỏi thực tế: Cấp 1 và Cấp 2 của mục 3.4 cùng dùng một bộ 75 câu.
+        const count = rawCount;
         const topic3PedagogyDesc = {
             '2.2': 'Cầu 10: tách số → về 10 → tính phần còn lại',
             '2.3': 'Đơn vị trước → nhớ/mượn 1 chục → chục sau'
@@ -2660,6 +2659,24 @@ function revealCarryConceptFeedback_(q) {
     });
 }
 
+function revealCarryPracticeAnswer_(q) {
+    // Chỉ 3.4 / Cấp 2: thay dấu ? bằng chữ số kết quả màu đỏ khi bé làm đúng.
+    if (String(q?.explore_type || '') !== 'vertical_carry_100' || !isCarryLearningPractice_()) return;
+    const meta = getCarryConceptMeta_(q);
+    if (!meta) return;
+    const digits = [
+        ['[data-carry-practice-answer-tens]', Math.floor(meta.answer / 10)],
+        ['[data-carry-practice-answer-ones]', meta.answer % 10]
+    ];
+    digits.forEach(([selector, digit]) => {
+        document.querySelectorAll(selector).forEach(el => {
+            el.textContent = String(digit);
+            el.classList.remove('text-slate-300');
+            el.classList.add('text-red-600');
+        });
+    });
+}
+
 function buildCarryLearningPresentation_(q) {
     if (!isCarryConceptQuestion_(q)) return null;
     const mode = String(pendingTopicQuiz?.carryLearningMode || '');
@@ -2690,7 +2707,8 @@ function buildCarryLearningPresentation_(q) {
                     <div></div><div class="text-xs md:text-sm text-pink-600 pb-1">CHỤC</div><div class="text-xs md:text-sm text-purple-600 pb-1">ĐƠN VỊ</div>
                     <div></div><div class="border border-pink-200 bg-pink-50 py-1.5 text-2xl md:text-3xl">${aT}</div><div class="border border-purple-200 bg-purple-50 py-1.5 text-2xl md:text-3xl">${aO}</div>
                     <div class="flex items-center justify-center text-2xl md:text-3xl text-pink-500">${symbol}</div><div class="border border-pink-200 bg-white py-1.5 text-2xl md:text-3xl">${bT}</div><div class="border border-purple-200 bg-white py-1.5 text-2xl md:text-3xl">${bO}</div>
-                    <div></div><div class="border-t-4 border-slate-700 bg-pink-50/50 py-1.5 text-2xl md:text-3xl text-slate-300">?</div><div class="border-t-4 border-slate-700 bg-purple-50/50 py-1.5 text-2xl md:text-3xl text-slate-300">?</div>
+                    <div class="math-carry-separator-line" aria-hidden="true"></div>
+                    <div></div><div data-carry-practice-answer-tens class="bg-pink-50/50 py-1.5 text-2xl md:text-3xl text-slate-300">?</div><div data-carry-practice-answer-ones class="bg-purple-50/50 py-1.5 text-2xl md:text-3xl text-slate-300">?</div>
                 </div>
             </div>`
         };
@@ -4224,10 +4242,8 @@ function handleOrderNumberPick_(value) {
         playAudio('correct');
         confetti({ particleCount: 45, spread: 65, origin: { y: 0.68 } });
         setTimeout(() => speakVietnamese('Giỏi lắm! Dãy số đã được sắp xếp chính xác.'), 120);
+        // Giữ nguyên dãy bé xếp đúng để bé xem lại; chỉ chuyển bằng nút điều hướng.
         updateQuizPalletUI();
-        setTimeout(() => {
-            if (userAnswers[currentQIndex] !== undefined) nextQuestion();
-        }, 1050);
     } else {
         starRedCount++;
         const redEl = document.getElementById('star-red-count');
@@ -4670,6 +4686,7 @@ function restoreQuestionState(q) {
         if (completedAnswer === q.answer) {
             revealOperationTermsFeedback_(q);
             revealCarryConceptFeedback_(q);
+            revealCarryPracticeAnswer_(q);
             revealTopic56Solution_(q);
             revealTopic811Solution_(q);
         }
@@ -4800,6 +4817,7 @@ function checkAnswer(selectedOpt) {
         const isMulDivVisual = q.explore_type === 'mul_div_table_visual';
         if (isOperationTerms) revealOperationTermsFeedback_(q);
         if (isCarryGuided) revealCarryConceptFeedback_(q);
+        revealCarryPracticeAnswer_(q);
         if (isNeighborBasic) revealNeighborRuleFeedback_(q);
         if (isMulDivVisual) revealMulDivFeedback_();
         if (isUnknownNumberQuestion_(q)) revealUnknownNumberFeedback_(q);
@@ -4810,15 +4828,7 @@ function checkAnswer(selectedOpt) {
         confetti({ particleCount: 30, spread: 55, origin: { y: 0.7 } });
         setTimeout(() => speakVietnamese(`${q.answer}`), 180);
 
-        // Các bài phản xạ ngắn và Cấp 2 tự thực hành có thể tự chuyển.
-        // Riêng tên thành phần và Cấp 1 có hướng dẫn phải giữ màn hình để bé đọc lại cách làm.
-        const currentTopicNum = Number(pendingTopicQuiz?.topicNum);
-        const shouldAutoAdvance = currentTopicNum >= 1 && currentTopicNum <= 4 && !isOperationTerms && !isCarryGuided && !isNeighborBasic && !isMulDivVisual;
-        if (shouldAutoAdvance) {
-            setTimeout(() => {
-                if (userAnswers[currentQIndex] !== undefined) nextQuestion();
-            }, 850);
-        }
+        // Không tự chuyển câu ở bất kỳ phần luyện tập nào: bé tự bấm "Câu tiếp theo".
     } else {
         if (!wrongAttemptsByQ[currentQIndex]) wrongAttemptsByQ[currentQIndex] = [];
         if (!wrongAttemptsByQ[currentQIndex].includes(selectedOpt)) {
