@@ -1289,8 +1289,8 @@ function resetStars() {
 }
 
 function clickProgressOrExam(type) {
-    if (type === 'progress') return ensurePremiumAccess('Bài tập', () => openRoadmap());
-    if (type === 'exam') return ensurePremiumAccess('Đấu trường đề thi', () => openExamHub());
+    if (type === 'progress') return openRoadmap();
+    if (type === 'exam') return openExamHub();
 }
 
 // ==========================================
@@ -6066,8 +6066,8 @@ function isBaiTapUnlockedToan2_(data, bai) {
 }
 
 function clickProgressOrExam(type) {
-    if (type === 'progress') return ensurePremiumAccess('Bài tập', () => openRoadmap(1));
-    if (type === 'exam') return ensurePremiumAccess('Đấu trường đề thi', () => openExamHub());
+    if (type === 'progress') return openRoadmap(1);
+    if (type === 'exam') return openExamHub();
 }
 
 async function openBaiHocHub(semesterNumber = 1) {
