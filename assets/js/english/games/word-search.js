@@ -198,9 +198,26 @@ function renderWordSearchUI(chosen) {
             </div>
             <p class="text-sm md:text-base font-bold text-gray-500 mb-1">Kéo qua các ô để nối thành 1 từ tiếng Anh nhé!</p>
             <p class="text-xs text-indigo-400 font-bold mb-2">💡 Từ giấu theo ${(WS_DIFFICULTIES[wsCurrentDifficulty] || {}).dirsLabel || 'ngang, dọc'}, có thể đọc xuôi hoặc ngược</p>
-            <div id="ws-grid" class="grid gap-1 mb-3" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: 400px; width: 100%; touch-action: none; user-select: none;"></div>
-            <div id="ws-wordlist" class="flex flex-wrap gap-2 justify-center mb-2"></div>
-            <p id="ws-status" class="text-sm font-bold text-pink-500 text-center min-h-[18px]"></p>
+            <!-- Word Search: match the Class 1 two-column layout without changing gameplay. -->
+            <style>
+                #ws-main-layout { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+                #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; display: flex; justify-content: center; }
+                #ws-main-layout #ws-wordlist { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; align-content: flex-start; gap: 8px; width: 100%; min-width: 0; }
+                #ws-wordlist > .ws-word-pill { display: inline-flex; flex: 0 0 auto; align-items: center; max-width: 100%; min-height: 36px; padding: 7px 12px; border-radius: 999px; line-height: 1.35; font-size: 15px; }
+                @media (min-width: 768px) {
+                    #ws-main-layout { display: grid !important; grid-template-columns: minmax(0, 400px) minmax(0, 200px); column-gap: 24px; align-items: start; justify-content: center; max-width: 100%; }
+                    #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; }
+                    #ws-main-layout #ws-wordlist { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: stretch !important; align-content: flex-start !important; justify-content: flex-start !important; gap: 8px !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; }
+                    #ws-wordlist > .ws-word-pill { display: flex !important; flex: 0 0 auto !important; width: 100% !important; height: auto !important; min-height: 38px; max-width: 100%; justify-content: flex-end !important; align-items: center !important; text-align: right !important; padding: 8px 12px; border-radius: 12px; overflow-wrap: anywhere; font-size: 17px; }
+                }
+            </style>
+            <div id="ws-main-layout" class="w-full max-w-[760px] mb-2">
+                <div class="ws-board-wrap">
+                    <div id="ws-grid" class="grid gap-1 mb-2 md:mb-0" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: 400px; width: 100%; touch-action: none; user-select: none;"></div>
+                </div>
+                <div id="ws-wordlist" class="mb-2 md:mb-0"></div>
+            </div>
+            <p id="ws-status" class="w-full max-w-[760px] text-sm font-bold text-pink-500 text-center min-h-[18px]"></p>
         </div>`;
 
     const gridEl = document.getElementById('ws-grid');
@@ -216,7 +233,7 @@ function renderWordSearchUI(chosen) {
 
     const wordlistEl = document.getElementById('ws-wordlist');
     wordlistEl.innerHTML = chosen.map(item => `
-        <span id="ws-pill-${item.w}" class="text-sm md:text-base font-bold px-3 py-1 rounded-full bg-white border-2 border-pink-200 text-gray-600 transition-all duration-300">${escapeHtml(item.vi)}</span>
+        <span id="ws-pill-${item.w}" class="ws-word-pill text-sm md:text-base font-bold bg-white border-2 border-pink-200 text-gray-600 transition-all duration-300">${escapeHtml(item.vi)}</span>
     `).join('');
 
     wsBindEvents(gridEl);
