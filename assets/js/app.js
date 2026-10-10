@@ -20,6 +20,19 @@
   } = CLASS2_DATA;
 
 
+  // AI Lab là module giá trị gia tăng dùng chung, đặt ngay bên phải Tools.
+  const AI_LAB_HOME_TAB = Object.freeze({ id: "aiLab", icon: "🤖", label: "AI Lab", tone: "blue", badge: "AI" });
+  const HOME_TABS_WITH_AI = Object.freeze((() => {
+    if (HOME_TABS.some((tab) => tab.id === AI_LAB_HOME_TAB.id)) return [...HOME_TABS];
+    const tabs = [...HOME_TABS];
+    const toolsIndex = tabs.findIndex((tab) => tab.id === "tools");
+    const contactIndex = tabs.findIndex((tab) => tab.id === "contact");
+    const insertAt = toolsIndex >= 0 ? toolsIndex + 1 : (contactIndex >= 0 ? contactIndex : tabs.length);
+    tabs.splice(insertAt, 0, AI_LAB_HOME_TAB);
+    return tabs;
+  })());
+
+
   // Bộ khung Lớp 2: chưa nạp engine môn học cũ; chờ tích hợp đúng source Lớp 2.
   // Toán 2 / Tiếng Việt 2 / Tiếng Anh 2 sẽ được nối lần lượt ở giai đoạn tích hợp module.
   const SUBJECT_MODULE_SCRIPTS = Object.freeze({
@@ -32,8 +45,248 @@
     Object.freeze({ id: "calculator", icon: "🧮", title: "Calculator", description: "Máy tính khoa học Epsilon Edu.", badge: "Công cụ", tone: "purple" }),
     Object.freeze({ id: "converter", icon: "📐", title: "Đổi đơn vị đo", description: "Đổi nhanh các đơn vị đo thông dụng.", badge: "Công cụ", tone: "teal" }),
     Object.freeze({ id: "geometryArea", icon: "📏", title: "Tính diện tích", description: "Tính diện tích các hình học cơ bản.", badge: "Công cụ", tone: "pink" }),
-    Object.freeze({ id: "colorMixer", icon: "🎨", title: "Phối màu", description: "Phối màu theo hệ RGB và CMYK.", badge: "Công cụ", tone: "amber" })
+    Object.freeze({ id: "colorMixer", icon: "🎨", title: "Phối màu", description: "Phối màu theo hệ RGB và CMYK.", badge: "Công cụ", tone: "amber" }),
+    Object.freeze({ id: "calendarRoman", icon: "📅", title: "Lịch, khoảng ngày và số La Mã", description: "Xem lịch, tính khoảng ngày và đổi số La Mã.", badge: "Công cụ", tone: "blue" }),
+    Object.freeze({ id: "mathTables", icon: "🔢", title: "Bảng cộng trừ nhân chia", description: "Xem bảng tính và luyện tập phép tính.", badge: "Công cụ", tone: "teal" }),
+    Object.freeze({ id: "learningClock", icon: "🕐", title: "Đồng hồ học xem giờ", description: "Học đọc giờ, quay kim và luyện tập.", badge: "Công cụ", tone: "purple" }),
+    Object.freeze({ id: "solarSystem", icon: "🪐", title: "Hệ Mặt Trời", description: "Khám phá Hệ Mặt Trời, ngày - đêm và các mùa bằng mô phỏng tương tác.", badge: "Khoa học", tone: "blue" }),
+    Object.freeze({ id: "moon", icon: "🌙", title: "Mặt Trăng", description: "Khám phá các pha Mặt Trăng, nhật thực, nguyệt thực và thủy triều bằng mô phỏng tương tác.", badge: "Khoa học", tone: "blue" }),
+    Object.freeze({ id: "starrySky", icon: "🌌", title: "Bầu trời sao", description: "Quan sát chòm sao, nối sao và tìm Sao Bắc Cực.", badge: "Thiên văn", tone: "indigo" }),
+    Object.freeze({ id: "virtualTelescope", icon: "🔭", title: "Kính thiên văn", description: "Điều khiển kính, thay đổi độ phóng đại và ngắm thiên thể.", badge: "Thiên văn", tone: "purple" }),
+    Object.freeze({ id: "waterCycle", icon: "💧", title: "Vòng tuần hoàn của nước", description: "Khám phá vòng tuần hoàn, ba thể của nước và cách làm sạch nước bằng mô phỏng tương tác.", badge: "Khoa học", tone: "teal" }),
+    Object.freeze({ id: "lifeCycle", icon: "🦋", title: "Vòng đời sinh vật", description: "Khám phá vòng đời bướm, ếch và quá trình cây đậu lớn lên bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
+    Object.freeze({ id: "humanBody", icon: "🫀", title: "Cơ thể em", description: "Khám phá hệ tiêu hóa, hô hấp, tim và mạch máu bằng mô phỏng tương tác.", badge: "Khoa học", tone: "pink" }),
+    Object.freeze({ id: "nutrition", icon: "🥗", title: "Ăn uống lành mạnh", description: "Bày đĩa ăn cân bằng, tìm hiểu tháp dinh dưỡng và lượng đường trong đồ uống.", badge: "Dinh dưỡng", tone: "green" }),
+    Object.freeze({ id: "fiveSenses", icon: "👀", title: "5 giác quan", description: "Khám phá mắt, tai, mũi, lưỡi và da qua các hoạt động quan sát, nghe, ngửi, nếm và chạm.", badge: "Cơ thể", tone: "indigo" }),
+    Object.freeze({ id: "natureAround", icon: "🌿", title: "Thiên nhiên quanh em", description: "Khám phá chuỗi thức ăn, bóng nắng trong ngày và cách cầu vồng hình thành bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
+    Object.freeze({ id: "earthMotion", icon: "🌍", title: "Trái Đất chuyển động", description: "Khám phá múi giờ, Trái Đất quay và gió mùa Việt Nam bằng mô phỏng tương tác.", badge: "Thiên văn", tone: "blue" }),
+    Object.freeze({ id: "earthChanges", icon: "🌋", title: "Trái Đất biến đổi", description: "Khám phá núi lửa, động đất, các mảng kiến tạo và sự bồi tụ đồng bằng bằng mô phỏng tương tác.", badge: "Thiên nhiên", tone: "coral" }),
+    Object.freeze({ id: "vnHistory", icon: "📜", title: "Lịch sử Việt Nam", description: "Dòng thời gian, trận Bạch Đằng và trống đồng.", badge: "Lịch sử", tone: "amber" }),
+    Object.freeze({ id: "vietnamMap", icon: "🗺️", title: "Bản đồ Việt Nam", description: "Khám phá tỉnh thành, vùng miền và luyện tập trực tiếp trên bản đồ Việt Nam.", badge: "Địa lý", tone: "green" }),
+    Object.freeze({ id: "inventions", icon: "💡", title: "Những phát minh", description: "Thử bánh xe, giấy, la bàn, bóng đèn và điện thoại.", badge: "Công nghệ", tone: "indigo" }),
+    Object.freeze({ id: "bunnyCoding", icon: "🐰", title: "Lập trình cùng Thỏ Ngọc", description: "Xếp khối lệnh đưa Thỏ Ngọc tới cà rốt và làm quen tư duy lập trình.", badge: "Lập trình", tone: "purple" }),
+    Object.freeze({ id: "circuitLab", icon: "💡", title: "Mạch điện vui", description: "Lắp mạch điện, bật sáng bóng đèn và khám phá vật dẫn điện - cách điện.", badge: "Khoa học", tone: "amber" }),
+    Object.freeze({ id: "homeSafety", icon: "🏠", title: "An toàn ở nhà", description: "Tìm mối nguy trong nhà, học sơ cứu và cách thoát hiểm khi có cháy.", badge: "Kỹ năng", tone: "rose" }),
+    Object.freeze({ id: "trafficSafety", icon: "🚦", title: "An toàn giao thông", description: "Khám phá biển báo, đèn tín hiệu và luyện cách tham gia giao thông an toàn.", badge: "Kỹ năng", tone: "green" }),
+    Object.freeze({ id: "emotions", icon: "💖", title: "Hiểu cảm xúc", description: "Nhận biết cảm xúc, tập bình tĩnh và ứng xử qua trò chơi tương tác.", badge: "Kỹ năng", tone: "rose" }),
+    Object.freeze({ id: "waterSafety", icon: "🛟", title: "An toàn dưới nước", description: "Nhận biết nguy hiểm, mặc áo phao và học cách giúp bạn an toàn.", badge: "Kỹ năng", tone: "blue" }),
+    Object.freeze({ id: "lostAndStrangers", icon: "🧭", title: "Khi bị lạc", description: "Tìm nơi an toàn, nhớ số người thân và xử lý khi gặp người lạ.", badge: "Kỹ năng", tone: "purple" }),
+    Object.freeze({ id: "smartMoney", icon: "💰", title: "Tiêu tiền thông minh", description: "Phân biệt cần - muốn, tập tiết kiệm và mua sắm có kế hoạch.", badge: "Kỹ năng", tone: "green" }),
+    Object.freeze({ id: "virtualPiano", icon: "🎹", title: "Đàn ảo - Bé học nốt nhạc", description: "Chơi đàn, học nốt nhạc, luyện nghe và gõ nhịp bằng tương tác trực tiếp.", badge: "Âm nhạc", tone: "pink" }),
+    Object.freeze({ id: "vnInstruments", icon: "🎶", title: "Nhạc cụ dân tộc", description: "Chơi thử đàn bầu, đàn tranh, sáo trúc, đàn t’rưng và trống.", badge: "Âm nhạc", tone: "pink" }),
+    Object.freeze({ id: "typingTenFingers", icon: "⌨️", title: "Luyện gõ 10 ngón", description: "Luyện đặt đúng ngón tay, tăng độ chính xác và tốc độ gõ bàn phím.", badge: "Tin học", tone: "blue" }),
+    Object.freeze({ id: "lineDiagram", icon: "📏", title: "Sơ đồ đoạn thẳng", description: "Vẽ sơ đồ và giải từng bước các dạng toán có lời văn.", badge: "Toán học", tone: "teal" })
   ]);
+  // Các thư mục chỉ phục vụ điều hướng Tools, không thay đổi vị trí file JS.
+  // Mỗi công cụ thuộc đúng một nhóm; có thể bổ sung tới tối đa 12 nhóm khi cần.
+  const TOOL_GROUPS = Object.freeze([
+    Object.freeze({ id: "math", icon: "🧮", title: "Toán", tone: "purple", ids: Object.freeze(["calculator", "converter", "geometryArea", "mathTables", "learningClock", "calendarRoman", "lineDiagram"]) }),
+    Object.freeze({ id: "earthSpace", icon: "🌍", title: "Trái Đất và thiên văn", tone: "blue", ids: Object.freeze(["solarSystem", "moon", "starrySky", "virtualTelescope", "earthMotion", "earthChanges"]) }),
+    Object.freeze({ id: "naturalScience", icon: "🔬", title: "Khoa học tự nhiên", tone: "teal", ids: Object.freeze(["waterCycle", "lifeCycle", "natureAround", "circuitLab"]) }),
+    Object.freeze({ id: "socialScience", icon: "🏛️", title: "Khoa học xã hội", tone: "green", ids: Object.freeze(["vietnamMap", "vnHistory"]) }),
+    Object.freeze({ id: "technology", icon: "💻", title: "Tin học và công nghệ", tone: "blue", ids: Object.freeze(["bunnyCoding", "typingTenFingers", "inventions"]) }),
+    Object.freeze({ id: "arts", icon: "🎨", title: "Nghệ thuật", tone: "pink", ids: Object.freeze(["colorMixer", "virtualPiano", "vnInstruments"]) }),
+    Object.freeze({ id: "lifeSkills", icon: "🤝", title: "Kỹ năng sống", tone: "amber", ids: Object.freeze(["trafficSafety", "homeSafety", "emotions", "waterSafety", "lostAndStrangers", "smartMoney"]) }),
+    Object.freeze({ id: "bodyNutrition", icon: "🫀", title: "Cơ thể và dinh dưỡng", tone: "pink", ids: Object.freeze(["humanBody", "fiveSenses", "nutrition"]) })
+  ]);
+
+  // 10 tông pastel cố định cho Tools: không trùng màu các card sát nhau.
+  // Palette áp dụng trên giao diện, không thay dữ liệu và JS từng công cụ.
+  const TOOL_CARD_TONES = Object.freeze(["purple", "teal", "coral", "green", "amber", "blue", "rose", "indigo", "lime", "pink"]);
+
+  function toolCardTone(index, offset = 0) {
+    return TOOL_CARD_TONES[(index + offset) % TOOL_CARD_TONES.length];
+  }
+
+
+  // Giu nguyen typography va bo cuc hien tai cua Tools / AI Lab.
+  function ensureClass2FeatureCardTypography_() {
+    if (document.getElementById("class2-feature-card-typography")) return;
+    const style = document.createElement("style");
+    style.id = "class2-feature-card-typography";
+    style.textContent = `
+      #content-stage .class2-rich-feature .home-feature-card{
+        min-height:108px!important;padding:9px 12px!important;
+      }
+      #content-stage .class2-rich-feature .home-feature-card .card-top{display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important}
+      #content-stage .class2-rich-feature .home-feature-card .card-copy{flex:1 1 auto!important;min-width:0!important}
+      #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:19.5px!important;line-height:1.23!important;font-weight:900!important;overflow-wrap:break-word}
+      #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:15.5px!important;line-height:1.32!important;font-weight:750!important;margin-top:3px!important}
+      @media(max-width:767px){
+        #content-stage .class2-rich-feature .home-feature-card{min-height:96px!important;padding:9px 10px!important}
+        #content-stage .class2-rich-feature .home-feature-card .card-top{gap:10px!important}
+        #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:18px!important}
+        #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:14px!important}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // UI TA2: dong bo icon thang, kich thuoc va do sang hover cho L2 / Games / Tools / AI Lab.
+  // Chi CSS tren cac card cua shell; khong thay doi dong chay module hay quyen hoc.
+  function ensureClass2HomeFolderHoverStyles_() {
+    if (document.getElementById("class2-home-folder-hover")) return;
+    const style = document.createElement("style");
+    style.id = "class2-home-folder-hover";
+    style.textContent = `
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card){
+        --c2-card-bg:#fff2f8;--c2-hover-bg:#ffe6f1;
+        --c2-border:#f9a8d4;--c2-hover-border:#ec4899;
+        --c2-icon-bg:#ffd9eb;--c2-icon-border:#f89bc8;
+        background:var(--c2-card-bg)!important;
+        border:1.5px solid var(--c2-border)!important;
+        box-shadow:0 3px 9px rgba(76,29,149,.06)!important;
+        transform:none!important;translate:none!important;scale:1!important;
+        transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,filter .18s ease!important;
+      }
+      /* Cac mau duoc lay theo bo mau the TA2; giu mau rieng cua tung danh muc. */
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="purple"],
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="indigo"]{
+        --c2-card-bg:#f6f1ff;--c2-hover-bg:#eee3ff;--c2-border:#d8b4fe;--c2-hover-border:#a855f7;--c2-icon-bg:#e8d9ff;--c2-icon-border:#bda3f7;
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="pink"],
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="rose"]{
+        --c2-card-bg:#fff1f7;--c2-hover-bg:#ffe4f1;--c2-border:#f9a8d4;--c2-hover-border:#ec4899;--c2-icon-bg:#ffd9eb;--c2-icon-border:#f89bc8;
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="blue"]{
+        --c2-card-bg:#eff8ff;--c2-hover-bg:#ddf0ff;--c2-border:#93c5fd;--c2-hover-border:#3b82f6;--c2-icon-bg:#d7ebff;--c2-icon-border:#93c5fd;
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="green"],
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="lime"]{
+        --c2-card-bg:#edfff3;--c2-hover-bg:#d7f9e4;--c2-border:#86efac;--c2-hover-border:#10b981;--c2-icon-bg:#d4fce3;--c2-icon-border:#86efac;
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="teal"]{
+        --c2-card-bg:#ebfffa;--c2-hover-bg:#d5fbf0;--c2-border:#5eead4;--c2-hover-border:#14b8a6;--c2-icon-bg:#c9f6eb;--c2-icon-border:#5eead4;
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="amber"],
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card)[data-tone="coral"]{
+        --c2-card-bg:#fff9e9;--c2-hover-bg:#ffefd0;--c2-border:#fcd34d;--c2-hover-border:#f59e0b;--c2-icon-bg:#ffedbc;--c2-icon-border:#fbbf24;
+      }
+      /* Toan 2 da co tong tim rieng tren Trang chu - khong doi ve mau blue cua data. */
+      #content-stage .subject-card[data-subject="math"][data-tone],
+      #content-stage .subject-profile-card[data-profile-subject="math"][data-tone]{
+        --c2-card-bg:#f6f1ff;--c2-hover-bg:#eee3ff;--c2-border:#d8b4fe;--c2-hover-border:#a855f7;--c2-icon-bg:#e8d9ff;--c2-icon-border:#bda3f7;
+      }
+      /* TA2 60x60 / 36px, khong nghieng. */
+      #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card) .card-icon{
+        display:inline-flex!important;align-items:center!important;justify-content:center!important;
+        width:60px!important;height:60px!important;min-width:60px!important;min-height:60px!important;flex:0 0 60px!important;
+        border:2px solid var(--c2-icon-border)!important;border-radius:17px!important;
+        background:var(--c2-icon-bg)!important;
+        font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif!important;
+        font-size:36px!important;line-height:1!important;font-weight:400!important;
+        transform:none!important;transform-origin:center center!important;
+        filter:saturate(1.25) contrast(1.07)!important;
+        text-shadow:0 1px 0 rgba(255,255,255,.8);
+        box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
+        transition:transform .18s ease,box-shadow .18s ease!important;
+      }
+      /* Ho so hoc tap la the nho, giu kich thuoc icon compact nhung cung hieu ung TA2. */
+      #content-stage .subject-profile-card .subject-profile-icon{
+        border:2px solid var(--c2-icon-border)!important;border-radius:13px!important;
+        background:var(--c2-icon-bg)!important;
+        transform:none!important;transform-origin:center center!important;
+        filter:saturate(1.25) contrast(1.07)!important;
+        box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
+        transition:transform .18s ease,box-shadow .18s ease!important;
+      }
+      @media(hover:hover) and (pointer:fine){
+        #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card):hover{
+          background:var(--c2-hover-bg)!important;
+          border-color:var(--c2-hover-border)!important;
+          box-shadow:0 8px 20px rgba(76,29,149,.16)!important;
+          transform:none!important;translate:none!important;scale:1!important;
+          filter:brightness(1.02) saturate(1.09)!important;
+        }
+        #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card):hover .card-icon,
+        #content-stage .subject-profile-card:hover .subject-profile-icon{
+          transform:scale(1.05)!important;
+          box-shadow:0 5px 12px rgba(109,40,217,.20),inset 0 1px 2px rgba(255,255,255,.9)!important;
+        }
+      }
+      #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card):focus-visible{
+        background:var(--c2-hover-bg)!important;
+        border-color:var(--c2-hover-border)!important;
+        outline:2px solid var(--c2-hover-border)!important;outline-offset:2px;
+        box-shadow:0 8px 20px rgba(76,29,149,.16)!important;
+        transform:none!important;
+      }
+      #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card):focus-visible .card-icon,
+      #content-stage .subject-profile-card:focus-visible .subject-profile-icon{
+        transform:scale(1.05)!important;
+      }
+      /* TA2 tren dien thoai: 52x52 / 31px. */
+      @media(max-width:520px){
+        #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card) .card-icon{
+          width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;flex-basis:52px!important;
+          font-size:31px!important;border-radius:15px!important;
+        }
+      }
+      @media(prefers-reduced-motion:reduce){
+        #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card),
+        #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card) .card-icon,
+        #content-stage .subject-profile-card .subject-profile-icon{transition:none!important;}
+        #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card):hover,
+        #content-stage :is(.subject-card,.subject-profile-card,.games-hover-card,.class2-rich-feature .home-feature-card):focus-visible{transform:none!important;}
+        #content-stage :is(.subject-card,.games-hover-card,.class2-rich-feature .home-feature-card):hover .card-icon,
+        #content-stage .subject-profile-card:hover .subject-profile-icon{transform:none!important;}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function ensureToolsCardPaletteStyles() {
+    if (document.getElementById("class2-tools-card-palette")) return;
+    const style = document.createElement("style");
+    style.id = "class2-tools-card-palette";
+    // Bốn tông mới bổ sung vào sáu tông có sẵn của chương trình.
+    style.textContent = `
+      .class2-rich-feature .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="coral"]{
+        background:linear-gradient(145deg,#fffcf9,#fff1e9);border-color:#fdba98;color:#9a3412;
+      }
+      .class2-rich-feature .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="rose"]{
+        background:linear-gradient(145deg,#fffafc,#ffe9ef);border-color:#fda4af;color:#9f1239;
+      }
+      .class2-rich-feature .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="indigo"]{
+        background:linear-gradient(145deg,#fdfdff,#eef2ff);border-color:#c7d2fe;color:#3730a3;
+      }
+      .class2-rich-feature .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="lime"]{
+        background:linear-gradient(145deg,#fdfff9,#f1f9db);border-color:#bef264;color:#3f6212;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  const AI_LAB_CATALOG = Object.freeze([
+    Object.freeze({ id: "aiSafety", icon: "🛡️", title: "AI là gì? Dùng AI an toàn", description: "Tìm hiểu AI ở quanh ta và luyện các nguyên tắc sử dụng AI an toàn, có trách nhiệm.", tone: "blue" }),
+    Object.freeze({ id: "teachAI", icon: "🤖", title: "Bé dạy AI nhận hình", description: "Tự tạo dữ liệu mẫu, huấn luyện và thử xem AI nhận ra hình mới như thế nào.", badge: "AI", tone: "blue" }),
+    Object.freeze({ id: "aiBias", icon: "⚖️", title: "AI có thiên vị không?", description: "Thay đổi dữ liệu huấn luyện và quan sát cách dữ liệu lệch có thể làm mô hình đưa ra kết quả lệch.", badge: "AI", tone: "pink" }),
+    Object.freeze({ id: "aiClustering", icon: "🍬", title: "Máy tự chia nhóm", description: "Rắc kẹo lên bàn và quan sát máy tự gom những viên giống nhau thành nhóm mà không cần ai dạy trước.", badge: "AI", tone: "purple" }),
+    Object.freeze({ id: "aiPrediction", icon: "🔮", title: "Máy dự đoán", description: "Cho máy xem dữ liệu, tìm quy luật và thử dự đoán điều chưa xảy ra từ những gì đã quan sát.", badge: "AI", tone: "blue" }),
+    Object.freeze({ id: "aiBunnyLearns", icon: "🐰", title: "Thỏ Ngọc tự học tìm đường", description: "Quan sát Thỏ Ngọc học bằng thử và sai, ghi nhớ phần thưởng và tự tìm đường tốt hơn.", badge: "AI", tone: "purple" }),
+    Object.freeze({ id: "aiNeuralMini", icon: "🧠", title: "Mạng nơ-ron mini", description: "Quan sát tín hiệu đi qua mạng nhỏ, thay đổi đầu vào và dạy mạng bằng từng ví dụ tương tác.", badge: "AI", tone: "amber" }),
+    Object.freeze({ id: "aiPixelVision", icon: "👁️", title: "AI nhìn bằng pixel", description: "Vẽ trên lưới pixel, thêm nhiễu và xem mô hình nhận dạng mẫu từ dữ liệu hình ảnh đơn giản.", badge: "AI", tone: "teal" }),
+    Object.freeze({ id: "aiSound", icon: "🎧", title: "AI nghe âm thanh", description: "Nghe âm tổng hợp, xem dạng sóng và khám phá cách đặc trưng âm thanh giúp máy phân loại tín hiệu.", badge: "AI", tone: "green" }),
+    Object.freeze({ id: "aiKindWords", icon: "💬", title: "Dạy AI hiểu lời nói tử tế", description: "Dạy máy phân biệt lời nói tử tế và lời nói làm bạn buồn từ các ví dụ.", badge: "AI", tone: "green" }),
+    Object.freeze({ id: "aiRecommender", icon: "🎯", title: "AI gợi ý cho bạn", description: "Chấm điểm sở thích rồi xem hệ gợi ý tìm nội dung phù hợp từ các tín hiệu bạn cung cấp.", badge: "AI", tone: "purple" }),
+    Object.freeze({ id: "aiPathfinding", icon: "🗺️", title: "AI chỉ đường", description: "Vẽ khu phố rồi so sánh cách máy tìm mò và tìm thông minh để chọn đường đi ngắn nhất.", badge: "AI", tone: "green" }),
+    Object.freeze({ id: "aiTicTacToe", icon: "⭕", title: "Cờ caro với AI", description: "Đấu cờ caro 3×3 và quan sát cách AI tính trước các nước đi để ra quyết định.", badge: "AI", tone: "teal" }),
+    Object.freeze({ id: "aiAnimalGuess", icon: "🐾", title: "Máy đoán con vật", description: "Nghĩ về một con vật, trả lời câu hỏi và dạy máy thêm kiến thức khi máy đoán sai.", badge: "AI", tone: "amber" }),
+    Object.freeze({ id: "aiMusicComposer", icon: "🎵", title: "AI sáng tác nhạc", description: "Cho máy học các giai điệu rồi quan sát cách AI tự tạo một bản nhạc mới.", badge: "AI", tone: "pink" }),
+    Object.freeze({ id: "aiAnomaly", icon: "🔍", title: "AI tìm điều bất thường", description: "Quan sát dữ liệu cảm biến và thử cách mô hình khoanh vùng những điểm khác xa phần lớn dữ liệu.", badge: "AI", tone: "blue" }),
+    Object.freeze({ id: "aiRealOrMachine", icon: "🕵️", title: "Thật hay do máy tạo?", description: "Làm thám tử phân biệt nội dung do người viết và do máy tạo, rồi học cách kiểm tra thông tin.", badge: "AI", tone: "amber" }),
+    // Giấy chứng nhận AI luôn là mục cuối. Khi thêm lab mới, đặt trước mục này.
+    Object.freeze({ id: "aiCertificate", icon: "🏅", title: "Giấy chứng nhận AI", description: "Hoàn thành hoạt động, vượt thử thách và tạo giấy chứng nhận Nhà khoa học AI nhí.", tone: "purple" })
+  ]);
+
+  const AI_LAB_GROUPS = Object.freeze([
+    Object.freeze({ id: "intro", icon: "🚪", title: "Nhập môn", tone: "blue", ids: Object.freeze(["aiSafety", "teachAI"]) }),
+    Object.freeze({ id: "learning", icon: "🧠", title: "Máy học thế nào", tone: "purple", ids: Object.freeze(["aiBias", "aiClustering", "aiPrediction", "aiBunnyLearns", "aiNeuralMini"]) }),
+    Object.freeze({ id: "perception", icon: "👁️", title: "Máy nhìn, nghe, hiểu", tone: "teal", ids: Object.freeze(["aiPixelVision", "aiSound", "aiKindWords"]) }),
+    Object.freeze({ id: "aroundUs", icon: "🎮", title: "AI quanh ta", tone: "green", ids: Object.freeze(["aiRecommender", "aiPathfinding", "aiTicTacToe", "aiAnimalGuess", "aiMusicComposer", "aiAnomaly"]) }),
+    Object.freeze({ id: "responsibility", icon: "🛡️", title: "AI và trách nhiệm", tone: "amber", ids: Object.freeze(["aiRealOrMachine", "aiCertificate"]) })
+  ]);
+
   const WORLD_EXPLORER_GROUP_ID = "worldExplorer";
   const WORLD_EXPLORER_ITEMS = Object.freeze([
     Object.freeze({ id: "spaceExplorer", icon: "🪐", title: "Khám phá vũ trụ", description: "Khám phá Hệ Mặt Trời, các hành tinh, vệ tinh và những điều kỳ thú ngoài không gian.", tone: "purple" }),
@@ -48,9 +301,9 @@
   ]);
 
   const GAME_CATALOG = Object.freeze([
-    Object.freeze({ id: "worldExplorer", icon: "🧭", title: "Khám phá thế giới xung quanh bé", description: "", badge: "Khám phá", tone: "teal" }),
     Object.freeze({ id: "paperFolding", icon: "🛩️", title: "Xưởng Gấp Giấy", description: "Gấp từng bước cùng Cô Thỏ Ngọc.", badge: "Thủ công", tone: "pink" }),
     Object.freeze({ id: "jigsawPuzzle", icon: "🧩", title: "Xưởng Xếp Hình", description: "Ghép tranh qua nhiều cấp độ.", badge: "Quan sát", tone: "purple" }),
+    Object.freeze({ id: "worldExplorer", icon: "🧭", title: "Bé khám phá", description: "", badge: "Khám phá", tone: "teal" }),
     Object.freeze({ id: "rabbitDrawing", icon: "🖍️", title: "Cô Thỏ Ngọc dạy vẽ", description: "Vẽ tranh đơn giản theo từng bước.", badge: "Mỹ thuật", tone: "teal" }),
     Object.freeze({ id: "animalWorld", icon: "🐾", title: "Thế giới động vật", description: "Khám phá thế giới động vật cùng Cô Thỏ Ngọc.", badge: "Khám phá", tone: "amber" }),
     Object.freeze({ id: "mcHost", icon: "🎤", title: "Tập làm MC", description: "Tập dẫn chương trình cùng Cô Thỏ Ngọc.", badge: "Kỹ năng", tone: "pink" }),
@@ -58,12 +311,68 @@
     Object.freeze({ id: "lifeCycle", icon: "🌱", title: "Vòng đời kỳ diệu", description: "Sắp xếp các giai đoạn vòng đời của sinh vật và thiên nhiên.", badge: "Khám phá", tone: "green" }),
     Object.freeze({ id: "spotDifference", icon: "🔍", title: "Tìm điểm khác nhau", description: "Quan sát hai bức tranh và tìm những điểm khác biệt qua nhiều màn.", badge: "Quan sát", tone: "amber" })
   ]);
+  // Thứ tự quyền Free của Games theo source trước khi đổi vị trí hiển thị.
+  // Giữ nguyên quyền của từng game khi sắp xếp lại thẻ trên màn hình.
+  const GAME_ACCESS_ORDER = Object.freeze([
+    "worldExplorer",
+    ...GAME_CATALOG.filter((item) => item.id !== "worldExplorer").map((item) => item.id)
+  ]);
   const HOME_FEATURE_SCRIPTS = Object.freeze({
+    aiLab: Object.freeze({
+      teachAI: "assets/js/ai-lab/be-day-ai.js?v=class2-mascot-20261010",
+      aiKindWords: "assets/js/ai-lab/ai-loi-noi-tu-te.js?v=class2-mascot-20261010",
+      aiMusicComposer: "assets/js/ai-lab/ai-sang-tac-nhac.js?v=class2-mascot-20261010",
+      aiBunnyLearns: "assets/js/ai-lab/tho-hong-tu-hoc.js?v=class2-mascot-20261010",
+      aiAnimalGuess: "assets/js/ai-lab/may-doan-con-vat.js?v=class2-mascot-20261010",
+      aiTicTacToe: "assets/js/ai-lab/co-caro-ai.js?v=class2-mascot-20261010",
+      aiClustering: "assets/js/ai-lab/may-tu-chia-nhom.js?v=class2-mascot-20261010",
+      aiPrediction: "assets/js/ai-lab/may-du-doan.js?v=class2-mascot-20261010",
+      aiPathfinding: "assets/js/ai-lab/ai-chi-duong.js?v=class2-mascot-20261010",
+      aiRealOrMachine: "assets/js/ai-lab/that-hay-may-tao.js?v=class2-mascot-20261010",
+      aiBias: "assets/js/ai-lab/ai-thien-vi.js?v=class2-mascot-20261010",
+      aiRecommender: "assets/js/ai-lab/ai-goi-y.js?v=class2-mascot-20261010",
+      aiAnomaly: "assets/js/ai-lab/ai-tim-bat-thuong.js?v=class2-mascot-20261010",
+      aiPixelVision: "assets/js/ai-lab/ai-nhin-pixel.js?v=class2-mascot-20261010",
+      aiSound: "assets/js/ai-lab/ai-nghe-am-thanh.js?v=class2-mascot-20261010",
+      aiNeuralMini: "assets/js/ai-lab/mang-no-ron-mini.js?v=class2-mascot-20261010",
+      aiSafety: "assets/js/ai-lab/ai-an-toan.js?v=class2-mascot-20261010",
+      aiCertificate: "assets/js/ai-lab/giay-chung-nhan-ai.js?v=class2-mascot-20261010"
+    }),
     tools: Object.freeze({
       calculator: "assets/js/tools/calculator.js?v=class2-calculator-2",
       converter: "assets/js/tools/converter.js?v=class2-converter-1",
       geometryArea: "assets/js/tools/geometry_area.js?v=class2-geometry-area-1",
-      colorMixer: "assets/js/tools/color_mixer.js?v=class2-color-mixer-1"
+      colorMixer: "assets/js/tools/color_mixer.js?v=class2-color-mixer-1",
+      calendarRoman: "assets/js/tools/lich-la-ma.js?v=class2-mascot-20261010",
+      mathTables: "assets/js/tools/bang-tinh.js?v=class2-mascot-20261010",
+      learningClock: "assets/js/tools/dong-ho.js?v=class2-mascot-20261010",
+      solarSystem: "assets/js/tools/he-mat-troi.js?v=class2-mascot-20261010",
+      moon: "assets/js/tools/mat-trang.js?v=class2-mascot-20261010",
+      starrySky: "assets/js/tools/bau-troi-sao.js?v=class2-mascot-20261010",
+      virtualTelescope: "assets/js/tools/kinh-thien-van.js?v=class2-mascot-20261010",
+      waterCycle: "assets/js/tools/vong-tuan-hoan-nuoc.js?v=class2-mascot-20261010",
+      lifeCycle: "assets/js/tools/vong-doi-sinh-vat.js?v=class2-mascot-20261010",
+      humanBody: "assets/js/tools/co-the-em.js?v=class2-mascot-20261010",
+      nutrition: "assets/js/tools/an-uong-lanh-manh.js?v=class2-mascot-20261010",
+      fiveSenses: "assets/js/tools/nam-giac-quan.js?v=class2-mascot-20261010",
+      natureAround: "assets/js/tools/thien-nhien-quanh-em.js?v=class2-mascot-20261010",
+      earthMotion: "assets/js/tools/trai-dat-chuyen-dong.js?v=class2-mascot-20261010",
+      earthChanges: "assets/js/tools/trai-dat-bien-doi.js?v=class2-mascot-20261010",
+      vnHistory: "assets/js/tools/lich-su-viet-nam.js?v=class2-mascot-20261010",
+      vietnamMap: "assets/js/tools/ban-do-viet-nam.js?v=class2-mascot-20261010",
+      inventions: "assets/js/tools/phat-minh.js?v=class2-mascot-20261010",
+      bunnyCoding: "assets/js/tools/lap-trinh-tho-hong.js?v=class2-mascot-20261010",
+      circuitLab: "assets/js/tools/mach-dien.js?v=class2-mascot-20261010",
+      homeSafety: "assets/js/tools/an-toan-o-nha.js?v=class2-mascot-20261010",
+      trafficSafety: "assets/js/tools/an-toan-giao-thong.js?v=class2-mascot-20261010",
+      emotions: "assets/js/tools/hieu-cam-xuc.js?v=class2-mascot-20261010",
+      waterSafety: "assets/js/tools/an-toan-duoi-nuoc.js?v=class2-mascot-20261010",
+      lostAndStrangers: "assets/js/tools/khi-bi-lac.js?v=class2-mascot-20261010",
+      smartMoney: "assets/js/tools/tieu-tien-thong-minh.js?v=class2-mascot-20261010",
+      virtualPiano: "assets/js/tools/dan-ao.js?v=class2-mascot-20261010",
+      vnInstruments: "assets/js/tools/nhac-cu-dan-toc.js?v=class2-mascot-20261010",
+      typingTenFingers: "assets/js/tools/luyen-go-10-ngon.js?v=class2-mascot-20261010",
+      lineDiagram: "assets/js/tools/so-do-doan-thang.js?v=class2-mascot-20261010"
     }),
     games: Object.freeze({
       paperFolding: "assets/js/games/paper_folding.js?v=class2-paper-folding-6",
@@ -103,6 +412,7 @@
     contactTab: "intro",
     homeFeatureId: null,
     homeFeatureGroupId: null,
+    aiLabGroupFilter: "all",
     homeFeatureBanner: null,
     subjectId: null,
     subjectTab: "discover",
@@ -277,14 +587,18 @@
 
   // Tương thích tạm với Games/Tools local được kế thừa từ Lớp 1; ưu tiên namespace CLASS2.
   // Khi các file Games/Tools được migrate riêng, có thể bỏ fallback CLASS1_* này.
-  function homeFeatureRegistry(kind) {
+  function homeFeatureRegistry(kind, featureId) {
     if (kind === "tools") return window.CLASS2_TOOL_MODULES || window.CLASS1_TOOL_MODULES || null;
     if (kind === "games") return window.CLASS2_GAME_MODULES || window.CLASS1_GAME_MODULES || null;
+    if (kind === "aiLab") {
+      if (window.CLASS2_AI_LAB_MODULES && window.CLASS2_AI_LAB_MODULES[featureId]) return window.CLASS2_AI_LAB_MODULES;
+      if (window.CLASS2_TOOL_MODULES && window.CLASS2_TOOL_MODULES[featureId]) return window.CLASS2_TOOL_MODULES;
+    }
     return null;
   }
 
   function loadedHomeFeatureModule(kind, featureId) {
-    const registry = homeFeatureRegistry(kind);
+    const registry = homeFeatureRegistry(kind, featureId);
     return registry && registry[featureId] ? registry[featureId] : null;
   }
 
@@ -413,7 +727,20 @@
     el.subPill.removeAttribute("title");
   }
 
+  function activeToolGroup() {
+    return TOOL_GROUPS.find((group) => group.id === state.homeFeatureGroupId) || null;
+  }
+
+  function backToToolGroup() {
+    destroyActiveHomeFeature();
+    state.homeFeatureId = null;
+    state.homeFeatureBanner = null;
+    render();
+    focusContent();
+  }
+
   function homeFeatureContext(kind, featureId) {
+    const toolGroup = kind === "tools" ? activeToolGroup() : null;
     const isWorldExplorerChild = kind === "games"
       && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
       && WORLD_EXPLORER_ITEMS.some((item) => item.id === featureId);
@@ -422,7 +749,7 @@
       destroyActiveHomeFeature();
       state.homeFeatureId = null;
       state.homeFeatureBanner = {
-        items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
+        items: [{ level: 2, title: "3. Bé khám phá", action: null }]
       };
       render();
       focusContent();
@@ -445,8 +772,18 @@
           level: Math.min(4, Math.max(4, Number(item.level || 4)))
         }));
         items = [
-          { level: 2, title: "1. Khám phá thế giới xung quanh bé", action: backToWorldExplorerGroup },
-          ...(child ? [{ level: 3, title: `1.${childIndex + 1} ${child.title}`, action: null }] : []),
+          { level: 2, title: "3. Bé khám phá", action: backToWorldExplorerGroup },
+          ...(child ? [{ level: 3, title: `3.${childIndex + 1} ${child.title}`, action: null }] : []),
+          ...nestedItems
+        ];
+      } else if (toolGroup && toolGroup.ids.includes(featureId)) {
+        const feature = TOOL_CATALOG.find((item) => item.id === featureId) || null;
+        const groupIndex = TOOL_GROUPS.indexOf(toolGroup);
+        const toolIndex = toolGroup.ids.indexOf(featureId);
+        const nestedItems = items.slice(1).map((item) => ({ ...item, level: 4 }));
+        items = [
+          { level: 2, title: `${groupIndex + 1}. ${toolGroup.title}`, action: backToToolGroup },
+          { level: 3, title: `${toolIndex + 1}. ${feature ? feature.title : "Công cụ"}`, action: null },
           ...nestedItems
         ];
       } else if (kind === "games" && items.length) {
@@ -458,7 +795,7 @@
       }
 
       if (!banner || (!items.length && !String(banner.title || "").trim())) {
-        state.homeFeatureBanner = null;
+        state.homeFeatureBanner = toolGroup ? defaultHomeFeatureBanner(kind, featureId) : null;
       } else {
         state.homeFeatureBanner = {
           icon: String(banner.icon || "").trim(),
@@ -473,14 +810,20 @@
       host: el.content,
       kind,
       featureId,
+      // Only the feelings tool needs an account-scoped key for its local diary.
+      // Never pass the session token to a lazily loaded public module.
+      diaryUserId: kind === "tools" && featureId === "emotions" && state.auth.token && state.auth.user
+        ? String(state.auth.user.userId || "") : "",
+      badgeUserId: kind === "tools" && featureId === "virtualTelescope" && state.auth.token && state.auth.user
+        ? String(state.auth.user.userId || "") : "",
       hooks: { showToast, showDialog, setSubBanner },
       back: () => {
         destroyActiveHomeFeature();
         state.homeFeatureId = null;
         state.homeFeatureBanner = isWorldExplorerChild
-          ? { items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }] }
+          ? { items: [{ level: 2, title: "3. Bé khám phá", action: null }] }
           : null;
-        if (!isWorldExplorerChild) state.homeFeatureGroupId = null;
+        if (!isWorldExplorerChild && !toolGroup) state.homeFeatureGroupId = null;
         render();
         focusContent();
       }
@@ -488,6 +831,16 @@
   }
 
   function defaultHomeFeatureBanner(kind, featureId) {
+    const toolGroup = kind === "tools" ? activeToolGroup() : null;
+    if (toolGroup && toolGroup.ids.includes(featureId)) {
+      const feature = TOOL_CATALOG.find((item) => item.id === featureId);
+      return {
+        items: [
+          { level: 2, title: `${TOOL_GROUPS.indexOf(toolGroup) + 1}. ${toolGroup.title}`, action: backToToolGroup },
+          { level: 3, title: `${toolGroup.ids.indexOf(featureId) + 1}. ${feature ? feature.title : "Công cụ"}`, action: null }
+        ]
+      };
+    }
     if (
       kind === "games"
       && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
@@ -499,23 +852,23 @@
         items: [
           {
             level: 2,
-            title: "1. Khám phá thế giới xung quanh bé",
+            title: "3. Bé khám phá",
             action: () => {
               destroyActiveHomeFeature();
               state.homeFeatureId = null;
               state.homeFeatureBanner = {
-                items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
+                items: [{ level: 2, title: "3. Bé khám phá", action: null }]
               };
               render();
               focusContent();
             }
           },
-          { level: 3, title: child ? `1.${childIndex + 1} ${child.title}` : "Khám phá", action: null }
+          { level: 3, title: child ? `3.${childIndex + 1} ${child.title}` : "Khám phá", action: null }
         ]
       };
     }
 
-    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : [];
+    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : kind === "aiLab" ? AI_LAB_CATALOG : [];
     const feature = catalog.find((item) => item.id === featureId) || null;
     if (!feature) return null;
     const index = Math.max(0, catalog.indexOf(feature));
@@ -725,10 +1078,13 @@
   }
 
   function isFreeHomeFeature(kind, featureId) {
-    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : [];
-    const freeCount = kind === "games" ? ACCESS_POLICY.gamesFreeCount : kind === "tools" ? ACCESS_POLICY.toolsFreeCount : 0;
-    const index = catalog.findIndex((item) => item.id === featureId);
-    return index >= 0 && index < freeCount;
+    // Sắp xếp lại Games không được vô tình đổi các game đang Free.
+    if (kind === "games") {
+      const index = GAME_ACCESS_ORDER.indexOf(featureId);
+      return index >= 0 && index < ACCESS_POLICY.gamesFreeCount;
+    }
+    const index = kind === "tools" ? TOOL_CATALOG.findIndex((item) => item.id === featureId) : -1;
+    return index >= 0 && index < ACCESS_POLICY.toolsFreeCount;
   }
 
   function subjectModuleContext() {
@@ -1109,7 +1465,7 @@
     if (state.screen === "home") destroyActiveHomeFeature();
     state.account.visibleNotices = [];
     state.screen = "home";
-    state.homeTab = HOME_TABS.some((t) => t.id === tabId) ? tabId : "class2";
+    state.homeTab = HOME_TABS_WITH_AI.some((t) => t.id === tabId) ? tabId : "class2";
     if (state.homeTab === "contact") state.contactTab = "intro";
     state.homeFeatureId = null;
     state.homeFeatureGroupId = null;
@@ -1235,13 +1591,13 @@
   }
 
   function homeTabsForCurrentUser() {
-    if (!state.auth.user || state.auth.user.role !== "admin") return HOME_TABS;
-    const contactIndex = HOME_TABS.findIndex((tab) => tab.id === "contact");
-    if (contactIndex < 0) return [...HOME_TABS, ADMIN_HOME_TAB];
+    if (!state.auth.user || state.auth.user.role !== "admin") return HOME_TABS_WITH_AI;
+    const contactIndex = HOME_TABS_WITH_AI.findIndex((tab) => tab.id === "contact");
+    if (contactIndex < 0) return [...HOME_TABS_WITH_AI, ADMIN_HOME_TAB];
     return [
-      ...HOME_TABS.slice(0, contactIndex + 1),
+      ...HOME_TABS_WITH_AI.slice(0, contactIndex + 1),
       ADMIN_HOME_TAB,
-      ...HOME_TABS.slice(contactIndex + 1)
+      ...HOME_TABS_WITH_AI.slice(contactIndex + 1)
     ];
   }
 
@@ -1275,6 +1631,14 @@
       const label = document.createElement("span");
       label.textContent = displayLabel;
       button.append(icon, label);
+
+      if (tab.badge) {
+        const badge = document.createElement("span");
+        badge.className = "nav-ai-badge";
+        badge.textContent = String(tab.badge);
+        badge.setAttribute("aria-label", `Nhãn ${tab.badge}`);
+        button.appendChild(badge);
+      }
 
       if (tab.id === "admin" && state.auth.user && state.auth.user.role === "admin" && Number(state.admin.pendingCount || 0) > 0) {
         const badge = document.createElement("span");
@@ -1310,7 +1674,7 @@
 
     const subjectDetailMode = state.screen === "subject" && !!state.detail;
     const homeFeatureMode = state.screen === "home"
-      && (state.homeTab === "games" || state.homeTab === "tools")
+      && (state.homeTab === "games" || state.homeTab === "tools" || state.homeTab === "aiLab")
       && (!!state.homeFeatureId || !!state.homeFeatureGroupId);
     const detailMode = subjectDetailMode || homeFeatureMode;
 
@@ -1357,9 +1721,9 @@
       return;
     }
 
-    const catalog = state.homeTab === "games" ? GAME_CATALOG : TOOL_CATALOG;
+    const catalog = state.homeTab === "games" ? GAME_CATALOG : state.homeTab === "tools" ? TOOL_CATALOG : AI_LAB_CATALOG;
     const feature = catalog.find((item) => item.id === state.homeFeatureId) || null;
-    const fallback = state.homeTab === "games" ? "Games" : "Tools";
+    const fallback = state.homeTab === "games" ? "Games" : state.homeTab === "tools" ? "Tools" : "AI Lab";
     const nested = state.homeFeatureBanner;
 
     if (nested && Array.isArray(nested.items) && nested.items.length) {
@@ -1394,13 +1758,25 @@
       return;
     }
 
+    if (state.homeTab === "tools" && !state.homeFeatureId && activeToolGroup()) {
+      const group = activeToolGroup();
+      el.subPill.classList.add("home-sub-breadcrumbs");
+      el.subPill.setAttribute("aria-label", "Điều hướng Tools");
+      const node = document.createElement("span");
+      node.className = "home-breadcrumb-tab home-breadcrumb-level2";
+      node.textContent = `${TOOL_GROUPS.indexOf(group) + 1}. ${group.title}`;
+      node.title = group.title;
+      el.subPill.replaceChildren(node);
+      return;
+    }
+
     if (state.homeTab === "games" && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID && !state.homeFeatureId) {
       el.subPill.classList.add("home-sub-breadcrumbs");
       el.subPill.setAttribute("aria-label", "Điều hướng Games");
       const node = document.createElement("span");
       node.className = "home-breadcrumb-tab home-breadcrumb-level2";
-      node.textContent = "1. Khám phá thế giới xung quanh bé";
-      node.title = "Khám phá thế giới xung quanh bé";
+      node.textContent = "3. Bé khám phá";
+      node.title = "Bé khám phá";
       el.subPill.replaceChildren(node);
       return;
     }
@@ -1417,7 +1793,7 @@
       return;
     }
 
-    const icon = nested && nested.icon ? nested.icon : (state.homeTab === "games" ? "🎮" : "🧰");
+    const icon = nested && nested.icon ? nested.icon : (state.homeTab === "games" ? "🎮" : state.homeTab === "tools" ? "🧰" : "🤖");
     const title = nested && nested.title ? nested.title : fallback;
     el.subPill.textContent = `${icon} ${title}`;
   }
@@ -1437,6 +1813,7 @@
       case "epsilon": renderEpsilonTab(); break;
       case "games": renderGamesTab(); break;
       case "tools": renderToolsTab(); break;
+      case "aiLab": renderAILabTab(); break;
       case "contact": renderContactTab(); break;
       case "class2":
       default: renderClass2Tab(); break;
@@ -1473,7 +1850,7 @@
   function renderWorldExplorerGroup() {
     el.content.innerHTML = `
       <div class="section-heading">
-        <div><h1>🧭 Khám phá thế giới xung quanh bé</h1></div>
+        <div><h1>🧭 Bé khám phá</h1></div>
       </div>
       <style>
         .world-explorer-grid{
@@ -1496,7 +1873,7 @@
       </style>
       <div class="card-grid home-feature-grid world-explorer-grid">
         ${WORLD_EXPLORER_ITEMS.map((item, index) => `
-          <button class="content-card home-feature-card" data-tone="${escapeHtml(item.tone || "purple")}" data-world-explorer-child="${escapeHtml(item.id)}" type="button">
+          <button class="content-card home-feature-card games-hover-card" data-tone="${escapeHtml(item.tone || "purple")}" data-world-explorer-child="${escapeHtml(item.id)}" type="button">
             <div class="card-top">
               <span class="card-icon" aria-hidden="true">${item.icon}</span>
               <div class="card-copy">
@@ -1511,6 +1888,376 @@
       button.addEventListener("click", () => {
         const featureId = String(button.dataset.worldExplorerChild || "");
         if (!featureId || !homeFeatureScript("games", featureId)) return;
+        state.homeFeatureId = featureId;
+        state.homeFeatureBanner = null;
+        render();
+        focusContent();
+      });
+    });
+  }
+
+  function renderToolsFolders() {
+    const counts = new Map(TOOL_CATALOG.map((tool) => [tool.id, tool]));
+    el.content.innerHTML = `
+      <div class="class2-rich-feature">
+      <div class="section-heading">
+        <div><h1>🧰 Tools</h1><p>Chọn chủ đề để khám phá các công cụ học tập.</p></div>
+      </div>
+      <style>
+        .tools-folder-grid{width:100%;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch}
+        .tools-folder-grid .tools-folder-card{width:100%!important;max-width:none!important;min-width:0}
+        .tools-folder-card .card-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+        .tools-folder-card .card-desc{font-weight:800!important}
+        @media(max-width:900px){.tools-folder-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+        @media(max-width:560px){.tools-folder-grid{grid-template-columns:1fr!important}}
+      </style>
+      <div class="card-grid home-feature-grid tools-folder-grid" aria-label="8 thư mục chủ đề Tools">
+        ${TOOL_GROUPS.map((group, index) => {
+          const count = group.ids.filter((id) => counts.has(id)).length;
+          return `
+            <button class="content-card home-feature-card tools-folder-card" type="button" data-tone="${toolCardTone(index)}" data-tool-group="${escapeHtml(group.id)}" aria-label="Mở ${escapeHtml(group.title)}, ${count} công cụ">
+              <div class="card-top">
+                <span class="card-icon" aria-hidden="true">${group.icon}</span>
+                <div class="card-copy">
+                  <h2 class="card-title">${index + 1}. ${escapeHtml(group.title)}</h2>
+                  <p class="card-desc">${count} công cụ</p>
+                </div>
+              </div>
+            </button>`;
+        }).join("")}
+      </div>
+      </div>`;
+
+    el.content.querySelectorAll("[data-tool-group]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const groupId = String(button.dataset.toolGroup || "");
+        if (!TOOL_GROUPS.some((group) => group.id === groupId)) return;
+        state.homeFeatureGroupId = groupId;
+        state.homeFeatureId = null;
+        state.homeFeatureBanner = null;
+        render();
+        focusContent();
+      });
+    });
+  }
+
+  function renderRichHomeFeatureCatalog(kind, icon, title, description, catalog) {
+    if (kind === "tools" && !state.homeFeatureId) {
+      const group = activeToolGroup();
+      if (!group) {
+        renderToolsFolders();
+        return;
+      }
+      catalog = group.ids.map((id) => TOOL_CATALOG.find((item) => item.id === id)).filter(Boolean);
+      icon = group.icon;
+      title = group.title;
+      description = `${catalog.length} công cụ trong chủ đề này.`;
+    }
+    if (
+      kind === "games"
+      && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
+      && !state.homeFeatureId
+    ) {
+      renderWorldExplorerGroup();
+      return;
+    }
+
+    if (state.homeFeatureId) {
+      if (!renderHomeFeatureOrLoading(kind, state.homeFeatureId)) {
+        renderEmptyHomeTab(icon, title, "Module này chưa có file JS tương ứng.");
+      }
+      return;
+    }
+
+    if (!catalog.length) {
+      renderEmptyHomeTab(icon, title, description);
+      return;
+    }
+
+    const useFullWidthCatalogGrid = kind === "games" || kind === "tools" || kind === "aiLab";
+    const catalogGridClass = useFullWidthCatalogGrid ? " games-catalog-grid" : "";
+    const catalogGridStyle = useFullWidthCatalogGrid ? `
+      <style>
+        .games-catalog-grid{
+          width:100%;
+          grid-template-columns:repeat(3,minmax(0,1fr))!important;
+          justify-content:stretch!important;
+          align-items:stretch;
+        }
+        .games-catalog-grid .home-feature-card{
+          width:100%!important;
+          max-width:none!important;
+          min-width:0;
+        }
+        .home-feature-title-row{
+          display:flex;
+          align-items:center;
+          gap:8px;
+          min-width:0;
+        }
+        .home-feature-title-row .card-title{
+          min-width:0;
+        }
+        .home-feature-card .card-desc{
+          font-weight:750!important;
+        }
+        .home-feature-ai-badge{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          flex:0 0 auto;
+          min-height:24px;
+          padding:2px 9px;
+          border:1px solid #bfdbfe;
+          border-radius:999px;
+          background:linear-gradient(90deg,#ec4899 0%,#8b5cf6 55%,#3b82f6 100%);
+          color:#fff;
+          font-size:12px;
+          line-height:1;
+          font-weight:900;
+          box-shadow:0 3px 9px rgba(99,102,241,.18);
+          white-space:nowrap;
+        }
+        .home-feature-access-note{
+          margin:5px 0 0!important;
+          color:#7c3aed!important;
+          font-size:15px!important;
+          line-height:1.35;
+          font-weight:900!important;
+        }
+        .ai-lab-filters{
+          display:flex;
+          flex-wrap:wrap;
+          align-items:center;
+          gap:8px;
+          width:100%;
+          margin:0 0 14px;
+        }
+        .ai-lab-filter-btn{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          min-height:38px;
+          padding:7px 14px;
+          border:1px solid #ddd6fe;
+          border-radius:999px;
+          background:#fff;
+          color:#6b21a8;
+          box-shadow:0 2px 6px rgba(76,29,149,.04);
+          font:inherit;
+          font-size:14px;
+          line-height:1.2;
+          font-weight:850;
+          white-space:nowrap;
+          cursor:pointer;
+          transition:background .18s,border-color .18s,box-shadow .18s,color .18s;
+        }
+        .ai-lab-filter-btn:hover{
+          border-color:#c084fc;
+          background:#faf5ff;
+        }
+        .ai-lab-filter-btn:focus-visible{
+          outline:3px solid #93c5fd;
+          outline-offset:2px;
+        }
+        .ai-lab-filter-btn.is-active{
+          border-color:#a855f7;
+          background:linear-gradient(90deg,#ec4899,#a855f7);
+          box-shadow:0 4px 10px rgba(168,85,247,.19);
+          color:#fff;
+        }
+        .ai-lab-filter-btn.is-active:hover{
+          background:linear-gradient(90deg,#db2777,#9333ea);
+        }
+        .ai-lab-group[hidden]{display:none!important;}
+        .ai-lab-groups{
+          display:grid;
+          gap:18px;
+          width:100%;
+        }
+        .ai-lab-group{
+          display:grid;
+          gap:8px;
+          min-width:0;
+        }
+        .ai-lab-group-head{
+          min-height:42px;
+          padding:7px 12px;
+          border:1px solid #e9d5ff;
+          border-radius:14px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          gap:10px;
+          background:#faf5ff;
+          color:#6d28d9;
+          box-shadow:0 3px 9px rgba(76,29,149,.05);
+        }
+        .ai-lab-group-head h2{
+          margin:0;
+          font-size:18px;
+          line-height:1.2;
+          font-weight:950;
+          color:currentColor;
+        }
+        .ai-lab-group-head span{
+          flex:0 0 auto;
+          min-height:25px;
+          padding:3px 9px;
+          border-radius:999px;
+          background:rgba(255,255,255,.82);
+          color:currentColor;
+          font-size:13px;
+          line-height:1;
+          font-weight:900;
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+        }
+        .ai-lab-group[data-group-tone="blue"] .ai-lab-group-head{background:#eff8ff;border-color:#bae6fd;color:#0369a1;}
+        .ai-lab-group[data-group-tone="purple"] .ai-lab-group-head{background:#faf5ff;border-color:#d8b4fe;color:#6d28d9;}
+        .ai-lab-group[data-group-tone="teal"] .ai-lab-group-head{background:#f0fdfa;border-color:#99f6e4;color:#0f766e;}
+        .ai-lab-group[data-group-tone="green"] .ai-lab-group-head{background:#ecfdf5;border-color:#a7f3d0;color:#047857;}
+        .ai-lab-group[data-group-tone="amber"] .ai-lab-group-head{background:#fffbeb;border-color:#fde68a;color:#a16207;}
+        .ai-lab-group-grid{
+          margin:0;
+        }
+        @media (max-width:900px){
+          .games-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+        }
+        @media (max-width:560px){
+          .ai-lab-filters{
+            flex-wrap:nowrap;
+            overflow-x:auto;
+            padding:3px 1px 8px;
+            margin-bottom:10px;
+            scrollbar-width:thin;
+            -webkit-overflow-scrolling:touch;
+          }
+          .ai-lab-filter-btn{flex:0 0 auto;min-height:40px;}
+          .ai-lab-groups{gap:14px;}
+          .ai-lab-group-head{min-height:38px;padding:6px 10px;border-radius:12px;}
+          .ai-lab-group-head h2{font-size:16px;}
+          .ai-lab-group-head span{font-size:12px;min-height:23px;padding:2px 8px;}
+        }
+        @media (max-width:560px){
+          .games-catalog-grid{grid-template-columns:1fr!important;}
+        }
+      </style>` : "";
+
+    const catalogIndex = new Map(catalog.map((item, index) => [item.id, { item, index }]));
+    const activeAILabGroup = AI_LAB_GROUPS.some((group) => group.id === state.aiLabGroupFilter)
+      ? state.aiLabGroupFilter : "all";
+    const aiLabFilterHtml = kind === "aiLab" ? `
+      <nav class="ai-lab-filters" aria-label="Chọn chủ đề AI Lab">
+        ${[{ id: "all", title: "Tất cả" }, ...AI_LAB_GROUPS].map((group) => `
+          <button type="button" class="ai-lab-filter-btn${activeAILabGroup === group.id ? " is-active" : ""}"
+            data-ai-lab-filter="${escapeHtml(group.id)}"
+            aria-pressed="${activeAILabGroup === group.id ? "true" : "false"}">${escapeHtml(group.title)}</button>`).join("")}
+      </nav>` : "";
+    const toolToneOffset = kind === "tools" ? Math.max(0, TOOL_GROUPS.findIndex((group) => group.id === state.homeFeatureGroupId)) : 0;
+    const featureCardHtml = (item, index) => {
+      const locked = kind === "tools" && !isFreeHomeFeature(kind, item.id) && !hasSharedPremiumAccess();
+      return `
+      <button class="content-card home-feature-card${locked ? " is-premium-locked" : ""}" aria-label="${escapeHtml(`${index + 1}. ${item.title}${locked ? ", nội dung Trial hoặc VIP" : ""}`)}" data-tone="${escapeHtml(kind === "tools" ? toolCardTone(index, toolToneOffset) : (item.tone || "purple"))}" data-home-feature="${escapeHtml(item.id)}" type="button">
+        <div class="card-top">
+          <span class="card-icon" aria-hidden="true">${item.icon}</span>
+          <div class="card-copy">
+            <div class="home-feature-title-row">
+              <h2 class="card-title">${index + 1}. ${escapeHtml(item.title)}${locked ? ` <span aria-hidden="true">🔒</span>` : ""}</h2>
+              ${kind === "aiLab" && item.badge ? `<span class="home-feature-ai-badge">✨ ${escapeHtml(item.badge)}</span>` : ""}
+            </div>
+            ${item.description ? `<p class="card-desc">${escapeHtml(item.description)}</p>` : ""}
+          </div>
+        </div>
+      </button>`;
+    };
+
+    const catalogMarkup = kind === "aiLab"
+      ? `${aiLabFilterHtml}<div class="ai-lab-groups">
+          ${AI_LAB_GROUPS.map((group) => {
+            const groupItems = group.ids.map((id) => catalogIndex.get(id)).filter(Boolean);
+            return `
+              <section class="ai-lab-group" data-ai-lab-group="${escapeHtml(group.id)}" data-group-tone="${escapeHtml(group.tone)}" aria-labelledby="ai-lab-group-${escapeHtml(group.id)}"${activeAILabGroup !== "all" && activeAILabGroup !== group.id ? " hidden" : ""}>
+                <div class="ai-lab-group-head">
+                  <h2 id="ai-lab-group-${escapeHtml(group.id)}">${group.icon} ${escapeHtml(group.title)}</h2>
+                  <span>${groupItems.length} ${groupItems.length === 1 ? "lab" : "lab"}</span>
+                </div>
+                <div class="card-grid home-feature-grid games-catalog-grid ai-lab-group-grid">
+                  ${groupItems.map(({ item, index }) => featureCardHtml(item, index)).join("")}
+                </div>
+              </section>`;
+          }).join("")}
+        </div>`
+      : `<div class="card-grid home-feature-grid${catalogGridClass}">
+          ${catalog.map((item, index) => featureCardHtml(item, index)).join("")}
+        </div>`;
+
+    el.content.innerHTML = `
+      <div class="class2-rich-feature">
+      <div class="section-heading">
+        <div>
+          <h1>${icon} ${escapeHtml(title)}</h1>
+          <p>${escapeHtml(description)}</p>
+        </div>
+        ${kind === "tools" ? '<button type="button" id="tools-folder-back" class="back-btn">← Tools</button>' : ""}
+      </div>
+      ${catalogGridStyle}
+      ${catalogMarkup}
+      </div>`;
+
+    document.getElementById("tools-folder-back")?.addEventListener("click", () => {
+      state.homeFeatureGroupId = null;
+      state.homeFeatureBanner = null;
+      render();
+      focusContent();
+    });
+
+    if (kind === "aiLab") {
+      const filterButtons = [...el.content.querySelectorAll("[data-ai-lab-filter]")];
+      const groups = [...el.content.querySelectorAll("[data-ai-lab-group]")];
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const groupId = button.dataset.aiLabFilter;
+          if (groupId !== "all" && !AI_LAB_GROUPS.some((group) => group.id === groupId)) return;
+          state.aiLabGroupFilter = groupId;
+          filterButtons.forEach((filterButton) => {
+            const selected = filterButton.dataset.aiLabFilter === groupId;
+            filterButton.classList.toggle("is-active", selected);
+            filterButton.setAttribute("aria-pressed", String(selected));
+          });
+          groups.forEach((group) => {
+            group.hidden = groupId !== "all" && group.dataset.aiLabGroup !== groupId;
+          });
+        });
+      });
+    }
+
+    el.content.querySelectorAll("[data-home-feature]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const featureId = String(button.dataset.homeFeature || "");
+        if (!featureId) return;
+        if (kind === "tools" && !isFreeHomeFeature(kind, featureId) && !hasSharedPremiumAccess()) {
+          if (!state.auth.ready) {
+            showToast("Đang kiểm tra phiên đăng nhập…");
+            return;
+          }
+          showPremiumLearningGate(featureId);
+          return;
+        }
+        if (kind === "games" && featureId === WORLD_EXPLORER_GROUP_ID) {
+          state.homeFeatureGroupId = WORLD_EXPLORER_GROUP_ID;
+          state.homeFeatureId = null;
+          state.homeFeatureBanner = {
+            items: [{ level: 2, title: "3. Bé khám phá", action: null }]
+          };
+          render();
+          focusContent();
+          return;
+        }
+
+        if (!homeFeatureScript(kind, featureId)) return;
+        if (kind !== "tools") state.homeFeatureGroupId = null;
         state.homeFeatureId = featureId;
         state.homeFeatureBanner = null;
         render();
@@ -1564,7 +2311,7 @@
         ${catalog.map((item, index) => {
           const locked = !isFreeHomeFeature(kind, item.id) && !hasSharedPremiumAccess();
           return `
-          <button class="content-card home-feature-card${locked ? " is-premium-locked" : ""}" data-tone="${escapeHtml(item.tone || "purple")}" data-home-feature="${escapeHtml(item.id)}" type="button" aria-label="${escapeHtml(`${index + 1}. ${item.title}${locked ? ", nội dung Trial hoặc VIP" : ""}`)}">
+          <button class="content-card home-feature-card games-hover-card${locked ? " is-premium-locked" : ""}" data-tone="${escapeHtml(item.tone || "purple")}" data-home-feature="${escapeHtml(item.id)}" type="button" aria-label="${escapeHtml(`${index + 1}. ${item.title}${locked ? ", nội dung Trial hoặc VIP" : ""}`)}">
             <div class="card-top">
               <span class="card-icon" aria-hidden="true">${item.icon}</span>
               <div class="card-copy">
@@ -1594,7 +2341,7 @@
           state.homeFeatureGroupId = WORLD_EXPLORER_GROUP_ID;
           state.homeFeatureId = null;
           state.homeFeatureBanner = {
-            items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
+            items: [{ level: 2, title: "3. Bé khám phá", action: null }]
           };
           render();
           focusContent();
@@ -1612,10 +2359,20 @@
   }
 
   function renderToolsTab() {
-    renderHomeFeatureCatalog("tools", "🧰", "Tools", "Các công cụ tiện ích của Epsilon Edu.", TOOL_CATALOG);
+    ensureClass2FeatureCardTypography_();
+    ensureClass2HomeFolderHoverStyles_();
+    ensureToolsCardPaletteStyles();
+    renderRichHomeFeatureCatalog("tools", "🧰", "Tools", "Các công cụ tiện ích của Epsilon Edu.", TOOL_CATALOG);
+  }
+
+  function renderAILabTab() {
+    ensureClass2FeatureCardTypography_();
+    ensureClass2HomeFolderHoverStyles_();
+    renderRichHomeFeatureCatalog("aiLab", "🤖", "AI Lab", "Khám phá AI bằng trải nghiệm: tự tạo dữ liệu, huấn luyện, thử nghiệm và quan sát cách AI học.", AI_LAB_CATALOG);
   }
 
   function renderGamesTab() {
+    ensureClass2HomeFolderHoverStyles_();
     renderHomeFeatureCatalog("games", "🎮", "Games", "Các trò chơi và hoạt động sáng tạo của Epsilon Edu.", GAME_CATALOG);
   }
 
@@ -1628,6 +2385,7 @@
   }
 
   function renderClass2Tab() {
+    ensureClass2HomeFolderHoverStyles_();
     const cards = SUBJECTS.map((subject) => `
       <div class="subject-column">
         <button class="content-card subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
@@ -1804,7 +2562,7 @@
         <div class="contact-experience-head">
           <div>
             <h3>🎈 Hoạt động trải nghiệm nổi bật</h3>
-            <p>Games và Tools không chỉ là phần phụ, mà là không gian để bé chơi, khám phá, tương tác và vận dụng điều đã học theo cách tự nhiên.</p>
+            <p>Games, Tools và AI Lab không chỉ là phần phụ, mà là không gian để bé chơi, khám phá, tương tác và vận dụng điều đã học theo cách tự nhiên.</p>
           </div>
         </div>
 
@@ -1817,6 +2575,11 @@
           <button class="contact-experience-card tools" type="button" data-intro-home-tab="tools" aria-label="Khám phá Tools">
             <span class="contact-experience-icon" aria-hidden="true">🧰</span>
             <span class="contact-experience-copy"><strong>Tools - Công cụ khám phá</strong><span>Các công cụ trực quan giúp bé thử nghiệm, đo lường, tính toán và khám phá những ý tưởng học tập theo cách thực hành, nhanh và thú vị.</span></span>
+            <span class="contact-experience-go" aria-hidden="true">→</span>
+          </button>
+          <button class="contact-experience-card ai-lab" type="button" data-intro-home-tab="aiLab" aria-label="Khám phá AI Lab">
+            <span class="contact-experience-icon" aria-hidden="true">🤖</span>
+            <span class="contact-experience-copy"><strong>AI Lab - Khám phá AI</strong><span>Bé tìm hiểu AI hoạt động ra sao qua các thí nghiệm tương tác: dạy máy nhận hình, quan sát cách máy học và sử dụng AI an toàn.</span></span>
             <span class="contact-experience-go" aria-hidden="true">→</span>
           </button>
         </div>
