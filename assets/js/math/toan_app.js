@@ -21489,9 +21489,233 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
 
 `;
 
+const MATH_FOLDER_TA2_HOVER_CSS_ = `
+/* Lớp 2 - hiệu ứng thẻ danh mục theo TA2: chỉ icon phóng, ô không dịch chuyển. */
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+){
+  --ee-folder-border-hover:#a855f7;
+  --ee-folder-icon-bg:#eee0ff;
+  --ee-folder-icon-border:#c3a3f3;
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):is(:hover,:focus-visible){
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  filter:brightness(1.035) saturate(1.08)!important;
+  border-color:var(--ee-folder-border-hover)!important;
+  box-shadow:0 8px 20px rgba(76,29,149,.16)!important;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+1){
+  --ee-folder-border-hover:#ec4899;--ee-folder-icon-bg:#ffd9eb;--ee-folder-icon-border:#f89bc8;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+2){
+  --ee-folder-border-hover:#10b981;--ee-folder-icon-bg:#d4fce3;--ee-folder-icon-border:#86efac;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+3){
+  --ee-folder-border-hover:#a855f7;--ee-folder-icon-bg:#e8d9ff;--ee-folder-icon-border:#bda3f7;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+4){
+  --ee-folder-border-hover:#f59e0b;--ee-folder-icon-bg:#ffedbc;--ee-folder-icon-border:#fbbf24;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+5){
+  --ee-folder-border-hover:#6366f1;--ee-folder-icon-bg:#e0e7ff;--ee-folder-icon-border:#a5b4fc;
+}
+#class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+):nth-child(6n+6){
+  --ee-folder-border-hover:#14b8a6;--ee-folder-icon-bg:#c9f6eb;--ee-folder-icon-border:#5eead4;
+}
+#class2-math-runtime #view-dashboard-grid > .math-topic-card{
+  --ee-folder-border-hover:var(--math-tone-text,#a855f7);
+}
+#class2-math-runtime #view-dashboard-grid > .math-topic-card:is(:hover,:focus-visible) .math-topic-icon{
+  transform:scale(1.05)!important;
+  box-shadow:0 5px 12px rgba(109,40,217,.20),inset 0 1px 2px rgba(255,255,255,.9)!important;
+}
+#class2-math-runtime #minigame-grid > div > div.text-4xl,
+#class2-math-runtime #exam-categories-grid > div > div:first-child > div.text-4xl{
+  box-sizing:border-box!important;
+  width:60px!important;height:60px!important;
+  min-width:60px!important;min-height:60px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex-shrink:0!important;
+  margin-left:auto!important;margin-right:auto!important;
+  margin-bottom:8px!important;
+  border-radius:17px!important;
+  border:2px solid var(--ee-folder-icon-border)!important;
+  background:var(--ee-folder-icon-bg)!important;
+  font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif!important;
+  font-size:36px!important;line-height:1!important;font-weight:400!important;
+  filter:saturate(1.25) contrast(1.07)!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.8);
+  box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
+  transform:none!important;translate:none!important;rotate:none!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+}
+#class2-math-runtime #minigame-grid > div:is(:hover,:focus-visible) > div.text-4xl,
+#class2-math-runtime #exam-categories-grid > div:is(:hover,:focus-visible) > div:first-child > div.text-4xl{
+  transform:scale(1.05)!important;
+  box-shadow:0 5px 12px rgba(109,40,217,.20),inset 0 1px 2px rgba(255,255,255,.9)!important;
+}
+#class2-math-runtime #view-dashboard-grid > button.pastel-btn span.mr-2{
+  display:inline-block; transform:none!important;
+  transition:transform .18s ease!important;
+}
+#class2-math-runtime #view-dashboard-grid > button.pastel-btn:is(:hover,:focus-visible) span.mr-2{
+  transform:scale(1.05)!important;
+}
+#class2-math-runtime #view-dashboard-grid > button:is(.ml-track-card,.ml-journey-card) [class~="w-11"][class~="h-11"]{
+  box-sizing:border-box!important;
+  width:60px!important;height:60px!important;min-width:60px!important;min-height:60px!important;
+  flex:0 0 60px!important;font-size:36px!important;
+  border-radius:17px!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+  transform:none!important;
+  box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
+}
+#class2-math-runtime #view-dashboard-grid > button:is(.ml-track-card,.ml-journey-card):is(:hover,:focus-visible) [class~="w-11"][class~="h-11"]{transform:scale(1.05)!important;}
+@media(max-width:520px){
+  #class2-math-runtime #view-dashboard-grid > button:is(.ml-track-card,.ml-journey-card) [class~="w-11"][class~="h-11"]{
+   width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;
+   flex-basis:52px!important;font-size:31px!important;border-radius:15px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #class2-math-runtime #view-dashboard-grid > button.pastel-btn span.mr-2,
+  #class2-math-runtime #view-dashboard-grid > button:is(.ml-track-card,.ml-journey-card) [class~="w-11"][class~="h-11"]{transition:none!important;}
+  #class2-math-runtime #view-dashboard-grid > button.pastel-btn:is(:hover,:focus-visible) span.mr-2,
+  #class2-math-runtime #view-dashboard-grid > button:is(.ml-track-card,.ml-journey-card):is(:hover,:focus-visible) [class~="w-11"][class~="h-11"]{transform:none!important;}
+}
+@media(max-width:520px){
+  #class2-math-runtime #minigame-grid > div > div.text-4xl,
+  #class2-math-runtime #exam-categories-grid > div > div:first-child > div.text-4xl{
+    width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;
+    font-size:31px!important;border-radius:15px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #class2-math-runtime :is(
+  #view-dashboard-grid > .math-topic-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div,
+  #view-dashboard-grid > button.ml-track-card,
+  #view-dashboard-grid > button.ml-journey-card,
+  #view-dashboard-grid > button.em-track-card,
+  #view-dashboard-grid > button.ns-journey-card
+){transition:none!important;}
+  #class2-math-runtime #minigame-grid > div > div.text-4xl,
+  #class2-math-runtime #exam-categories-grid > div > div:first-child > div.text-4xl,
+  #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-icon{transition:none!important;}
+  #class2-math-runtime #minigame-grid > div:is(:hover,:focus-visible) > div.text-4xl,
+  #class2-math-runtime #exam-categories-grid > div:is(:hover,:focus-visible) > div:first-child > div.text-4xl,
+  #class2-math-runtime #view-dashboard-grid > .math-topic-card:is(:hover,:focus-visible) .math-topic-icon{transform:none!important;}
+}
+`;
+
 function ensureMathStyles_() {
     if (document.getElementById(MATH_MODULE_STYLE_ID_)) return;
-    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_; document.head.appendChild(style);
+    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_; document.head.appendChild(style);
 }
 
 function mathReadStandaloneBreadcrumb_() {
