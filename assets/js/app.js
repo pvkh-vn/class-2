@@ -20,188 +20,20 @@
   } = CLASS2_DATA;
 
 
-  // AI Lab là module giá trị gia tăng dùng chung, đặt ngay bên phải Tools.
-  const AI_LAB_HOME_TAB = Object.freeze({ id: "aiLab", icon: "🤖", label: "AI Lab", tone: "blue", badge: "AI" });
-  const HOME_TABS_WITH_AI = Object.freeze((() => {
-    if (HOME_TABS.some((tab) => tab.id === AI_LAB_HOME_TAB.id)) return [...HOME_TABS];
-    const tabs = [...HOME_TABS];
-    const toolsIndex = tabs.findIndex((tab) => tab.id === "tools");
-    const contactIndex = tabs.findIndex((tab) => tab.id === "contact");
-    const insertAt = toolsIndex >= 0 ? toolsIndex + 1 : (contactIndex >= 0 ? contactIndex : tabs.length);
-    tabs.splice(insertAt, 0, AI_LAB_HOME_TAB);
-    return tabs;
-  })());
-
-
   // Bộ khung Lớp 2: chưa nạp engine môn học cũ; chờ tích hợp đúng source Lớp 2.
   // Toán 2 / Tiếng Việt 2 / Tiếng Anh 2 sẽ được nối lần lượt ở giai đoạn tích hợp module.
   const SUBJECT_MODULE_SCRIPTS = Object.freeze({
-    math: "assets/js/math/toan_app.js?v=class2-math-1",
+    math: "assets/js/math/toan_app.js?v=class2-math-vip-preview-2",
     vietnamese: "assets/js/vietnamese/tv_app.js?v=class2-tv-1",
-    english: "assets/js/english/ta_app.js?v=class2-ta-1"
+    english: "assets/js/english/ta_app.js?v=class2-ta-vip-preview-2"
   });
   // Games/Tools ngoài Trang chủ: mỗi tool/game là một file JS độc lập và chỉ tải khi mở.
   const TOOL_CATALOG = Object.freeze([
     Object.freeze({ id: "calculator", icon: "🧮", title: "Calculator", description: "Máy tính khoa học Epsilon Edu.", badge: "Công cụ", tone: "purple" }),
     Object.freeze({ id: "converter", icon: "📐", title: "Đổi đơn vị đo", description: "Đổi nhanh các đơn vị đo thông dụng.", badge: "Công cụ", tone: "teal" }),
     Object.freeze({ id: "geometryArea", icon: "📏", title: "Tính diện tích", description: "Tính diện tích các hình học cơ bản.", badge: "Công cụ", tone: "pink" }),
-    Object.freeze({ id: "colorMixer", icon: "🎨", title: "Phối màu", description: "Phối màu theo hệ RGB và CMYK.", badge: "Công cụ", tone: "amber" }),
-    Object.freeze({ id: "calendarRoman", icon: "📅", title: "Lịch, khoảng ngày và số La Mã", description: "Xem lịch, tính khoảng ngày và đổi số La Mã.", badge: "Công cụ", tone: "blue" }),
-    Object.freeze({ id: "mathTables", icon: "🔢", title: "Bảng cộng trừ nhân chia", description: "Xem bảng tính và luyện tập phép tính.", badge: "Công cụ", tone: "teal" }),
-    Object.freeze({ id: "learningClock", icon: "🕐", title: "Đồng hồ học xem giờ", description: "Học đọc giờ, quay kim và luyện tập.", badge: "Công cụ", tone: "purple" }),
-    Object.freeze({ id: "solarSystem", icon: "🪐", title: "Hệ Mặt Trời", description: "Khám phá Hệ Mặt Trời, ngày - đêm và các mùa bằng mô phỏng tương tác.", badge: "Khoa học", tone: "blue" }),
-    Object.freeze({ id: "moon", icon: "🌙", title: "Mặt Trăng", description: "Khám phá các pha Mặt Trăng, nhật thực, nguyệt thực và thủy triều bằng mô phỏng tương tác.", badge: "Khoa học", tone: "blue" }),
-    Object.freeze({ id: "starrySky", icon: "🌌", title: "Bầu trời sao", description: "Quan sát chòm sao, nối sao và tìm Sao Bắc Cực.", badge: "Thiên văn", tone: "indigo" }),
-    Object.freeze({ id: "virtualTelescope", icon: "🔭", title: "Kính thiên văn", description: "Điều khiển kính, thay đổi độ phóng đại và ngắm thiên thể.", badge: "Thiên văn", tone: "purple" }),
-    Object.freeze({ id: "waterCycle", icon: "💧", title: "Vòng tuần hoàn của nước", description: "Khám phá vòng tuần hoàn, ba thể của nước và cách làm sạch nước bằng mô phỏng tương tác.", badge: "Khoa học", tone: "teal" }),
-    Object.freeze({ id: "lifeCycle", icon: "🦋", title: "Vòng đời sinh vật", description: "Khám phá vòng đời bướm, ếch và quá trình cây đậu lớn lên bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
-    Object.freeze({ id: "humanBody", icon: "🫀", title: "Cơ thể em", description: "Khám phá hệ tiêu hóa, hô hấp, tim và mạch máu bằng mô phỏng tương tác.", badge: "Khoa học", tone: "pink" }),
-    Object.freeze({ id: "nutrition", icon: "🥗", title: "Ăn uống lành mạnh", description: "Bày đĩa ăn cân bằng, tìm hiểu tháp dinh dưỡng và lượng đường trong đồ uống.", badge: "Dinh dưỡng", tone: "green" }),
-    Object.freeze({ id: "fiveSenses", icon: "👀", title: "5 giác quan", description: "Khám phá mắt, tai, mũi, lưỡi và da qua các hoạt động quan sát, nghe, ngửi, nếm và chạm.", badge: "Cơ thể", tone: "indigo" }),
-    Object.freeze({ id: "natureAround", icon: "🌿", title: "Thiên nhiên quanh em", description: "Khám phá chuỗi thức ăn, bóng nắng trong ngày và cách cầu vồng hình thành bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
-    Object.freeze({ id: "earthMotion", icon: "🌍", title: "Trái Đất chuyển động", description: "Khám phá múi giờ, Trái Đất quay và gió mùa Việt Nam bằng mô phỏng tương tác.", badge: "Thiên văn", tone: "blue" }),
-    Object.freeze({ id: "earthChanges", icon: "🌋", title: "Trái Đất biến đổi", description: "Khám phá núi lửa, động đất, các mảng kiến tạo và sự bồi tụ đồng bằng bằng mô phỏng tương tác.", badge: "Thiên nhiên", tone: "coral" }),
-    Object.freeze({ id: "vnHistory", icon: "📜", title: "Lịch sử Việt Nam", description: "Dòng thời gian, trận Bạch Đằng và trống đồng.", badge: "Lịch sử", tone: "amber" }),
-    Object.freeze({ id: "vietnamMap", icon: "🗺️", title: "Bản đồ Việt Nam", description: "Khám phá tỉnh thành, vùng miền và luyện tập trực tiếp trên bản đồ Việt Nam.", badge: "Địa lý", tone: "green" }),
-    Object.freeze({ id: "inventions", icon: "💡", title: "Những phát minh", description: "Thử bánh xe, giấy, la bàn, bóng đèn và điện thoại.", badge: "Công nghệ", tone: "indigo" }),
-    Object.freeze({ id: "bunnyCoding", icon: "🐰", title: "Lập trình cùng Thỏ Ngọc", description: "Xếp khối lệnh đưa Thỏ Ngọc tới cà rốt và làm quen tư duy lập trình.", badge: "Lập trình", tone: "purple" }),
-    Object.freeze({ id: "circuitLab", icon: "💡", title: "Mạch điện vui", description: "Lắp mạch điện, bật sáng bóng đèn và khám phá vật dẫn điện - cách điện.", badge: "Khoa học", tone: "amber" }),
-    Object.freeze({ id: "homeSafety", icon: "🏠", title: "An toàn ở nhà", description: "Tìm mối nguy trong nhà, học sơ cứu và cách thoát hiểm khi có cháy.", badge: "Kỹ năng", tone: "rose" }),
-    Object.freeze({ id: "trafficSafety", icon: "🚦", title: "An toàn giao thông", description: "Khám phá biển báo, đèn tín hiệu và luyện cách tham gia giao thông an toàn.", badge: "Kỹ năng", tone: "green" }),
-    Object.freeze({ id: "emotions", icon: "💖", title: "Hiểu cảm xúc", description: "Nhận biết cảm xúc, tập bình tĩnh và ứng xử qua trò chơi tương tác.", badge: "Kỹ năng", tone: "rose" }),
-    Object.freeze({ id: "waterSafety", icon: "🛟", title: "An toàn dưới nước", description: "Nhận biết nguy hiểm, mặc áo phao và học cách giúp bạn an toàn.", badge: "Kỹ năng", tone: "blue" }),
-    Object.freeze({ id: "lostAndStrangers", icon: "🧭", title: "Khi bị lạc", description: "Tìm nơi an toàn, nhớ số người thân và xử lý khi gặp người lạ.", badge: "Kỹ năng", tone: "purple" }),
-    Object.freeze({ id: "smartMoney", icon: "💰", title: "Tiêu tiền thông minh", description: "Phân biệt cần - muốn, tập tiết kiệm và mua sắm có kế hoạch.", badge: "Kỹ năng", tone: "green" }),
-    Object.freeze({ id: "virtualPiano", icon: "🎹", title: "Đàn ảo - Bé học nốt nhạc", description: "Chơi đàn, học nốt nhạc, luyện nghe và gõ nhịp bằng tương tác trực tiếp.", badge: "Âm nhạc", tone: "pink" }),
-    Object.freeze({ id: "vnInstruments", icon: "🎶", title: "Nhạc cụ dân tộc", description: "Chơi thử đàn bầu, đàn tranh, sáo trúc, đàn t’rưng và trống.", badge: "Âm nhạc", tone: "pink" }),
-    Object.freeze({ id: "typingTenFingers", icon: "⌨️", title: "Luyện gõ 10 ngón", description: "Luyện đặt đúng ngón tay, tăng độ chính xác và tốc độ gõ bàn phím.", badge: "Tin học", tone: "blue" }),
-    Object.freeze({ id: "lineDiagram", icon: "📏", title: "Sơ đồ đoạn thẳng", description: "Vẽ sơ đồ và giải từng bước các dạng toán có lời văn.", badge: "Toán học", tone: "teal" })
+    Object.freeze({ id: "colorMixer", icon: "🎨", title: "Phối màu", description: "Phối màu theo hệ RGB và CMYK.", badge: "Công cụ", tone: "amber" })
   ]);
-  // Các thư mục chỉ phục vụ điều hướng Tools, không thay đổi vị trí file JS.
-  // Mỗi công cụ thuộc đúng một nhóm; có thể bổ sung tới tối đa 12 nhóm khi cần.
-  const TOOL_GROUPS = Object.freeze([
-    Object.freeze({ id: "math", icon: "🧮", title: "Toán", tone: "purple", ids: Object.freeze(["calculator", "converter", "geometryArea", "mathTables", "learningClock", "calendarRoman", "lineDiagram"]) }),
-    Object.freeze({ id: "earthSpace", icon: "🌍", title: "Trái Đất và thiên văn", tone: "blue", ids: Object.freeze(["solarSystem", "moon", "starrySky", "virtualTelescope", "earthMotion", "earthChanges"]) }),
-    Object.freeze({ id: "naturalScience", icon: "🔬", title: "Khoa học tự nhiên", tone: "teal", ids: Object.freeze(["waterCycle", "lifeCycle", "natureAround", "circuitLab"]) }),
-    Object.freeze({ id: "socialScience", icon: "🏛️", title: "Khoa học xã hội", tone: "green", ids: Object.freeze(["vietnamMap", "vnHistory"]) }),
-    Object.freeze({ id: "technology", icon: "💻", title: "Tin học và công nghệ", tone: "blue", ids: Object.freeze(["bunnyCoding", "typingTenFingers", "inventions"]) }),
-    Object.freeze({ id: "arts", icon: "🎨", title: "Nghệ thuật", tone: "pink", ids: Object.freeze(["colorMixer", "virtualPiano", "vnInstruments"]) }),
-    Object.freeze({ id: "lifeSkills", icon: "🤝", title: "Kỹ năng sống", tone: "amber", ids: Object.freeze(["trafficSafety", "homeSafety", "emotions", "waterSafety", "lostAndStrangers", "smartMoney"]) }),
-    Object.freeze({ id: "bodyNutrition", icon: "🫀", title: "Cơ thể và dinh dưỡng", tone: "pink", ids: Object.freeze(["humanBody", "fiveSenses", "nutrition"]) })
-  ]);
-
-  // 10 tông pastel cố định cho Tools: không trùng màu các card sát nhau.
-  // Palette áp dụng trên giao diện, không thay dữ liệu và JS từng công cụ.
-  const TOOL_CARD_TONES = Object.freeze(["purple", "teal", "coral", "green", "amber", "blue", "rose", "indigo", "lime", "pink"]);
-
-  function toolCardTone(index, offset = 0) {
-    return TOOL_CARD_TONES[(index + offset) % TOOL_CARD_TONES.length];
-  }
-
-
-  // Only Games/Tools/AI Lab cards: preserve the existing Lớp 2 subject cards and background.
-  function ensureClass2FeatureCardTypography_() {
-    if (document.getElementById("class2-feature-card-typography")) return;
-    const style = document.createElement("style");
-    style.id = "class2-feature-card-typography";
-    style.textContent = `
-      #content-stage .home-feature-card{
-        min-height:108px!important;padding:9px 12px!important;
-        transform:none!important;translate:none!important;scale:1!important;
-        transition:border-color .18s ease,box-shadow .18s ease,filter .18s ease!important;
-      }
-      #content-stage .home-feature-card .card-top{display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important}
-      #content-stage .home-feature-card .card-copy{flex:1 1 auto!important;min-width:0!important}
-      #content-stage .home-feature-card .card-icon{
-        display:inline-flex!important;align-items:center!important;justify-content:center!important;
-        width:60px!important;height:60px!important;min-width:60px!important;min-height:60px!important;flex:0 0 60px!important;
-        border:2px solid #d8b4fe!important;border-radius:17px!important;
-        background:linear-gradient(145deg,rgba(255,255,255,.90),#f5edff)!important;
-        font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif!important;
-        font-size:36px!important;line-height:1!important;font-weight:400!important;
-        filter:saturate(1.22) contrast(1.04)!important;
-        box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
-        transition:transform .18s ease,box-shadow .18s ease!important;
-      }
-      #content-stage .home-feature-card[data-tone="pink"] .card-icon,
-      #content-stage .home-feature-card[data-tone="rose"] .card-icon{border-color:#f9a8d4!important;background:linear-gradient(145deg,#fff,#ffe5f1)!important}
-      #content-stage .home-feature-card[data-tone="blue"] .card-icon,
-      #content-stage .home-feature-card[data-tone="indigo"] .card-icon{border-color:#a5b4fc!important;background:linear-gradient(145deg,#fff,#e0e7ff)!important}
-      #content-stage .home-feature-card[data-tone="green"] .card-icon,
-      #content-stage .home-feature-card[data-tone="teal"] .card-icon{border-color:#86efac!important;background:linear-gradient(145deg,#fff,#dcfce7)!important}
-      #content-stage .home-feature-card[data-tone="amber"] .card-icon,
-      #content-stage .home-feature-card[data-tone="coral"] .card-icon{border-color:#fcd34d!important;background:linear-gradient(145deg,#fff,#fef3c7)!important}
-      #content-stage .home-feature-card[data-tone="lime"] .card-icon{border-color:#bef264!important;background:linear-gradient(145deg,#fff,#ecfccb)!important}
-      #content-stage .home-feature-card .card-title{font-size:19.5px!important;line-height:1.23!important;font-weight:900!important;overflow-wrap:break-word}
-      #content-stage .home-feature-card .card-desc{font-size:15.5px!important;line-height:1.32!important;font-weight:750!important;margin-top:3px!important}
-      @media(hover:hover) and (pointer:fine){
-        #content-stage .home-feature-card:hover{transform:none!important;translate:none!important;scale:1!important;filter:brightness(1.035)!important;box-shadow:0 0 0 1px rgba(255,255,255,.8),0 0 17px rgba(168,85,247,.16),0 6px 16px rgba(109,40,217,.10)!important}
-        #content-stage .home-feature-card:hover .card-icon{transform:translateY(-2px) scale(1.05)!important;box-shadow:0 6px 14px rgba(109,40,217,.22)!important}
-      }
-      @media(max-width:767px){
-        #content-stage .home-feature-card{min-height:96px!important;padding:9px 10px!important}
-        #content-stage .home-feature-card .card-top{gap:10px!important}
-        #content-stage .home-feature-card .card-icon{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;flex-basis:52px!important;font-size:31px!important;border-radius:15px!important}
-        #content-stage .home-feature-card .card-title{font-size:18px!important}
-        #content-stage .home-feature-card .card-desc{font-size:14px!important}
-      }
-      @media(prefers-reduced-motion:reduce){#content-stage .home-feature-card .card-icon{transition:none!important}}
-    `;
-    document.head.appendChild(style);
-  }
-
-  function ensureToolsCardPaletteStyles() {
-    if (document.getElementById("class2-tools-card-palette")) return;
-    const style = document.createElement("style");
-    style.id = "class2-tools-card-palette";
-    // Bốn tông mới bổ sung vào sáu tông có sẵn của chương trình.
-    style.textContent = `
-      .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="coral"]{
-        background:linear-gradient(145deg,#fffcf9,#fff1e9);border-color:#fdba98;color:#9a3412;
-      }
-      .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="rose"]{
-        background:linear-gradient(145deg,#fffafc,#ffe9ef);border-color:#fda4af;color:#9f1239;
-      }
-      .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="indigo"]{
-        background:linear-gradient(145deg,#fdfdff,#eef2ff);border-color:#c7d2fe;color:#3730a3;
-      }
-      .card-grid.home-feature-grid .content-card.home-feature-card[data-tone="lime"]{
-        background:linear-gradient(145deg,#fdfff9,#f1f9db);border-color:#bef264;color:#3f6212;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  const AI_LAB_CATALOG = Object.freeze([
-    Object.freeze({ id: "aiSafety", icon: "🛡️", title: "AI là gì? Dùng AI an toàn", description: "Tìm hiểu AI ở quanh ta và luyện các nguyên tắc sử dụng AI an toàn, có trách nhiệm.", tone: "blue" }),
-    Object.freeze({ id: "teachAI", icon: "🤖", title: "Bé dạy AI nhận hình", description: "Tự tạo dữ liệu mẫu, huấn luyện và thử xem AI nhận ra hình mới như thế nào.", badge: "AI", tone: "blue" }),
-    Object.freeze({ id: "aiBias", icon: "⚖️", title: "AI có thiên vị không?", description: "Thay đổi dữ liệu huấn luyện và quan sát cách dữ liệu lệch có thể làm mô hình đưa ra kết quả lệch.", badge: "AI", tone: "pink" }),
-    Object.freeze({ id: "aiClustering", icon: "🍬", title: "Máy tự chia nhóm", description: "Rắc kẹo lên bàn và quan sát máy tự gom những viên giống nhau thành nhóm mà không cần ai dạy trước.", badge: "AI", tone: "purple" }),
-    Object.freeze({ id: "aiPrediction", icon: "🔮", title: "Máy dự đoán", description: "Cho máy xem dữ liệu, tìm quy luật và thử dự đoán điều chưa xảy ra từ những gì đã quan sát.", badge: "AI", tone: "blue" }),
-    Object.freeze({ id: "aiBunnyLearns", icon: "🐰", title: "Thỏ Ngọc tự học tìm đường", description: "Quan sát Thỏ Ngọc học bằng thử và sai, ghi nhớ phần thưởng và tự tìm đường tốt hơn.", badge: "AI", tone: "purple" }),
-    Object.freeze({ id: "aiNeuralMini", icon: "🧠", title: "Mạng nơ-ron mini", description: "Quan sát tín hiệu đi qua mạng nhỏ, thay đổi đầu vào và dạy mạng bằng từng ví dụ tương tác.", badge: "AI", tone: "amber" }),
-    Object.freeze({ id: "aiPixelVision", icon: "👁️", title: "AI nhìn bằng pixel", description: "Vẽ trên lưới pixel, thêm nhiễu và xem mô hình nhận dạng mẫu từ dữ liệu hình ảnh đơn giản.", badge: "AI", tone: "teal" }),
-    Object.freeze({ id: "aiSound", icon: "🎧", title: "AI nghe âm thanh", description: "Nghe âm tổng hợp, xem dạng sóng và khám phá cách đặc trưng âm thanh giúp máy phân loại tín hiệu.", badge: "AI", tone: "green" }),
-    Object.freeze({ id: "aiKindWords", icon: "💬", title: "Dạy AI hiểu lời nói tử tế", description: "Dạy máy phân biệt lời nói tử tế và lời nói làm bạn buồn từ các ví dụ.", badge: "AI", tone: "green" }),
-    Object.freeze({ id: "aiRecommender", icon: "🎯", title: "AI gợi ý cho bạn", description: "Chấm điểm sở thích rồi xem hệ gợi ý tìm nội dung phù hợp từ các tín hiệu bạn cung cấp.", badge: "AI", tone: "purple" }),
-    Object.freeze({ id: "aiPathfinding", icon: "🗺️", title: "AI chỉ đường", description: "Vẽ khu phố rồi so sánh cách máy tìm mò và tìm thông minh để chọn đường đi ngắn nhất.", badge: "AI", tone: "green" }),
-    Object.freeze({ id: "aiTicTacToe", icon: "⭕", title: "Cờ caro với AI", description: "Đấu cờ caro 3×3 và quan sát cách AI tính trước các nước đi để ra quyết định.", badge: "AI", tone: "teal" }),
-    Object.freeze({ id: "aiAnimalGuess", icon: "🐾", title: "Máy đoán con vật", description: "Nghĩ về một con vật, trả lời câu hỏi và dạy máy thêm kiến thức khi máy đoán sai.", badge: "AI", tone: "amber" }),
-    Object.freeze({ id: "aiMusicComposer", icon: "🎵", title: "AI sáng tác nhạc", description: "Cho máy học các giai điệu rồi quan sát cách AI tự tạo một bản nhạc mới.", badge: "AI", tone: "pink" }),
-    Object.freeze({ id: "aiAnomaly", icon: "🔍", title: "AI tìm điều bất thường", description: "Quan sát dữ liệu cảm biến và thử cách mô hình khoanh vùng những điểm khác xa phần lớn dữ liệu.", badge: "AI", tone: "blue" }),
-    Object.freeze({ id: "aiRealOrMachine", icon: "🕵️", title: "Thật hay do máy tạo?", description: "Làm thám tử phân biệt nội dung do người viết và do máy tạo, rồi học cách kiểm tra thông tin.", badge: "AI", tone: "amber" }),
-    // Giấy chứng nhận AI luôn là mục cuối. Khi thêm lab mới, đặt trước mục này.
-    Object.freeze({ id: "aiCertificate", icon: "🏅", title: "Giấy chứng nhận AI", description: "Hoàn thành hoạt động, vượt thử thách và tạo giấy chứng nhận Nhà khoa học AI nhí.", tone: "purple" })
-  ]);
-
-  const AI_LAB_GROUPS = Object.freeze([
-    Object.freeze({ id: "intro", icon: "🚪", title: "Nhập môn", tone: "blue", ids: Object.freeze(["aiSafety", "teachAI"]) }),
-    Object.freeze({ id: "learning", icon: "🧠", title: "Máy học thế nào", tone: "purple", ids: Object.freeze(["aiBias", "aiClustering", "aiPrediction", "aiBunnyLearns", "aiNeuralMini"]) }),
-    Object.freeze({ id: "perception", icon: "👁️", title: "Máy nhìn, nghe, hiểu", tone: "teal", ids: Object.freeze(["aiPixelVision", "aiSound", "aiKindWords"]) }),
-    Object.freeze({ id: "aroundUs", icon: "🎮", title: "AI quanh ta", tone: "green", ids: Object.freeze(["aiRecommender", "aiPathfinding", "aiTicTacToe", "aiAnimalGuess", "aiMusicComposer", "aiAnomaly"]) }),
-    Object.freeze({ id: "responsibility", icon: "🛡️", title: "AI và trách nhiệm", tone: "amber", ids: Object.freeze(["aiRealOrMachine", "aiCertificate"]) })
-  ]);
-
   const WORLD_EXPLORER_GROUP_ID = "worldExplorer";
   const WORLD_EXPLORER_ITEMS = Object.freeze([
     Object.freeze({ id: "spaceExplorer", icon: "🪐", title: "Khám phá vũ trụ", description: "Khám phá Hệ Mặt Trời, các hành tinh, vệ tinh và những điều kỳ thú ngoài không gian.", tone: "purple" }),
@@ -216,104 +48,53 @@
   ]);
 
   const GAME_CATALOG = Object.freeze([
+    Object.freeze({ id: "worldExplorer", icon: "🧭", title: "Khám phá thế giới xung quanh bé", description: "", badge: "Khám phá", tone: "teal" }),
     Object.freeze({ id: "paperFolding", icon: "🛩️", title: "Xưởng Gấp Giấy", description: "Gấp từng bước cùng Cô Thỏ Ngọc.", badge: "Thủ công", tone: "pink" }),
     Object.freeze({ id: "jigsawPuzzle", icon: "🧩", title: "Xưởng Xếp Hình", description: "Ghép tranh qua nhiều cấp độ.", badge: "Quan sát", tone: "purple" }),
-    Object.freeze({ id: "worldExplorer", icon: "🧭", title: "Bé khám phá", description: "", badge: "Khám phá", tone: "teal" }),
     Object.freeze({ id: "rabbitDrawing", icon: "🖍️", title: "Cô Thỏ Ngọc dạy vẽ", description: "Vẽ tranh đơn giản theo từng bước.", badge: "Mỹ thuật", tone: "teal" }),
     Object.freeze({ id: "animalWorld", icon: "🐾", title: "Thế giới động vật", description: "Khám phá thế giới động vật cùng Cô Thỏ Ngọc.", badge: "Khám phá", tone: "amber" }),
     Object.freeze({ id: "mcHost", icon: "🎤", title: "Tập làm MC", description: "Tập dẫn chương trình cùng Cô Thỏ Ngọc.", badge: "Kỹ năng", tone: "pink" }),
     Object.freeze({ id: "missingPiece", icon: "🔗", title: "Mảnh ghép còn thiếu", description: "Ghép các cặp liên tưởng qua nhiều cấp độ.", badge: "Tư duy", tone: "purple" }),
     Object.freeze({ id: "lifeCycle", icon: "🌱", title: "Vòng đời kỳ diệu", description: "Sắp xếp các giai đoạn vòng đời của sinh vật và thiên nhiên.", badge: "Khám phá", tone: "green" }),
-    Object.freeze({ id: "spotDifference", icon: "🔍", title: "Tìm điểm khác nhau", description: "Quan sát hai bức tranh và tìm những điểm khác biệt qua nhiều màn.", badge: "Quan sát", tone: "amber" }),
-    Object.freeze({ id: "tinyLab", icon: "🔬", title: "Phòng thí nghiệm tí hon", description: "Đoán trước kết quả, quan sát thí nghiệm và nghe Cô Thỏ giải thích.", badge: "Khoa học", tone: "blue" }),
-    Object.freeze({ id: "littleEngineer", icon: "🛠️", title: "Kỹ sư nhí", description: "Lắp ráp, chạy thử và sửa thiết kế qua các thử thách.", badge: "Kỹ thuật", tone: "purple" }),
-    Object.freeze({ id: "wasteSorting", icon: "♻️", title: "Phân loại rác", description: "Phân loại rác đúng thùng qua nhiều cấp độ.", badge: "Môi trường", tone: "green" })
+    Object.freeze({ id: "spotDifference", icon: "🔍", title: "Tìm điểm khác nhau", description: "Quan sát hai bức tranh và tìm những điểm khác biệt qua nhiều màn.", badge: "Quan sát", tone: "amber" })
   ]);
   const HOME_FEATURE_SCRIPTS = Object.freeze({
-    aiLab: Object.freeze({
-      teachAI: "assets/js/ai-lab/be-day-ai.js?v=class2-mascot-20261010",
-      aiKindWords: "assets/js/ai-lab/ai-loi-noi-tu-te.js?v=class2-mascot-20261010",
-      aiMusicComposer: "assets/js/ai-lab/ai-sang-tac-nhac.js?v=class2-mascot-20261010",
-      aiBunnyLearns: "assets/js/ai-lab/tho-hong-tu-hoc.js?v=class2-mascot-20261010",
-      aiAnimalGuess: "assets/js/ai-lab/may-doan-con-vat.js?v=class2-mascot-20261010",
-      aiTicTacToe: "assets/js/ai-lab/co-caro-ai.js?v=class2-mascot-20261010",
-      aiClustering: "assets/js/ai-lab/may-tu-chia-nhom.js?v=class2-mascot-20261010",
-      aiPrediction: "assets/js/ai-lab/may-du-doan.js?v=class2-mascot-20261010",
-      aiPathfinding: "assets/js/ai-lab/ai-chi-duong.js?v=class2-mascot-20261010",
-      aiRealOrMachine: "assets/js/ai-lab/that-hay-may-tao.js?v=class2-mascot-20261010",
-      aiBias: "assets/js/ai-lab/ai-thien-vi.js?v=class2-mascot-20261010",
-      aiRecommender: "assets/js/ai-lab/ai-goi-y.js?v=class2-mascot-20261010",
-      aiAnomaly: "assets/js/ai-lab/ai-tim-bat-thuong.js?v=class2-mascot-20261010",
-      aiPixelVision: "assets/js/ai-lab/ai-nhin-pixel.js?v=class2-mascot-20261010",
-      aiSound: "assets/js/ai-lab/ai-nghe-am-thanh.js?v=class2-mascot-20261010",
-      aiNeuralMini: "assets/js/ai-lab/mang-no-ron-mini.js?v=class2-mascot-20261010",
-      aiSafety: "assets/js/ai-lab/ai-an-toan.js?v=class2-mascot-20261010",
-      aiCertificate: "assets/js/ai-lab/giay-chung-nhan-ai.js?v=class2-mascot-20261010"
-    }),
     tools: Object.freeze({
-      calculator: "assets/js/tools/calculator.js?v=class2-mascot-20261010",
-      converter: "assets/js/tools/converter.js?v=class2-mascot-20261010",
-      geometryArea: "assets/js/tools/geometry_area.js?v=class2-mascot-20261010",
-      colorMixer: "assets/js/tools/color_mixer.js?v=class2-mascot-20261010",
-      calendarRoman: "assets/js/tools/lich-la-ma.js?v=class2-mascot-20261010",
-      mathTables: "assets/js/tools/bang-tinh.js?v=class2-mascot-20261010",
-      learningClock: "assets/js/tools/dong-ho.js?v=class2-mascot-20261010",
-      solarSystem: "assets/js/tools/he-mat-troi.js?v=class2-mascot-20261010",
-      moon: "assets/js/tools/mat-trang.js?v=class2-mascot-20261010",
-      starrySky: "assets/js/tools/bau-troi-sao.js?v=class2-mascot-20261010",
-      virtualTelescope: "assets/js/tools/kinh-thien-van.js?v=class2-mascot-20261010",
-      waterCycle: "assets/js/tools/vong-tuan-hoan-nuoc.js?v=class2-mascot-20261010",
-      lifeCycle: "assets/js/tools/vong-doi-sinh-vat.js?v=class2-mascot-20261010",
-      humanBody: "assets/js/tools/co-the-em.js?v=class2-mascot-20261010",
-      nutrition: "assets/js/tools/an-uong-lanh-manh.js?v=class2-mascot-20261010",
-      fiveSenses: "assets/js/tools/nam-giac-quan.js?v=class2-mascot-20261010",
-      natureAround: "assets/js/tools/thien-nhien-quanh-em.js?v=class2-mascot-20261010",
-      earthMotion: "assets/js/tools/trai-dat-chuyen-dong.js?v=class2-mascot-20261010",
-      earthChanges: "assets/js/tools/trai-dat-bien-doi.js?v=class2-mascot-20261010",
-      vnHistory: "assets/js/tools/lich-su-viet-nam.js?v=class2-mascot-20261010",
-      vietnamMap: "assets/js/tools/ban-do-viet-nam.js?v=class2-mascot-20261010",
-      inventions: "assets/js/tools/phat-minh.js?v=class2-mascot-20261010",
-      bunnyCoding: "assets/js/tools/lap-trinh-tho-hong.js?v=class2-mascot-20261010",
-      circuitLab: "assets/js/tools/mach-dien.js?v=class2-mascot-20261010",
-      homeSafety: "assets/js/tools/an-toan-o-nha.js?v=class2-mascot-20261010",
-      trafficSafety: "assets/js/tools/an-toan-giao-thong.js?v=class2-mascot-20261010",
-      emotions: "assets/js/tools/hieu-cam-xuc.js?v=class2-mascot-20261010",
-      waterSafety: "assets/js/tools/an-toan-duoi-nuoc.js?v=class2-mascot-20261010",
-      lostAndStrangers: "assets/js/tools/khi-bi-lac.js?v=class2-mascot-20261010",
-      smartMoney: "assets/js/tools/tieu-tien-thong-minh.js?v=class2-mascot-20261010",
-      virtualPiano: "assets/js/tools/dan-ao.js?v=class2-mascot-20261010",
-      vnInstruments: "assets/js/tools/nhac-cu-dan-toc.js?v=class2-mascot-20261010",
-      typingTenFingers: "assets/js/tools/luyen-go-10-ngon.js?v=class2-mascot-20261010",
-      lineDiagram: "assets/js/tools/so-do-doan-thang.js?v=class2-mascot-20261010"
+      calculator: "assets/js/tools/calculator.js?v=class2-calculator-2",
+      converter: "assets/js/tools/converter.js?v=class2-converter-1",
+      geometryArea: "assets/js/tools/geometry_area.js?v=class2-geometry-area-1",
+      colorMixer: "assets/js/tools/color_mixer.js?v=class2-color-mixer-1"
     }),
     games: Object.freeze({
-      paperFolding: "assets/js/games/paper_folding.js?v=class2-mascot-20261010",
-      jigsawPuzzle: "assets/js/games/jigsaw_puzzle.js?v=class2-mascot-20261010",
-      rabbitDrawing: "assets/js/games/rabbit_drawing.js?v=class2-mascot-20261010",
-      animalWorld: "assets/js/games/animal_world.js?v=class2-mascot-20261010",
-      mcHost: "assets/js/games/mc_host.js?v=class2-mascot-20261010",
-      missingPiece: "assets/js/games/missing_piece.js?v=class2-mascot-20261010",
-      spaceExplorer: "assets/js/games/explorer_space.js?v=class2-mascot-20261010",
-      lifeCycle: "assets/js/games/life_cycle.js?v=class2-mascot-20261010",
-      spotDifference: "assets/js/games/spot_difference.js?v=class2-mascot-20261010",
-      tinyLab: "assets/js/games/tiny_lab.js?v=class2-mascot-20261010",
-      littleEngineer: "assets/js/games/little_engineer.js?v=class2-mascot-20261010",
-      wasteSorting: "assets/js/games/waste_sorting.js?v=class2-mascot-20261010",
-      oceanExplorer: "assets/js/games/explorer_ocean.js?v=class2-mascot-20261010",
-      earthExplorer: "assets/js/games/explorer_earth.js?v=class2-mascot-20261010",
-      humanBodyExplorer: "assets/js/games/explorer_human_body.js?v=class2-mascot-20261010",
-      plantExplorer: "assets/js/games/explorer_plant.js?v=class2-mascot-20261010",
-      weatherExplorer: "assets/js/games/explorer_weather.js?v=class2-mascot-20261010",
-      dinosaurExplorer: "assets/js/games/explorer_dinosaur.js?v=class2-mascot-20261010",
-      insectExplorer: "assets/js/games/explorer_insect.js?v=class2-mascot-20261010",
-      vehicleExplorer: "assets/js/games/explorer_vehicle.js?v=class2-mascot-20261010"
+      paperFolding: "assets/js/games/paper_folding.js?v=class2-paper-folding-6",
+      jigsawPuzzle: "assets/js/games/jigsaw_puzzle.js?v=class2-jigsaw-puzzle-2",
+      rabbitDrawing: "assets/js/games/rabbit_drawing.js?v=class2-rabbit-drawing-2",
+      animalWorld: "assets/js/games/animal_world.js?v=class2-animal-world-1",
+      mcHost: "assets/js/games/mc_host.js?v=class2-mc-host-1",
+      missingPiece: "assets/js/games/missing_piece.js?v=class2-missing-piece-1",
+      spaceExplorer: "assets/js/games/space_explorer.js?v=class2-space-explorer-1",
+      lifeCycle: "assets/js/games/life_cycle.js?v=class2-life-cycle-1",
+      spotDifference: "assets/js/games/spot_difference.js?v=class2-spot-difference-1",
+      oceanExplorer: "assets/js/games/ocean_explorer.js?v=class2-ocean-explorer-1",
+      earthExplorer: "assets/js/games/earth_explorer.js?v=class2-earth-explorer-1",
+      humanBodyExplorer: "assets/js/games/human_body_explorer.js?v=class2-human-body-explorer-1",
+      plantExplorer: "assets/js/games/plant_explorer.js?v=class2-plant-explorer-1",
+      weatherExplorer: "assets/js/games/weather_explorer.js?v=class2-weather-explorer-1",
+      dinosaurExplorer: "assets/js/games/dinosaur_explorer.js?v=class2-dinosaur-explorer-1",
+      insectExplorer: "assets/js/games/insect_explorer.js?v=class2-insect-explorer-1",
+      vehicleExplorer: "assets/js/games/vehicle_explorer.js?v=class2-vehicle-explorer-1"
     })
   });
   const subjectModuleLoads = new Map();
   const homeFeatureLoads = new Map();
 
-  // Games, Tools và AI Lab cấp Home hiện đều PUBLIC; không áp dụng giới hạn VIP.
-  // Quyền Trial/VIP theo từng môn được xử lý độc lập tại phần môn học.
+  // Chính sách Free/Premium đặt ở cấu hình để sau này đổi số lượng mục Free
+  // mà không phải viết lại guard. Khám phá theo môn hiện vẫn Free toàn bộ.
+  const ACCESS_POLICY = Object.freeze({
+    gamesFreeCount: 2,
+    toolsFreeCount: 2,
+    subjectDiscoverFreeCount: null
+  });
   const adminRequestBusy = new Map();
 
   const state = {
@@ -323,7 +104,6 @@
     homeFeatureId: null,
     homeFeatureGroupId: null,
     homeFeatureBanner: null,
-    aiLabGroupFilter: "all",
     subjectId: null,
     subjectTab: "discover",
     profileSubjectId: null,
@@ -345,8 +125,7 @@
     },
     account: {
       view: "overview",
-      visibleNotices: [],
-      requestSubjectId: ""
+      visibleNotices: []
     },
     admin: {
       loading: false,
@@ -397,8 +176,6 @@
 
   let dialogPrimaryHandler = null;
   let dialogSecondaryHandler = null;
-  let dialogTertiaryHandler = null;
-  let dialogTertiaryButton = null;
   let toastTimer = 0;
 
   const class2GreetingAudio = new Audio();
@@ -498,21 +275,17 @@
   }
 
 
-  // All modules are served locally under the Class 2 origin and Class 2 registries.
-  function homeFeatureRegistry(kind, featureId) {
-    const registries = kind === "games"
-      ? [window.CLASS2_GAME_MODULES]
-      : kind === "aiLab"
-        ? [window.CLASS2_AI_LAB_MODULES, window.CLASS2_TOOL_MODULES]
-        : kind === "tools"
-          ? [window.CLASS2_TOOL_MODULES]
-          : [];
-    return registries.find((registry) => registry && registry[featureId]) || null;
+  // Tương thích tạm với Games/Tools local được kế thừa từ Lớp 1; ưu tiên namespace CLASS2.
+  // Khi các file Games/Tools được migrate riêng, có thể bỏ fallback CLASS1_* này.
+  function homeFeatureRegistry(kind) {
+    if (kind === "tools") return window.CLASS2_TOOL_MODULES || window.CLASS1_TOOL_MODULES || null;
+    if (kind === "games") return window.CLASS2_GAME_MODULES || window.CLASS1_GAME_MODULES || null;
+    return null;
   }
 
   function loadedHomeFeatureModule(kind, featureId) {
-    const registry = homeFeatureRegistry(kind, featureId);
-    return registry ? registry[featureId] : null;
+    const registry = homeFeatureRegistry(kind);
+    return registry && registry[featureId] ? registry[featureId] : null;
   }
 
   function homeFeatureScript(kind, featureId) {
@@ -610,6 +383,20 @@
       #sub-pill.home-sub-breadcrumbs .home-breadcrumb-level4{
         color:#b45309;border:1.5px solid #fde68a;background:rgba(255,255,255,.72);
       }
+      /* Breadcrumb for subject modules: independent chips, never one clipped string. */
+      #sub-pill.home-sub-breadcrumbs.subject-sub-breadcrumbs{
+        width:auto!important;max-width:calc(100% - 1rem)!important;
+        overflow-x:auto!important;overflow-y:hidden!important;
+      }
+      #sub-pill.home-sub-breadcrumbs.subject-sub-breadcrumbs .home-breadcrumb-tab{
+        max-width:none!important;overflow:visible!important;text-overflow:clip!important;
+        padding-inline:14px!important;font-size:15px!important;
+      }
+      @media(max-width:767px){
+        #sub-pill.home-sub-breadcrumbs.subject-sub-breadcrumbs .home-breadcrumb-tab{
+          padding-inline:10px!important;font-size:13px!important;
+        }
+      }
       @media(max-width:767px){
         #sub-pill.home-sub-breadcrumbs{max-width:calc(100% - .35rem)!important;gap:.22rem!important}
         #sub-pill.home-sub-breadcrumbs .home-breadcrumb-tab{height:32px;max-width:68vw;padding:0 11px;font-size:12px;border-radius:11px}
@@ -621,25 +408,12 @@
 
   function resetHomeFeatureBreadcrumbPill() {
     if (!el.subPill) return;
-    el.subPill.classList.remove("home-sub-breadcrumbs");
+    el.subPill.classList.remove("home-sub-breadcrumbs", "subject-sub-breadcrumbs");
     el.subPill.removeAttribute("aria-label");
     el.subPill.removeAttribute("title");
   }
 
-  function activeToolGroup() {
-    return TOOL_GROUPS.find((group) => group.id === state.homeFeatureGroupId) || null;
-  }
-
-  function backToToolGroup() {
-    destroyActiveHomeFeature();
-    state.homeFeatureId = null;
-    state.homeFeatureBanner = null;
-    render();
-    focusContent();
-  }
-
   function homeFeatureContext(kind, featureId) {
-    const toolGroup = kind === "tools" ? activeToolGroup() : null;
     const isWorldExplorerChild = kind === "games"
       && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
       && WORLD_EXPLORER_ITEMS.some((item) => item.id === featureId);
@@ -648,7 +422,7 @@
       destroyActiveHomeFeature();
       state.homeFeatureId = null;
       state.homeFeatureBanner = {
-        items: [{ level: 2, title: "3. Bé khám phá", action: null }]
+        items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
       };
       render();
       focusContent();
@@ -671,18 +445,8 @@
           level: Math.min(4, Math.max(4, Number(item.level || 4)))
         }));
         items = [
-          { level: 2, title: "3. Bé khám phá", action: backToWorldExplorerGroup },
-          ...(child ? [{ level: 3, title: `3.${childIndex + 1} ${child.title}`, action: null }] : []),
-          ...nestedItems
-        ];
-      } else if (toolGroup && toolGroup.ids.includes(featureId)) {
-        const feature = TOOL_CATALOG.find((item) => item.id === featureId) || null;
-        const groupIndex = TOOL_GROUPS.indexOf(toolGroup);
-        const toolIndex = toolGroup.ids.indexOf(featureId);
-        const nestedItems = items.slice(1).map((item) => ({ ...item, level: 4 }));
-        items = [
-          { level: 2, title: `${groupIndex + 1}. ${toolGroup.title}`, action: backToToolGroup },
-          { level: 3, title: `${toolIndex + 1}. ${feature ? feature.title : "Công cụ"}`, action: null },
+          { level: 2, title: "1. Khám phá thế giới xung quanh bé", action: backToWorldExplorerGroup },
+          ...(child ? [{ level: 3, title: `1.${childIndex + 1} ${child.title}`, action: null }] : []),
           ...nestedItems
         ];
       } else if (kind === "games" && items.length) {
@@ -694,7 +458,7 @@
       }
 
       if (!banner || (!items.length && !String(banner.title || "").trim())) {
-        state.homeFeatureBanner = toolGroup ? defaultHomeFeatureBanner(kind, featureId) : null;
+        state.homeFeatureBanner = null;
       } else {
         state.homeFeatureBanner = {
           icon: String(banner.icon || "").trim(),
@@ -709,20 +473,14 @@
       host: el.content,
       kind,
       featureId,
-      // Only the feelings tool needs an account-scoped key for its local diary.
-      // Never pass the session token to a lazily loaded public module.
-      diaryUserId: kind === "tools" && featureId === "emotions" && state.auth.token && state.auth.user
-        ? String(state.auth.user.userId || "") : "",
-      badgeUserId: kind === "tools" && featureId === "virtualTelescope" && state.auth.token && state.auth.user
-        ? String(state.auth.user.userId || "") : "",
       hooks: { showToast, showDialog, setSubBanner },
       back: () => {
         destroyActiveHomeFeature();
         state.homeFeatureId = null;
         state.homeFeatureBanner = isWorldExplorerChild
-          ? { items: [{ level: 2, title: "3. Bé khám phá", action: null }] }
+          ? { items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }] }
           : null;
-        if (!isWorldExplorerChild && !toolGroup) state.homeFeatureGroupId = null;
+        if (!isWorldExplorerChild) state.homeFeatureGroupId = null;
         render();
         focusContent();
       }
@@ -730,16 +488,6 @@
   }
 
   function defaultHomeFeatureBanner(kind, featureId) {
-    const toolGroup = kind === "tools" ? activeToolGroup() : null;
-    if (toolGroup && toolGroup.ids.includes(featureId)) {
-      const feature = TOOL_CATALOG.find((item) => item.id === featureId);
-      return {
-        items: [
-          { level: 2, title: `${TOOL_GROUPS.indexOf(toolGroup) + 1}. ${toolGroup.title}`, action: backToToolGroup },
-          { level: 3, title: `${toolGroup.ids.indexOf(featureId) + 1}. ${feature ? feature.title : "Công cụ"}`, action: null }
-        ]
-      };
-    }
     if (
       kind === "games"
       && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
@@ -751,23 +499,23 @@
         items: [
           {
             level: 2,
-            title: "3. Bé khám phá",
+            title: "1. Khám phá thế giới xung quanh bé",
             action: () => {
               destroyActiveHomeFeature();
               state.homeFeatureId = null;
               state.homeFeatureBanner = {
-                items: [{ level: 2, title: "3. Bé khám phá", action: null }]
+                items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
               };
               render();
               focusContent();
             }
           },
-          { level: 3, title: child ? `3.${childIndex + 1} ${child.title}` : "Khám phá", action: null }
+          { level: 3, title: child ? `1.${childIndex + 1} ${child.title}` : "Khám phá", action: null }
         ]
       };
     }
 
-    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : kind === "aiLab" ? AI_LAB_CATALOG : [];
+    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : [];
     const feature = catalog.find((item) => item.id === featureId) || null;
     if (!feature) return null;
     const index = Math.max(0, catalog.indexOf(feature));
@@ -884,11 +632,11 @@
         #class2-premium-learning-gate .premium-gate-title{margin:0;color:#6d28d9;font-size:21px;line-height:1.25;font-weight:950}
         #class2-premium-learning-gate .premium-gate-message{margin:10px auto 0;max-width:590px;color:#475467;font-size:16px;line-height:1.65;font-weight:500;white-space:pre-line}
         #class2-premium-learning-gate .premium-gate-actions{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:9px;padding:14px 16px 16px;border-top:1px solid #ede9fe;background:#fff}
-        #class2-premium-learning-gate .premium-gate-btn{min-height:46px;border-radius:14px;padding:8px 12px;font-size:16px;line-height:1.25;font-weight:950}
+        #class2-premium-learning-gate .premium-gate-btn{min-height:46px;border-radius:14px;padding:8px 12px;font-size:13px;line-height:1.25;font-weight:950}
         #class2-premium-learning-gate .premium-gate-vip{border:0;color:#fff;background:linear-gradient(90deg,#ec4899,#8b5cf6);box-shadow:0 6px 16px rgba(139,92,246,.2)}
         #class2-premium-learning-gate .premium-gate-contact{border:1px solid #67e8f9;color:#0369a1;background:linear-gradient(90deg,#eff6ff,#ecfdf5)}
         #class2-premium-learning-gate .premium-gate-later{border:1px solid #e2e8f0;color:#64748b;background:#f8fafc}
-        @media(max-width:680px){#class2-premium-learning-gate .premium-gate-actions{grid-template-columns:1fr}#class2-premium-learning-gate .premium-gate-card{width:min(94vw,430px)}#class2-premium-learning-gate .premium-gate-message{max-width:100%;font-size:16px}}
+        @media(max-width:680px){#class2-premium-learning-gate .premium-gate-actions{grid-template-columns:1fr}#class2-premium-learning-gate .premium-gate-card{width:min(94vw,430px)}#class2-premium-learning-gate .premium-gate-message{max-width:100%;font-size:14.5px}}
       `;
       document.head.appendChild(style);
     }
@@ -971,6 +719,18 @@
     return configurePremiumLearningGate_("premium");
   }
 
+  function hasSharedPremiumAccess() {
+    if (state.auth.user && state.auth.user.role === "admin") return true;
+    return SUBJECTS.some((subject) => hasPremiumAccess(subject.id));
+  }
+
+  function isFreeHomeFeature(kind, featureId) {
+    const catalog = kind === "games" ? GAME_CATALOG : kind === "tools" ? TOOL_CATALOG : [];
+    const freeCount = kind === "games" ? ACCESS_POLICY.gamesFreeCount : kind === "tools" ? ACCESS_POLICY.toolsFreeCount : 0;
+    const index = catalog.findIndex((item) => item.id === featureId);
+    return index >= 0 && index < freeCount;
+  }
+
   function subjectModuleContext() {
     const user = state.auth.user ? Object.freeze({
       userId: String(state.auth.user.userId || ""),
@@ -999,8 +759,23 @@
         return showPremiumLearningGate(featureName);
       },
       hooks: {
-        setDetail(title) {
-          state.detail = title ? { title: String(title), tabLabel: (SUBJECT_TABS.find((t) => t.id === state.subjectTab) || SUBJECT_TABS[0]).label } : null;
+        supportsStructuredDetail: true,
+        setDetail(detail) {
+          // Strings continue to work unchanged for existing subjects.
+          // Trusted module may also send a hierarchy of plain labels + back actions.
+          const rawItems = detail && typeof detail === "object" && Array.isArray(detail.items) ? detail.items : [];
+          const items = rawItems.slice(0, 4).map((item, index) => ({
+            title: String(item && item.title || "").trim(),
+            level: index + 2,
+            action: item && typeof item.action === "function" ? item.action : null
+          })).filter((item) => item.title);
+          const title = typeof detail === "string" ? detail :
+            (detail && typeof detail === "object" ? String(detail.title || "") : "");
+          state.detail = title || items.length ? {
+            title: title || items.map((item) => item.title).join(" › "),
+            tabLabel: (SUBJECT_TABS.find((t) => t.id === state.subjectTab) || SUBJECT_TABS[0]).label,
+            items
+          } : null;
           renderBanner();
         },
         clearDetail() {
@@ -1137,8 +912,6 @@
     updateAccountButton();
     if (state.auth.user.role === "admin") {
       window.setTimeout(() => refreshAdminPendingBadge(true), 0);
-    } else {
-      window.setTimeout(() => { if (state.auth.token && state.auth.user) refreshAccessState(false); }, 0);
     }
   }
 
@@ -1152,7 +925,7 @@
     state.auth.notices = [];
     state.auth.ready = true;
     state.profile = { subjectId: null, loading: false, data: null, failed: false };
-    state.account = { view: "overview", visibleNotices: [], requestSubjectId: "" };
+    state.account = { view: "overview", visibleNotices: [] };
     state.admin = {
       loading: false,
       loaded: false,
@@ -1234,7 +1007,6 @@
       return "Chưa đăng nhập được. Vui lòng kiểm tra ID, mật khẩu và thử lại.";
     }
     if (context === "register") {
-      if (code === "INVALID_REGISTRATION_REQUEST") return "Trang đăng ký cần được cập nhật. Vui lòng tải lại trang rồi thử lại.";
       if (code === "RATE_LIMITED") return "Bạn thao tác quá nhanh. Vui lòng thử đăng ký lại sau.";
       if (code === "INVALID_PASSWORD") return "Mật khẩu cần từ 6 đến 128 ký tự.";
       if (code === "INVALID_INPUT") return "Họ và tên chưa hợp lệ. Vui lòng kiểm tra lại.";
@@ -1337,7 +1109,7 @@
     if (state.screen === "home") destroyActiveHomeFeature();
     state.account.visibleNotices = [];
     state.screen = "home";
-    state.homeTab = HOME_TABS_WITH_AI.some((t) => t.id === tabId) ? tabId : "class2";
+    state.homeTab = HOME_TABS.some((t) => t.id === tabId) ? tabId : "class2";
     if (state.homeTab === "contact") state.contactTab = "intro";
     state.homeFeatureId = null;
     state.homeFeatureGroupId = null;
@@ -1463,13 +1235,13 @@
   }
 
   function homeTabsForCurrentUser() {
-    if (!state.auth.user || state.auth.user.role !== "admin") return HOME_TABS_WITH_AI;
-    const contactIndex = HOME_TABS_WITH_AI.findIndex((tab) => tab.id === "contact");
-    if (contactIndex < 0) return [...HOME_TABS_WITH_AI, ADMIN_HOME_TAB];
+    if (!state.auth.user || state.auth.user.role !== "admin") return HOME_TABS;
+    const contactIndex = HOME_TABS.findIndex((tab) => tab.id === "contact");
+    if (contactIndex < 0) return [...HOME_TABS, ADMIN_HOME_TAB];
     return [
-      ...HOME_TABS_WITH_AI.slice(0, contactIndex + 1),
+      ...HOME_TABS.slice(0, contactIndex + 1),
       ADMIN_HOME_TAB,
-      ...HOME_TABS_WITH_AI.slice(contactIndex + 1)
+      ...HOME_TABS.slice(contactIndex + 1)
     ];
   }
 
@@ -1503,13 +1275,6 @@
       const label = document.createElement("span");
       label.textContent = displayLabel;
       button.append(icon, label);
-      if (tab.badge) {
-        const badge = document.createElement("span");
-        badge.className = "nav-ai-badge";
-        badge.textContent = String(tab.badge);
-        badge.setAttribute("aria-label", `Nhãn ${tab.badge}`);
-        button.appendChild(badge);
-      }
 
       if (tab.id === "admin" && state.auth.user && state.auth.user.role === "admin" && Number(state.admin.pendingCount || 0) > 0) {
         const badge = document.createElement("span");
@@ -1545,7 +1310,7 @@
 
     const subjectDetailMode = state.screen === "subject" && !!state.detail;
     const homeFeatureMode = state.screen === "home"
-      && (state.homeTab === "games" || state.homeTab === "tools" || state.homeTab === "aiLab")
+      && (state.homeTab === "games" || state.homeTab === "tools")
       && (!!state.homeFeatureId || !!state.homeFeatureGroupId);
     const detailMode = subjectDetailMode || homeFeatureMode;
 
@@ -1554,13 +1319,47 @@
 
     if (!detailMode) return;
     if (subjectDetailMode) {
-      el.subPill.textContent = `🌸 ${state.detail.title}`;
+      const detail = state.detail;
+      if (Array.isArray(detail.items) && detail.items.length) {
+        el.subPill.classList.add("home-sub-breadcrumbs", "subject-sub-breadcrumbs");
+        el.subPill.setAttribute("aria-label", "Điều hướng chuyên mục học");
+        el.subPill.title = detail.items.map((item) => item.title).join(" › ");
+        el.subPill.replaceChildren();
+        detail.items.forEach((item, index) => {
+          if (index) {
+            const sep = document.createElement("span");
+            sep.className = "home-breadcrumb-sep";
+            sep.setAttribute("aria-hidden", "true");
+            sep.textContent = "›";
+            el.subPill.appendChild(sep);
+          }
+          const clickable = index < detail.items.length - 1 && typeof item.action === "function";
+          const node = document.createElement(clickable ? "button" : "span");
+          if (clickable) node.type = "button";
+          node.className = `home-breadcrumb-tab home-breadcrumb-level${Math.min(4, item.level || index + 2)}`;
+          node.textContent = item.title;
+          node.title = item.title;
+          if (clickable) {
+            node.setAttribute("aria-label", `Quay lại ${item.title}`);
+            node.addEventListener("click", () => {
+              if (state.screen !== "subject" || state.detail !== detail) return;
+              item.action();
+            });
+          } else if (index === detail.items.length - 1) {
+            node.setAttribute("aria-current", "page");
+          }
+          el.subPill.appendChild(node);
+        });
+        el.subPill.scrollLeft = Math.max(0, el.subPill.scrollWidth - el.subPill.clientWidth);
+        return;
+      }
+      el.subPill.textContent = `🌸 ${detail.title}`;
       return;
     }
 
-    const catalog = state.homeTab === "games" ? GAME_CATALOG : state.homeTab === "tools" ? TOOL_CATALOG : AI_LAB_CATALOG;
+    const catalog = state.homeTab === "games" ? GAME_CATALOG : TOOL_CATALOG;
     const feature = catalog.find((item) => item.id === state.homeFeatureId) || null;
-    const fallback = state.homeTab === "games" ? "Games" : state.homeTab === "tools" ? "Tools" : "AI Lab";
+    const fallback = state.homeTab === "games" ? "Games" : "Tools";
     const nested = state.homeFeatureBanner;
 
     if (nested && Array.isArray(nested.items) && nested.items.length) {
@@ -1595,25 +1394,13 @@
       return;
     }
 
-    if (state.homeTab === "tools" && !state.homeFeatureId && activeToolGroup()) {
-      const group = activeToolGroup();
-      el.subPill.classList.add("home-sub-breadcrumbs");
-      el.subPill.setAttribute("aria-label", "Điều hướng Tools");
-      const node = document.createElement("span");
-      node.className = "home-breadcrumb-tab home-breadcrumb-level2";
-      node.textContent = `${TOOL_GROUPS.indexOf(group) + 1}. ${group.title}`;
-      node.title = group.title;
-      el.subPill.replaceChildren(node);
-      return;
-    }
-
     if (state.homeTab === "games" && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID && !state.homeFeatureId) {
       el.subPill.classList.add("home-sub-breadcrumbs");
       el.subPill.setAttribute("aria-label", "Điều hướng Games");
       const node = document.createElement("span");
       node.className = "home-breadcrumb-tab home-breadcrumb-level2";
-      node.textContent = "3. Bé khám phá";
-      node.title = "Bé khám phá";
+      node.textContent = "1. Khám phá thế giới xung quanh bé";
+      node.title = "Khám phá thế giới xung quanh bé";
       el.subPill.replaceChildren(node);
       return;
     }
@@ -1630,13 +1417,12 @@
       return;
     }
 
-    const icon = nested && nested.icon ? nested.icon : (state.homeTab === "games" ? "🎮" : state.homeTab === "tools" ? "🧰" : "🤖");
+    const icon = nested && nested.icon ? nested.icon : (state.homeTab === "games" ? "🎮" : "🧰");
     const title = nested && nested.title ? nested.title : fallback;
     el.subPill.textContent = `${icon} ${title}`;
   }
 
   function renderContent() {
-    ensureClass2FeatureCardTypography_();
     if (state.screen === "home") return renderHomeContent();
     if (state.screen === "profile") return renderLearningProfile();
     if (state.screen === "account") return renderAccountPage();
@@ -1651,7 +1437,6 @@
       case "epsilon": renderEpsilonTab(); break;
       case "games": renderGamesTab(); break;
       case "tools": renderToolsTab(); break;
-      case "aiLab": renderAILabTab(); break;
       case "contact": renderContactTab(); break;
       case "class2":
       default: renderClass2Tab(); break;
@@ -1662,14 +1447,11 @@
     if (!el.homeVipNotice) return;
     const isTopLevelHome = state.screen === "home" && !state.homeFeatureId && !state.homeFeatureGroupId;
     const isAdmin = !!(state.auth.user && state.auth.user.role === "admin");
-    const vipCount = state.auth.user
-      ? SUBJECTS.reduce((count, subject) => count + (accessTypeFor(subject.id) === "vip" ? 1 : 0), 0)
-      : 0;
-    const hasAllThreeVip = vipCount >= SUBJECTS.length;
+    const hasVip = !!state.auth.user && SUBJECTS.some((subject) => accessTypeFor(subject.id) === "vip");
 
-    // Đây chỉ là thông báo tĩnh. Vẫn hiện nếu mới có VIP 1-2 môn hoặc đang Trial/Regular.
-    // Chỉ ẩn khi Admin hoặc đã có đủ VIP ở cả ba môn.
-    el.homeVipNotice.classList.toggle("hidden", !isTopLevelHome || isAdmin || hasAllThreeVip);
+    // Tab nhắc đăng ký chỉ dành cho Khách, Regular và Trial.
+    // Admin hoặc tài khoản đã có VIP thì ẩn vì không còn cần lời nhắc này.
+    el.homeVipNotice.classList.toggle("hidden", !isTopLevelHome || isAdmin || hasVip);
   }
 
   function onHomeVipNoticeClick() {
@@ -1691,7 +1473,7 @@
   function renderWorldExplorerGroup() {
     el.content.innerHTML = `
       <div class="section-heading">
-        <div><h1>🧭 Bé khám phá</h1></div>
+        <div><h1>🧭 Khám phá thế giới xung quanh bé</h1></div>
       </div>
       <style>
         .world-explorer-grid{
@@ -1714,7 +1496,7 @@
       </style>
       <div class="card-grid home-feature-grid world-explorer-grid">
         ${WORLD_EXPLORER_ITEMS.map((item, index) => `
-          <button class="content-card home-feature-card" data-tone="${escapeHtml(item.tone || "purple")}" data-world-explorer-child="${escapeHtml(item.id)}" type="button" aria-label="${escapeHtml(`${index + 1}. ${item.title}`)}">
+          <button class="content-card home-feature-card" data-tone="${escapeHtml(item.tone || "purple")}" data-world-explorer-child="${escapeHtml(item.id)}" type="button">
             <div class="card-top">
               <span class="card-icon" aria-hidden="true">${item.icon}</span>
               <div class="card-copy">
@@ -1737,61 +1519,7 @@
     });
   }
 
-  function renderToolsFolders() {
-    const counts = new Map(TOOL_CATALOG.map((tool) => [tool.id, tool]));
-    el.content.innerHTML = `
-      <div class="section-heading">
-        <div><h1>🧰 Tools</h1><p>Chọn chủ đề để khám phá các công cụ học tập.</p></div>
-      </div>
-      <style>
-        .tools-folder-grid{width:100%;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch}
-        .tools-folder-grid .tools-folder-card{width:100%!important;max-width:none!important;min-width:0}
-        .tools-folder-card .card-title{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-        .tools-folder-card .card-desc{font-weight:800!important}
-        @media(max-width:900px){.tools-folder-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-        @media(max-width:560px){.tools-folder-grid{grid-template-columns:1fr!important}}
-      </style>
-      <div class="card-grid home-feature-grid tools-folder-grid" aria-label="8 thư mục chủ đề Tools">
-        ${TOOL_GROUPS.map((group, index) => {
-          const count = group.ids.filter((id) => counts.has(id)).length;
-          return `
-            <button class="content-card home-feature-card tools-folder-card" type="button" data-tone="${toolCardTone(index)}" data-tool-group="${escapeHtml(group.id)}" aria-label="Mở ${escapeHtml(group.title)}, ${count} công cụ">
-              <div class="card-top">
-                <span class="card-icon" aria-hidden="true">${group.icon}</span>
-                <div class="card-copy">
-                  <h2 class="card-title">${index + 1}. ${escapeHtml(group.title)}</h2>
-                  <p class="card-desc">${count} công cụ</p>
-                </div>
-              </div>
-            </button>`;
-        }).join("")}
-      </div>`;
-
-    el.content.querySelectorAll("[data-tool-group]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const groupId = String(button.dataset.toolGroup || "");
-        if (!TOOL_GROUPS.some((group) => group.id === groupId)) return;
-        state.homeFeatureGroupId = groupId;
-        state.homeFeatureId = null;
-        state.homeFeatureBanner = null;
-        render();
-        focusContent();
-      });
-    });
-  }
-
   function renderHomeFeatureCatalog(kind, icon, title, description, catalog) {
-    if (kind === "tools" && !state.homeFeatureId) {
-      const group = activeToolGroup();
-      if (!group) {
-        renderToolsFolders();
-        return;
-      }
-      catalog = group.ids.map((id) => TOOL_CATALOG.find((item) => item.id === id)).filter(Boolean);
-      icon = group.icon;
-      title = group.title;
-      description = `${catalog.length} công cụ trong chủ đề này.`;
-    }
     if (
       kind === "games"
       && state.homeFeatureGroupId === WORLD_EXPLORER_GROUP_ID
@@ -1813,9 +1541,8 @@
       return;
     }
 
-    const useFullWidthCatalogGrid = kind === "games" || kind === "tools" || kind === "aiLab";
-    const catalogGridClass = useFullWidthCatalogGrid ? " games-catalog-grid" : "";
-    const catalogGridStyle = useFullWidthCatalogGrid ? `
+    const catalogGridClass = kind === "games" ? " games-catalog-grid" : "";
+    const catalogGridStyle = kind === "games" ? `
       <style>
         .games-catalog-grid{
           width:100%;
@@ -1823,261 +1550,51 @@
           justify-content:stretch!important;
           align-items:stretch;
         }
-        .games-catalog-grid .home-feature-card{
-          width:100%!important;
-          max-width:none!important;
-          min-width:0;
-        }
-        .home-feature-title-row{
-          display:flex;
-          align-items:center;
-          gap:8px;
-          min-width:0;
-        }
-        .home-feature-title-row .card-title{
-          min-width:0;
-        }
-        .home-feature-card .card-desc{
-          font-weight:750!important;
-        }
-        .home-feature-ai-badge{
-          display:inline-flex;
-          align-items:center;
-          justify-content:center;
-          flex:0 0 auto;
-          min-height:24px;
-          padding:2px 9px;
-          border:1px solid #bfdbfe;
-          border-radius:999px;
-          background:linear-gradient(90deg,#ec4899 0%,#8b5cf6 55%,#3b82f6 100%);
-          color:#fff;
-          font-size:12px;
-          line-height:1;
-          font-weight:900;
-          box-shadow:0 3px 9px rgba(99,102,241,.18);
-          white-space:nowrap;
-        }
-        .home-feature-access-note{
-          margin:5px 0 0!important;
-          color:#7c3aed!important;
-          font-size:15px!important;
-          line-height:1.35;
-          font-weight:900!important;
-        }
-        .ai-lab-filters{
-          display:flex;
-          flex-wrap:wrap;
-          align-items:center;
-          gap:8px;
-          width:100%;
-          margin:0 0 14px;
-        }
-        .ai-lab-filter-btn{
-          display:inline-flex;
-          align-items:center;
-          justify-content:center;
-          min-height:38px;
-          padding:7px 14px;
-          border:1px solid #ddd6fe;
-          border-radius:999px;
-          background:#fff;
-          color:#6b21a8;
-          box-shadow:0 2px 6px rgba(76,29,149,.04);
-          font:inherit;
-          font-size:14px;
-          line-height:1.2;
-          font-weight:850;
-          white-space:nowrap;
-          cursor:pointer;
-          transition:background .18s,border-color .18s,box-shadow .18s,color .18s;
-        }
-        .ai-lab-filter-btn:hover{
-          border-color:#c084fc;
-          background:#faf5ff;
-        }
-        .ai-lab-filter-btn:focus-visible{
-          outline:3px solid #93c5fd;
-          outline-offset:2px;
-        }
-        .ai-lab-filter-btn.is-active{
-          border-color:#a855f7;
-          background:linear-gradient(90deg,#ec4899,#a855f7);
-          box-shadow:0 4px 10px rgba(168,85,247,.19);
-          color:#fff;
-        }
-        .ai-lab-filter-btn.is-active:hover{
-          background:linear-gradient(90deg,#db2777,#9333ea);
-        }
-        .ai-lab-group[hidden]{display:none!important;}
-        .ai-lab-groups{
-          display:grid;
-          gap:18px;
-          width:100%;
-        }
-        .ai-lab-group{
-          display:grid;
-          gap:8px;
-          min-width:0;
-        }
-        .ai-lab-group-head{
-          min-height:42px;
-          padding:7px 12px;
-          border:1px solid #e9d5ff;
-          border-radius:14px;
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          gap:10px;
-          background:#faf5ff;
-          color:#6d28d9;
-          box-shadow:0 3px 9px rgba(76,29,149,.05);
-        }
-        .ai-lab-group-head h2{
-          margin:0;
-          font-size:18px;
-          line-height:1.2;
-          font-weight:950;
-          color:currentColor;
-        }
-        .ai-lab-group-head span{
-          flex:0 0 auto;
-          min-height:25px;
-          padding:3px 9px;
-          border-radius:999px;
-          background:rgba(255,255,255,.82);
-          color:currentColor;
-          font-size:13px;
-          line-height:1;
-          font-weight:900;
-          display:inline-flex;
-          align-items:center;
-          justify-content:center;
-        }
-        .ai-lab-group[data-group-tone="blue"] .ai-lab-group-head{background:#eff8ff;border-color:#bae6fd;color:#0369a1;}
-        .ai-lab-group[data-group-tone="purple"] .ai-lab-group-head{background:#faf5ff;border-color:#d8b4fe;color:#6d28d9;}
-        .ai-lab-group[data-group-tone="teal"] .ai-lab-group-head{background:#f0fdfa;border-color:#99f6e4;color:#0f766e;}
-        .ai-lab-group[data-group-tone="green"] .ai-lab-group-head{background:#ecfdf5;border-color:#a7f3d0;color:#047857;}
-        .ai-lab-group[data-group-tone="amber"] .ai-lab-group-head{background:#fffbeb;border-color:#fde68a;color:#a16207;}
-        .ai-lab-group-grid{
-          margin:0;
-        }
-        @media (max-width:900px){
-          .games-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-        }
-        @media (max-width:560px){
-          .ai-lab-filters{
-            flex-wrap:nowrap;
-            overflow-x:auto;
-            padding:3px 1px 8px;
-            margin-bottom:10px;
-            scrollbar-width:thin;
-            -webkit-overflow-scrolling:touch;
-          }
-          .ai-lab-filter-btn{flex:0 0 auto;min-height:40px;}
-          .ai-lab-groups{gap:14px;}
-          .ai-lab-group-head{min-height:38px;padding:6px 10px;border-radius:12px;}
-          .ai-lab-group-head h2{font-size:16px;}
-          .ai-lab-group-head span{font-size:12px;min-height:23px;padding:2px 8px;}
-        }
-        @media (max-width:560px){
-          .games-catalog-grid{grid-template-columns:1fr!important;}
-        }
+        .games-catalog-grid .home-feature-card{width:100%!important;max-width:none!important;min-width:0;}
+        @media (max-width:900px){.games-catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}}
+        @media (max-width:560px){.games-catalog-grid{grid-template-columns:1fr!important;}}
       </style>` : "";
-
-    const catalogIndex = new Map(catalog.map((item, index) => [item.id, { item, index }]));
-    const activeAILabGroup = AI_LAB_GROUPS.some((group) => group.id === state.aiLabGroupFilter)
-      ? state.aiLabGroupFilter : "all";
-    const aiLabFilterHtml = kind === "aiLab" ? `
-      <nav class="ai-lab-filters" aria-label="Chọn chủ đề AI Lab">
-        ${[{ id: "all", title: "Tất cả" }, ...AI_LAB_GROUPS].map((group) => `
-          <button type="button" class="ai-lab-filter-btn${activeAILabGroup === group.id ? " is-active" : ""}"
-            data-ai-lab-filter="${escapeHtml(group.id)}"
-            aria-pressed="${activeAILabGroup === group.id ? "true" : "false"}">${escapeHtml(group.title)}</button>`).join("")}
-      </nav>` : "";
-    const toolToneOffset = kind === "tools" ? Math.max(0, TOOL_GROUPS.findIndex((group) => group.id === state.homeFeatureGroupId)) : 0;
-    const featureCardHtml = (item, index) => {
-      return `
-      <button class="content-card home-feature-card" aria-label="${escapeHtml(`${index + 1}. ${item.title}`)}" data-tone="${escapeHtml(kind === "tools" ? toolCardTone(index, toolToneOffset) : (item.tone || "purple"))}" data-home-feature="${escapeHtml(item.id)}" type="button">
-        <div class="card-top">
-          <span class="card-icon" aria-hidden="true">${item.icon}</span>
-          <div class="card-copy">
-            <div class="home-feature-title-row">
-              <h2 class="card-title">${index + 1}. ${escapeHtml(item.title)}</h2>
-              ${kind === "aiLab" && item.badge ? `<span class="home-feature-ai-badge">✨ ${escapeHtml(item.badge)}</span>` : ""}
-            </div>
-            ${item.description ? `<p class="card-desc">${escapeHtml(item.description)}</p>` : ""}
-          </div>
-        </div>
-      </button>`;
-    };
-
-    const catalogMarkup = kind === "aiLab"
-      ? `${aiLabFilterHtml}<div class="ai-lab-groups">
-          ${AI_LAB_GROUPS.map((group) => {
-            const groupItems = group.ids.map((id) => catalogIndex.get(id)).filter(Boolean);
-            return `
-              <section class="ai-lab-group" data-ai-lab-group="${escapeHtml(group.id)}" data-group-tone="${escapeHtml(group.tone)}" aria-labelledby="ai-lab-group-${escapeHtml(group.id)}"${activeAILabGroup !== "all" && activeAILabGroup !== group.id ? " hidden" : ""}>
-                <div class="ai-lab-group-head">
-                  <h2 id="ai-lab-group-${escapeHtml(group.id)}">${group.icon} ${escapeHtml(group.title)}</h2>
-                  <span>${groupItems.length} ${groupItems.length === 1 ? "lab" : "lab"}</span>
-                </div>
-                <div class="card-grid home-feature-grid games-catalog-grid ai-lab-group-grid">
-                  ${groupItems.map(({ item, index }) => featureCardHtml(item, index)).join("")}
-                </div>
-              </section>`;
-          }).join("")}
-        </div>`
-      : `<div class="card-grid home-feature-grid${catalogGridClass}">
-          ${catalog.map((item, index) => featureCardHtml(item, index)).join("")}
-        </div>`;
 
     el.content.innerHTML = `
       <div class="section-heading">
-        <div>
-          <h1>${icon} ${escapeHtml(title)}</h1>
-          <p>${escapeHtml(description)}</p>
-        </div>
-        ${kind === "tools" ? '<button type="button" id="tools-folder-back" class="back-btn">← Tools</button>' : ""}
+        <div><h1>${icon} ${escapeHtml(title)}</h1><p>${escapeHtml(description)}</p></div>
       </div>
       ${catalogGridStyle}
-      ${catalogMarkup}`;
-
-    document.getElementById("tools-folder-back")?.addEventListener("click", () => {
-      state.homeFeatureGroupId = null;
-      state.homeFeatureBanner = null;
-      render();
-      focusContent();
-    });
-
-    if (kind === "aiLab") {
-      const filterButtons = [...el.content.querySelectorAll("[data-ai-lab-filter]")];
-      const groups = [...el.content.querySelectorAll("[data-ai-lab-group]")];
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const groupId = button.dataset.aiLabFilter;
-          if (groupId !== "all" && !AI_LAB_GROUPS.some((group) => group.id === groupId)) return;
-          state.aiLabGroupFilter = groupId;
-          filterButtons.forEach((filterButton) => {
-            const selected = filterButton.dataset.aiLabFilter === groupId;
-            filterButton.classList.toggle("is-active", selected);
-            filterButton.setAttribute("aria-pressed", String(selected));
-          });
-          groups.forEach((group) => {
-            group.hidden = groupId !== "all" && group.dataset.aiLabGroup !== groupId;
-          });
-        });
-      });
-    }
+      <div class="card-grid home-feature-grid${catalogGridClass}">
+        ${catalog.map((item, index) => {
+          const locked = !isFreeHomeFeature(kind, item.id) && !hasSharedPremiumAccess();
+          return `
+          <button class="content-card home-feature-card${locked ? " is-premium-locked" : ""}" data-tone="${escapeHtml(item.tone || "purple")}" data-home-feature="${escapeHtml(item.id)}" type="button" aria-label="${escapeHtml(`${index + 1}. ${item.title}${locked ? ", nội dung Trial hoặc VIP" : ""}`)}">
+            <div class="card-top">
+              <span class="card-icon" aria-hidden="true">${item.icon}</span>
+              <div class="card-copy">
+                <h2 class="card-title">${index + 1}. ${escapeHtml(item.title)}${locked ? ` <span aria-hidden="true">🔒</span>` : ""}</h2>
+                ${item.description ? `<p class="card-desc">${escapeHtml(item.description)}</p>` : ""}
+              </div>
+            </div>
+          </button>`;
+        }).join("")}
+      </div>`;
 
     el.content.querySelectorAll("[data-home-feature]").forEach((button) => {
       button.addEventListener("click", () => {
         const featureId = String(button.dataset.homeFeature || "");
         if (!featureId) return;
+
+        if (!isFreeHomeFeature(kind, featureId) && !hasSharedPremiumAccess()) {
+          if (!state.auth.ready) {
+            showToast("Đang kiểm tra phiên đăng nhập…");
+            return;
+          }
+          showPremiumLearningGate(featureId);
+          return;
+        }
+
         if (kind === "games" && featureId === WORLD_EXPLORER_GROUP_ID) {
           state.homeFeatureGroupId = WORLD_EXPLORER_GROUP_ID;
           state.homeFeatureId = null;
           state.homeFeatureBanner = {
-            items: [{ level: 2, title: "3. Bé khám phá", action: null }]
+            items: [{ level: 2, title: "1. Khám phá thế giới xung quanh bé", action: null }]
           };
           render();
           focusContent();
@@ -2085,7 +1602,7 @@
         }
 
         if (!homeFeatureScript(kind, featureId)) return;
-        if (kind !== "tools") state.homeFeatureGroupId = null;
+        state.homeFeatureGroupId = null;
         state.homeFeatureId = featureId;
         state.homeFeatureBanner = null;
         render();
@@ -2095,12 +1612,7 @@
   }
 
   function renderToolsTab() {
-    ensureToolsCardPaletteStyles();
     renderHomeFeatureCatalog("tools", "🧰", "Tools", "Các công cụ tiện ích của Epsilon Edu.", TOOL_CATALOG);
-  }
-
-  function renderAILabTab() {
-    renderHomeFeatureCatalog("aiLab", "🤖", "AI Lab", "Khám phá AI bằng trải nghiệm: tự tạo dữ liệu, huấn luyện, thử nghiệm và quan sát cách AI học.", AI_LAB_CATALOG);
   }
 
   function renderGamesTab() {
@@ -2116,28 +1628,18 @@
   }
 
   function renderClass2Tab() {
-    const pendingApiIds = new Set();
-    (state.auth.requests || []).forEach((request) => (request.subjectIds || []).forEach((id) => pendingApiIds.add(String(id))));
-
-    const cards = SUBJECTS.map((subject) => {
-      const accessType = accessTypeFor(subject.id);
-      const accessLabel = accessBadge(subject.id);
-      const isAdmin = !!(state.auth.user && state.auth.user.role === "admin");
-      const isVip = accessType === "vip";
-      const hasPendingVip = pendingApiIds.has(subject.apiId);
-      const showVipRequest = !isAdmin && !isVip;
-      const badgeTone = accessType === "vip" ? "vip" : accessType === "trial" ? "trial" : accessType === "admin" ? "admin" : "regular";
-
-      return `
+    const cards = SUBJECTS.map((subject) => `
       <div class="subject-column">
-        <button class="content-card subject-card class2-subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
-          <span class="subject-access-badge ${badgeTone}">${escapeHtml(accessLabel)}</span>
+        <button class="content-card subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
           <div class="card-top">
             <span class="card-icon" aria-hidden="true">${subject.icon}</span>
             <div class="card-copy">
               <h2 class="card-title">${escapeHtml(subject.fullLabel)}</h2>
               <p class="card-desc">${escapeHtml(subject.description)}</p>
             </div>
+          </div>
+          <div class="card-foot">
+            <span class="badge">${escapeHtml(accessBadge(subject.id))}</span>
           </div>
         </button>
 
@@ -2148,37 +1650,10 @@
             <span class="subject-profile-note">${state.auth.user ? "Xem tiến trình của bé" : "Đăng nhập để xem"}</span>
           </span>
         </button>
-
-        ${showVipRequest ? `<button class="subject-vip-request-button${hasPendingVip ? " has-pending" : ""}" data-vip-subject="${subject.id}" type="button">${hasPendingVip ? "Đang chờ duyệt VIP" : "Đăng ký quyền học VIP"}</button>` : ""}
-      </div>`;
-    }).join("");
+      </div>
+    `).join("");
 
     el.content.innerHTML = `
-      <style>
-        .class2-subject-card{position:relative;min-height:128px!important;padding:.95rem 1rem!important;}
-        .class2-subject-card .card-top{padding-right:84px;}
-        .subject-access-badge{
-          position:absolute;top:11px;right:11px;z-index:2;min-height:28px;padding:3px 10px;border:1px solid;border-radius:999px;
-          display:inline-flex;align-items:center;justify-content:center;background:#fff;font-size:15px;line-height:1;font-weight:950;white-space:nowrap;
-          box-shadow:0 3px 8px rgba(76,29,149,.07);
-        }
-        .subject-access-badge.vip{color:#6d28d9;border-color:#c4b5fd;background:#f5f3ff;}
-        .subject-access-badge.trial{color:#0369a1;border-color:#7dd3fc;background:#eff8ff;}
-        .subject-access-badge.regular{color:#047857;border-color:#86efac;background:#f0fdf4;}
-        .subject-access-badge.admin{color:#be185d;border-color:#f9a8d4;background:#fff1f7;}
-        .subject-vip-request-button{
-          width:100%;min-height:42px;border:0;border-radius:14px;padding:.55rem .75rem;color:#fff;
-          background:linear-gradient(90deg,#ec4899,#a855f7,#7c3aed);font-size:16px;font-weight:950;line-height:1.2;
-          box-shadow:0 5px 13px rgba(139,92,246,.16);
-        }
-        .subject-vip-request-button.has-pending{background:linear-gradient(90deg,#94a3b8,#64748b);}
-        @media(max-width:767px){
-          .class2-subject-card{min-height:118px!important;padding:.82rem .85rem!important;}
-          .class2-subject-card .card-top{padding-right:72px;}
-          .subject-access-badge{top:9px;right:9px;min-height:26px;padding:3px 8px;font-size:14px;}
-          .subject-vip-request-button{min-height:40px;font-size:15px;}
-        }
-      </style>
       <div class="section-heading">
         <div>
           <h1>🌟 Lớp 2</h1>
@@ -2193,21 +1668,6 @@
     });
     el.content.querySelectorAll("[data-profile-subject]").forEach((card) => {
       card.addEventListener("click", () => openLearningProfile(card.dataset.profileSubject));
-    });
-    el.content.querySelectorAll("[data-vip-subject]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const subjectId = String(button.dataset.vipSubject || "");
-        if (!subjectId) return;
-        if (!state.auth.ready) {
-          showToast("Đang kiểm tra phiên đăng nhập…");
-          return;
-        }
-        if (!state.auth.user) {
-          openAuth("register");
-          return;
-        }
-        openAccountPage("request", subjectId);
-      });
     });
   }
 
@@ -2322,7 +1782,7 @@
           <div class="contact-hero-icon" aria-hidden="true">🐰</div>
           <div class="contact-hero-copy">
             <h2>Epsilon Edu - Tiến bộ từng ngày</h2>
-            <p>Epsilon Edu là không gian học tập và trải nghiệm dành cho học sinh. Ở Lớp 2, Cô Thỏ Ngọc đồng hành cùng bé trong Toán, Tiếng Việt và Tiếng Anh; bên cạnh đó còn có Games, Tools, AI Lab và hệ sinh thái các lớp học được liên kết trong Epsilon Edu.</p>
+            <p>Epsilon Edu là không gian học tập và trải nghiệm dành cho học sinh. Ở Lớp 2, Cô Thỏ Ngọc đồng hành cùng bé trong Toán, Tiếng Việt và Tiếng Anh; bên cạnh đó còn có Games, Tools và hệ sinh thái các lớp học được liên kết trong Epsilon Edu.</p>
           </div>
         </div>
 
@@ -2344,7 +1804,7 @@
         <div class="contact-experience-head">
           <div>
             <h3>🎈 Hoạt động trải nghiệm nổi bật</h3>
-            <p>Games, Tools và AI Lab không chỉ là phần phụ, mà là không gian để bé chơi, khám phá, tương tác và vận dụng điều đã học theo cách tự nhiên.</p>
+            <p>Games và Tools không chỉ là phần phụ, mà là không gian để bé chơi, khám phá, tương tác và vận dụng điều đã học theo cách tự nhiên.</p>
           </div>
         </div>
 
@@ -2357,11 +1817,6 @@
           <button class="contact-experience-card tools" type="button" data-intro-home-tab="tools" aria-label="Khám phá Tools">
             <span class="contact-experience-icon" aria-hidden="true">🧰</span>
             <span class="contact-experience-copy"><strong>Tools - Công cụ khám phá</strong><span>Các công cụ trực quan giúp bé thử nghiệm, đo lường, tính toán và khám phá những ý tưởng học tập theo cách thực hành, nhanh và thú vị.</span></span>
-            <span class="contact-experience-go" aria-hidden="true">→</span>
-          </button>
-          <button class="contact-experience-card ai-lab" type="button" data-intro-home-tab="aiLab" aria-label="Khám phá AI Lab">
-            <span class="contact-experience-icon" aria-hidden="true">🤖</span>
-            <span class="contact-experience-copy"><strong>AI Lab - Khám phá AI</strong><span>Bé tìm hiểu AI hoạt động ra sao qua các thí nghiệm tương tác: dạy máy nhận hình, quan sát cách máy học và sử dụng AI an toàn.</span></span>
             <span class="contact-experience-go" aria-hidden="true">→</span>
           </button>
         </div>
@@ -2382,7 +1837,7 @@
           <div class="contact-vip-hero-copy">
             <span class="contact-vip-kicker">EPSILON EDU VIP</span>
             <h2>Quyền học VIP - Mở trọn trải nghiệm học tập</h2>
-            <p>Dành cho gia đình muốn bé học đầy đủ nội dung VIP của các môn đã đăng ký và luyện tập nhiều hơn. Games, Tools và AI Lab hiện đang mở miễn phí cho tất cả mọi người.</p>
+            <p>Dành cho gia đình muốn bé học đầy đủ nội dung, luyện tập nhiều hơn và sử dụng trọn vẹn các hoạt động trải nghiệm của Epsilon Edu.</p>
           </div>
         </div>
 
@@ -2397,7 +1852,7 @@
           </div>
           <div class="contact-vip-benefit tone-green">
             <span class="contact-vip-benefit-icon" aria-hidden="true">🎮</span>
-            <div><strong>Games, Tools &amp; AI Lab - hiện đang miễn phí</strong><span>Toàn bộ trò chơi, công cụ và hoạt động AI Lab hiện mở cho tất cả mọi người, kể cả khách chưa đăng ký tài khoản. Chưa áp dụng giới hạn VIP ở ba module này.</span></div>
+            <div><strong>Games &amp; Tools - trải nghiệm đầy đủ hơn</strong><span>Tài khoản thường được mở 2 mục đầu tiên của Games và 2 mục đầu tiên của Tools; từ mục thứ 3 là nội dung Premium. VIP/Trial hợp lệ được mở đầy đủ theo chính sách của chương trình.</span></div>
           </div>
           <div class="contact-vip-benefit tone-blue">
             <span class="contact-vip-benefit-icon" aria-hidden="true">🌟</span>
@@ -2672,7 +2127,7 @@
     el.accountButton.replaceChildren(avatar, label);
   }
 
-  async function openAccountPage(view = "overview", requestSubjectId = "") {
+  async function openAccountPage(view = "overview") {
     if (state.screen === "subject" && state.subjectId) destroySubjectModule(state.subjectId);
     if (!state.auth.user) {
       openAuth("login");
@@ -2680,9 +2135,6 @@
     }
     state.screen = "account";
     state.account.view = view === "request" ? "request" : "overview";
-    state.account.requestSubjectId = state.account.view === "request" && SUBJECTS.some((subject) => subject.id === requestSubjectId)
-      ? String(requestSubjectId)
-      : "";
     state.homeTab = "class2";
     state.subjectId = null;
     state.profileSubjectId = null;
@@ -2833,9 +2285,6 @@
         <div><h1>👤 Tài khoản</h1><p>Thông tin cá nhân và quyền học của Lớp 2.</p></div>
         <button id="account-back" class="back-btn" type="button">← Lớp 2</button>
       </div>
-      <style>
-        .account-pending-contact{width:100%;min-height:48px;margin-top:.8rem;font-size:16px!important;font-weight:950!important;}
-      </style>
       <section class="account-page" aria-label="Tài khoản đang đăng nhập">
         <div class="account-page-hero">
           <div class="account-page-avatar" aria-hidden="true">${escapeHtml(user.avatarEmoji || "🐰")}</div>
@@ -2924,63 +2373,43 @@
 
     const pendingApiIds = new Set();
     state.auth.requests.forEach((r) => (r.subjectIds || []).forEach((id) => pendingApiIds.add(id)));
-    const requestedSubjectId = String(state.account.requestSubjectId || "");
     let eligibleCount = 0;
     const choices = SUBJECTS.map((subject) => {
       const type = accessTypeFor(subject.id);
-      const alreadyVip = type === "vip" || type === "admin";
+      const active = type === "trial" || type === "vip" || type === "admin";
       const pending = pendingApiIds.has(subject.apiId);
-      const disabled = alreadyVip || pending;
-      const checked = !disabled && requestedSubjectId === subject.id;
-      if (!disabled) eligibleCount += 1;
-      const note = alreadyVip
-        ? "Đang có VIP"
-        : pending
-          ? "Đang chờ duyệt"
-          : type === "trial"
-            ? "Đang Trial · Có thể đăng ký VIP"
-            : "Có thể đăng ký VIP";
-      return `<label class="subject-choice${disabled ? " is-disabled" : ""}"><input type="checkbox" name="subject-choice" value="${escapeHtml(subject.apiId)}"${disabled ? " disabled" : ""}${checked ? " checked" : ""}><span><strong>${escapeHtml(subject.fullLabel)}</strong><small>${note}</small></span></label>`;
+      if (!active && !pending) eligibleCount += 1;
+      return `<label class="subject-choice${active || pending ? " is-disabled" : ""}"><input type="checkbox" name="subject-choice" value="${escapeHtml(subject.apiId)}"${active || pending ? " disabled" : ""}><span><strong>${escapeHtml(subject.fullLabel)}</strong><small>${active ? "Đang có quyền học" : pending ? "Đang chờ duyệt" : "Có thể đăng ký VIP"}</small></span></label>`;
     }).join("");
 
     const body = eligibleCount > 0 ? `
-        <p class="access-request-note">Bạn cần liên hệ với admin để thanh toán biểu phí quyền học VIP và được duyệt</p>
+        <p class="access-request-note">Chọn 1/3, 2/3 hoặc 3/3 môn. Gửi yêu cầu không tự mở quyền; Admin sẽ duyệt đúng các môn đã chọn.</p>
         <form id="access-request-form" class="form-stack" novalidate>
           <div class="subject-choice-list">${choices}</div>
-          <div class="access-request-summary-grid" role="status" aria-live="polite">
-            <div id="access-request-selection-summary" class="access-request-summary-card selection">Bạn chưa chọn môn nào</div>
-            <div id="access-request-price-summary" class="access-request-summary-card price">Tổng tiền thanh toán 0k/năm</div>
-          </div>
+          <div id="access-request-summary" class="access-request-summary">Chưa chọn môn nào.</div>
           <div class="vip-request-actions" role="group" aria-label="Tùy chọn đăng ký quyền học VIP">
             <button id="access-request-vip-info" class="vip-request-action vip-request-info" type="button">Biểu phí và quyền lợi VIP</button>
             <button id="access-request-admin-contact" class="vip-request-action vip-request-contact" type="button">Liên hệ admin</button>
             <button id="access-request-submit" class="primary-action vip-request-submit" type="submit">Gửi yêu cầu VIP</button>
           </div>
         </form>` : `
-        <div class="account-request-empty">Hiện không còn môn nào có thể gửi yêu cầu mới. Môn đã có quyền hoặc đang chờ duyệt sẽ không gửi trùng.</div>`;
+        <div class="account-request-empty">Hiện không còn môn nào có thể gửi yêu cầu mới. Môn đã có quyền hoặc đang chờ duyệt sẽ không gửi trùng.</div>
+        ${state.auth.requests.length ? `<button id="access-request-admin-contact" class="primary-action" type="button">💬 Liên hệ admin để được duyệt ngay</button>` : ""}`;
 
     el.content.innerHTML = `
       <style>
         .vip-request-heading h1{font-size:clamp(24px,2.2vw,30px)!important;}
-        .vip-request-heading p{font-size:16px!important;line-height:1.45!important;font-weight:800!important;}
-        .account-request-page .access-request-note{font-size:16px!important;line-height:1.55!important;font-weight:850!important;}
+        .vip-request-heading p{font-size:16px!important;line-height:1.45!important;font-weight:500!important;}
+        .account-request-page .access-request-note{font-size:15.5px!important;line-height:1.55!important;font-weight:500!important;}
         .account-request-page .subject-choice strong{font-size:17px!important;line-height:1.3!important;font-weight:900!important;}
-        .account-request-page .subject-choice small{font-size:16px!important;line-height:1.4!important;font-weight:800!important;}
-        .access-request-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.05rem}
-        .access-request-summary-card{min-height:48px;display:flex;align-items:center;justify-content:center;padding:.65rem .8rem;border:1px solid;border-radius:14px;font-size:16px!important;line-height:1.35!important;font-weight:900!important;text-align:center}
-        .access-request-summary-card.selection{border-color:#d8b4fe;background:linear-gradient(90deg,#faf5ff,#fdf2f8);color:#6d28d9}
-        .access-request-summary-card.price{border-color:#67e8f9;background:linear-gradient(90deg,#eff6ff,#ecfdf5);color:#0369a1}
+        .account-request-page .subject-choice small{font-size:14.5px!important;line-height:1.4!important;font-weight:500!important;}
+        .account-request-page .access-request-summary{font-size:15.5px!important;line-height:1.4!important;font-weight:700!important;}
         .vip-request-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:.1rem}
-        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:16px!important;font-weight:950;line-height:1.25}
-        .vip-request-info{border:0;color:#fff;background:linear-gradient(90deg,#38bdf8,#3b82f6);box-shadow:0 6px 16px rgba(59,130,246,.20)}
-        .vip-request-contact{border:0;color:#fff;background:linear-gradient(90deg,#34d399,#10b981);box-shadow:0 6px 16px rgba(16,185,129,.20)}
-        .vip-request-submit{border:0!important;color:#fff!important;background:linear-gradient(90deg,#a855f7,#7c3aed)!important;box-shadow:0 6px 16px rgba(124,58,237,.22)}
-        @media(max-width:720px){
-          .access-request-summary-grid{grid-template-columns:1fr}
-          .vip-request-actions{grid-template-columns:1fr}
-          .account-request-page .subject-choice strong{font-size:16px!important}
-          .account-request-page .subject-choice small{font-size:16px!important}
-        }
+        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:15px!important;font-weight:950;line-height:1.25}
+        .vip-request-info{border:1px solid #d8b4fe;color:#6d28d9;background:linear-gradient(90deg,#faf5ff,#fdf2f8);box-shadow:0 4px 12px rgba(109,40,217,.08)}
+        .vip-request-contact{border:1px solid #67e8f9;color:#0369a1;background:linear-gradient(90deg,#eff6ff,#ecfdf5);box-shadow:0 4px 12px rgba(3,105,161,.08)}
+        .vip-request-submit{box-shadow:0 6px 16px rgba(139,92,246,.18)}
+        @media(max-width:720px){.vip-request-actions{grid-template-columns:1fr}.account-request-page .subject-choice strong{font-size:16px!important}.account-request-page .subject-choice small{font-size:14px!important}}
       </style>
       <div class="section-heading vip-request-heading">
         <div><h1>🌟 Đăng ký quyền học</h1><p>Đăng ký VIP theo từng môn.</p></div>
@@ -3001,12 +2430,9 @@
     const updateSummary = () => {
       if (!form) return;
       const count = form.querySelectorAll('input[name="subject-choice"]:checked').length;
-      const selectionSummary = document.getElementById("access-request-selection-summary");
-      const priceSummary = document.getElementById("access-request-price-summary");
+      const summary = document.getElementById("access-request-summary");
       const submit = document.getElementById("access-request-submit");
-      const priceByCount = { 0: "0k/năm", 1: "80k/năm", 2: "160k/năm", 3: "210k/năm" };
-      if (selectionSummary) selectionSummary.textContent = count ? `Bạn đã chọn ${count} môn` : "Bạn chưa chọn môn nào";
-      if (priceSummary) priceSummary.textContent = `Tổng tiền thanh toán ${priceByCount[count] || "0k/năm"}`;
+      if (summary) summary.textContent = count ? `Đã chọn ${count}/3 môn.` : "Chưa chọn môn nào.";
       if (submit) submit.textContent = count ? `Gửi yêu cầu VIP · ${count} môn` : "Gửi yêu cầu VIP";
     };
     form?.querySelectorAll('input[name="subject-choice"]').forEach((input) => input.addEventListener("change", updateSummary));
@@ -3109,52 +2535,17 @@
     }
   }
 
-  // Một lần đăng ký dùng cùng một ID ngẫu nhiên qua các lần thử lại (kể cả F5
-  // trong cùng tab). Chỉ lưu ID yêu cầu kỹ thuật, tuyệt đối không lưu mật khẩu.
-  const REGISTRATION_PENDING_ID_KEY = "class2.registration.pendingRequestId.v1";
-  let registrationPendingId = "";
-  let registrationBusy = false;
-
-  function clearPendingRegistrationId() {
-    registrationPendingId = "";
-    try { window.sessionStorage.removeItem(REGISTRATION_PENDING_ID_KEY); } catch (_) {}
-  }
-
-  function pendingRegistrationId() {
-    if (registrationPendingId) return registrationPendingId;
-    try {
-      const previous = String(window.sessionStorage.getItem(REGISTRATION_PENDING_ID_KEY) || "");
-      if (/^[a-f0-9]{32}$/.test(previous)) {
-        registrationPendingId = previous;
-        return previous;
-      }
-    } catch (_) {}
-    // Không dùng Date.now/Math.random để tạo mã yêu cầu có thể đoán được.
-    if (!window.crypto || typeof window.crypto.getRandomValues !== "function") {
-      throw new Error("SECURE_RANDOM_UNAVAILABLE");
-    }
-    const bytes = new Uint8Array(16);
-    window.crypto.getRandomValues(bytes);
-    registrationPendingId = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
-    try { window.sessionStorage.setItem(REGISTRATION_PENDING_ID_KEY, registrationPendingId); } catch (_) {}
-    return registrationPendingId;
-  }
-
   async function onRegisterSubmit(event) {
     event.preventDefault();
-    if (registrationBusy) return;
     const error = validateRegistration();
     if (error) return showToast(error);
 
     const name = document.getElementById("register-name").value.trim();
     const password = document.getElementById("register-password").value;
-    registrationBusy = true;
     setButtonBusy(el.registerSubmit, true, "Đang đăng ký…");
     try {
-      const registrationRequestId = pendingRegistrationId();
-      const data = await apiRequest("register", { name, password, registrationRequestId }, { auth: false });
+      const data = await apiRequest("register", { name, password }, { auth: false });
       applyAuthData(data, data.token);
-      clearPendingRegistrationId(); // Chỉ xóa khi đã xác nhận nhận lại tài khoản từ server.
       document.getElementById("register-password").value = "";
       document.getElementById("register-confirm").value = "";
       closeAuth();
@@ -3173,31 +2564,8 @@
         }
       });
     } catch (err) {
-      if (err && err.code === "REGISTER_REQUEST_CONFLICT") {
-        // Không tự cấp ID yêu cầu mới: lần đầu có thể đã ghi tài khoản thành công.
-        showDialog({
-          title: "Thông tin đăng ký chưa khớp",
-          message: "Có thể tài khoản đã được tạo ở lần đăng ký trước. Nếu đang thử lại, hãy dùng đúng tên và mật khẩu ban đầu. Chỉ chọn đăng ký mới khi thực sự muốn tạo tài khoản khác.",
-          icon: "🐰",
-          primaryLabel: "Kiểm tra lại",
-          secondaryLabel: "Đăng ký tài khoản khác",
-          onSecondary: () => {
-            clearPendingRegistrationId();
-            el.registerForm.reset();
-            hideDialog();
-            document.getElementById("register-name")?.focus();
-          }
-        });
-      } else if (err && err.message === "SECURE_RANDOM_UNAVAILABLE") {
-        showToast("Trình duyệt chưa hỗ trợ đăng ký an toàn. Vui lòng dùng trình duyệt mới hơn.");
-      } else {
-        // Không xóa ID khi timeout/lỗi mạng/lỗi server: retry phải trở về đúng tài khoản cũ.
-        showToast(err && err.kind === "network"
-          ? "Chưa nhận được kết quả đăng ký. Bé hãy giữ nguyên thông tin và thử lại nhé."
-          : friendlyError(err, "register"));
-      }
+      showToast(friendlyError(err, "register"));
     } finally {
-      registrationBusy = false;
       setButtonBusy(el.registerSubmit, false);
     }
   }
@@ -3214,7 +2582,6 @@
       await apiRequest("accessRequestCreate", { subjectIds, accessType: "vip" });
       await refreshAccessState(false);
       state.account.view = "overview";
-      state.account.requestSubjectId = "";
       render();
       showToast("Đã gửi yêu cầu. Vui lòng chờ Admin duyệt.");
     } catch (err) {
@@ -3730,38 +3097,6 @@
     }
   }
 
-  function ensureDialogTertiaryButton() {
-    if (dialogTertiaryButton && dialogTertiaryButton.isConnected) return dialogTertiaryButton;
-    const actions = el.dialogOk && el.dialogOk.parentElement;
-    if (!actions) return null;
-    const button = document.createElement("button");
-    button.id = "dialog-tertiary";
-    button.className = "secondary-action hidden";
-    button.type = "button";
-    button.addEventListener("click", async () => {
-      const handler = dialogTertiaryHandler;
-      if (handler) await handler();
-      else hideDialog();
-    });
-    actions.appendChild(button);
-    dialogTertiaryButton = button;
-
-    if (!document.getElementById("class2-dialog-three-actions-style")) {
-      const style = document.createElement("style");
-      style.id = "class2-dialog-three-actions-style";
-      style.textContent = `
-        .dialog-actions.has-three-actions{grid-template-columns:repeat(3,minmax(0,1fr));}
-        .dialog-actions.has-three-actions #dialog-ok{order:1;}
-        .dialog-actions.has-three-actions #dialog-secondary{order:2;border-color:#BAE6FD;background:#EFF8FF;color:#0369A1;}
-        .dialog-actions.has-three-actions #dialog-tertiary{order:3;}
-        .dialog-actions.has-three-actions button{min-width:0;padding-left:.5rem;padding-right:.5rem;}
-        @media(max-width:640px){.dialog-actions.has-three-actions{grid-template-columns:1fr;}}
-      `;
-      document.head.appendChild(style);
-    }
-    return button;
-  }
-
   function showDialog(options) {
     const opts = typeof options === "string" ? { title: options } : (options || {});
     el.dialogTitle.textContent = opts.title || "Thông báo";
@@ -3770,20 +3105,10 @@
     el.dialogOk.textContent = opts.primaryLabel || "OK";
     dialogPrimaryHandler = typeof opts.onPrimary === "function" ? opts.onPrimary : null;
     dialogSecondaryHandler = typeof opts.onSecondary === "function" ? opts.onSecondary : null;
-    dialogTertiaryHandler = typeof opts.onTertiary === "function" ? opts.onTertiary : null;
 
     const hasSecondary = !!opts.secondaryLabel;
     el.dialogSecondary.classList.toggle("hidden", !hasSecondary);
     el.dialogSecondary.textContent = opts.secondaryLabel || "";
-
-    const tertiary = ensureDialogTertiaryButton();
-    const hasTertiary = !!opts.tertiaryLabel;
-    if (tertiary) {
-      tertiary.classList.toggle("hidden", !hasTertiary);
-      tertiary.textContent = opts.tertiaryLabel || "";
-      tertiary.parentElement?.classList.toggle("has-three-actions", hasTertiary);
-    }
-
     el.dialog.classList.remove("hidden");
   }
 
@@ -3791,10 +3116,6 @@
     el.dialog.classList.add("hidden");
     dialogPrimaryHandler = null;
     dialogSecondaryHandler = null;
-    dialogTertiaryHandler = null;
-    if (dialogTertiaryButton) dialogTertiaryButton.classList.add("hidden");
-    const actions = el.dialogOk && el.dialogOk.parentElement;
-    actions?.classList.remove("has-three-actions");
   }
 
   function showToast(message) {
@@ -3974,6 +3295,7 @@
   }
 
   el.homeButton.addEventListener("click", goHome);
+  el.homeVipNotice?.addEventListener("click", onHomeVipNoticeClick);
   el.accountButton.addEventListener("click", () => state.auth.user ? openAccountPage() : openAuth("login"));
   el.authClose.addEventListener("click", closeAuth);
   el.authLater.addEventListener("click", closeAuth);
