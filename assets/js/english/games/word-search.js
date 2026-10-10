@@ -9,6 +9,16 @@ let wsSize = 9, wsWordCount = 6;
 let wsCurrentDirs = null;
 let wsCurrentDifficulty = 'medium';
 let wsStartTime = 0, wsTimerInterval = null, wsHintsLeft = 3, wsHintsUsed = 0;
+// Giu va huy listener window cua Word Search khi doi man / choi lai.
+let wsWindowListeners_ = [];
+function wsReleaseWindowListeners_() {
+    for (const { type, handler } of wsWindowListeners_) window.removeEventListener(type, handler);
+    wsWindowListeners_ = [];
+    wsSelecting = false;
+    wsStartCell = null;
+    wsCurrentPath = [];
+}
+
 const WS_DIRS_STRAIGHT = [[0,1],[1,0]];                                        // Dễ: chỉ ngang + dọc
 const WS_DIRS_FULL = [[0,1],[1,0],[1,1],[0,-1],[-1,0],[-1,-1],[1,-1],[-1,1]];   // Vừa/Khó: đủ 8 hướng kể cả chéo
 const WS_DIFFICULTIES = {
@@ -31,6 +41,7 @@ async function startWordSearchGame() {
 }
 
 function wsRenderTopicScreen() {
+    wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
     headerLevel3ClickHandler = null;
     document.getElementById('game-play-container').innerHTML = renderMiniGameTopicMenu({
@@ -47,6 +58,7 @@ function wsChooseTopic(topicId) {
 }
 
 function renderWordSearchDifficultyScreen() {
+    wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
     headerLevel3ClickHandler = null;
     const level3El = document.getElementById('header-level3-btn');
@@ -92,6 +104,7 @@ function wsStartWithDifficulty(diffKey) {
 }
 
 function wsGenerateAndRender() {
+    wsReleaseWindowListeners_();
     const pool = shuffleArray(getWordSearchVocabPool(wsTopicId)).filter(item => item.w.length <= wsSize);
     let poolIdx = 0;
     const usedWords = new Set();
@@ -322,6 +335,7 @@ function wsFinishGame(total, gridEl, statusEl) {
 }
 
 function wsBindEvents(gridEl) {
+    wsReleaseWindowListeners_();
     const start = (r, c) => { wsSelecting = true; wsStartCell = [r, c]; wsHighlightPath([[r, c]]); };
     const move = (x, y) => {
         if (!wsSelecting) return;
@@ -347,7 +361,8 @@ function wsBindEvents(gridEl) {
         start(Number(e.target.dataset.r), Number(e.target.dataset.c));
     });
     gridEl.addEventListener('mousemove', e => move(e.clientX, e.clientY));
-    taEnglishGameOn(window,'mouseup', end);
+    window.addEventListener('mouseup', end);
+    wsWindowListeners_.push({ type: 'mouseup', handler: end });
 
     gridEl.addEventListener('touchstart', e => {
         e.preventDefault();
@@ -360,10 +375,15 @@ function wsBindEvents(gridEl) {
         const t = e.touches[0];
         move(t.clientX, t.clientY);
     }, { passive: false });
-    taEnglishGameOn(window,'touchend', end);
+    window.addEventListener('touchend', end);
+    wsWindowListeners_.push({ type: 'touchend', handler: end });
 }
 
 
 
 window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["word-search"]=function(){};
+window.CLASS2_ENGLISH_GAME_STOPPERS["word-search"] = function() {
+    wsReleaseWindowListeners_();
+    clearInterval(wsTimerInterval);
+    wsTimerInterval = null;
+};
