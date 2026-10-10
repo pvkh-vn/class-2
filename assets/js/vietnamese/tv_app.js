@@ -5933,7 +5933,166 @@ const TV_EXPLORE_TA2_SCALE_CSS_ = `
 
 `;
 
-function ensureTvStyles_(){if(document.getElementById(TV_MODULE_STYLE_ID_))return;const st=document.createElement('style');st.id=TV_MODULE_STYLE_ID_;st.textContent=TV_RUNTIME_CSS_+TV_SHELL_BREADCRUMB_CSS_+TV_MODULE_UI_CSS_+TV_EXPLORE_TA2_SCALE_CSS_;document.head.appendChild(st);}
+const TV_FOLDER_TA2_HOVER_CSS_ = `
+/* Lớp 2 - hiệu ứng thẻ danh mục theo TA2: chỉ icon phóng, ô không dịch chuyển. */
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+){
+  --ee-folder-border-hover:#a855f7;
+  --ee-folder-icon-bg:#eee0ff;
+  --ee-folder-icon-border:#c3a3f3;
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,filter .18s ease!important;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):is(:hover,:focus-visible){
+  transform:none!important;
+  translate:none!important;
+  rotate:none!important;
+  filter:brightness(1.035) saturate(1.08)!important;
+  border-color:var(--ee-folder-border-hover)!important;
+  box-shadow:0 8px 20px rgba(76,29,149,.16)!important;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+1){
+  --ee-folder-border-hover:#ec4899;--ee-folder-icon-bg:#ffd9eb;--ee-folder-icon-border:#f89bc8;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+2){
+  --ee-folder-border-hover:#10b981;--ee-folder-icon-bg:#d4fce3;--ee-folder-icon-border:#86efac;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+3){
+  --ee-folder-border-hover:#a855f7;--ee-folder-icon-bg:#e8d9ff;--ee-folder-icon-border:#bda3f7;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+4){
+  --ee-folder-border-hover:#f59e0b;--ee-folder-icon-bg:#ffedbc;--ee-folder-icon-border:#fbbf24;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+5){
+  --ee-folder-border-hover:#6366f1;--ee-folder-icon-bg:#e0e7ff;--ee-folder-icon-border:#a5b4fc;
+}
+#class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+):nth-child(6n+6){
+  --ee-folder-border-hover:#14b8a6;--ee-folder-icon-bg:#c9f6eb;--ee-folder-icon-border:#5eead4;
+}
+#class2-vietnamese-runtime #view-dashboard-grid > .tv2-explore-card{
+  --ee-folder-border-hover:#a855f7;
+}
+#class2-vietnamese-runtime #view-dashboard-grid > .tv2-explore-card:is(:hover,:focus-visible) .tv2-explore-icon{
+  transform:scale(1.05)!important;
+  box-shadow:0 5px 12px rgba(109,40,217,.20),inset 0 1px 2px rgba(255,255,255,.9)!important;
+}
+#class2-vietnamese-runtime #minigame-grid > div > div.text-4xl,
+#class2-vietnamese-runtime #exam-categories-grid > div > div:first-child > div.text-4xl{
+  box-sizing:border-box!important;
+  width:60px!important;height:60px!important;
+  min-width:60px!important;min-height:60px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex-shrink:0!important;
+  margin-left:auto!important;margin-right:auto!important;
+  margin-bottom:8px!important;
+  border-radius:17px!important;
+  border:2px solid var(--ee-folder-icon-border)!important;
+  background:var(--ee-folder-icon-bg)!important;
+  font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif!important;
+  font-size:36px!important;line-height:1!important;font-weight:400!important;
+  filter:saturate(1.25) contrast(1.07)!important;
+  text-shadow:0 1px 0 rgba(255,255,255,.8);
+  box-shadow:0 3px 9px rgba(109,40,217,.15),inset 0 1px 2px rgba(255,255,255,.9)!important;
+  transform:none!important;translate:none!important;rotate:none!important;
+  transition:transform .18s ease,box-shadow .18s ease!important;
+}
+#class2-vietnamese-runtime #minigame-grid > div:is(:hover,:focus-visible) > div.text-4xl,
+#class2-vietnamese-runtime #exam-categories-grid > div:is(:hover,:focus-visible) > div:first-child > div.text-4xl{
+  transform:scale(1.05)!important;
+  box-shadow:0 5px 12px rgba(109,40,217,.20),inset 0 1px 2px rgba(255,255,255,.9)!important;
+}
+@media(max-width:520px){
+  #class2-vietnamese-runtime #minigame-grid > div > div.text-4xl,
+  #class2-vietnamese-runtime #exam-categories-grid > div > div:first-child > div.text-4xl{
+    width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;
+    font-size:31px!important;border-radius:15px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #class2-vietnamese-runtime :is(
+  #view-dashboard-grid > .tv2-explore-card,
+  #view-dashboard-grid > button.pastel-btn,
+  #bai-hoc-grid > button,
+  #roadmap-svg-container .grid > button,
+  #lecture-subtopics-list > button,
+  #exam-categories-grid > div,
+  #minigame-grid > div
+){transition:none!important;}
+  #class2-vietnamese-runtime #minigame-grid > div > div.text-4xl,
+  #class2-vietnamese-runtime #exam-categories-grid > div > div:first-child > div.text-4xl,
+  #class2-vietnamese-runtime #view-dashboard-grid > .tv2-explore-card .tv2-explore-icon{transition:none!important;}
+  #class2-vietnamese-runtime #minigame-grid > div:is(:hover,:focus-visible) > div.text-4xl,
+  #class2-vietnamese-runtime #exam-categories-grid > div:is(:hover,:focus-visible) > div:first-child > div.text-4xl,
+  #class2-vietnamese-runtime #view-dashboard-grid > .tv2-explore-card:is(:hover,:focus-visible) .tv2-explore-icon{transform:none!important;}
+}
+`;
+
+function ensureTvStyles_(){if(document.getElementById(TV_MODULE_STYLE_ID_))return;const st=document.createElement('style');st.id=TV_MODULE_STYLE_ID_;st.textContent=TV_RUNTIME_CSS_+TV_SHELL_BREADCRUMB_CSS_+TV_MODULE_UI_CSS_+TV_EXPLORE_TA2_SCALE_CSS_+TV_FOLDER_TA2_HOVER_CSS_;document.head.appendChild(st);}
 function primeTvAudio_(){if(tvModuleAudioPrimed_)return;tvModuleAudioPrimed_=true;const once=()=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!audioCtx&&C)audioCtx=new C();if(audioCtx?.state==='suspended')audioCtx.resume();}catch(_){}};tvModuleRoot_?.addEventListener('pointerdown',once,{once:true,passive:true});}
 function mountTvRuntime_(){if(!tvModuleCtx_?.host)throw new Error('TV_MODULE_HOST_MISSING');ensureTvStyles_();ensureTvDependencies_();tvModuleCtx_.host.innerHTML=`<div id="${TV_MODULE_RUNTIME_ID_}">${TV_RUNTIME_HTML_}</div>`;tvModuleRoot_=document.getElementById(TV_MODULE_RUNTIME_ID_);installTvInlineBridge_();syncClass2ModuleStateTV2_();resetStars();updateAutoSpeechButtonUI();primeTvAudio_();tvModuleMounted_=true;}
 async function bootstrapTvRuntime_(){if(!tvModuleMounted_||!tvModuleRoot_||!tvModuleRoot_.isConnected||tvModuleRoot_.parentElement!==tvModuleCtx_.host){mountTvRuntime_();await loadSharedImageCatalogTV2_();await Promise.resolve(renderDashboardGrid());await Promise.resolve(renderExamHubGrid());}else syncClass2ModuleStateTV2_();if(tvModuleCtx_?.isAuthenticated)loadLearningProfile_();}
