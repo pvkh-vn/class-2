@@ -1,0 +1,3152 @@
+[
+  {
+    "id": 111000,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 63 - 40 = ?",
+    "o": [
+      "23",
+      "22",
+      "25",
+      "24"
+    ],
+    "a": "23",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 63 - 40 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 23.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111001,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 40 + 28 = ?",
+    "o": [
+      "68",
+      "70",
+      "69",
+      "67"
+    ],
+    "a": "68",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 40 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111002,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 76 - 28 = ?",
+    "o": [
+      "47",
+      "48",
+      "49",
+      "50"
+    ],
+    "a": "48",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 76 - 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 48.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111003,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 41 + 27 = ?",
+    "o": [
+      "67",
+      "68",
+      "69",
+      "70"
+    ],
+    "a": "68",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111004,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 72 - 26 = ?",
+    "o": [
+      "47",
+      "46",
+      "45",
+      "48"
+    ],
+    "a": "46",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 72 - 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 46.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111005,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 51 + 29 = ?",
+    "o": [
+      "80",
+      "81",
+      "82",
+      "79"
+    ],
+    "a": "80",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 51 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 80.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111006,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 82 - 14 = ?",
+    "o": [
+      "68",
+      "70",
+      "69",
+      "67"
+    ],
+    "a": "68",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 82 - 14 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111007,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 44 + 21 = ?",
+    "o": [
+      "65",
+      "66",
+      "67",
+      "64"
+    ],
+    "a": "65",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 44 + 21 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 65.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111008,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 51 - 24 = ?",
+    "o": [
+      "27",
+      "28",
+      "29",
+      "26"
+    ],
+    "a": "27",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 51 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 27.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111009,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 45 + 30 = ?",
+    "o": [
+      "76",
+      "77",
+      "74",
+      "75"
+    ],
+    "a": "75",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 45 + 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 75.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111010,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 50 - 16 = ?",
+    "o": [
+      "35",
+      "34",
+      "36",
+      "33"
+    ],
+    "a": "34",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 50 - 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 34.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111011,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 49 + 33 = ?",
+    "o": [
+      "83",
+      "84",
+      "82",
+      "81"
+    ],
+    "a": "82",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 49 + 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 82.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111012,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 78 - 33 = ?",
+    "o": [
+      "44",
+      "47",
+      "46",
+      "45"
+    ],
+    "a": "45",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 78 - 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 45.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111013,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 52 + 36 = ?",
+    "o": [
+      "87",
+      "89",
+      "88",
+      "90"
+    ],
+    "a": "88",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 52 + 36 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 88.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111014,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 58 - 35 = ?",
+    "o": [
+      "24",
+      "22",
+      "23",
+      "25"
+    ],
+    "a": "23",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 58 - 35 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 23.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111015,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 38 + 16 = ?",
+    "o": [
+      "55",
+      "56",
+      "53",
+      "54"
+    ],
+    "a": "54",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 38 + 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 54.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111016,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 90 - 13 = ?",
+    "o": [
+      "78",
+      "77",
+      "79",
+      "76"
+    ],
+    "a": "77",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 77.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111017,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 29 + 37 = ?",
+    "o": [
+      "66",
+      "68",
+      "65",
+      "67"
+    ],
+    "a": "66",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 29 + 37 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 66.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111018,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 56 - 27 = ?",
+    "o": [
+      "29",
+      "31",
+      "30",
+      "28"
+    ],
+    "a": "29",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 56 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 29.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111019,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 56 + 18 = ?",
+    "o": [
+      "73",
+      "76",
+      "75",
+      "74"
+    ],
+    "a": "74",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 56 + 18 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111020,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 77 - 15 = ?",
+    "o": [
+      "62",
+      "61",
+      "63",
+      "64"
+    ],
+    "a": "62",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 77 - 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111021,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 45 + 23 = ?",
+    "o": [
+      "67",
+      "70",
+      "68",
+      "69"
+    ],
+    "a": "68",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 45 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111022,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 64 - 24 = ?",
+    "o": [
+      "42",
+      "41",
+      "40",
+      "39"
+    ],
+    "a": "40",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 64 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 40.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111023,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 49 + 26 = ?",
+    "o": [
+      "74",
+      "76",
+      "77",
+      "75"
+    ],
+    "a": "75",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 49 + 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 75.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111024,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 90 - 38 = ?",
+    "o": [
+      "51",
+      "52",
+      "53",
+      "54"
+    ],
+    "a": "52",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 52.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111025,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 41 + 26 = ?",
+    "o": [
+      "67",
+      "68",
+      "66",
+      "69"
+    ],
+    "a": "67",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 67.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111026,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 74 - 27 = ?",
+    "o": [
+      "49",
+      "48",
+      "47",
+      "46"
+    ],
+    "a": "47",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 74 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 47.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111027,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 21 + 27 = ?",
+    "o": [
+      "50",
+      "49",
+      "48",
+      "47"
+    ],
+    "a": "48",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 21 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 48.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111028,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 57 - 32 = ?",
+    "o": [
+      "27",
+      "24",
+      "25",
+      "26"
+    ],
+    "a": "25",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 57 - 32 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 25.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111029,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 48 + 30 = ?",
+    "o": [
+      "77",
+      "80",
+      "78",
+      "79"
+    ],
+    "a": "78",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 48 + 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 78.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111030,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 67 - 28 = ?",
+    "o": [
+      "40",
+      "39",
+      "38",
+      "41"
+    ],
+    "a": "39",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 67 - 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 39.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111031,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 20 + 15 = ?",
+    "o": [
+      "34",
+      "37",
+      "36",
+      "35"
+    ],
+    "a": "35",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 20 + 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 35.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111032,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 89 - 27 = ?",
+    "o": [
+      "61",
+      "63",
+      "62",
+      "64"
+    ],
+    "a": "62",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 89 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111033,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 17 + 29 = ?",
+    "o": [
+      "48",
+      "45",
+      "46",
+      "47"
+    ],
+    "a": "46",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 17 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 46.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111034,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 70 - 20 = ?",
+    "o": [
+      "50",
+      "51",
+      "52",
+      "49"
+    ],
+    "a": "50",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 70 - 20 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111035,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 32 + 31 = ?",
+    "o": [
+      "65",
+      "62",
+      "63",
+      "64"
+    ],
+    "a": "63",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 32 + 31 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 63.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111036,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 84 - 20 = ?",
+    "o": [
+      "65",
+      "63",
+      "64",
+      "66"
+    ],
+    "a": "64",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 84 - 20 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111037,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 15 + 38 = ?",
+    "o": [
+      "52",
+      "54",
+      "55",
+      "53"
+    ],
+    "a": "53",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 15 + 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 53.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111038,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 75 - 25 = ?",
+    "o": [
+      "52",
+      "50",
+      "51",
+      "49"
+    ],
+    "a": "50",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 75 - 25 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111039,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 30 + 28 = ?",
+    "o": [
+      "58",
+      "60",
+      "59",
+      "57"
+    ],
+    "a": "58",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 30 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 58.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111040,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 84 - 40 = ?",
+    "o": [
+      "45",
+      "46",
+      "44",
+      "43"
+    ],
+    "a": "44",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 84 - 40 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 44.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111041,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 47 + 27 = ?",
+    "o": [
+      "73",
+      "75",
+      "76",
+      "74"
+    ],
+    "a": "74",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 47 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111042,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 77 - 32 = ?",
+    "o": [
+      "46",
+      "47",
+      "44",
+      "45"
+    ],
+    "a": "45",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 77 - 32 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 45.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111043,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 23 + 29 = ?",
+    "o": [
+      "51",
+      "52",
+      "54",
+      "53"
+    ],
+    "a": "52",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 23 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 52.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111044,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 69 - 38 = ?",
+    "o": [
+      "32",
+      "31",
+      "30",
+      "33"
+    ],
+    "a": "31",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 69 - 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 31.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111045,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 58 + 27 = ?",
+    "o": [
+      "86",
+      "85",
+      "87",
+      "84"
+    ],
+    "a": "85",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 58 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 85.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111046,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 90 - 16 = ?",
+    "o": [
+      "75",
+      "73",
+      "76",
+      "74"
+    ],
+    "a": "74",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111047,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 27 + 28 = ?",
+    "o": [
+      "57",
+      "54",
+      "55",
+      "56"
+    ],
+    "a": "55",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 27 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 55.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111048,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 90 - 30 = ?",
+    "o": [
+      "62",
+      "61",
+      "60",
+      "59"
+    ],
+    "a": "60",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 60.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111049,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 41 + 23 = ?",
+    "o": [
+      "64",
+      "65",
+      "63",
+      "66"
+    ],
+    "a": "64",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111050,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 54 - 39 = ?",
+    "o": [
+      "14",
+      "15",
+      "16",
+      "17"
+    ],
+    "a": "15",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 54 - 39 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 15.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111051,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 29 + 29 = ?",
+    "o": [
+      "57",
+      "58",
+      "59",
+      "60"
+    ],
+    "a": "58",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 29 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 58.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111052,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 90 - 31 = ?",
+    "o": [
+      "58",
+      "60",
+      "61",
+      "59"
+    ],
+    "a": "59",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 31 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 59.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111053,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 48 + 34 = ?",
+    "o": [
+      "83",
+      "84",
+      "81",
+      "82"
+    ],
+    "a": "82",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 48 + 34 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 82.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111054,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 52 - 27 = ?",
+    "o": [
+      "24",
+      "26",
+      "25",
+      "27"
+    ],
+    "a": "25",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 52 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 25.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111055,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 30 + 34 = ?",
+    "o": [
+      "64",
+      "65",
+      "66",
+      "63"
+    ],
+    "a": "64",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 30 + 34 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111056,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 63 - 13 = ?",
+    "o": [
+      "51",
+      "52",
+      "50",
+      "49"
+    ],
+    "a": "50",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 63 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111057,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 20 + 22 = ?",
+    "o": [
+      "43",
+      "42",
+      "41",
+      "44"
+    ],
+    "a": "42",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 20 + 22 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 42.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111058,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 53 - 25 = ?",
+    "o": [
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "a": "28",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 53 - 25 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 28.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111059,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 17 + 38 = ?",
+    "o": [
+      "56",
+      "55",
+      "54",
+      "57"
+    ],
+    "a": "55",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 17 + 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 55.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111060,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 86 - 24 = ?",
+    "o": [
+      "62",
+      "63",
+      "61",
+      "64"
+    ],
+    "a": "62",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 86 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111061,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 26 + 23 = ?",
+    "o": [
+      "48",
+      "51",
+      "49",
+      "50"
+    ],
+    "a": "49",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 26 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 49.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111062,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 89 - 39 = ?",
+    "o": [
+      "49",
+      "52",
+      "50",
+      "51"
+    ],
+    "a": "50",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 89 - 39 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111063,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 27 + 33 = ?",
+    "o": [
+      "59",
+      "62",
+      "61",
+      "60"
+    ],
+    "a": "60",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 27 + 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 60.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111064,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 68 - 11 = ?",
+    "o": [
+      "57",
+      "56",
+      "59",
+      "58"
+    ],
+    "a": "57",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 68 - 11 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 57.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111065,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 40 + 22 = ?",
+    "o": [
+      "63",
+      "64",
+      "62",
+      "61"
+    ],
+    "a": "62",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 40 + 22 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111066,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 75 - 12 = ?",
+    "o": [
+      "63",
+      "64",
+      "62",
+      "65"
+    ],
+    "a": "63",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 75 - 12 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 63.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111067,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 52 + 15 = ?",
+    "o": [
+      "69",
+      "68",
+      "66",
+      "67"
+    ],
+    "a": "67",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 52 + 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 67.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111068,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 83 - 13 = ?",
+    "o": [
+      "69",
+      "70",
+      "72",
+      "71"
+    ],
+    "a": "70",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 83 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 70.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111069,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 21 + 17 = ?",
+    "o": [
+      "40",
+      "39",
+      "37",
+      "38"
+    ],
+    "a": "38",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 21 + 17 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 38.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112000,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 396 + 86?",
+    "o": [
+      "502",
+      "482",
+      "472",
+      "492"
+    ],
+    "a": "482",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 482.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112001,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 485 - 156?",
+    "o": [
+      "339",
+      "349",
+      "319",
+      "329"
+    ],
+    "a": "329",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 329.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112002,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 270 + 126?",
+    "o": [
+      "406",
+      "416",
+      "396",
+      "386"
+    ],
+    "a": "396",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 396.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112003,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 399 - 158?",
+    "o": [
+      "261",
+      "251",
+      "231",
+      "241"
+    ],
+    "a": "241",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 241.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112004,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 416 + 98?",
+    "o": [
+      "514",
+      "504",
+      "524",
+      "534"
+    ],
+    "a": "514",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 514.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112005,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 430 - 105?",
+    "o": [
+      "335",
+      "315",
+      "345",
+      "325"
+    ],
+    "a": "325",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 325.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112006,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 307 + 111?",
+    "o": [
+      "418",
+      "438",
+      "428",
+      "408"
+    ],
+    "a": "418",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 418.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112007,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 332 - 162?",
+    "o": [
+      "170",
+      "160",
+      "180",
+      "190"
+    ],
+    "a": "170",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 170.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112008,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 152 + 76?",
+    "o": [
+      "238",
+      "228",
+      "218",
+      "248"
+    ],
+    "a": "228",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 228.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112009,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 448 - 240?",
+    "o": [
+      "198",
+      "208",
+      "218",
+      "228"
+    ],
+    "a": "208",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 208.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112010,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 260 + 77?",
+    "o": [
+      "347",
+      "327",
+      "357",
+      "337"
+    ],
+    "a": "337",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 337.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112011,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 522 - 200?",
+    "o": [
+      "342",
+      "312",
+      "332",
+      "322"
+    ],
+    "a": "322",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 322.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112012,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 185 + 90?",
+    "o": [
+      "285",
+      "265",
+      "295",
+      "275"
+    ],
+    "a": "275",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 275.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112013,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 579 - 180?",
+    "o": [
+      "389",
+      "419",
+      "409",
+      "399"
+    ],
+    "a": "399",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 399.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112014,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 399 + 139?",
+    "o": [
+      "558",
+      "538",
+      "528",
+      "548"
+    ],
+    "a": "538",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 538.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112015,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 302 - 232?",
+    "o": [
+      "80",
+      "60",
+      "70",
+      "90"
+    ],
+    "a": "70",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 70.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112016,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 340 + 80?",
+    "o": [
+      "410",
+      "420",
+      "430",
+      "440"
+    ],
+    "a": "420",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 420.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112017,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 558 - 152?",
+    "o": [
+      "406",
+      "416",
+      "426",
+      "396"
+    ],
+    "a": "406",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 406.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112018,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 444 + 44?",
+    "o": [
+      "488",
+      "478",
+      "498",
+      "508"
+    ],
+    "a": "488",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 488.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112019,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 370 - 182?",
+    "o": [
+      "178",
+      "208",
+      "198",
+      "188"
+    ],
+    "a": "188",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 188.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112020,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 360 + 93?",
+    "o": [
+      "443",
+      "463",
+      "453",
+      "473"
+    ],
+    "a": "453",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 453.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112021,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 326 - 210?",
+    "o": [
+      "106",
+      "136",
+      "116",
+      "126"
+    ],
+    "a": "116",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 116.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112022,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 426 + 80?",
+    "o": [
+      "526",
+      "496",
+      "516",
+      "506"
+    ],
+    "a": "506",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 506.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112023,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 550 - 171?",
+    "o": [
+      "389",
+      "379",
+      "399",
+      "369"
+    ],
+    "a": "379",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 379.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112024,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 238 + 89?",
+    "o": [
+      "347",
+      "337",
+      "317",
+      "327"
+    ],
+    "a": "327",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 327.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112025,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 534 - 212?",
+    "o": [
+      "322",
+      "332",
+      "342",
+      "312"
+    ],
+    "a": "322",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 322.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112026,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 424 + 126?",
+    "o": [
+      "540",
+      "570",
+      "550",
+      "560"
+    ],
+    "a": "550",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 550.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112027,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 448 - 173?",
+    "o": [
+      "285",
+      "265",
+      "275",
+      "295"
+    ],
+    "a": "275",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 275.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112028,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 400 + 71?",
+    "o": [
+      "491",
+      "461",
+      "481",
+      "471"
+    ],
+    "a": "471",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 471.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112029,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 591 - 213?",
+    "o": [
+      "378",
+      "388",
+      "398",
+      "368"
+    ],
+    "a": "378",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 378.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112030,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 430 + 23?",
+    "o": [
+      "453",
+      "463",
+      "473",
+      "443"
+    ],
+    "a": "453",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 453.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112031,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 423 - 115?",
+    "o": [
+      "308",
+      "318",
+      "298",
+      "328"
+    ],
+    "a": "308",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 308.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112032,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 227 + 63?",
+    "o": [
+      "310",
+      "280",
+      "290",
+      "300"
+    ],
+    "a": "290",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 290.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112033,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 515 - 273?",
+    "o": [
+      "262",
+      "242",
+      "232",
+      "252"
+    ],
+    "a": "242",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 242.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112034,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 246 + 128?",
+    "o": [
+      "394",
+      "374",
+      "384",
+      "364"
+    ],
+    "a": "374",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 374.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112035,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 456 - 113?",
+    "o": [
+      "353",
+      "363",
+      "333",
+      "343"
+    ],
+    "a": "343",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 343.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112036,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 182 + 59?",
+    "o": [
+      "241",
+      "251",
+      "261",
+      "231"
+    ],
+    "a": "241",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 241.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112037,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 326 - 209?",
+    "o": [
+      "117",
+      "137",
+      "107",
+      "127"
+    ],
+    "a": "117",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 117.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112038,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 198 + 90?",
+    "o": [
+      "278",
+      "298",
+      "288",
+      "308"
+    ],
+    "a": "288",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 288.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112039,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 356 - 117?",
+    "o": [
+      "229",
+      "239",
+      "259",
+      "249"
+    ],
+    "a": "239",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 239.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112040,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 431 + 28?",
+    "o": [
+      "459",
+      "469",
+      "479",
+      "449"
+    ],
+    "a": "459",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 459.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112041,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 337 - 279?",
+    "o": [
+      "48",
+      "78",
+      "68",
+      "58"
+    ],
+    "a": "58",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 58.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112042,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 368 + 56?",
+    "o": [
+      "444",
+      "414",
+      "434",
+      "424"
+    ],
+    "a": "424",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 424.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112043,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 597 - 175?",
+    "o": [
+      "412",
+      "442",
+      "422",
+      "432"
+    ],
+    "a": "422",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 422.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112044,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 408 + 111?",
+    "o": [
+      "519",
+      "509",
+      "539",
+      "529"
+    ],
+    "a": "519",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 519.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112045,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 351 - 178?",
+    "o": [
+      "173",
+      "163",
+      "193",
+      "183"
+    ],
+    "a": "173",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 173.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112046,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 350 + 25?",
+    "o": [
+      "395",
+      "375",
+      "365",
+      "385"
+    ],
+    "a": "375",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 375.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112047,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 314 - 243?",
+    "o": [
+      "71",
+      "61",
+      "91",
+      "81"
+    ],
+    "a": "71",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 71.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112048,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 336 + 92?",
+    "o": [
+      "448",
+      "428",
+      "418",
+      "438"
+    ],
+    "a": "428",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 428.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112049,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 321 - 207?",
+    "o": [
+      "104",
+      "134",
+      "114",
+      "124"
+    ],
+    "a": "114",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 114.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112050,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 439 + 137?",
+    "o": [
+      "596",
+      "586",
+      "566",
+      "576"
+    ],
+    "a": "576",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 576.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112051,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 461 - 134?",
+    "o": [
+      "327",
+      "317",
+      "337",
+      "347"
+    ],
+    "a": "327",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 327.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112052,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 398 + 80?",
+    "o": [
+      "468",
+      "488",
+      "478",
+      "498"
+    ],
+    "a": "478",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 478.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112053,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 423 - 160?",
+    "o": [
+      "283",
+      "253",
+      "263",
+      "273"
+    ],
+    "a": "263",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 263.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112054,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 230 + 21?",
+    "o": [
+      "241",
+      "251",
+      "261",
+      "271"
+    ],
+    "a": "251",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 251.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112055,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 529 - 103?",
+    "o": [
+      "446",
+      "426",
+      "436",
+      "416"
+    ],
+    "a": "426",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 426.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112056,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 354 + 136?",
+    "o": [
+      "500",
+      "490",
+      "510",
+      "480"
+    ],
+    "a": "490",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 490.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112057,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 316 - 197?",
+    "o": [
+      "139",
+      "109",
+      "119",
+      "129"
+    ],
+    "a": "119",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 119.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112058,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 334 + 105?",
+    "o": [
+      "449",
+      "459",
+      "439",
+      "429"
+    ],
+    "a": "439",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 439.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112059,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 582 - 255?",
+    "o": [
+      "317",
+      "347",
+      "337",
+      "327"
+    ],
+    "a": "327",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 327.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112060,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 325 + 104?",
+    "o": [
+      "429",
+      "449",
+      "439",
+      "419"
+    ],
+    "a": "429",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 429.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112061,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 311 - 103?",
+    "o": [
+      "198",
+      "218",
+      "228",
+      "208"
+    ],
+    "a": "208",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 208.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112062,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 446 + 138?",
+    "o": [
+      "594",
+      "584",
+      "574",
+      "604"
+    ],
+    "a": "584",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 584.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112063,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 452 - 179?",
+    "o": [
+      "283",
+      "263",
+      "293",
+      "273"
+    ],
+    "a": "273",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 273.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112064,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 318 + 88?",
+    "o": [
+      "396",
+      "426",
+      "416",
+      "406"
+    ],
+    "a": "406",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 406.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112065,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 505 - 266?",
+    "o": [
+      "229",
+      "259",
+      "239",
+      "249"
+    ],
+    "a": "239",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 239.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112066,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 272 + 134?",
+    "o": [
+      "406",
+      "426",
+      "416",
+      "396"
+    ],
+    "a": "406",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 406.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112067,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 396 - 205?",
+    "o": [
+      "211",
+      "201",
+      "181",
+      "191"
+    ],
+    "a": "191",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 191.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112068,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 262 + 57?",
+    "o": [
+      "329",
+      "319",
+      "339",
+      "309"
+    ],
+    "a": "319",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 319.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112069,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 568 - 148?",
+    "o": [
+      "430",
+      "440",
+      "420",
+      "410"
+    ],
+    "a": "420",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 420.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 113000,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nai Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 30 rồi trừ đi 13 thì được kết quả là 33. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "26",
+      "16",
+      "11",
+      "21"
+    ],
+    "a": "16",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 33 cộng ngược lại với 13 rồi trừ đi 30 để tìm số ban đầu nhé! Kết quả là 16.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113001,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sóc Nhỏ có nhiều hơn bạn Chim Cánh Cụt đúng 10 viên kẹo ngọt. Nếu bạn Sóc Nhỏ cho bạn Chim Cánh Cụt 5 viên kẹo thì lúc này bạn Sóc Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "10",
+      "0",
+      "5",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sóc Nhỏ hơn 10 viên. Cho đi 5 viên thì kẹo của Sóc Nhỏ giảm đi 5 và kẹo của Chim Cánh Cụt tăng 5 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113002,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cáo Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 29 rồi trừ đi 14 thì được kết quả là 38. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "28",
+      "18",
+      "33",
+      "23"
+    ],
+    "a": "23",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 38 cộng ngược lại với 14 rồi trừ đi 29 để tìm số ban đầu nhé! Kết quả là 23.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113003,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Con có nhiều hơn bạn Gấu Trúc đúng 12 viên kẹo ngọt. Nếu bạn Gấu Con cho bạn Gấu Trúc 6 viên kẹo thì lúc này bạn Gấu Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "12",
+      "6",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Gấu Con hơn 12 viên. Cho đi 6 viên thì kẹo của Gấu Con giảm đi 6 và kẹo của Gấu Trúc tăng 6 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113004,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cún Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 19 rồi trừ đi 6 thì được kết quả là 52. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "39",
+      "44",
+      "49",
+      "34"
+    ],
+    "a": "39",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 52 cộng ngược lại với 6 rồi trừ đi 19 để tìm số ban đầu nhé! Kết quả là 39.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113005,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Mèo Nhỏ có nhiều hơn bạn Gấu Trúc đúng 16 viên kẹo ngọt. Nếu bạn Mèo Nhỏ cho bạn Gấu Trúc 8 viên kẹo thì lúc này bạn Mèo Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "8",
+      "16",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Mèo Nhỏ hơn 16 viên. Cho đi 8 viên thì kẹo của Mèo Nhỏ giảm đi 8 và kẹo của Gấu Trúc tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113006,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khỉ Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 18 rồi trừ đi 18 thì được kết quả là 25. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "20",
+      "35",
+      "25",
+      "30"
+    ],
+    "a": "25",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 25 cộng ngược lại với 18 rồi trừ đi 18 để tìm số ban đầu nhé! Kết quả là 25.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113007,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Voi Con có nhiều hơn bạn Hươu Nhỏ đúng 10 viên kẹo ngọt. Nếu bạn Voi Con cho bạn Hươu Nhỏ 5 viên kẹo thì lúc này bạn Voi Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "10",
+      "0",
+      "5"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Voi Con hơn 10 viên. Cho đi 5 viên thì kẹo của Voi Con giảm đi 5 và kẹo của Hươu Nhỏ tăng 5 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113008,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hươu Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 28 rồi trừ đi 14 thì được kết quả là 31. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "22",
+      "27",
+      "12",
+      "17"
+    ],
+    "a": "17",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 31 cộng ngược lại với 14 rồi trừ đi 28 để tìm số ban đầu nhé! Kết quả là 17.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113009,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nhím Con có nhiều hơn bạn Chim Cánh Cụt đúng 20 viên kẹo ngọt. Nếu bạn Nhím Con cho bạn Chim Cánh Cụt 10 viên kẹo thì lúc này bạn Nhím Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "10",
+      "20",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Nhím Con hơn 20 viên. Cho đi 10 viên thì kẹo của Nhím Con giảm đi 10 và kẹo của Chim Cánh Cụt tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113010,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Thỏ Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 29 rồi trừ đi 8 thì được kết quả là 69. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "43",
+      "48",
+      "53",
+      "58"
+    ],
+    "a": "48",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 69 cộng ngược lại với 8 rồi trừ đi 29 để tìm số ban đầu nhé! Kết quả là 48.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113011,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sư Tử có nhiều hơn bạn Ngựa Vằn đúng 8 viên kẹo ngọt. Nếu bạn Sư Tử cho bạn Ngựa Vằn 4 viên kẹo thì lúc này bạn Sư Tử còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "4",
+      "8",
+      "0",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sư Tử hơn 8 viên. Cho đi 4 viên thì kẹo của Sư Tử giảm đi 4 và kẹo của Ngựa Vằn tăng 4 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113012,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Tê Giác nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 17 rồi trừ đi 20 thì được kết quả là 51. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "64",
+      "49",
+      "54",
+      "59"
+    ],
+    "a": "54",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 51 cộng ngược lại với 20 rồi trừ đi 17 để tìm số ban đầu nhé! Kết quả là 54.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113013,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Ngựa Vằn có nhiều hơn bạn Cáo Nhỏ đúng 18 viên kẹo ngọt. Nếu bạn Ngựa Vằn cho bạn Cáo Nhỏ 9 viên kẹo thì lúc này bạn Ngựa Vằn còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "18",
+      "9",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Ngựa Vằn hơn 18 viên. Cho đi 9 viên thì kẹo của Ngựa Vằn giảm đi 9 và kẹo của Cáo Nhỏ tăng 9 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113014,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Trúc nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 30 rồi trừ đi 9 thì được kết quả là 40. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "29",
+      "14",
+      "19",
+      "24"
+    ],
+    "a": "19",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 40 cộng ngược lại với 9 rồi trừ đi 30 để tìm số ban đầu nhé! Kết quả là 19.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113015,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Chim Cánh Cụt có nhiều hơn bạn Cáo Nhỏ đúng 8 viên kẹo ngọt. Nếu bạn Chim Cánh Cụt cho bạn Cáo Nhỏ 4 viên kẹo thì lúc này bạn Chim Cánh Cụt còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "8",
+      "2",
+      "0",
+      "4"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Chim Cánh Cụt hơn 8 viên. Cho đi 4 viên thì kẹo của Chim Cánh Cụt giảm đi 4 và kẹo của Cáo Nhỏ tăng 4 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113016,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hải Cẩu nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 10 rồi trừ đi 5 thì được kết quả là 35. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "30",
+      "25",
+      "35",
+      "40"
+    ],
+    "a": "30",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 35 cộng ngược lại với 5 rồi trừ đi 10 để tìm số ban đầu nhé! Kết quả là 30.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113017,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cá Heo có nhiều hơn bạn Hải Cẩu đúng 12 viên kẹo ngọt. Nếu bạn Cá Heo cho bạn Hải Cẩu 6 viên kẹo thì lúc này bạn Cá Heo còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "2",
+      "12",
+      "6"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Cá Heo hơn 12 viên. Cho đi 6 viên thì kẹo của Cá Heo giảm đi 6 và kẹo của Hải Cẩu tăng 6 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113018,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Rùa Biển nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 11 rồi trừ đi 17 thì được kết quả là 32. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "38",
+      "48",
+      "43",
+      "33"
+    ],
+    "a": "38",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 32 cộng ngược lại với 17 rồi trừ đi 11 để tìm số ban đầu nhé! Kết quả là 38.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113019,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khủng Long có nhiều hơn bạn Hải Cẩu đúng 16 viên kẹo ngọt. Nếu bạn Khủng Long cho bạn Hải Cẩu 8 viên kẹo thì lúc này bạn Khủng Long còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "8",
+      "0",
+      "2",
+      "16"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Khủng Long hơn 16 viên. Cho đi 8 viên thì kẹo của Khủng Long giảm đi 8 và kẹo của Hải Cẩu tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113020,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nai Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 17 rồi trừ đi 10 thì được kết quả là 51. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "44",
+      "54",
+      "39",
+      "49"
+    ],
+    "a": "44",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 51 cộng ngược lại với 10 rồi trừ đi 17 để tìm số ban đầu nhé! Kết quả là 44.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113021,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sóc Nhỏ có nhiều hơn bạn Hươu Nhỏ đúng 20 viên kẹo ngọt. Nếu bạn Sóc Nhỏ cho bạn Hươu Nhỏ 10 viên kẹo thì lúc này bạn Sóc Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "10",
+      "2",
+      "20",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sóc Nhỏ hơn 20 viên. Cho đi 10 viên thì kẹo của Sóc Nhỏ giảm đi 10 và kẹo của Hươu Nhỏ tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113022,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cáo Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 30 rồi trừ đi 20 thì được kết quả là 56. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "51",
+      "41",
+      "46",
+      "56"
+    ],
+    "a": "46",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 56 cộng ngược lại với 20 rồi trừ đi 30 để tìm số ban đầu nhé! Kết quả là 46.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113023,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Con có nhiều hơn bạn Mèo Nhỏ đúng 12 viên kẹo ngọt. Nếu bạn Gấu Con cho bạn Mèo Nhỏ 6 viên kẹo thì lúc này bạn Gấu Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "12",
+      "2",
+      "6",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Gấu Con hơn 12 viên. Cho đi 6 viên thì kẹo của Gấu Con giảm đi 6 và kẹo của Mèo Nhỏ tăng 6 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113024,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cún Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 21 rồi trừ đi 20 thì được kết quả là 30. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "39",
+      "34",
+      "29",
+      "24"
+    ],
+    "a": "29",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 30 cộng ngược lại với 20 rồi trừ đi 21 để tìm số ban đầu nhé! Kết quả là 29.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113025,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Mèo Nhỏ có nhiều hơn bạn Cá Heo đúng 14 viên kẹo ngọt. Nếu bạn Mèo Nhỏ cho bạn Cá Heo 7 viên kẹo thì lúc này bạn Mèo Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "14",
+      "2",
+      "7"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Mèo Nhỏ hơn 14 viên. Cho đi 7 viên thì kẹo của Mèo Nhỏ giảm đi 7 và kẹo của Cá Heo tăng 7 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113026,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khỉ Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 16 rồi trừ đi 6 thì được kết quả là 65. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "60",
+      "65",
+      "55",
+      "50"
+    ],
+    "a": "55",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 65 cộng ngược lại với 6 rồi trừ đi 16 để tìm số ban đầu nhé! Kết quả là 55.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113027,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Voi Con có nhiều hơn bạn Cá Heo đúng 14 viên kẹo ngọt. Nếu bạn Voi Con cho bạn Cá Heo 7 viên kẹo thì lúc này bạn Voi Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "7",
+      "14",
+      "2",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Voi Con hơn 14 viên. Cho đi 7 viên thì kẹo của Voi Con giảm đi 7 và kẹo của Cá Heo tăng 7 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113028,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hươu Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 14 rồi trừ đi 13 thì được kết quả là 33. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "37",
+      "27",
+      "42",
+      "32"
+    ],
+    "a": "32",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 33 cộng ngược lại với 13 rồi trừ đi 14 để tìm số ban đầu nhé! Kết quả là 32.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113029,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nhím Con có nhiều hơn bạn Thỏ Con đúng 18 viên kẹo ngọt. Nếu bạn Nhím Con cho bạn Thỏ Con 9 viên kẹo thì lúc này bạn Nhím Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "18",
+      "9",
+      "2",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Nhím Con hơn 18 viên. Cho đi 9 viên thì kẹo của Nhím Con giảm đi 9 và kẹo của Thỏ Con tăng 9 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113030,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Thỏ Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 23 rồi trừ đi 13 thì được kết quả là 51. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "41",
+      "36",
+      "46",
+      "51"
+    ],
+    "a": "41",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 51 cộng ngược lại với 13 rồi trừ đi 23 để tìm số ban đầu nhé! Kết quả là 41.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113031,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sư Tử có nhiều hơn bạn Mèo Nhỏ đúng 8 viên kẹo ngọt. Nếu bạn Sư Tử cho bạn Mèo Nhỏ 4 viên kẹo thì lúc này bạn Sư Tử còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "8",
+      "2",
+      "4"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sư Tử hơn 8 viên. Cho đi 4 viên thì kẹo của Sư Tử giảm đi 4 và kẹo của Mèo Nhỏ tăng 4 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113032,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Tê Giác nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 18 rồi trừ đi 15 thì được kết quả là 47. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "44",
+      "49",
+      "39",
+      "54"
+    ],
+    "a": "44",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 47 cộng ngược lại với 15 rồi trừ đi 18 để tìm số ban đầu nhé! Kết quả là 44.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113033,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Ngựa Vằn có nhiều hơn bạn Chim Cánh Cụt đúng 10 viên kẹo ngọt. Nếu bạn Ngựa Vằn cho bạn Chim Cánh Cụt 5 viên kẹo thì lúc này bạn Ngựa Vằn còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "5",
+      "2",
+      "0",
+      "10"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Ngựa Vằn hơn 10 viên. Cho đi 5 viên thì kẹo của Ngựa Vằn giảm đi 5 và kẹo của Chim Cánh Cụt tăng 5 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113034,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Trúc nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 23 rồi trừ đi 19 thì được kết quả là 42. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "48",
+      "38",
+      "43",
+      "33"
+    ],
+    "a": "38",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 42 cộng ngược lại với 19 rồi trừ đi 23 để tìm số ban đầu nhé! Kết quả là 38.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113035,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Chim Cánh Cụt có nhiều hơn bạn Voi Con đúng 20 viên kẹo ngọt. Nếu bạn Chim Cánh Cụt cho bạn Voi Con 10 viên kẹo thì lúc này bạn Chim Cánh Cụt còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "10",
+      "2",
+      "20",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Chim Cánh Cụt hơn 20 viên. Cho đi 10 viên thì kẹo của Chim Cánh Cụt giảm đi 10 và kẹo của Voi Con tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113036,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hải Cẩu nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 26 rồi trừ đi 10 thì được kết quả là 53. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "32",
+      "42",
+      "47",
+      "37"
+    ],
+    "a": "37",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 53 cộng ngược lại với 10 rồi trừ đi 26 để tìm số ban đầu nhé! Kết quả là 37.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113037,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cá Heo có nhiều hơn bạn Tê Giác đúng 12 viên kẹo ngọt. Nếu bạn Cá Heo cho bạn Tê Giác 6 viên kẹo thì lúc này bạn Cá Heo còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "12",
+      "2",
+      "6",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Cá Heo hơn 12 viên. Cho đi 6 viên thì kẹo của Cá Heo giảm đi 6 và kẹo của Tê Giác tăng 6 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113038,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Rùa Biển nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 29 rồi trừ đi 21 thì được kết quả là 46. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "43",
+      "33",
+      "38",
+      "48"
+    ],
+    "a": "38",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 46 cộng ngược lại với 21 rồi trừ đi 29 để tìm số ban đầu nhé! Kết quả là 38.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113039,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khủng Long có nhiều hơn bạn Cún Con đúng 8 viên kẹo ngọt. Nếu bạn Khủng Long cho bạn Cún Con 4 viên kẹo thì lúc này bạn Khủng Long còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "8",
+      "0",
+      "4"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Khủng Long hơn 8 viên. Cho đi 4 viên thì kẹo của Khủng Long giảm đi 4 và kẹo của Cún Con tăng 4 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113040,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nai Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 30 rồi trừ đi 21 thì được kết quả là 25. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "26",
+      "21",
+      "11",
+      "16"
+    ],
+    "a": "16",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 25 cộng ngược lại với 21 rồi trừ đi 30 để tìm số ban đầu nhé! Kết quả là 16.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113041,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sóc Nhỏ có nhiều hơn bạn Mèo Nhỏ đúng 16 viên kẹo ngọt. Nếu bạn Sóc Nhỏ cho bạn Mèo Nhỏ 8 viên kẹo thì lúc này bạn Sóc Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "8",
+      "2",
+      "16",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sóc Nhỏ hơn 16 viên. Cho đi 8 viên thì kẹo của Sóc Nhỏ giảm đi 8 và kẹo của Mèo Nhỏ tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113042,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cáo Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 26 rồi trừ đi 10 thì được kết quả là 43. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "32",
+      "22",
+      "27",
+      "37"
+    ],
+    "a": "27",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 43 cộng ngược lại với 10 rồi trừ đi 26 để tìm số ban đầu nhé! Kết quả là 27.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113043,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Con có nhiều hơn bạn Mèo Nhỏ đúng 16 viên kẹo ngọt. Nếu bạn Gấu Con cho bạn Mèo Nhỏ 8 viên kẹo thì lúc này bạn Gấu Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "16",
+      "8",
+      "2",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Gấu Con hơn 16 viên. Cho đi 8 viên thì kẹo của Gấu Con giảm đi 8 và kẹo của Mèo Nhỏ tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113044,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cún Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 23 rồi trừ đi 7 thì được kết quả là 56. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "35",
+      "50",
+      "45",
+      "40"
+    ],
+    "a": "40",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 56 cộng ngược lại với 7 rồi trừ đi 23 để tìm số ban đầu nhé! Kết quả là 40.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113045,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Mèo Nhỏ có nhiều hơn bạn Chim Cánh Cụt đúng 10 viên kẹo ngọt. Nếu bạn Mèo Nhỏ cho bạn Chim Cánh Cụt 5 viên kẹo thì lúc này bạn Mèo Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "5",
+      "2",
+      "0",
+      "10"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Mèo Nhỏ hơn 10 viên. Cho đi 5 viên thì kẹo của Mèo Nhỏ giảm đi 5 và kẹo của Chim Cánh Cụt tăng 5 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113046,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khỉ Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 21 rồi trừ đi 15 thì được kết quả là 58. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "47",
+      "52",
+      "57",
+      "62"
+    ],
+    "a": "52",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 58 cộng ngược lại với 15 rồi trừ đi 21 để tìm số ban đầu nhé! Kết quả là 52.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113047,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Voi Con có nhiều hơn bạn Gấu Trúc đúng 16 viên kẹo ngọt. Nếu bạn Voi Con cho bạn Gấu Trúc 8 viên kẹo thì lúc này bạn Voi Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "16",
+      "2",
+      "0",
+      "8"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Voi Con hơn 16 viên. Cho đi 8 viên thì kẹo của Voi Con giảm đi 8 và kẹo của Gấu Trúc tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113048,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hươu Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 13 rồi trừ đi 8 thì được kết quả là 58. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "58",
+      "63",
+      "48",
+      "53"
+    ],
+    "a": "53",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 58 cộng ngược lại với 8 rồi trừ đi 13 để tìm số ban đầu nhé! Kết quả là 53.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113049,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nhím Con có nhiều hơn bạn Khỉ Nhỏ đúng 18 viên kẹo ngọt. Nếu bạn Nhím Con cho bạn Khỉ Nhỏ 9 viên kẹo thì lúc này bạn Nhím Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "9",
+      "18",
+      "0",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Nhím Con hơn 18 viên. Cho đi 9 viên thì kẹo của Nhím Con giảm đi 9 và kẹo của Khỉ Nhỏ tăng 9 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113050,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Thỏ Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 15 rồi trừ đi 23 thì được kết quả là 48. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "56",
+      "66",
+      "51",
+      "61"
+    ],
+    "a": "56",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 48 cộng ngược lại với 23 rồi trừ đi 15 để tìm số ban đầu nhé! Kết quả là 56.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113051,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sư Tử có nhiều hơn bạn Hải Cẩu đúng 16 viên kẹo ngọt. Nếu bạn Sư Tử cho bạn Hải Cẩu 8 viên kẹo thì lúc này bạn Sư Tử còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "16",
+      "0",
+      "8"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sư Tử hơn 16 viên. Cho đi 8 viên thì kẹo của Sư Tử giảm đi 8 và kẹo của Hải Cẩu tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113052,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Tê Giác nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 20 rồi trừ đi 24 thì được kết quả là 11. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "10",
+      "25",
+      "15",
+      "20"
+    ],
+    "a": "15",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 11 cộng ngược lại với 24 rồi trừ đi 20 để tìm số ban đầu nhé! Kết quả là 15.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113053,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Ngựa Vằn có nhiều hơn bạn Sư Tử đúng 8 viên kẹo ngọt. Nếu bạn Ngựa Vằn cho bạn Sư Tử 4 viên kẹo thì lúc này bạn Ngựa Vằn còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "0",
+      "8",
+      "4"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Ngựa Vằn hơn 8 viên. Cho đi 4 viên thì kẹo của Ngựa Vằn giảm đi 4 và kẹo của Sư Tử tăng 4 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113054,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Trúc nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 19 rồi trừ đi 16 thì được kết quả là 49. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "46",
+      "56",
+      "41",
+      "51"
+    ],
+    "a": "46",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 49 cộng ngược lại với 16 rồi trừ đi 19 để tìm số ban đầu nhé! Kết quả là 46.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113055,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Chim Cánh Cụt có nhiều hơn bạn Cún Con đúng 20 viên kẹo ngọt. Nếu bạn Chim Cánh Cụt cho bạn Cún Con 10 viên kẹo thì lúc này bạn Chim Cánh Cụt còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "20",
+      "0",
+      "10",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Chim Cánh Cụt hơn 20 viên. Cho đi 10 viên thì kẹo của Chim Cánh Cụt giảm đi 10 và kẹo của Cún Con tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113056,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hải Cẩu nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 25 rồi trừ đi 22 thì được kết quả là 39. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "46",
+      "31",
+      "41",
+      "36"
+    ],
+    "a": "36",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 39 cộng ngược lại với 22 rồi trừ đi 25 để tìm số ban đầu nhé! Kết quả là 36.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113057,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cá Heo có nhiều hơn bạn Gấu Trúc đúng 14 viên kẹo ngọt. Nếu bạn Cá Heo cho bạn Gấu Trúc 7 viên kẹo thì lúc này bạn Cá Heo còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "2",
+      "7",
+      "14"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Cá Heo hơn 14 viên. Cho đi 7 viên thì kẹo của Cá Heo giảm đi 7 và kẹo của Gấu Trúc tăng 7 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113058,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Rùa Biển nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 24 rồi trừ đi 21 thì được kết quả là 18. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "10",
+      "15",
+      "20",
+      "25"
+    ],
+    "a": "15",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 18 cộng ngược lại với 21 rồi trừ đi 24 để tìm số ban đầu nhé! Kết quả là 15.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113059,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khủng Long có nhiều hơn bạn Gấu Con đúng 16 viên kẹo ngọt. Nếu bạn Khủng Long cho bạn Gấu Con 8 viên kẹo thì lúc này bạn Khủng Long còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "0",
+      "16",
+      "2",
+      "8"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Khủng Long hơn 16 viên. Cho đi 8 viên thì kẹo của Khủng Long giảm đi 8 và kẹo của Gấu Con tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113060,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nai Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 15 rồi trừ đi 5 thì được kết quả là 41. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "41",
+      "26",
+      "36",
+      "31"
+    ],
+    "a": "31",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 41 cộng ngược lại với 5 rồi trừ đi 15 để tìm số ban đầu nhé! Kết quả là 31.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113061,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Sóc Nhỏ có nhiều hơn bạn Ngựa Vằn đúng 12 viên kẹo ngọt. Nếu bạn Sóc Nhỏ cho bạn Ngựa Vằn 6 viên kẹo thì lúc này bạn Sóc Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "12",
+      "6",
+      "0",
+      "2"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Sóc Nhỏ hơn 12 viên. Cho đi 6 viên thì kẹo của Sóc Nhỏ giảm đi 6 và kẹo của Ngựa Vằn tăng 6 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113062,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cáo Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 25 rồi trừ đi 17 thì được kết quả là 28. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "30",
+      "20",
+      "15",
+      "25"
+    ],
+    "a": "20",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 28 cộng ngược lại với 17 rồi trừ đi 25 để tìm số ban đầu nhé! Kết quả là 20.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113063,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Gấu Con có nhiều hơn bạn Hải Cẩu đúng 20 viên kẹo ngọt. Nếu bạn Gấu Con cho bạn Hải Cẩu 10 viên kẹo thì lúc này bạn Gấu Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "10",
+      "20",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Gấu Con hơn 20 viên. Cho đi 10 viên thì kẹo của Gấu Con giảm đi 10 và kẹo của Hải Cẩu tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113064,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Cún Con nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 13 rồi trừ đi 11 thì được kết quả là 30. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "33",
+      "28",
+      "23",
+      "38"
+    ],
+    "a": "28",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 30 cộng ngược lại với 11 rồi trừ đi 13 để tìm số ban đầu nhé! Kết quả là 28.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113065,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Mèo Nhỏ có nhiều hơn bạn Nhím Con đúng 16 viên kẹo ngọt. Nếu bạn Mèo Nhỏ cho bạn Nhím Con 8 viên kẹo thì lúc này bạn Mèo Nhỏ còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "8",
+      "0",
+      "2",
+      "16"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Mèo Nhỏ hơn 16 viên. Cho đi 8 viên thì kẹo của Mèo Nhỏ giảm đi 8 và kẹo của Nhím Con tăng 8 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113066,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Khỉ Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 10 rồi trừ đi 21 thì được kết quả là 21. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "42",
+      "37",
+      "32",
+      "27"
+    ],
+    "a": "32",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 21 cộng ngược lại với 21 rồi trừ đi 10 để tìm số ban đầu nhé! Kết quả là 32.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113067,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Voi Con có nhiều hơn bạn Ngựa Vằn đúng 18 viên kẹo ngọt. Nếu bạn Voi Con cho bạn Ngựa Vằn 9 viên kẹo thì lúc này bạn Voi Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "9",
+      "0",
+      "18"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Voi Con hơn 18 viên. Cho đi 9 viên thì kẹo của Voi Con giảm đi 9 và kẹo của Ngựa Vằn tăng 9 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113068,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Hươu Nhỏ nghĩ ra một số. Biết rằng nếu lấy số đó cộng với 22 rồi trừ đi 20 thì được kết quả là 33. Cô giáo Thỏ Ngọc hỏi số bạn ban đầu nghĩ ra là:",
+    "o": [
+      "31",
+      "26",
+      "36",
+      "41"
+    ],
+    "a": "31",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Con hãy lấy kết quả 33 cộng ngược lại với 20 rồi trừ đi 22 để tìm số ban đầu nhé! Kết quả là 31.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 113069,
+    "sub_code": "11.3",
+    "sub": "Thử thách Nhà Thông Thái Nhí",
+    "q": "Bạn Nhím Con có nhiều hơn bạn Khỉ Nhỏ đúng 20 viên kẹo ngọt. Nếu bạn Nhím Con cho bạn Khỉ Nhỏ 10 viên kẹo thì lúc này bạn Nhím Con còn nhiều hơn bao nhiêu viên kẹo?",
+    "o": [
+      "2",
+      "20",
+      "10",
+      "0"
+    ],
+    "a": "0",
+    "h": "Cô giáo Thỏ Ngọc gợi ý: Ban đầu Nhím Con hơn 20 viên. Cho đi 10 viên thì kẹo của Nhím Con giảm đi 10 và kẹo của Khỉ Nhỏ tăng 10 viên. Hai bạn sẽ có số kẹo bằng nhau, tức là chênh lệch bằng 0 viên kẹo nhé!",
+    "tag": "TOAN_C6"
+  }
+]

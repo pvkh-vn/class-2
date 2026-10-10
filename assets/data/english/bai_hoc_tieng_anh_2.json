@@ -1,0 +1,4931 @@
+{
+  "schema_version": "TA2_BH_BT_V3_BILINGUAL_TTS",
+  "data_version": "V4_PEDAGOGY_2026-09-19",
+  "subject": "Tiếng Anh",
+  "grade": 2,
+  "curriculum": "Global Success",
+  "module_model": "Bài học ↔ Bài tập",
+  "competencies": [
+    "ENG_PHO",
+    "ENG_VOC",
+    "ENG_LIS",
+    "ENG_GRA",
+    "ENG_SYN",
+    "ENG_READ"
+  ],
+  "insufficient_data_label": "Not enough data",
+  "rules": {
+    "bai_hoc": "16 lessons follow the 16 textbook Units. English is primary; Vietnamese support is selective. Textbook-aligned phonics, vocabulary and sentence patterns are preserved where necessary.",
+    "bai_tap": "20 questions per attempt from a target pool of about 30. Questions are short in English with Vietnamese support below. Reuse the current learning bank by Unit relevance.",
+    "unlock": "Exercise 1 is open. Score 80% or more to unlock the next exercise. All lessons stay open.",
+    "assessment": "Keep ENG_PHO, ENG_VOC, ENG_LIS, ENG_GRA, ENG_SYN and ENG_READ. A competency with no valid sample is Not enough data / Chưa đủ dữ liệu.",
+    "images": "Use image_id from assets/data/shared_image_catalog.json; image paths are catalog src in topic folders. No lesson-local images.",
+    "tts": "English: en-US. Standalone 100% Vietnamese: vi-VN. Vietnamese translation/support below English: silent. Mixed English-Vietnamese strings: never read as one string."
+  },
+  "bai_hoc": [
+    {
+      "bai": 1,
+      "semester": 1,
+      "source_unit": 1,
+      "source_title": "At my birthday party",
+      "theme": "Birthday party",
+      "lesson_id": "TA2_U01",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Gia dinh/birthday-party-family.jpg",
+          "phonics": {
+            "letter": "P",
+            "sound": "/p/",
+            "words": [
+              "pasta",
+              "popcorn",
+              "pizza"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "pasta",
+              "meaning": "mì Ý",
+              "ipa": "ˈpæstə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_194",
+                "image_id": "food_table_multi",
+                "image_url": "assets/images/Do an/food-table-multi.jpg",
+                "target_tag": "pasta",
+                "focus_hint": "pasta",
+                "fallback_emoji": "🍝"
+              }
+            },
+            {
+              "word": "popcorn",
+              "meaning": "bỏng ngô",
+              "ipa": "ˈpɒpkɔːn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_199",
+                "image_id": "birthday_party_family",
+                "image_url": "assets/images/Gia dinh/birthday-party-family.jpg",
+                "target_tag": "popcorn",
+                "focus_hint": "popcorn",
+                "fallback_emoji": "🍿"
+              }
+            },
+            {
+              "word": "pizza",
+              "meaning": "bánh pizza",
+              "ipa": "ˈpiːtsə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_198",
+                "image_id": "yummy_pizza",
+                "image_url": "assets/images/Do an/yummy_pizza.jpg",
+                "target_tag": "pizza",
+                "focus_hint": "pizza",
+                "fallback_emoji": "🍕"
+              }
+            }
+          ],
+          "sentence_pattern": "The popcorn is yummy.",
+          "mini_dialogue": [
+            "A: Look! Pizza and popcorn.",
+            "B: Yummy! The popcorn is yummy."
+          ],
+          "source_anchor": "At my birthday party",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Nhìn này! Pizza và bỏng ngô.",
+            "B: Ngon quá! Bỏng ngô rất ngon."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "birthday_party_family",
+          "image_url": "assets/images/Gia dinh/birthday-party-family.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "P",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "popcorn",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "The popcorn is yummy.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "pasta, popcorn, pizza",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "The popcorn is yummy.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: P /p/",
+            "Words: pasta, popcorn, pizza.",
+            "Sentence: The popcorn is yummy."
+          ],
+          "practice_lines": [
+            "The popcorn is yummy."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: P /p/",
+            "Từ vựng: pasta (mì Ý), popcorn (bỏng ngô), pizza (bánh pizza).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Say it with a new food: The pizza is yummy.",
+          "transfer_challenge_vi": "Đổi sang một món khác và nói lại mẫu câu.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở bữa tiệc sinh nhật của em",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 2,
+      "semester": 1,
+      "source_unit": 2,
+      "source_title": "In the backyard",
+      "theme": "Backyard",
+      "lesson_id": "TA2_U02",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Hoat dong/backyard-kids-playing.jpg",
+          "phonics": {
+            "letter": "K",
+            "sound": "/k/",
+            "words": [
+              "kite",
+              "bike",
+              "kitten"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "kite",
+              "meaning": "con diều",
+              "ipa": "kaɪt",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_079",
+                "image_id": "backyard_pets_kite",
+                "image_url": "assets/images/Hoat dong/backyard-pets-kite.jpg",
+                "target_tag": "kite",
+                "focus_hint": "kite",
+                "fallback_emoji": "🪁"
+              }
+            },
+            {
+              "word": "bike",
+              "meaning": "xe đạp",
+              "ipa": "baɪk",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_059",
+                "image_id": "backyard_pets_kite",
+                "image_url": "assets/images/Hoat dong/backyard-pets-kite.jpg",
+                "target_tag": "bike",
+                "focus_hint": "bike",
+                "fallback_emoji": "🚲"
+              }
+            },
+            {
+              "word": "kitten",
+              "meaning": "mèo con",
+              "ipa": "ˈkɪtn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_135",
+                "image_id": "dong_vat_kitten",
+                "image_url": "assets/images/Dong vat/dong_vat_kitten.jpg",
+                "target_tag": "kitten",
+                "focus_hint": "kitten",
+                "fallback_emoji": "🐱"
+              }
+            }
+          ],
+          "sentence_pattern": "Is she flying a kite? — Yes, she is. / No, she isn’t.",
+          "mini_dialogue": [
+            "A: Look at Mai.",
+            "B: Is she flying a kite?",
+            "A: Yes, she is."
+          ],
+          "source_anchor": "In the backyard",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Nhìn Mai kìa.",
+            "B: Bạn ấy đang thả diều phải không?",
+            "A: Đúng vậy."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "backyard_kids_playing",
+          "image_url": "assets/images/Hoat dong/backyard-kids-playing.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "K",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "bike",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Is she flying a kite? — Yes, she is. / No, she isn’t.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "kite, bike, kitten",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Is she flying a kite? — Yes, she is. / No, she isn’t.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: K /k/",
+            "Words: kite, bike, kitten.",
+            "Sentence: Is she flying a kite? — Yes, she is. / No, she isn’t."
+          ],
+          "practice_lines": [
+            "Is she flying a kite? — Yes, she is. / No, she isn’t."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: K /k/",
+            "Từ vựng: kite (con diều), bike (xe đạp), kitten (mèo con).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Look at the picture and answer: Is she flying a kite?",
+          "transfer_challenge_vi": "Nhìn tranh và tự trả lời Yes/No.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở sân sau",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 3,
+      "semester": 1,
+      "source_unit": 3,
+      "source_title": "At the seaside",
+      "theme": "Seaside",
+      "lesson_id": "TA2_U03",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Noi chon/seaside-family-day.jpg",
+          "phonics": {
+            "letter": "S",
+            "sound": "/s/",
+            "words": [
+              "sail",
+              "sand",
+              "sea"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "sail",
+              "meaning": "cánh buồm",
+              "ipa": "sail",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_286",
+                "image_id": "harbour_boat",
+                "image_url": "assets/images/Giao thong/harbour-boat.jpg",
+                "target_tag": "sail",
+                "focus_hint": "sail",
+                "fallback_emoji": "⛵"
+              }
+            },
+            {
+              "word": "sand",
+              "meaning": "cát",
+              "ipa": "sænd",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_287",
+                "image_id": "seaside_sunny",
+                "image_url": "assets/images/Noi chon/seaside-sunny.jpg",
+                "target_tag": "sand",
+                "focus_hint": "sand",
+                "fallback_emoji": "🏖️"
+              }
+            },
+            {
+              "word": "sea",
+              "meaning": "biển",
+              "ipa": "siː",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_288",
+                "image_id": "harbour_boat",
+                "image_url": "assets/images/Giao thong/harbour-boat.jpg",
+                "target_tag": "sea",
+                "focus_hint": "sea",
+                "fallback_emoji": "🌊"
+              }
+            }
+          ],
+          "sentence_pattern": "Let’s look at the sea!",
+          "mini_dialogue": [
+            "A: Look at the sea!",
+            "B: Wow! Let’s look at the sea."
+          ],
+          "source_anchor": "At the seaside",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Nhìn biển kìa!",
+            "B: Oa! Cùng ngắm biển nhé."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "seaside_family_day",
+          "image_url": "assets/images/Noi chon/seaside-family-day.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "S",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "sand",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Let’s look at the sea!",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "sail, sand, sea",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Let’s look at the sea!",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: S /s/",
+            "Words: sail, sand, sea.",
+            "Sentence: Let’s look at the sea!"
+          ],
+          "practice_lines": [
+            "Let’s look at the sea!"
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: S /s/",
+            "Từ vựng: sail (cánh buồm), sand (cát), sea (biển).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Point to the picture and say: Let's look at the sea!",
+          "transfer_challenge_vi": "Chỉ vào tranh và nói lời rủ bạn cùng xem.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở bờ biển",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 4,
+      "semester": 1,
+      "source_unit": 4,
+      "source_title": "In the countryside",
+      "theme": "Countryside",
+      "lesson_id": "TA2_U04",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Noi chon/countryside-village-life.jpg",
+          "phonics": {
+            "letter": "R",
+            "sound": "/r/",
+            "words": [
+              "rainbow",
+              "river",
+              "road"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "rainbow",
+              "meaning": "cầu vồng",
+              "ipa": "ˈreɪnbəʊ",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_281",
+                "image_id": "colorful_rainbow",
+                "image_url": "assets/images/Noi chon/colorful_rainbow.jpg",
+                "target_tag": "rainbow",
+                "focus_hint": "rainbow",
+                "fallback_emoji": "🌈"
+              }
+            },
+            {
+              "word": "river",
+              "meaning": "dòng sông",
+              "ipa": "ˈrɪvə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_284",
+                "image_id": "harbour_boat",
+                "image_url": "assets/images/Giao thong/harbour-boat.jpg",
+                "target_tag": "river",
+                "focus_hint": "river",
+                "fallback_emoji": "🏞️"
+              }
+            },
+            {
+              "word": "road",
+              "meaning": "con đường",
+              "ipa": "rəʊd",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_285",
+                "image_id": "school_bus_stop",
+                "image_url": "assets/images/Giao thong/school-bus-stop.jpg",
+                "target_tag": "road",
+                "focus_hint": "road",
+                "fallback_emoji": "🛣️"
+              }
+            }
+          ],
+          "sentence_pattern": "There’s a rainbow.",
+          "mini_dialogue": [
+            "A: Look!",
+            "B: There’s a rainbow."
+          ],
+          "source_anchor": "In the countryside",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Nhìn kìa!",
+            "B: Có một cầu vồng."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "countryside_village_life",
+          "image_url": "assets/images/Noi chon/countryside-village-life.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "R",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "river",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "There’s a rainbow.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "rainbow, river, road",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "There’s a rainbow.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: R /r/",
+            "Words: rainbow, river, road.",
+            "Sentence: There’s a rainbow."
+          ],
+          "practice_lines": [
+            "There’s a rainbow."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: R /r/",
+            "Từ vựng: rainbow (cầu vồng), river (dòng sông), road (con đường).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Use another word: There's a river.",
+          "transfer_challenge_vi": "Đổi từ rainbow sang một từ khác trong bài.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở vùng nông thôn",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 5,
+      "semester": 1,
+      "source_unit": 5,
+      "source_title": "In the classroom",
+      "theme": "Classroom",
+      "lesson_id": "TA2_U05",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Math scenes/classroom-learning-fun.jpg",
+          "phonics": {
+            "letter": "Q",
+            "sound": "/kw/",
+            "words": [
+              "question",
+              "square",
+              "quiz"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "question",
+              "meaning": "câu hỏi",
+              "ipa": "question",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_090",
+                "image_id": "classroom_learning_fun",
+                "image_url": "assets/images/Math scenes/classroom-learning-fun.jpg",
+                "target_tag": "question",
+                "focus_hint": "question",
+                "fallback_emoji": "❓"
+              }
+            },
+            {
+              "word": "square",
+              "meaning": "hình vuông",
+              "ipa": "skweə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_295",
+                "image_id": null,
+                "image_url": null,
+                "target_tag": null,
+                "focus_hint": null,
+                "fallback_emoji": "🟥"
+              }
+            },
+            {
+              "word": "quiz",
+              "meaning": "bài đố vui",
+              "ipa": "quiz",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_091",
+                "image_id": "classroom_learning_fun",
+                "image_url": "assets/images/Math scenes/classroom-learning-fun.jpg",
+                "target_tag": "quiz",
+                "focus_hint": "quiz",
+                "fallback_emoji": "📝"
+              }
+            }
+          ],
+          "sentence_pattern": "What’s he doing? — He’s doing a quiz.",
+          "mini_dialogue": [
+            "A: What’s he doing?",
+            "B: He’s doing a quiz."
+          ],
+          "source_anchor": "In the classroom",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Bạn ấy đang làm gì?",
+            "B: Bạn ấy đang làm bài đố vui."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "classroom_learning_fun",
+          "image_url": "assets/images/Math scenes/classroom-learning-fun.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "Q",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "square",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "What’s he doing? — He’s doing a quiz.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "question, square, quiz",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "What’s he doing? — He’s doing a quiz.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: Q /kw/",
+            "Words: question, square, quiz.",
+            "Sentence: What’s he doing? — He’s doing a quiz."
+          ],
+          "practice_lines": [
+            "What’s he doing? — He’s doing a quiz."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: Q /kw/",
+            "Từ vựng: question (câu hỏi), square (hình vuông), quiz (bài đố vui).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Ask and answer once: What's he doing? — He's doing a quiz.",
+          "transfer_challenge_vi": "Tự đóng hai vai hỏi và trả lời một lần.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong lớp học",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 6,
+      "semester": 1,
+      "source_unit": 6,
+      "source_title": "On the farm",
+      "theme": "Farm",
+      "lesson_id": "TA2_U06",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Dong vat/friendly-farm-scene.jpg",
+          "phonics": {
+            "letter": "X",
+            "sound": "/ks/",
+            "words": [
+              "box",
+              "fox",
+              "ox"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "box",
+              "meaning": "cái hộp",
+              "ipa": "bɒks",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_063",
+                "image_id": "family_22_house_cleaning",
+                "image_url": "assets/images/Gia dinh/family_22_house_cleaning.jpg",
+                "target_tag": "box",
+                "focus_hint": "box",
+                "fallback_emoji": "📦"
+              }
+            },
+            {
+              "word": "fox",
+              "meaning": "con cáo",
+              "ipa": "fɒks",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_127",
+                "image_id": "farm_ox_fox",
+                "image_url": "assets/images/Dong vat/farm-ox-fox.jpg",
+                "target_tag": "fox",
+                "focus_hint": "fox",
+                "fallback_emoji": "🦊"
+              }
+            },
+            {
+              "word": "ox",
+              "meaning": "con bò đực",
+              "ipa": "ox",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_142",
+                "image_id": "friendly_farm_scene",
+                "image_url": "assets/images/Dong vat/friendly-farm-scene.jpg",
+                "target_tag": "ox",
+                "focus_hint": "ox",
+                "fallback_emoji": "🐂"
+              }
+            }
+          ],
+          "sentence_pattern": "Is there an ox? — Yes, there is. / No, there isn’t.",
+          "mini_dialogue": [
+            "A: Is there an ox?",
+            "B: Yes, there is."
+          ],
+          "source_anchor": "On the farm",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Có một con bò đực không?",
+            "B: Có."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "friendly_farm_scene",
+          "image_url": "assets/images/Dong vat/friendly-farm-scene.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "X",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "fox",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Is there an ox? — Yes, there is. / No, there isn’t.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "box, fox, ox",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Is there an ox? — Yes, there is. / No, there isn’t.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: X /ks/",
+            "Words: box, fox, ox.",
+            "Sentence: Is there an ox? — Yes, there is. / No, there isn’t."
+          ],
+          "practice_lines": [
+            "Is there an ox? — Yes, there is. / No, there isn’t."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: X /ks/",
+            "Từ vựng: box (cái hộp), fox (con cáo), ox (con bò đực).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Change the animal and ask: Is there a fox?",
+          "transfer_challenge_vi": "Đổi con vật rồi tự hỏi và trả lời Yes/No.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở nông trại",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 7,
+      "semester": 1,
+      "source_unit": 7,
+      "source_title": "In the kitchen",
+      "theme": "Kitchen",
+      "lesson_id": "TA2_U07",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Do an/family-kitchen-snack.jpg",
+          "phonics": {
+            "letter": "J",
+            "sound": "/dʒ/",
+            "words": [
+              "jelly",
+              "juice",
+              "jam"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "jelly",
+              "meaning": "thạch",
+              "ipa": "ˈdʒeli",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_183",
+                "image_id": "kitchen_cooking",
+                "image_url": "assets/images/Gia dinh/kitchen-cooking.jpg",
+                "target_tag": "jelly",
+                "focus_hint": "jelly",
+                "fallback_emoji": "🍮"
+              }
+            },
+            {
+              "word": "juice",
+              "meaning": "nước ép",
+              "ipa": "dʒuːs",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_184",
+                "image_id": "food_table_multi",
+                "image_url": "assets/images/Do an/food-table-multi.jpg",
+                "target_tag": "juice",
+                "focus_hint": "juice",
+                "fallback_emoji": "🥤"
+              }
+            },
+            {
+              "word": "jam",
+              "meaning": "mứt",
+              "ipa": "dʒæm",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_182",
+                "image_id": "food_table_multi",
+                "image_url": "assets/images/Do an/food-table-multi.jpg",
+                "target_tag": "jam",
+                "focus_hint": "jam",
+                "fallback_emoji": "🍯"
+              }
+            }
+          ],
+          "sentence_pattern": "Pass me the jam, please. — Here you are.",
+          "mini_dialogue": [
+            "A: Pass me the jam, please.",
+            "B: Here you are."
+          ],
+          "source_anchor": "In the kitchen",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Làm ơn đưa cho mình lọ mứt.",
+            "B: Của bạn đây."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "family_kitchen_snack",
+          "image_url": "assets/images/Do an/family-kitchen-snack.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "J",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "juice",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Pass me the jam, please. — Here you are.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "jelly, juice, jam",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Pass me the jam, please. — Here you are.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: J /dʒ/",
+            "Words: jelly, juice, jam.",
+            "Sentence: Pass me the jam, please. — Here you are."
+          ],
+          "practice_lines": [
+            "Pass me the jam, please. — Here you are."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: J /dʒ/",
+            "Từ vựng: jelly (thạch), juice (nước ép), jam (mứt).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Make a polite request: Pass me the juice, please.",
+          "transfer_challenge_vi": "Đổi món và nói một lời nhờ lịch sự.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong bếp",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 8,
+      "semester": 1,
+      "source_unit": 8,
+      "source_title": "In the village",
+      "theme": "Village",
+      "lesson_id": "TA2_U08",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Noi chon/countryside-village-life.jpg",
+          "phonics": {
+            "letter": "V",
+            "sound": "/v/",
+            "words": [
+              "village",
+              "van",
+              "volleyball"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "village",
+              "meaning": "làng",
+              "ipa": "ˈvɪlɪdʒ",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_256",
+                "image_id": "village_road_river",
+                "image_url": "assets/images/Noi chon/village-road-river.jpg",
+                "target_tag": "village",
+                "focus_hint": "village",
+                "fallback_emoji": "🏡"
+              }
+            },
+            {
+              "word": "van",
+              "meaning": "xe tải nhỏ",
+              "ipa": "væn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_255",
+                "image_id": "art_class_drawing",
+                "image_url": "assets/images/Hoat dong/art-class-drawing.jpg",
+                "target_tag": "van",
+                "focus_hint": "van",
+                "fallback_emoji": "🚐"
+              }
+            },
+            {
+              "word": "volleyball",
+              "meaning": "bóng chuyền",
+              "ipa": "ˈvɒlibɔːl",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_257",
+                "image_id": "village_road_river",
+                "image_url": "assets/images/Noi chon/village-road-river.jpg",
+                "target_tag": "volleyball",
+                "focus_hint": "volleyball",
+                "fallback_emoji": "🏐"
+              }
+            }
+          ],
+          "sentence_pattern": "Can you draw a van? — Yes, I can. / No, I can’t.",
+          "mini_dialogue": [
+            "A: Can you draw a van?",
+            "B: Yes, I can."
+          ],
+          "source_anchor": "In the village",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Bạn có thể vẽ một chiếc xe van không?",
+            "B: Có, mình có thể."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "countryside_village_life",
+          "image_url": "assets/images/Noi chon/countryside-village-life.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "V",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "van",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Can you draw a van? — Yes, I can. / No, I can’t.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "village, van, volleyball",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Can you draw a van? — Yes, I can. / No, I can’t.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: V /v/",
+            "Words: village, van, volleyball.",
+            "Sentence: Can you draw a van? — Yes, I can. / No, I can’t."
+          ],
+          "practice_lines": [
+            "Can you draw a van? — Yes, I can. / No, I can’t."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: V /v/",
+            "Từ vựng: village (làng), van (xe tải nhỏ), volleyball (bóng chuyền).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Change the object and ask: Can you draw a van?",
+          "transfer_challenge_vi": "Đổi đồ vật rồi tự hỏi và trả lời.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong làng",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 9,
+      "semester": 2,
+      "source_unit": 9,
+      "source_title": "In the grocery store",
+      "theme": "Grocery store",
+      "lesson_id": "TA2_U09",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Trung tam thuong mai/grocery-store-shopping.jpg",
+          "phonics": {
+            "letter": "Y",
+            "sound": "/j/",
+            "words": [
+              "yogurt",
+              "yams",
+              "yo-yos"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "yogurt",
+              "meaning": "sữa chua",
+              "ipa": "yogurt",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_212",
+                "image_id": "food_table_multi",
+                "image_url": "assets/images/Do an/food-table-multi.jpg",
+                "target_tag": "yogurt",
+                "focus_hint": "yogurt",
+                "fallback_emoji": "🥛"
+              }
+            },
+            {
+              "word": "yams",
+              "meaning": "khoai mỡ",
+              "ipa": "yams",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_211",
+                "image_id": "grocery_store_shopping",
+                "image_url": "assets/images/Trung tam thuong mai/grocery-store-shopping.jpg",
+                "target_tag": "yams",
+                "focus_hint": "yams",
+                "fallback_emoji": "🥔"
+              }
+            },
+            {
+              "word": "yo-yos",
+              "meaning": "con quay yo-yo",
+              "ipa": "yo-yos",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_108",
+                "image_id": "toys_bedroom",
+                "image_url": "assets/images/Do choi/toys-bedroom.jpg",
+                "target_tag": "yo-yos",
+                "focus_hint": "yo-yos",
+                "fallback_emoji": "🪀"
+              }
+            }
+          ],
+          "sentence_pattern": "What do you want? — I want some yams.",
+          "mini_dialogue": [
+            "A: What do you want?",
+            "B: I want some yams."
+          ],
+          "source_anchor": "In the grocery store",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Bạn muốn gì?",
+            "B: Mình muốn một ít khoai mỡ."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "grocery_store_shopping",
+          "image_url": "assets/images/Trung tam thuong mai/grocery-store-shopping.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "Y",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "yams",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "What do you want? — I want some yams.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "yogurt, yams, yo-yos",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "What do you want? — I want some yams.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: Y /j/",
+            "Words: yogurt, yams, yo-yos.",
+            "Sentence: What do you want? — I want some yams."
+          ],
+          "practice_lines": [
+            "What do you want? — I want some yams."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: Y /j/",
+            "Từ vựng: yogurt (sữa chua), yams (khoai mỡ), yo-yos (con quay yo-yo).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Choose one thing you want and say: I want some yogurt.",
+          "transfer_challenge_vi": "Chọn một món trong bài và nói điều con muốn.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong cửa hàng tạp hóa",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 10,
+      "semester": 2,
+      "source_unit": 10,
+      "source_title": "At the zoo",
+      "theme": "Zoo",
+      "lesson_id": "TA2_U10",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Dong vat/zoo-family-visit.jpg",
+          "phonics": {
+            "letter": "Z",
+            "sound": "/z/",
+            "words": [
+              "zoo",
+              "zebu",
+              "zebra"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "zoo",
+              "meaning": "sở thú",
+              "ipa": "zuː",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_258",
+                "image_id": "noi_chon_zoo",
+                "image_url": "assets/images/Noi chon/noi_chon_zoo.jpg",
+                "target_tag": "zoo",
+                "focus_hint": "zoo",
+                "fallback_emoji": "🦁"
+              }
+            },
+            {
+              "word": "zebu",
+              "meaning": "bò u",
+              "ipa": "zebu",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_160",
+                "image_id": "zoo_zebra_zebu",
+                "image_url": "assets/images/Dong vat/zoo-zebra-zebu.jpg",
+                "target_tag": "zebu",
+                "focus_hint": "zebu",
+                "fallback_emoji": "🐂"
+              }
+            },
+            {
+              "word": "zebra",
+              "meaning": "ngựa vằn",
+              "ipa": "ˈzeɪbrə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_159",
+                "image_id": "cute_zebra",
+                "image_url": "assets/images/Dong vat/cute_zebra.jpg",
+                "target_tag": "zebra",
+                "focus_hint": "zebra",
+                "fallback_emoji": "🦓"
+              }
+            }
+          ],
+          "sentence_pattern": "Do you like the zebra? — Yes, I do. / No, I don’t.",
+          "mini_dialogue": [
+            "A: Do you like the zebra?",
+            "B: Yes, I do."
+          ],
+          "source_anchor": "At the zoo",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Bạn có thích ngựa vằn không?",
+            "B: Có."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "zoo_family_visit",
+          "image_url": "assets/images/Dong vat/zoo-family-visit.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "Z",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "zebu",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Do you like the zebra? — Yes, I do. / No, I don’t.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "zoo, zebu, zebra",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Do you like the zebra? — Yes, I do. / No, I don’t.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: Z /z/",
+            "Words: zoo, zebu, zebra.",
+            "Sentence: Do you like the zebra? — Yes, I do. / No, I don’t."
+          ],
+          "practice_lines": [
+            "Do you like the zebra? — Yes, I do. / No, I don’t."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: Z /z/",
+            "Từ vựng: zoo (sở thú), zebu (bò u), zebra (ngựa vằn).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Choose an animal and ask: Do you like the zebra?",
+          "transfer_challenge_vi": "Đổi con vật rồi tự hỏi và trả lời Yes/No.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở sở thú",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 11,
+      "semester": 2,
+      "source_unit": 11,
+      "source_title": "In the playground",
+      "theme": "Playground",
+      "lesson_id": "TA2_U11",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Hoat dong/playground-action.jpg",
+          "phonics": {
+            "letter": "I",
+            "sound": "/aɪ/",
+            "words": [
+              "sliding",
+              "riding",
+              "driving"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "sliding",
+              "meaning": "đang trượt",
+              "ipa": "sliding",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_100",
+                "image_id": "school_yard_assembly",
+                "image_url": "assets/images/Noi chon/school-yard-assembly.jpg",
+                "target_tag": "sliding",
+                "focus_hint": "sliding",
+                "fallback_emoji": "🛝"
+              }
+            },
+            {
+              "word": "riding",
+              "meaning": "đang đi/cưỡi",
+              "ipa": "riding",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_092",
+                "image_id": "school_yard_assembly",
+                "image_url": "assets/images/Noi chon/school-yard-assembly.jpg",
+                "target_tag": "riding",
+                "focus_hint": "riding",
+                "fallback_emoji": "🚴"
+              }
+            },
+            {
+              "word": "driving",
+              "meaning": "đang lái xe",
+              "ipa": "driving",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_229",
+                "image_id": "playground_actions",
+                "image_url": "assets/images/Hoat dong/playground-actions.jpg",
+                "target_tag": "driving",
+                "focus_hint": "driving",
+                "fallback_emoji": "🚗"
+              }
+            }
+          ],
+          "sentence_pattern": "They’re riding bikes.",
+          "mini_dialogue": [
+            "A: Look at the children.",
+            "B: They’re riding bikes."
+          ],
+          "source_anchor": "In the playground",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Nhìn các bạn nhỏ kìa.",
+            "B: Các bạn ấy đang đi xe đạp."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "playground_action",
+          "image_url": "assets/images/Hoat dong/playground-action.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "I",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "riding",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "They’re riding bikes.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "sliding, riding, driving",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "They’re riding bikes.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: I /aɪ/",
+            "Words: sliding, riding, driving.",
+            "Sentence: They’re riding bikes."
+          ],
+          "practice_lines": [
+            "They’re riding bikes."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: I /aɪ/",
+            "Từ vựng: sliding (đang trượt), riding (đang đi/cưỡi), driving (đang lái xe).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Change the action and say a new sentence about the picture.",
+          "transfer_challenge_vi": "Đổi hoạt động rồi nói một câu mới theo tranh.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở sân chơi",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 12,
+      "semester": 2,
+      "source_unit": 12,
+      "source_title": "At the café",
+      "theme": "Café",
+      "lesson_id": "TA2_U12",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Noi chon/cosy-family-cafe.jpg",
+          "phonics": {
+            "letter": "A",
+            "sound": "/eɪ/",
+            "words": [
+              "grapes",
+              "cake",
+              "table"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "grapes",
+              "meaning": "nho",
+              "ipa": "ɡreɪps",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_179",
+                "image_id": "food_table_multi",
+                "image_url": "assets/images/Do an/food-table-multi.jpg",
+                "target_tag": "grapes",
+                "focus_hint": "grapes",
+                "fallback_emoji": "🍇"
+              }
+            },
+            {
+              "word": "cake",
+              "meaning": "bánh ngọt",
+              "ipa": "keɪk",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_166",
+                "image_id": "do_an_birthday_cake",
+                "image_url": "assets/images/Do an/do_an_birthday_cake.jpg",
+                "target_tag": "cake",
+                "focus_hint": "cake",
+                "fallback_emoji": "🍰"
+              }
+            },
+            {
+              "word": "table",
+              "meaning": "cái bàn",
+              "ipa": "ˈteɪbl",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_044",
+                "image_id": "family_living_room",
+                "image_url": "assets/images/Gia dinh/family-living-room.jpg",
+                "target_tag": "table",
+                "focus_hint": "table",
+                "fallback_emoji": "🪵"
+              }
+            }
+          ],
+          "sentence_pattern": "The cake is on the table.",
+          "mini_dialogue": [
+            "A: Where is the cake?",
+            "B: The cake is on the table."
+          ],
+          "source_anchor": "At the café",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Bánh ở đâu?",
+            "B: Bánh ở trên bàn."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "cosy_family_cafe",
+          "image_url": "assets/images/Noi chon/cosy-family-cafe.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "A",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "cake",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "The cake is on the table.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "grapes, cake, table",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "The cake is on the table.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: A /eɪ/",
+            "Words: grapes, cake, table.",
+            "Sentence: The cake is on the table."
+          ],
+          "practice_lines": [
+            "The cake is on the table."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: A /eɪ/",
+            "Từ vựng: grapes (nho), cake (bánh ngọt), table (cái bàn).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Move one object in your mind and say where it is.",
+          "transfer_challenge_vi": "Tưởng tượng đổi vị trí một đồ vật rồi nói vị trí của nó.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở quán cà phê",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 13,
+      "semester": 2,
+      "source_unit": 13,
+      "source_title": "In the maths class",
+      "theme": "Maths class",
+      "lesson_id": "TA2_U13",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Math scenes/classroom-learning-fun.jpg",
+          "phonics": {
+            "letter": "E",
+            "sound": "/iː/",
+            "words": [
+              "eleven",
+              "thirteen",
+              "fourteen",
+              "fifteen"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "eleven",
+              "meaning": "mười một",
+              "ipa": "ɪˈlevn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_265",
+                "image_id": null,
+                "image_url": null,
+                "target_tag": null,
+                "focus_hint": null,
+                "fallback_emoji": "1️⃣1️⃣"
+              }
+            },
+            {
+              "word": "thirteen",
+              "meaning": "mười ba",
+              "ipa": "ˌθɜːˈtiːn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_301",
+                "image_id": null,
+                "image_url": null,
+                "target_tag": null,
+                "focus_hint": null,
+                "fallback_emoji": "1️⃣3️⃣"
+              }
+            },
+            {
+              "word": "fourteen",
+              "meaning": "mười bốn",
+              "ipa": "ˌfɔːˈtiːn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_270",
+                "image_id": null,
+                "image_url": null,
+                "target_tag": null,
+                "focus_hint": null,
+                "fallback_emoji": "1️⃣4️⃣"
+              }
+            },
+            {
+              "word": "fifteen",
+              "meaning": "mười lăm",
+              "ipa": "ˌfɪfˈtiːn",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_266",
+                "image_id": null,
+                "image_url": null,
+                "target_tag": null,
+                "focus_hint": null,
+                "fallback_emoji": "1️⃣5️⃣"
+              }
+            }
+          ],
+          "sentence_pattern": "What number is it? — It’s eleven.",
+          "mini_dialogue": [
+            "A: What number is it?",
+            "B: It’s eleven."
+          ],
+          "source_anchor": "In the maths class",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Đây là số mấy?",
+            "B: Số mười một."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "classroom_learning_fun",
+          "image_url": "assets/images/Math scenes/classroom-learning-fun.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "E",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "thirteen",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "What number is it? — It’s eleven.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "eleven, thirteen, fourteen, fifteen",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "What number is it? — It’s eleven.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: E /iː/",
+            "Words: eleven, thirteen, fourteen, fifteen.",
+            "Sentence: What number is it? — It’s eleven."
+          ],
+          "practice_lines": [
+            "What number is it? — It’s eleven."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: E /iː/",
+            "Từ vựng: eleven (mười một), thirteen (mười ba), fourteen (mười bốn), fifteen (mười lăm).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Pick a different number and ask: What number is it?",
+          "transfer_challenge_vi": "Chọn một số khác rồi tự hỏi và trả lời.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong giờ Toán",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 14,
+      "semester": 2,
+      "source_unit": 14,
+      "source_title": "At home",
+      "theme": "Home",
+      "lesson_id": "TA2_U14",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Gia dinh/birthday-party-family.jpg",
+          "phonics": {
+            "letter": "ER",
+            "sound": "/ə/",
+            "words": [
+              "brother",
+              "sister",
+              "grandmother"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "brother",
+              "meaning": "anh/em trai",
+              "ipa": "ˈbrʌðə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_010",
+                "image_id": "family_living_room",
+                "image_url": "assets/images/Gia dinh/family-living-room.jpg",
+                "target_tag": "brother",
+                "focus_hint": "brother",
+                "fallback_emoji": "👦"
+              }
+            },
+            {
+              "word": "sister",
+              "meaning": "chị/em gái",
+              "ipa": "ˈsɪstə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_041",
+                "image_id": "family_living_room",
+                "image_url": "assets/images/Gia dinh/family-living-room.jpg",
+                "target_tag": "sister",
+                "focus_hint": "sister",
+                "fallback_emoji": "👧"
+              }
+            },
+            {
+              "word": "grandmother",
+              "meaning": "bà",
+              "ipa": "ˈɡrændmʌðə",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_023",
+                "image_id": "family_14_tea_patio",
+                "image_url": "assets/images/Gia dinh/family_14_tea_patio.jpg",
+                "target_tag": "grandmother",
+                "focus_hint": "grandmother",
+                "fallback_emoji": "👵"
+              }
+            }
+          ],
+          "sentence_pattern": "How old is your brother? — He’s nineteen.",
+          "mini_dialogue": [
+            "A: How old is your brother?",
+            "B: He’s nineteen."
+          ],
+          "source_anchor": "At home",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Anh/em trai của bạn bao nhiêu tuổi?",
+            "B: Anh ấy mười chín tuổi."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "birthday_party_family",
+          "image_url": "assets/images/Gia dinh/birthday-party-family.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "ER",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "sister",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "How old is your brother? — He’s nineteen.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "brother, sister, grandmother",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "How old is your brother? — He’s nineteen.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: ER /ə/",
+            "Words: brother, sister, grandmother.",
+            "Sentence: How old is your brother? — He’s nineteen."
+          ],
+          "practice_lines": [
+            "How old is your brother? — He’s nineteen."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: ER /ə/",
+            "Từ vựng: brother (anh/em trai), sister (chị/em gái), grandmother (bà).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Ask about another family member's age.",
+          "transfer_challenge_vi": "Đổi sang một người thân khác và hỏi tuổi.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở nhà",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 15,
+      "semester": 2,
+      "source_unit": 15,
+      "source_title": "In the clothes shop",
+      "theme": "Clothes shop",
+      "lesson_id": "TA2_U15",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Trung tam thuong mai/childrens-clothes-shop.jpg",
+          "phonics": {
+            "letter": "SH",
+            "sound": "/ʃ/",
+            "words": [
+              "shirts",
+              "shoes",
+              "shorts"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "shirts",
+              "meaning": "áo sơ mi",
+              "ipa": "shirts",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_038",
+                "image_id": "clothes_multi_rack",
+                "image_url": "assets/images/Do vat/clothes-multi-rack.jpg",
+                "target_tag": "shirt",
+                "focus_hint": "shirt",
+                "fallback_emoji": "👔"
+              }
+            },
+            {
+              "word": "shoes",
+              "meaning": "giày",
+              "ipa": "ʃuːz",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_039",
+                "image_id": "clothes_multi_rack",
+                "image_url": "assets/images/Do vat/clothes-multi-rack.jpg",
+                "target_tag": "shoes",
+                "focus_hint": "shoes",
+                "fallback_emoji": "👟"
+              }
+            },
+            {
+              "word": "shorts",
+              "meaning": "quần soóc",
+              "ipa": "ʃɔːts",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_040",
+                "image_id": "clothes_multi_rack",
+                "image_url": "assets/images/Do vat/clothes-multi-rack.jpg",
+                "target_tag": "shorts",
+                "focus_hint": "shorts",
+                "fallback_emoji": "🩳"
+              }
+            }
+          ],
+          "sentence_pattern": "Where are the shoes? — Over there.",
+          "mini_dialogue": [
+            "A: Where are the shoes?",
+            "B: Over there."
+          ],
+          "source_anchor": "In the clothes shop",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Giày ở đâu?",
+            "B: Ở đằng kia."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "childrens_clothes_shop",
+          "image_url": "assets/images/Trung tam thuong mai/childrens-clothes-shop.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "SH",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "shoes",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Where are the shoes? — Over there.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "shirts, shoes, shorts",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Where are the shoes? — Over there.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: SH /ʃ/",
+            "Words: shirts, shoes, shorts.",
+            "Sentence: Where are the shoes? — Over there."
+          ],
+          "practice_lines": [
+            "Where are the shoes? — Over there."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: SH /ʃ/",
+            "Từ vựng: shirts (áo sơ mi), shoes (giày), shorts (quần soóc).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Choose another item and ask: Where are the shirts?",
+          "transfer_challenge_vi": "Đổi sang một món đồ khác rồi hỏi vị trí.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Trong cửa hàng quần áo",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    },
+    {
+      "bai": 16,
+      "semester": 2,
+      "source_unit": 16,
+      "source_title": "At the campsite",
+      "theme": "Campsite",
+      "lesson_id": "TA2_U16",
+      "estimated_minutes": 15,
+      "pages": [
+        {
+          "page_no": 1,
+          "page_type": "lesson",
+          "title": "Learn",
+          "intro": "Look, listen and say.",
+          "image": "assets/images/Hoat dong/family-campsite.jpg",
+          "phonics": {
+            "letter": "T",
+            "sound": "/t/",
+            "words": [
+              "tent",
+              "teapot",
+              "blanket"
+            ]
+          },
+          "vocabulary": [
+            {
+              "word": "tent",
+              "meaning": "lều",
+              "ipa": "tent",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_046",
+                "image_id": "family_campsite",
+                "image_url": "assets/images/Hoat dong/family-campsite.jpg",
+                "target_tag": "tent",
+                "focus_hint": "tent",
+                "fallback_emoji": "⛺"
+              }
+            },
+            {
+              "word": "teapot",
+              "meaning": "ấm trà",
+              "ipa": "ˈtiːpɒt",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_045",
+                "image_id": "gia_dung_teapot",
+                "image_url": "assets/images/Gia dung/gia_dung_teapot.jpg",
+                "target_tag": "teapot",
+                "focus_hint": "teapot",
+                "fallback_emoji": "🫖"
+              }
+            },
+            {
+              "word": "blanket",
+              "meaning": "chăn",
+              "ipa": "ˈblæŋkɪt",
+              "shared_visual_ref": {
+                "vocab_id": "TA2_VOC_008",
+                "image_id": "bedroom_sleep_bed",
+                "image_url": "assets/images/Noi chon/bedroom-sleep-bed.jpg",
+                "target_tag": "blanket",
+                "focus_hint": "blanket",
+                "fallback_emoji": "🛏️"
+              }
+            }
+          ],
+          "sentence_pattern": "Is the blanket near the tent? — No, it isn’t. It’s in the tent.",
+          "mini_dialogue": [
+            "A: Is the blanket near the tent?",
+            "B: No, it isn’t. It’s in the tent."
+          ],
+          "source_anchor": "At the campsite",
+          "title_vi": "Bài học",
+          "intro_vi": "Nhìn tranh, nghe và nói theo.",
+          "mini_dialogue_vi": [
+            "A: Cái chăn ở gần lều phải không?",
+            "B: Không. Nó ở trong lều."
+          ],
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "phonics.words",
+            "vocabulary.word",
+            "sentence_pattern",
+            "mini_dialogue"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "intro_vi",
+            "vocabulary.meaning",
+            "mini_dialogue_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "intro_vi_tts": false,
+          "mini_dialogue_vi_tts": false,
+          "learning_goal": "Listen, notice, and say the key sound, words, and sentence pattern.",
+          "learning_goal_vi": "Nghe, nhận biết và nói được âm, từ và mẫu câu trọng tâm.",
+          "image_id": "family_campsite",
+          "image_url": "assets/images/Hoat dong/family-campsite.jpg"
+        },
+        {
+          "page_no": 2,
+          "page_type": "questions",
+          "title": "Practice",
+          "recall": "Look and answer.",
+          "items": [
+            {
+              "type": "choice",
+              "prompt": "Which sound?",
+              "options": [
+                "T",
+                "M",
+                "B"
+              ],
+              "answer": 0,
+              "prompt_vi": "Âm nào?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Which word fits?",
+              "options": [
+                "teapot",
+                "pencil",
+                "bedroom"
+              ],
+              "answer": 0,
+              "prompt_vi": "Từ nào đúng?",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "choice",
+              "prompt": "Choose the correct sentence.",
+              "options": [
+                "Is the blanket near the tent? — No, it isn’t. It’s in the tent.",
+                "How are you? — I'm fine.",
+                "This is my school bag."
+              ],
+              "answer": 0,
+              "prompt_vi": "Chọn câu đúng.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "options_tts_locale": [
+                "en-US",
+                "en-US",
+                "en-US"
+              ],
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the words.",
+              "prompt_vi": "Đọc các từ.",
+              "speak_text": "tent, teapot, blanket",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            },
+            {
+              "type": "speak",
+              "prompt": "Say the sentence.",
+              "prompt_vi": "Nói mẫu câu.",
+              "speak_text": "Is the blanket near the tent? — No, it isn’t. It’s in the tent.",
+              "tts_locale": null,
+              "tts_text": "",
+              "tts_read_vietnamese": false,
+              "tts_policy": {
+                "english_locale": "en-US",
+                "vietnamese_locale": "vi-VN",
+                "support_translation_silent": true,
+                "mixed_language_text": "do_not_read_as_one_string"
+              },
+              "standalone_vi_tts_allowed": true
+            }
+          ],
+          "title_vi": "Luyện tập",
+          "recall_vi": "Nhìn và trả lời.",
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "recall_vi_tts": false,
+          "practice_goal": "Recognize first, then speak from the model.",
+          "practice_goal_vi": "Nhận biết trước, sau đó nghe mẫu và nói lại."
+        },
+        {
+          "page_no": 3,
+          "page_type": "summary",
+          "title": "Review",
+          "key_points": [
+            "Sound: T /t/",
+            "Words: tent, teapot, blanket.",
+            "Sentence: Is the blanket near the tent? — No, it isn’t. It’s in the tent."
+          ],
+          "practice_lines": [
+            "Is the blanket near the tent? — No, it isn’t. It’s in the tent."
+          ],
+          "finish_prompt": "Say one word and the sentence.",
+          "title_vi": "Tổng kết",
+          "key_points_vi": [
+            "Âm trọng tâm: T /t/",
+            "Từ vựng: tent (lều), teapot (ấm trà), blanket (chăn).",
+            "Mẫu câu: xem và nói lại câu tiếng Anh phía trên."
+          ],
+          "finish_prompt_vi": "Nói một từ và mẫu câu.",
+          "tts_locale": "en-US",
+          "tts_read_fields": [
+            "key_points",
+            "practice_lines",
+            "finish_prompt"
+          ],
+          "tts_ignore_fields": [
+            "title_vi",
+            "key_points_vi",
+            "finish_prompt_vi"
+          ],
+          "tts_policy": {
+            "english_locale": "en-US",
+            "vietnamese_locale": "vi-VN",
+            "support_translation_silent": true,
+            "standalone_vietnamese_allowed": true,
+            "mixed_language_text": "do_not_read_as_one_string"
+          },
+          "title_vi_tts": false,
+          "key_points_vi_tts": false,
+          "finish_prompt_vi_tts": false,
+          "transfer_challenge": "Change the place and say where the blanket is.",
+          "transfer_challenge_vi": "Đổi vị trí rồi nói chăn đang ở đâu.",
+          "review_strategy": "Recall → Use → Transfer",
+          "review_strategy_vi": "Nhớ lại → Nói lại → Biến đổi và vận dụng"
+        }
+      ],
+      "skill_links": [
+        "ENG_PHO",
+        "ENG_VOC",
+        "ENG_LIS",
+        "ENG_SYN"
+      ],
+      "content_status": "sgk_aligned_original_bilingual_v2",
+      "navigation_model": "3_pages",
+      "learning_flow": [
+        "Learn",
+        "Practice",
+        "Review"
+      ],
+      "copyright_note": "Nội dung hiển thị được biên soạn mới theo trọng tâm Unit; không sao chép nguyên văn ngữ liệu, hội thoại hoặc tranh SGK.",
+      "source_title_vi": "Ở khu cắm trại",
+      "learning_flow_vi": [
+        "Bài học",
+        "Luyện tập",
+        "Tổng kết"
+      ]
+    }
+  ],
+  "language_policy": {
+    "primary_ui_language": "en",
+    "support_language": "vi",
+    "display_rule": "English first; selected Vietnamese meaning/support below.",
+    "english_tts_locale": "en-US",
+    "vietnamese_tts_locale": "vi-VN",
+    "tts_rule": "Read English with en-US. Vietnamese TTS is allowed only for standalone 100% Vietnamese content. Vietnamese lines that are merely translations/support under English are visual-only and are not read. Never send a mixed English-Vietnamese string to one TTS voice.",
+    "support_translation_tts": false,
+    "standalone_vietnamese_tts": true,
+    "mixed_language_tts": false,
+    "sgk_exception": "Textbook-aligned Unit titles, phonics targets, key vocabulary and sentence patterns may keep textbook wording/spelling when pedagogically necessary."
+  },
+  "insufficient_data_label_vi": "Chưa đủ dữ liệu",
+  "content_audit": {
+    "version": "content_clean_2026-09-18",
+    "rules": [
+      "answer/options validation",
+      "IPA aligned to vocabulary master where available",
+      "phonics audio aligned to canonical IPA where available",
+      "high-risk copied hints normalized",
+      "shared visual_ref added without removing legacy image_url",
+      "TTS policy preserved"
+    ]
+  }
+}
