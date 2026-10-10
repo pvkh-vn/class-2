@@ -397,11 +397,12 @@
   const subjectModuleLoads = new Map();
   const homeFeatureLoads = new Map();
 
-  // Chính sách Free/Premium đặt ở cấu hình để sau này đổi số lượng mục Free
-  // mà không phải viết lại guard. Khám phá theo môn hiện vẫn Free toàn bộ.
+  // Hien tai Games/Tools de mo tat ca muc. Gioi han 2 muc dau moi la ke hoach
+  // tuong lai, KHONG bat gate VIP cho Games/Tools cho den khi anh yeu cau.
+  // Giu nguyen cac guard de co the ap dung policy sau nay mot cach co kiem soat.
   const ACCESS_POLICY = Object.freeze({
-    gamesFreeCount: 2,
-    toolsFreeCount: 2,
+    gamesFreeCount: GAME_CATALOG.length,
+    toolsFreeCount: TOOL_CATALOG.length,
     subjectDiscoverFreeCount: null
   });
   const adminRequestBusy = new Map();
@@ -435,7 +436,8 @@
     },
     account: {
       view: "overview",
-      visibleNotices: []
+      visibleNotices: [],
+      requestSubjectId: ""
     },
     admin: {
       loading: false,
@@ -1820,15 +1822,74 @@
     }
   }
 
+  // Luu lai mau thong bao goc cua tab Lop 2 de khong lam thay doi noi dung da chot.
+  const class2VipNoticeMarkup = el.homeVipNotice ? el.homeVipNotice.innerHTML : "";
+  const homeFeatureVipCount = Object.freeze({ games: 1, tools: 2, aiLab: 3 });
+
+  function ensureHomeFeatureVipNoticeStyle_() {
+    if (document.getElementById("class2-home-feature-vip-notice-style")) return;
+    const style = document.createElement("style");
+    style.id = "class2-home-feature-vip-notice-style";
+    style.textContent = `
+      .home-vip-notice.home-vip-feature-notice{
+        width:min(100%,1010px);max-width:calc(100% - 1rem);
+        padding:0;gap:.68rem;border:0;background:transparent;box-shadow:none;
+        border-radius:0;flex-direction:row;align-items:stretch;justify-content:center;
+      }
+      .home-vip-feature-message{
+        min-width:0;flex:1;display:flex;align-items:center;justify-content:center;
+        padding:.68rem .95rem;border:1.5px solid #c4b5fd;border-radius:16px;
+        background:linear-gradient(90deg,#fff1f7 0%,#faf5ff 52%,#eff8ff 100%);
+        color:#6d28d9;box-shadow:0 5px 14px rgba(124,58,237,.09);
+        font-size:17px;font-weight:950;line-height:1.4;text-align:center;
+      }
+      .home-vip-feature-action{
+        flex:0 0 auto;min-width:222px;min-height:49px;
+        border:0;border-radius:15px;padding:.6rem 1rem;
+        display:inline-flex;align-items:center;justify-content:center;text-align:center;
+        color:#fff;background:linear-gradient(90deg,#2563eb,#06b981);
+        box-shadow:0 6px 16px rgba(37,99,235,.17);
+        font-size:16px;font-weight:950;line-height:1.25;cursor:pointer;
+        transition:filter .16s ease,box-shadow .16s ease;
+      }
+      .home-vip-feature-action:hover{filter:brightness(1.07);box-shadow:0 7px 18px rgba(16,185,129,.20)}
+      .home-vip-feature-action:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+      @media(max-width:680px){
+        .home-vip-notice.home-vip-feature-notice{flex-direction:column;gap:.44rem}
+        .home-vip-feature-message{font-size:16px;padding:.64rem .72rem}
+        .home-vip-feature-action{width:100%;min-width:0;min-height:44px;font-size:16px}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   function updateHomeVipNoticeVisibility() {
     if (!el.homeVipNotice) return;
     const isTopLevelHome = state.screen === "home" && !state.homeFeatureId && !state.homeFeatureGroupId;
     const isAdmin = !!(state.auth.user && state.auth.user.role === "admin");
-    const hasVip = !!state.auth.user && SUBJECTS.some((subject) => accessTypeFor(subject.id) === "vip");
+    const vipCount = state.auth.user
+      ? SUBJECTS.reduce((count, subject) => count + (accessTypeFor(subject.id) === "vip" ? 1 : 0), 0)
+      : 0;
+    const requiredVipCount = homeFeatureVipCount[state.homeTab] || SUBJECTS.length;
+    const isFeatureNotice = state.homeTab === "games" || state.homeTab === "tools" || state.homeTab === "aiLab";
+    const noticeMode = isFeatureNotice ? state.homeTab : "class2";
 
-    // Tab nhắc đăng ký chỉ dành cho Khách, Regular và Trial.
-    // Admin hoặc tài khoản đã có VIP thì ẩn vì không còn cần lời nhắc này.
-    el.homeVipNotice.classList.toggle("hidden", !isTopLevelHome || isAdmin || hasVip);
+    if (el.homeVipNotice.dataset.noticeMode !== noticeMode) {
+      if (isFeatureNotice) {
+        ensureHomeFeatureVipNoticeStyle_();
+        el.homeVipNotice.innerHTML = `
+          <span class="home-vip-feature-message">Bé cần có ${requiredVipCount} quyền học VIP để sử dụng đầy đủ nội dung này</span>
+          <button class="home-vip-feature-action" data-home-vip-action="request" type="button">Đăng ký quyền học VIP</button>
+        `;
+      } else {
+        el.homeVipNotice.innerHTML = class2VipNoticeMarkup;
+      }
+      el.homeVipNotice.dataset.noticeMode = noticeMode;
+    }
+    el.homeVipNotice.classList.toggle("home-vip-feature-notice", isFeatureNotice);
+    // Chi thong bao theo muc tieu VIP; khong dung de quyet dinh quyen truy cap
+    // Games / Tools / AI Lab. Admin va nguoi da du so VIP khong can nhac.
+    el.homeVipNotice.classList.toggle("hidden", !isTopLevelHome || isAdmin || vipCount >= requiredVipCount);
   }
 
   function onHomeVipNoticeClick() {
@@ -2386,18 +2447,28 @@
 
   function renderClass2Tab() {
     ensureClass2HomeFolderHoverStyles_();
-    const cards = SUBJECTS.map((subject) => `
+    const pendingApiIds = new Set();
+    (state.auth.requests || []).forEach((request) => (request.subjectIds || []).forEach((id) => pendingApiIds.add(String(id))));
+
+    const cards = SUBJECTS.map((subject) => {
+      const accessType = accessTypeFor(subject.id);
+      const accessLabel = accessBadge(subject.id);
+      const isAdmin = !!(state.auth.user && state.auth.user.role === "admin");
+      const isVip = accessType === "vip";
+      const hasPendingVip = pendingApiIds.has(subject.apiId);
+      const showVipRequest = !isAdmin && !isVip;
+      const badgeTone = accessType === "vip" ? "vip" : accessType === "trial" ? "trial" : accessType === "admin" ? "admin" : "regular";
+
+      return `
       <div class="subject-column">
-        <button class="content-card subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
+        <button class="content-card subject-card class2-subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
+          <span class="subject-access-badge ${badgeTone}">${escapeHtml(accessLabel)}</span>
           <div class="card-top">
             <span class="card-icon" aria-hidden="true">${subject.icon}</span>
             <div class="card-copy">
               <h2 class="card-title">${escapeHtml(subject.fullLabel)}</h2>
               <p class="card-desc">${escapeHtml(subject.description)}</p>
             </div>
-          </div>
-          <div class="card-foot">
-            <span class="badge">${escapeHtml(accessBadge(subject.id))}</span>
           </div>
         </button>
 
@@ -2408,10 +2479,47 @@
             <span class="subject-profile-note">${state.auth.user ? "Xem tiến trình của bé" : "Đăng nhập để xem"}</span>
           </span>
         </button>
-      </div>
-    `).join("");
+
+        ${showVipRequest ? `<button class="subject-vip-request-button${hasPendingVip ? " has-pending" : ""}" data-vip-subject="${subject.id}" type="button">${hasPendingVip ? "Đang chờ duyệt VIP" : "Đăng ký quyền học VIP"}</button>` : ""}
+      </div>`;
+    }).join("");
 
     el.content.innerHTML = `
+      <style>
+        .class2-subject-card{position:relative;min-height:128px!important;padding:.95rem 1rem!important;}
+        .class2-subject-card .card-top{padding-right:84px;}
+        .subject-access-badge{
+          position:absolute;top:11px;right:11px;z-index:2;min-height:28px;padding:3px 10px;border:1px solid;border-radius:999px;
+          display:inline-flex;align-items:center;justify-content:center;background:#fff;font-size:15px;line-height:1;font-weight:950;white-space:nowrap;
+          box-shadow:0 3px 8px rgba(76,29,149,.07);
+        }
+        .subject-access-badge.vip{color:#6d28d9;border-color:#c4b5fd;background:#f5f3ff;}
+        .subject-access-badge.trial{color:#0369a1;border-color:#7dd3fc;background:#eff8ff;}
+        .subject-access-badge.regular{color:#047857;border-color:#86efac;background:#f0fdf4;}
+        .subject-access-badge.admin{color:#be185d;border-color:#f9a8d4;background:#fff1f7;}
+        .subject-vip-request-button{
+          width:100%;min-height:42px;border:1.5px solid transparent;border-radius:14px;padding:.55rem .75rem;color:#fff;
+          background:linear-gradient(90deg,#ec4899,#a855f7,#7c3aed);font-size:16px;font-weight:950;line-height:1.2;
+          box-shadow:0 5px 13px rgba(139,92,246,.16);
+        }
+        /* Ba nut VIP cung palette voi o mon hoc phia tren; khong doi xu ly click/quyen hoc. */
+        .subject-vip-request-button[data-vip-subject="math"]:not(.has-pending){
+          color:#6d28d9;background:#f6f1ff;border-color:#d8b4fe;
+        }
+        .subject-vip-request-button[data-vip-subject="vietnamese"]:not(.has-pending){
+          color:#be185d;background:#fff1f7;border-color:#f9a8d4;
+        }
+        .subject-vip-request-button[data-vip-subject="english"]:not(.has-pending){
+          color:#047857;background:#edfff3;border-color:#86efac;
+        }
+        .subject-vip-request-button.has-pending{background:linear-gradient(90deg,#94a3b8,#64748b);}
+        @media(max-width:767px){
+          .class2-subject-card{min-height:118px!important;padding:.82rem .85rem!important;}
+          .class2-subject-card .card-top{padding-right:72px;}
+          .subject-access-badge{top:9px;right:9px;min-height:26px;padding:3px 8px;font-size:14px;}
+          .subject-vip-request-button{min-height:40px;font-size:15px;}
+        }
+      </style>
       <div class="section-heading">
         <div>
           <h1>🌟 Lớp 2</h1>
@@ -2426,6 +2534,21 @@
     });
     el.content.querySelectorAll("[data-profile-subject]").forEach((card) => {
       card.addEventListener("click", () => openLearningProfile(card.dataset.profileSubject));
+    });
+    el.content.querySelectorAll("[data-vip-subject]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const subjectId = String(button.dataset.vipSubject || "");
+        if (!subjectId) return;
+        if (!state.auth.ready) {
+          showToast("Đang kiểm tra phiên đăng nhập…");
+          return;
+        }
+        if (!state.auth.user) {
+          openAuth("register");
+          return;
+        }
+        openAccountPage("request", subjectId);
+      });
     });
   }
 
@@ -2540,7 +2663,7 @@
           <div class="contact-hero-icon" aria-hidden="true">🐰</div>
           <div class="contact-hero-copy">
             <h2>Epsilon Edu - Tiến bộ từng ngày</h2>
-            <p>Epsilon Edu là không gian học tập và trải nghiệm dành cho học sinh. Ở Lớp 2, Cô Thỏ Ngọc đồng hành cùng bé trong Toán, Tiếng Việt và Tiếng Anh; bên cạnh đó còn có Games, Tools và hệ sinh thái các lớp học được liên kết trong Epsilon Edu.</p>
+            <p>Epsilon Edu là không gian học tập và trải nghiệm dành cho học sinh. Ở Lớp 2, Cô Thỏ Ngọc đồng hành cùng bé trong Toán, Tiếng Việt và Tiếng Anh; bên cạnh đó còn có Games, Tools, AI Lab và hệ sinh thái các lớp học được liên kết trong Epsilon Edu.</p>
           </div>
         </div>
 
@@ -2615,7 +2738,7 @@
           </div>
           <div class="contact-vip-benefit tone-green">
             <span class="contact-vip-benefit-icon" aria-hidden="true">🎮</span>
-            <div><strong>Games &amp; Tools - trải nghiệm đầy đủ hơn</strong><span>Tài khoản thường được mở 2 mục đầu tiên của Games và 2 mục đầu tiên của Tools; từ mục thứ 3 là nội dung Premium. VIP/Trial hợp lệ được mở đầy đủ theo chính sách của chương trình.</span></div>
+            <div><strong>Games &amp; Tools - trải nghiệm đầy đủ hơn</strong><span>Hiện Games, Tools và AI Lab vẫn được mở để bé tự do khám phá. Trong thời gian tới, chương trình dự kiến giới hạn tài khoản thường ở 2 mục đầu của Games và Tools; quyền VIP mở rộng sẽ được áp dụng khi có thông báo chính thức.</span></div>
           </div>
           <div class="contact-vip-benefit tone-blue">
             <span class="contact-vip-benefit-icon" aria-hidden="true">🌟</span>
@@ -2890,7 +3013,7 @@
     el.accountButton.replaceChildren(avatar, label);
   }
 
-  async function openAccountPage(view = "overview") {
+  async function openAccountPage(view = "overview", requestSubjectId = "") {
     if (state.screen === "subject" && state.subjectId) destroySubjectModule(state.subjectId);
     if (!state.auth.user) {
       openAuth("login");
@@ -2898,6 +3021,9 @@
     }
     state.screen = "account";
     state.account.view = view === "request" ? "request" : "overview";
+    state.account.requestSubjectId = state.account.view === "request" && SUBJECTS.some((subject) => subject.id === requestSubjectId)
+      ? String(requestSubjectId)
+      : "";
     state.homeTab = "class2";
     state.subjectId = null;
     state.profileSubjectId = null;
@@ -3136,20 +3262,33 @@
 
     const pendingApiIds = new Set();
     state.auth.requests.forEach((r) => (r.subjectIds || []).forEach((id) => pendingApiIds.add(id)));
+    const requestedSubjectId = String(state.account.requestSubjectId || "");
     let eligibleCount = 0;
     const choices = SUBJECTS.map((subject) => {
       const type = accessTypeFor(subject.id);
-      const active = type === "trial" || type === "vip" || type === "admin";
+      const alreadyVip = type === "vip" || type === "admin";
       const pending = pendingApiIds.has(subject.apiId);
-      if (!active && !pending) eligibleCount += 1;
-      return `<label class="subject-choice${active || pending ? " is-disabled" : ""}"><input type="checkbox" name="subject-choice" value="${escapeHtml(subject.apiId)}"${active || pending ? " disabled" : ""}><span><strong>${escapeHtml(subject.fullLabel)}</strong><small>${active ? "Đang có quyền học" : pending ? "Đang chờ duyệt" : "Có thể đăng ký VIP"}</small></span></label>`;
+      const disabled = alreadyVip || pending;
+      const checked = !disabled && requestedSubjectId === subject.id;
+      if (!disabled) eligibleCount += 1;
+      const note = alreadyVip
+        ? "Đang có VIP"
+        : pending
+          ? "Đang chờ duyệt"
+          : type === "trial"
+            ? "Đang Trial · Có thể đăng ký VIP"
+            : "Có thể đăng ký VIP";
+      return `<label class="subject-choice${disabled ? " is-disabled" : ""}"><input type="checkbox" name="subject-choice" value="${escapeHtml(subject.apiId)}"${disabled ? " disabled" : ""}${checked ? " checked" : ""}><span><strong>${escapeHtml(subject.fullLabel)}</strong><small>${note}</small></span></label>`;
     }).join("");
 
     const body = eligibleCount > 0 ? `
-        <p class="access-request-note">Chọn 1/3, 2/3 hoặc 3/3 môn. Gửi yêu cầu không tự mở quyền; Admin sẽ duyệt đúng các môn đã chọn.</p>
+        <p class="access-request-note">Bạn cần liên hệ với admin để thanh toán biểu phí quyền học VIP và được duyệt</p>
         <form id="access-request-form" class="form-stack" novalidate>
           <div class="subject-choice-list">${choices}</div>
-          <div id="access-request-summary" class="access-request-summary">Chưa chọn môn nào.</div>
+          <div class="access-request-summary-grid" role="status" aria-live="polite">
+            <div id="access-request-selection-summary" class="access-request-summary-card selection">Bạn chưa chọn môn nào</div>
+            <div id="access-request-price-summary" class="access-request-summary-card price">Tổng tiền thanh toán 0k/năm</div>
+          </div>
           <div class="vip-request-actions" role="group" aria-label="Tùy chọn đăng ký quyền học VIP">
             <button id="access-request-vip-info" class="vip-request-action vip-request-info" type="button">Biểu phí và quyền lợi VIP</button>
             <button id="access-request-admin-contact" class="vip-request-action vip-request-contact" type="button">Liên hệ admin</button>
@@ -3162,17 +3301,25 @@
     el.content.innerHTML = `
       <style>
         .vip-request-heading h1{font-size:clamp(24px,2.2vw,30px)!important;}
-        .vip-request-heading p{font-size:16px!important;line-height:1.45!important;font-weight:500!important;}
-        .account-request-page .access-request-note{font-size:15.5px!important;line-height:1.55!important;font-weight:500!important;}
+        .vip-request-heading p{font-size:16px!important;line-height:1.45!important;font-weight:800!important;}
+        .account-request-page .access-request-note{font-size:16px!important;line-height:1.55!important;font-weight:850!important;}
         .account-request-page .subject-choice strong{font-size:17px!important;line-height:1.3!important;font-weight:900!important;}
-        .account-request-page .subject-choice small{font-size:14.5px!important;line-height:1.4!important;font-weight:500!important;}
-        .account-request-page .access-request-summary{font-size:15.5px!important;line-height:1.4!important;font-weight:700!important;}
+        .account-request-page .subject-choice small{font-size:16px!important;line-height:1.4!important;font-weight:800!important;}
+        .access-request-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.05rem}
+        .access-request-summary-card{min-height:48px;display:flex;align-items:center;justify-content:center;padding:.65rem .8rem;border:1px solid;border-radius:14px;font-size:16px!important;line-height:1.35!important;font-weight:900!important;text-align:center}
+        .access-request-summary-card.selection{border-color:#d8b4fe;background:linear-gradient(90deg,#faf5ff,#fdf2f8);color:#6d28d9}
+        .access-request-summary-card.price{border-color:#67e8f9;background:linear-gradient(90deg,#eff6ff,#ecfdf5);color:#0369a1}
         .vip-request-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:.1rem}
-        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:15px!important;font-weight:950;line-height:1.25}
-        .vip-request-info{border:1px solid #d8b4fe;color:#6d28d9;background:linear-gradient(90deg,#faf5ff,#fdf2f8);box-shadow:0 4px 12px rgba(109,40,217,.08)}
-        .vip-request-contact{border:1px solid #67e8f9;color:#0369a1;background:linear-gradient(90deg,#eff6ff,#ecfdf5);box-shadow:0 4px 12px rgba(3,105,161,.08)}
-        .vip-request-submit{box-shadow:0 6px 16px rgba(139,92,246,.18)}
-        @media(max-width:720px){.vip-request-actions{grid-template-columns:1fr}.account-request-page .subject-choice strong{font-size:16px!important}.account-request-page .subject-choice small{font-size:14px!important}}
+        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:16px!important;font-weight:950;line-height:1.25}
+        .vip-request-info{border:0;color:#fff;background:linear-gradient(90deg,#38bdf8,#3b82f6);box-shadow:0 6px 16px rgba(59,130,246,.20)}
+        .vip-request-contact{border:0;color:#fff;background:linear-gradient(90deg,#34d399,#10b981);box-shadow:0 6px 16px rgba(16,185,129,.20)}
+        .vip-request-submit{border:0!important;color:#fff!important;background:linear-gradient(90deg,#a855f7,#7c3aed)!important;box-shadow:0 6px 16px rgba(124,58,237,.22)}
+        @media(max-width:720px){
+          .access-request-summary-grid{grid-template-columns:1fr}
+          .vip-request-actions{grid-template-columns:1fr}
+          .account-request-page .subject-choice strong{font-size:16px!important}
+          .account-request-page .subject-choice small{font-size:16px!important}
+        }
       </style>
       <div class="section-heading vip-request-heading">
         <div><h1>🌟 Đăng ký quyền học</h1><p>Đăng ký VIP theo từng môn.</p></div>
@@ -3193,9 +3340,12 @@
     const updateSummary = () => {
       if (!form) return;
       const count = form.querySelectorAll('input[name="subject-choice"]:checked').length;
-      const summary = document.getElementById("access-request-summary");
+      const selectionSummary = document.getElementById("access-request-selection-summary");
+      const priceSummary = document.getElementById("access-request-price-summary");
       const submit = document.getElementById("access-request-submit");
-      if (summary) summary.textContent = count ? `Đã chọn ${count}/3 môn.` : "Chưa chọn môn nào.";
+      const priceByCount = { 0: "0k/năm", 1: "80k/năm", 2: "160k/năm", 3: "210k/năm" };
+      if (selectionSummary) selectionSummary.textContent = count ? `Bạn đã chọn ${count} môn` : "Bạn chưa chọn môn nào";
+      if (priceSummary) priceSummary.textContent = `Tổng tiền thanh toán ${priceByCount[count] || "0k/năm"}`;
       if (submit) submit.textContent = count ? `Gửi yêu cầu VIP · ${count} môn` : "Gửi yêu cầu VIP";
     };
     form?.querySelectorAll('input[name="subject-choice"]').forEach((input) => input.addEventListener("change", updateSummary));
@@ -3345,6 +3495,7 @@
       await apiRequest("accessRequestCreate", { subjectIds, accessType: "vip" });
       await refreshAccessState(false);
       state.account.view = "overview";
+      state.account.requestSubjectId = "";
       render();
       showToast("Đã gửi yêu cầu. Vui lòng chờ Admin duyệt.");
     } catch (err) {
@@ -4058,7 +4209,14 @@
   }
 
   el.homeButton.addEventListener("click", goHome);
-  el.homeVipNotice?.addEventListener("click", onHomeVipNoticeClick);
+  el.homeVipNotice?.addEventListener("click", (event) => {
+    // Thong bao Lop 2 van mo trang dang ky khi bam o bat ky cho nao.
+    // Tren Games/Tools/AI Lab, chi nut CTA ben canh moi co hanh dong.
+    if (el.homeVipNotice.classList.contains("home-vip-feature-notice")
+      && !(event.target && typeof event.target.closest === "function"
+        && event.target.closest("[data-home-vip-action]"))) return;
+    onHomeVipNoticeClick();
+  });
   el.accountButton.addEventListener("click", () => state.auth.user ? openAccountPage() : openAuth("login"));
   el.authClose.addEventListener("click", closeAuth);
   el.authLater.addEventListener("click", closeAuth);
