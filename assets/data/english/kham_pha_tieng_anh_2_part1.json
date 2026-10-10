@@ -32737,7 +32737,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Món mì Ý này rất ngon.",
+        "Hãy nhìn mì Ý.",
+        "Em nhìn thấy mì Ý."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_199",
@@ -32806,7 +32811,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em ăn bắp rang bơ ở rạp chiếu phim.",
+        "Hãy nhìn bắp rang bơ.",
+        "Em nhìn thấy bắp rang bơ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_198",
@@ -32871,7 +32881,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Gia đình em ăn bánh pizza vào bữa tối.",
+        "Hãy nhìn bánh pizza.",
+        "Em nhìn thấy bánh pizza."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_173",
@@ -32924,7 +32939,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Cô ấy làm những chiếc bánh quy rất ngon.",
+        "Hãy nhìn bánh quy.",
+        "Em nhìn thấy bánh quy."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_171",
@@ -32977,7 +32997,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Sô cô la có vị ngọt.",
+        "Hãy nhìn sô cô la.",
+        "Em nhìn thấy sô cô la."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_204",
@@ -33036,7 +33061,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em muốn một quả dâu tây.",
+        "Hãy nhìn quả dâu tây.",
+        "Em nhìn thấy quả dâu tây."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_057",
@@ -33105,7 +33135,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Hãy đưa cho em một quả bóng bay màu vàng.",
+        "Hãy nhìn quả bóng bay.",
+        "Em nhìn thấy quả bóng bay."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_025",
@@ -33175,7 +33210,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "colors_feelings"
+      "semantic_group": "colors_feelings",
+      "examples_vi": [
+        "Em rất vui.",
+        "Chúc mừng năm mới!",
+        "Em cảm thấy vui vẻ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_318",
@@ -33237,7 +33277,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "colors_feelings"
+      "semantic_group": "colors_feelings",
+      "examples_vi": [
+        "Nó có màu đỏ.",
+        "Em thích màu đỏ.",
+        "Màu này là màu đỏ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_325",
@@ -33299,7 +33344,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "colors_feelings"
+      "semantic_group": "colors_feelings",
+      "examples_vi": [
+        "Nó có màu hồng.",
+        "Em thích màu hồng.",
+        "Màu này là màu hồng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_079",
@@ -33369,7 +33419,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Hãy thả diều trên bầu trời.",
+        "Hãy nhìn con diều.",
+        "Em nhìn thấy con diều."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_059",
@@ -33439,7 +33494,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Hãy đi xe đạp trong công viên.",
+        "Hãy nhìn xe đạp.",
+        "Em nhìn thấy xe đạp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_135",
@@ -33509,7 +33569,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Chú mèo con rất đáng yêu.",
+        "Hãy nhìn mèo con.",
+        "Em nhìn thấy mèo con."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_056",
@@ -33573,7 +33638,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Đây là một quả bóng màu đỏ.",
+        "Hãy nhìn quả bóng.",
+        "Em nhìn thấy quả bóng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_103",
@@ -33626,7 +33696,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em ngủ cùng chú gấu bông của mình.",
+        "Hãy nhìn gấu bông.",
+        "Em nhìn thấy gấu bông."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_073",
@@ -33693,7 +33768,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Bạn ấy có một con búp bê dễ thương.",
+        "Hãy nhìn búp bê.",
+        "Em nhìn thấy búp bê."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_115",
@@ -33765,7 +33845,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con mèo đang ngủ dưới gầm giường.",
+        "Hãy nhìn con mèo.",
+        "Em nhìn thấy con mèo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_121",
@@ -33837,7 +33922,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Chú chó của em đeo một chiếc vòng cổ màu xanh dương.",
+        "Hãy nhìn con chó.",
+        "Em nhìn thấy con chó."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_394",
@@ -33899,7 +33989,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em biết chơi.",
+        "Chúng em chơi mỗi ngày.",
+        "Chúng mình cùng chơi nào!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_319",
@@ -33961,7 +34056,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "colors_feelings"
+      "semantic_group": "colors_feelings",
+      "examples_vi": [
+        "Nó có màu xanh dương.",
+        "Em thích màu xanh dương.",
+        "Màu này là màu xanh dương."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_286",
@@ -34022,7 +34122,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Em nhìn thấy một cánh buồm.",
+        "Em biết đi thuyền buồm.",
+        "Chúng mình cùng đi thuyền buồm nhé!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_287",
@@ -34083,7 +34188,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Các bạn nhỏ chơi trên bãi cát.",
+        "Hãy nhìn bãi cát.",
+        "Em nhìn thấy bãi cát."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_288",
@@ -34144,7 +34254,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Chúng em nhìn thấy biển xanh.",
+        "Hãy nhìn biển cả.",
+        "Em nhìn thấy biển cả."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_217",
@@ -34207,7 +34322,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Em muốn đi đến bãi biển.",
+        "Hãy nhìn bãi biển.",
+        "Em nhìn thấy bãi biển."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_219",
@@ -34274,7 +34394,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Chiếc thuyền đang ở trên biển xanh.",
+        "Hãy nhìn thuyền nhỏ.",
+        "Em nhìn thấy thuyền nhỏ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_126",
@@ -34343,7 +34468,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con cá vàng đang bơi.",
+        "Con cá đang bơi.",
+        "Những con cá ở trong hồ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_118",
@@ -34402,7 +34532,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con cua đang ở trên bãi cát.",
+        "Hãy nhìn con cua.",
+        "Em nhìn thấy con cua."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_122",
@@ -34461,7 +34596,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Chú cá heo rất thân thiện.",
+        "Hãy nhìn con cá heo.",
+        "Em nhìn thấy con cá heo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_298",
@@ -34523,7 +34663,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Mặt trời đang tỏa nắng trong công viên.",
+        "Hãy nhìn ông mặt trời.",
+        "Em nhìn thấy ông mặt trời."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_209",
@@ -34588,7 +34733,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Cho em xin một cốc nước, với ạ.",
+        "Hãy uống nước sạch.",
+        "Hãy tưới nước cho khu vườn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_281",
@@ -34655,7 +34805,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Hãy nhìn cầu vồng rực rỡ sắc màu!",
+        "Hãy nhìn cầu vồng.",
+        "Em nhìn thấy cầu vồng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_284",
@@ -34716,7 +34871,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Dòng sông xanh chảy rất dài.",
+        "Hãy nhìn dòng sông.",
+        "Em nhìn thấy dòng sông."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_285",
@@ -34778,7 +34938,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Con đường dài và sạch sẽ.",
+        "Hãy nhìn con đường.",
+        "Em nhìn thấy con đường."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_303",
@@ -34848,7 +35013,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Chú chim đậu trên cây.",
+        "Hãy nhìn cây xanh.",
+        "Em nhìn thấy cây xanh."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_268",
@@ -34918,7 +35088,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Bông hoa màu hồng rất đẹp.",
+        "Hãy nhìn bông hoa.",
+        "Em nhìn thấy bông hoa."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_271",
@@ -34981,7 +35156,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Con cừu ăn cỏ xanh.",
+        "Hãy nhìn bãi cỏ.",
+        "Em nhìn thấy bãi cỏ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_275",
@@ -35034,7 +35214,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Ngọn núi rất cao.",
+        "Hãy nhìn ngọn núi.",
+        "Em nhìn thấy ngọn núi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_224",
@@ -35096,7 +35281,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Em đến thăm bà ở vùng quê.",
+        "Hãy nhìn vùng quê.",
+        "Em nhìn thấy vùng quê."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_293",
@@ -35159,7 +35349,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Các vì sao ở trên bầu trời.",
+        "Hãy nhìn bầu trời.",
+        "Em nhìn thấy bầu trời."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_321",
@@ -35221,7 +35416,12 @@
       "unit_group": "Unit 1-4",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "nature_places"
+      "semantic_group": "nature_places",
+      "examples_vi": [
+        "Nó có màu xanh lá cây.",
+        "Em thích màu xanh lá cây.",
+        "Màu này là màu xanh lá cây."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_090",
@@ -35284,7 +35484,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Đây là một câu hỏi.",
+        "Hãy nhìn câu hỏi.",
+        "Em nhìn thấy câu hỏi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_295",
@@ -35337,7 +35542,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Tấm bảng có hình vuông.",
+        "Hãy nhìn hình vuông.",
+        "Em nhìn thấy hình vuông."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_091",
@@ -35400,7 +35610,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Em thích trò chơi câu đố này.",
+        "Hãy nhìn trò chơi câu đố.",
+        "Em nhìn thấy trò chơi câu đố."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_062",
@@ -35473,7 +35688,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Hãy mở sách ra.",
+        "Hãy đặt một phòng.",
+        "Em có thể đặt chỗ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_084",
@@ -35545,7 +35765,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Hãy viết bằng bút chì.",
+        "Hãy nhìn bút chì.",
+        "Em nhìn thấy bút chì."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_083",
@@ -35618,7 +35843,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Đây là một cây bút mực màu xanh.",
+        "Hãy viết bằng bút mực.",
+        "Một cái chuồng cừu."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_074",
@@ -35690,7 +35920,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Em có một cục tẩy nhỏ.",
+        "Hãy nhìn cục tẩy.",
+        "Em nhìn thấy cục tẩy."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_094",
@@ -35763,7 +35998,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Cho em xin một chiếc thước kẻ, với ạ.",
+        "Hãy đưa cho em một chiếc thước kẻ.",
+        "Vua là người cai trị."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_068",
@@ -35842,7 +36082,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Chúng em đang ở trong lớp học.",
+        "Hãy nhìn lớp học.",
+        "Em nhìn thấy lớp học."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_071",
@@ -35920,7 +36165,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Cuốn sách ở trên bàn học.",
+        "Hãy nhìn bàn học.",
+        "Em nhìn thấy bàn học."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_063",
@@ -35989,7 +36239,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "school"
+      "semantic_group": "school",
+      "examples_vi": [
+        "Món đồ chơi nằm trong chiếc hộp.",
+        "Bạn ấy thích đấm bốc.",
+        "Em biết đấm bốc."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_127",
@@ -36056,7 +36311,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con cáo rất thông minh.",
+        "Hãy nhìn con cáo.",
+        "Em nhìn thấy con cáo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_142",
@@ -36121,7 +36381,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Em nhìn thấy một con bò đực.",
+        "Hãy nhìn con bò đực.",
+        "Em nhìn thấy con bò đực."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_117",
@@ -36192,7 +36457,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con bò cho sữa tươi.",
+        "Hãy nhìn con bò sữa.",
+        "Em nhìn thấy con bò sữa."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_145",
@@ -36263,7 +36533,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con lợn có màu hồng.",
+        "Hãy nhìn con lợn, con heo.",
+        "Em nhìn thấy con lợn, con heo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_124",
@@ -36333,7 +36608,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con vịt đang bơi.",
+        "Hãy cúi đầu để đi qua cửa!",
+        "Em có thể cúi đầu tránh."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_131",
@@ -36386,7 +36666,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con gà mái đẻ một quả trứng.",
+        "Hãy nhìn con gà mái.",
+        "Em nhìn thấy con gà mái."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_150",
@@ -36455,7 +36740,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con cừu có bộ lông trắng và xù.",
+        "Hãy nhìn con cừu.",
+        "Em nhìn thấy con cừu."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_130",
@@ -36518,7 +36808,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con dê đang ăn cỏ.",
+        "Hãy nhìn con dê.",
+        "Em nhìn thấy con dê."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_116",
@@ -36589,7 +36884,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con gà đang ở trong sân.",
+        "Hãy nhìn con gà.",
+        "Em nhìn thấy con gà."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_184",
@@ -36654,7 +36954,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Bạn có muốn uống một ít nước cam không?",
+        "Hãy nhìn nước ép trái cây.",
+        "Em nhìn thấy nước ép trái cây."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_183",
@@ -36727,7 +37032,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Món thạch màu đỏ rất ngon.",
+        "Hãy nhìn thạch dẻo.",
+        "Em nhìn thấy thạch dẻo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_182",
@@ -36792,7 +37102,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Hãy phết một ít mứt lên bánh mì.",
+        "Hãy nhìn mứt ngọt.",
+        "Em nhìn thấy mứt ngọt."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_030",
@@ -36865,7 +37180,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Mẹ đang ở trong bếp.",
+        "Hãy nhìn nhà bếp.",
+        "Em nhìn thấy nhà bếp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_189",
@@ -36930,7 +37250,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Hãy uống sữa tươi vào bữa sáng.",
+        "Hãy nhìn sữa tươi.",
+        "Em nhìn thấy sữa tươi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_163",
@@ -36995,7 +37320,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em ăn bánh mì với mật ong.",
+        "Hãy nhìn bánh mì.",
+        "Em nhìn thấy bánh mì."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_176",
@@ -37059,7 +37389,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Hãy ăn một quả trứng luộc.",
+        "Hãy nhìn quả trứng.",
+        "Em nhìn thấy quả trứng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_201",
@@ -37112,7 +37447,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Ngày nào chúng em cũng ăn cơm trắng.",
+        "Hãy nhìn cơm.",
+        "Em nhìn thấy cơm."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_190",
@@ -37165,7 +37505,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Bạn ấy rất thích mì gà.",
+        "Hãy nhìn mì sợi.",
+        "Em nhìn thấy mì sợi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_161",
@@ -37237,7 +37582,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Cô ấy ăn một quả táo đỏ.",
+        "Hãy nhìn quả táo.",
+        "Em nhìn thấy quả táo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_256",
@@ -37299,7 +37649,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Ngôi làng nhỏ và yên tĩnh.",
+        "Hãy nhìn ngôi làng.",
+        "Em nhìn thấy ngôi làng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_255",
@@ -37360,7 +37715,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Chiếc xe tải nhỏ có bốn bánh.",
+        "Hãy nhìn xe tải nhỏ.",
+        "Em nhìn thấy xe tải nhỏ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_257",
@@ -37422,7 +37782,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Chúng em chơi bóng chuyền.",
+        "Hãy nhìn môn bóng chuyền.",
+        "Em nhìn thấy môn bóng chuyền."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_221",
@@ -37490,7 +37855,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Em đi học bằng xe buýt.",
+        "Hãy nhìn xe buýt.",
+        "Em nhìn thấy xe buýt."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_065",
@@ -37566,7 +37936,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Đây là một chiếc ô tô đồ chơi.",
+        "Hãy nhìn xe ô tô.",
+        "Em nhìn thấy xe ô tô."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_254",
@@ -37633,7 +38008,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Chiếc xe tải lớn chở hàng hóa.",
+        "Hãy nhìn xe tải lớn.",
+        "Em nhìn thấy xe tải lớn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_238",
@@ -37703,7 +38083,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Bố em có một chiếc xe máy màu đỏ.",
+        "Hãy nhìn xe máy.",
+        "Em nhìn thấy xe máy."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_247",
@@ -37770,7 +38155,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Em mua đồ chơi ở cửa hàng.",
+        "Hãy nhìn cửa hàng.",
+        "Em nhìn thấy cửa hàng."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_237",
@@ -37823,7 +38213,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Bà mua thịt ở chợ.",
+        "Hãy nhìn chợ.",
+        "Em nhìn thấy chợ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_253",
@@ -37885,7 +38280,12 @@
       "unit_group": "Unit 5-8",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Người nông dân lái máy kéo.",
+        "Hãy nhìn xe máy kéo.",
+        "Em nhìn thấy xe máy kéo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_212",
@@ -37950,7 +38350,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em thích ăn sữa chua.",
+        "Hãy nhìn sữa chua.",
+        "Em nhìn thấy sữa chua."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_211",
@@ -38015,7 +38420,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Đây là những củ khoai.",
+        "Hãy nhìn khoai mỡ / khoai lang.",
+        "Em nhìn thấy khoai mỡ / khoai lang."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_107",
@@ -38082,7 +38492,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em chơi với một chiếc yo-yo.",
+        "Hãy nhìn cái yo-yo.",
+        "Em nhìn thấy cái yo-yo."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_233",
@@ -38147,7 +38562,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Hãy mua táo ở cửa hàng tạp hóa.",
+        "Hãy nhìn cửa hàng tạp hóa.",
+        "Em nhìn thấy cửa hàng tạp hóa."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_162",
@@ -38219,7 +38639,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Con khỉ thích ăn chuối.",
+        "Hãy nhìn những quả chuối.",
+        "Em nhìn thấy những quả chuối."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_192",
@@ -38282,7 +38707,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Đây là một quả cam ngọt.",
+        "Em ăn một quả cam ngọt.",
+        "Một chiếc ba lô màu cam."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_167",
@@ -38354,7 +38784,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Con thỏ thích ăn cà rốt.",
+        "Hãy nhìn củ cà rốt.",
+        "Em nhìn thấy củ cà rốt."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_207",
@@ -38426,7 +38861,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Quả cà chua có màu đỏ và hình tròn.",
+        "Hãy nhìn quả cà chua.",
+        "Em nhìn thấy quả cà chua."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_208",
@@ -38492,7 +38932,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Hãy ăn rau củ mỗi ngày.",
+        "Hãy nhìn rau củ.",
+        "Em nhìn thấy rau củ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_196",
@@ -38551,7 +38996,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Quả lê xanh có vị ngọt.",
+        "Hãy nhìn quả lê.",
+        "Em nhìn thấy quả lê."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_258",
@@ -38614,7 +39064,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Hãy ngắm những chú hổ ở sở thú.",
+        "Hãy nhìn vườn bách thú.",
+        "Em nhìn thấy vườn bách thú."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_160",
@@ -38677,7 +39132,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Hãy nhìn con bò u Zebu.",
+        "Em nhìn thấy con bò u Zebu.",
+        "Bạn có tìm thấy con bò u Zebu không?"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_159",
@@ -38746,7 +39206,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con ngựa vằn có những sọc đen và trắng.",
+        "Hãy nhìn con ngựa vằn.",
+        "Em nhìn thấy con ngựa vằn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_137",
@@ -38814,7 +39279,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Sư tử là vua của rừng xanh.",
+        "Hãy nhìn con sư tử.",
+        "Em nhìn thấy con sư tử."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_138",
@@ -38883,7 +39353,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con khỉ rất thích ăn chuối.",
+        "Hãy nhìn con khỉ.",
+        "Em nhìn thấy con khỉ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_125",
@@ -38952,7 +39427,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con voi có chiếc vòi dài.",
+        "Hãy nhìn con voi.",
+        "Em nhìn thấy con voi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_129",
@@ -39021,7 +39501,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con hươu cao cổ có chiếc cổ rất dài.",
+        "Hãy nhìn con hươu cao cổ.",
+        "Em nhìn thấy con hươu cao cổ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_119",
@@ -39074,7 +39559,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con cá sấu đang ở trong hồ.",
+        "Hãy nhìn con cá sấu.",
+        "Em nhìn thấy con cá sấu."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_156",
@@ -39142,7 +39632,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con hổ to lớn và khỏe mạnh.",
+        "Hãy nhìn con hổ.",
+        "Em nhìn thấy con hổ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_110",
@@ -39202,7 +39697,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "animals"
+      "semantic_group": "animals",
+      "examples_vi": [
+        "Con gấu nâu rất thích mật ong.",
+        "Một con gấu nâu to lớn.",
+        "Hãy chịu đựng cơn đau."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_100",
@@ -39266,7 +39766,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Bạn ấy đang trượt cầu trượt.",
+        "Nhìn kìa! Bạn nhỏ đang trượt cầu trượt.",
+        "Các bạn ấy đang trượt cầu trượt."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_092",
@@ -39330,7 +39835,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Cô ấy đang đi xe đạp.",
+        "Nhìn kìa! Bạn nhỏ đang đạp xe.",
+        "Các bạn ấy đang đạp xe."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_229",
@@ -39392,7 +39902,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Bố em đang lái ô tô.",
+        "Nhìn kìa! Bạn nhỏ đang lái xe.",
+        "Các bạn ấy đang lái xe."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_242",
@@ -39456,7 +39971,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Chúng em chơi ở sân chơi.",
+        "Hãy nhìn sân chơi.",
+        "Em nhìn thấy sân chơi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_101",
@@ -39520,7 +40040,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Hãy ngồi lên xích đu.",
+        "Nhìn kìa! Bạn nhỏ đang chơi xích đu.",
+        "Các bạn ấy đang chơi xích đu."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_099",
@@ -39584,7 +40109,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em chơi trên cầu trượt.",
+        "Em có thể trượt.",
+        "Chúng mình cùng trượt nào!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_097",
@@ -39637,7 +40167,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Chúng em thích bập bênh.",
+        "Hãy nhìn bập bênh.",
+        "Em nhìn thấy bập bênh."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_400",
@@ -39699,7 +40234,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em biết chạy.",
+        "Chúng em chạy mỗi ngày.",
+        "Chúng mình cùng chạy nào!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_402",
@@ -39761,7 +40301,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em biết nhảy.",
+        "Chúng em nhảy mỗi ngày.",
+        "Chúng mình cùng nhảy nào!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_401",
@@ -39823,7 +40368,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "toys_play"
+      "semantic_group": "toys_play",
+      "examples_vi": [
+        "Em biết đi bộ.",
+        "Chúng em đi bộ mỗi ngày.",
+        "Chúng mình cùng đi bộ nào!"
+      ]
     },
     {
       "vocab_id": "TA2_VOC_179",
@@ -39894,7 +40444,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em rất thích những quả nho tím.",
+        "Hãy nhìn những quả nho.",
+        "Em nhìn thấy những quả nho."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_166",
@@ -39959,7 +40514,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Đây là một chiếc bánh sinh nhật lớn.",
+        "Hãy nhìn bánh ngọt.",
+        "Em nhìn thấy bánh ngọt."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_044",
@@ -40033,7 +40593,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Hãy đặt cuốn sách lên bàn.",
+        "Hãy nhìn cái bàn.",
+        "Em nhìn thấy cái bàn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_222",
@@ -40098,7 +40663,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Hãy uống sữa nóng ở quán cà phê.",
+        "Hãy nhìn quán cà phê.",
+        "Em nhìn thấy quán cà phê."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_206",
@@ -40163,7 +40733,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Ông uống trà nóng.",
+        "Hãy nhìn trà.",
+        "Em nhìn thấy trà."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_193",
@@ -40216,7 +40791,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em muốn một chiếc bánh kếp ngọt.",
+        "Hãy nhìn bánh kếp.",
+        "Em nhìn thấy bánh kếp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_203",
@@ -40269,7 +40849,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Em rất thích món súp nóng.",
+        "Hãy nhìn súp, canh.",
+        "Em nhìn thấy súp, canh."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_181",
@@ -40322,7 +40907,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "other"
+      "semantic_group": "other",
+      "examples_vi": [
+        "Em rất thích kem sô cô la.",
+        "Hãy nhìn kem lạnh.",
+        "Em nhìn thấy kem lạnh."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_205",
@@ -40375,7 +40965,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "food"
+      "semantic_group": "food",
+      "examples_vi": [
+        "Đường có vị ngọt.",
+        "Hãy nhìn đường.",
+        "Em nhìn thấy đường."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_011",
@@ -40453,7 +41048,12 @@
       "unit_group": "Unit 9-12",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "transport_places"
+      "semantic_group": "transport_places",
+      "examples_vi": [
+        "Con mèo ở dưới ghế.",
+        "Hãy nhìn ghế tựa.",
+        "Em nhìn thấy ghế tựa."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_265",
@@ -40506,7 +41106,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Có mười một hình tròn.",
+        "Hãy nhìn số 11.",
+        "Em nhìn thấy số 11."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_305",
@@ -40559,7 +41164,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Em nhìn thấy mười hai ngôi sao màu đỏ.",
+        "Hãy nhìn số 12.",
+        "Em nhìn thấy số 12."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_301",
@@ -40612,7 +41222,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Em có mười ba cây bút chì.",
+        "Hãy nhìn số 13.",
+        "Em nhìn thấy số 13."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_270",
@@ -40665,7 +41280,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Chị gái em mười bốn tuổi.",
+        "Hãy nhìn số 14.",
+        "Em nhìn thấy số 14."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_266",
@@ -40718,7 +41338,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Có mười lăm cuốn sách.",
+        "Hãy nhìn số 15.",
+        "Em nhìn thấy số 15."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_292",
@@ -40771,7 +41396,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Em có mười sáu viên bi.",
+        "Hãy nhìn số 16.",
+        "Em nhìn thấy số 16."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_290",
@@ -40824,7 +41454,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Bạn ấy có mười bảy cây bút mực.",
+        "Hãy nhìn số 17.",
+        "Em nhìn thấy số 17."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_264",
@@ -40877,7 +41512,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Có mười tám con vịt.",
+        "Hãy nhìn số 18.",
+        "Em nhìn thấy số 18."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_277",
@@ -40930,7 +41570,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Anh trai em có mười chín cây bút sáp màu.",
+        "Hãy nhìn số 19.",
+        "Em nhìn thấy số 19."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_306",
@@ -40983,7 +41628,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "numbers"
+      "semantic_group": "numbers",
+      "examples_vi": [
+        "Chúng em có hai mươi quả bóng bay.",
+        "Hãy nhìn số 20.",
+        "Em nhìn thấy số 20."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_010",
@@ -41063,7 +41713,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Anh trai em mười tuổi.",
+        "Hãy nhìn anh, em trai.",
+        "Em nhìn thấy anh, em trai."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_041",
@@ -41143,7 +41798,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Em gái em bảy tuổi.",
+        "Hãy nhìn chị, em gái.",
+        "Em nhìn thấy chị, em gái."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_023",
@@ -41214,7 +41874,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Em yêu bà của mình.",
+        "Hãy nhìn bà.",
+        "Em nhìn thấy bà."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_022",
@@ -41285,7 +41950,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Đây là ông của em.",
+        "Hãy nhìn ông.",
+        "Em nhìn thấy ông."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_033",
@@ -41365,7 +42035,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Đây là mẹ của em.",
+        "Hãy nhìn mẹ.",
+        "Em nhìn thấy mẹ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_015",
@@ -41445,7 +42120,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Đây là bố của em.",
+        "Hãy nhìn ba, bố.",
+        "Em nhìn thấy ba, bố."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_026",
@@ -41519,7 +42199,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Mừng bạn về nhà!",
+        "Hãy nhìn nhà.",
+        "Em nhìn thấy nhà."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_376",
@@ -41580,7 +42265,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Đây là gia đình em.",
+        "Gia đình em rất tốt bụng.",
+        "Em yêu gia đình mình."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_007",
@@ -41651,7 +42341,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Em ngủ trong phòng ngủ của mình.",
+        "Hãy nhìn phòng ngủ.",
+        "Em nhìn thấy phòng ngủ."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_032",
@@ -41725,7 +42420,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Chiếc ghế xô pha ở trong phòng khách.",
+        "Hãy nhìn phòng khách.",
+        "Em nhìn thấy phòng khách."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_038",
@@ -41794,7 +42494,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Em có hai chiếc áo sơ mi.",
+        "Hãy nhìn áo sơ mi.",
+        "Em nhìn thấy áo sơ mi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_039",
@@ -41863,7 +42568,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là đôi giày của em.",
+        "Hãy nhìn đôi giày.",
+        "Em nhìn thấy đôi giày."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_040",
@@ -41932,7 +42642,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Em mặc quần đùi màu xanh dương.",
+        "Hãy nhìn quần đùi / quần soóc.",
+        "Em nhìn thấy quần đùi / quần soóc."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_440",
@@ -41994,7 +42709,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là chiếc quần của em.",
+        "Em mặc chiếc quần.",
+        "Chiếc quần rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_441",
@@ -42056,7 +42776,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là chiếc váy của em.",
+        "Em mặc chiếc váy.",
+        "Chiếc váy rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_442",
@@ -42118,7 +42843,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là chiếc chân váy của em.",
+        "Em mặc chân váy.",
+        "Chân váy rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_448",
@@ -42180,7 +42910,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là chiếc mũ của em.",
+        "Em đội chiếc mũ.",
+        "Chiếc mũ rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_447",
@@ -42242,7 +42977,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là đôi tất của em.",
+        "Em đi đôi tất.",
+        "Đôi tất rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_443",
@@ -42304,7 +43044,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là áo khoác của em.",
+        "Em mặc áo khoác.",
+        "Chiếc áo khoác rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_444",
@@ -42366,7 +43111,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "clothes"
+      "semantic_group": "clothes",
+      "examples_vi": [
+        "Đây là chiếc áo choàng của em.",
+        "Em mặc áo choàng.",
+        "Chiếc áo choàng rất đẹp."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_046",
@@ -42429,7 +43179,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Chúng em ngủ trong một chiếc lều.",
+        "Hãy nhìn cái lều.",
+        "Em nhìn thấy cái lều."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_045",
@@ -42492,7 +43247,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Ấm trà ở trên bàn.",
+        "Hãy nhìn ấm trà.",
+        "Em nhìn thấy ấm trà."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_008",
@@ -42563,7 +43323,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "core",
       "curriculum_basis": "Global Success 2",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Em có một chiếc chăn màu xanh dương.",
+        "Hãy nhìn cái chăn.",
+        "Em nhìn thấy cái chăn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_054",
@@ -42635,7 +43400,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Ba lô của em có màu xanh lá cây.",
+        "Hãy nhìn ba lô.",
+        "Em nhìn thấy ba lô."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_006",
@@ -42706,7 +43476,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Chiếc chăn ở trên giường.",
+        "Hãy nhìn cái giường.",
+        "Em nhìn thấy cái giường."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_031",
@@ -42780,7 +43555,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Chiếc đèn ở trên bàn học.",
+        "Hãy nhìn cái đèn.",
+        "Em nhìn thấy cái đèn."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_049",
@@ -42845,7 +43625,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "family_home"
+      "semantic_group": "family_home",
+      "examples_vi": [
+        "Chiếc khăn tắm ở trong phòng tắm.",
+        "Hãy nhìn khăn tắm.",
+        "Em nhìn thấy khăn tắm."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_299",
@@ -42914,7 +43699,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "weather"
+      "semantic_group": "weather",
+      "examples_vi": [
+        "Trời đang nắng.",
+        "Em cảm thấy vui tươi như nắng ấm.",
+        "Bạn nhỏ trông rất vui tươi."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_282",
@@ -42983,7 +43773,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "weather"
+      "semantic_group": "weather",
+      "examples_vi": [
+        "Hôm nay trời có mưa.",
+        "Em cảm thấy buồn như trời mưa.",
+        "Bạn nhỏ trông có vẻ buồn bã."
+      ]
     },
     {
       "vocab_id": "TA2_VOC_261",
@@ -43052,7 +43847,12 @@
       "unit_group": "Unit 13-16",
       "curriculum_role": "extension",
       "curriculum_basis": "Grade 2 supplementary overlap",
-      "semantic_group": "weather"
+      "semantic_group": "weather",
+      "examples_vi": [
+        "Hôm nay trời nhiều mây.",
+        "Em cảm thấy tâm trạng u ám.",
+        "Bạn nhỏ trông có vẻ không vui."
+      ]
     }
   ],
   "vocabulary_library_meta": {
