@@ -4894,7 +4894,12 @@ function prevQuestion() {
     }
 }
 
-function nextQuestion() {
+// Riêng Khám phá: chỉ chuyển câu khi bé bấm nút Câu tiếp theo / Vòng tiếp theo.
+// Các mục Bài tập, Ôn tập, Đề thi giữ nguyên logic điều hướng gốc.
+function nextQuestion(event) {
+    if (currentMainTab === 'discover' && !activeExamContext && !activeRoadmapContext && pendingTopicQuiz) {
+        if (event?.type !== 'click' || event.currentTarget?.id !== 'btn-next-q-prac') return;
+    }
     stopSpeaking();
     const isEvaluationMode = !!activeExamContext || !!activeRoadmapContext;
 
@@ -6504,7 +6509,7 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="px-5 py-1.5 bg-pink-50 border border-pink-200 text-pink-700 font-black rounded-full text-xs md:text-sm flex items-center justify-center shadow-xs select-none" id="practice-step-indicator">
 <span id="practice-step-text">1 / 59</span>
 </div>
-<button class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xs md:text-sm pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-prac" onclick="nextQuestion()">
+<button class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xs md:text-sm pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-prac" onclick="nextQuestion(event)">
 <span id="btn-next-text-prac">Câu tiếp theo</span>
 <i class="fa-solid fa-chevron-right ml-1" id="btn-next-icon-prac"></i>
 </button>
