@@ -414,6 +414,7 @@
     subjectDiscoverFreeCount: null
   });
   const adminRequestBusy = new Map();
+  let adminDataLoadNonce = 0;
 
   const state = {
     screen: "home",
@@ -453,6 +454,7 @@
       overview: null,
       requests: [],
       users: [],
+      usersLoadError: false,
       tab: "requests",
       pendingCount: 0,
       badgeLoading: false,
@@ -1286,6 +1288,7 @@
   }
 
   function clearAuthState() {
+    adminDataLoadNonce += 1;
     adminRequestBusy.clear();
     storeToken("");
     state.auth.token = null;
@@ -1302,6 +1305,7 @@
       overview: null,
       requests: [],
       users: [],
+      usersLoadError: false,
       tab: "requests",
       pendingCount: 0,
       badgeLoading: false,
@@ -3640,30 +3644,51 @@
   }
 
   async function loadAdminData() {
-    if (!state.auth.user || state.auth.user.role !== "admin") return;
+    if (!state.auth.user || state.auth.user.role !== "admin" || !state.auth.token) return;
+    const nonce = ++adminDataLoadNonce;
+    const sessionToken = state.auth.token;
     state.admin.loading = true;
     render();
-    try {
-      const [overviewData, requestData, userData] = await Promise.all([
-        apiRequest("adminOverviewGet"),
-        apiRequest("adminAccessRequestsList"),
-        apiRequest("adminUsersList")
-      ]);
-      state.admin.overview = overviewData;
-      state.admin.requests = Array.isArray(requestData.requests) ? requestData.requests : [];
-      state.admin.users = Array.isArray(userData.users) ? userData.users : [];
+
+    // Admin endpoints are independent. An overview/requests failure must not
+    // hide a successful users list or misrepresent a failed list as 0 users.
+    const results = await Promise.allSettled([
+      apiRequest("adminOverviewGet", {}, { keepSessionOnUnauthorized: true }),
+      apiRequest("adminAccessRequestsList", {}, { keepSessionOnUnauthorized: true }),
+      apiRequest("adminUsersList", {}, { keepSessionOnUnauthorized: true })
+    ]);
+    // Never restore privileged data from a previous login/logout or reload.
+    if (nonce !== adminDataLoadNonce || state.auth.token !== sessionToken) return;
+
+    const [overviewResult, requestsResult, usersResult] = results;
+    const denied = results.find((result) => result.status === "rejected"
+      && (result.reason?.code === "UNAUTHORIZED" || result.reason?.code === "FORBIDDEN"));
+    if (denied) {
+      state.admin.loading = false;
+      state.admin.loaded = false;
+      if (denied.reason?.code === "UNAUTHORIZED") clearAuthState();
+      showToast(friendlyError(denied.reason));
+      goHome();
+      return;
+    }
+
+    if (overviewResult.status === "fulfilled") state.admin.overview = overviewResult.value;
+    if (requestsResult.status === "fulfilled") {
+      state.admin.requests = Array.isArray(requestsResult.value.requests) ? requestsResult.value.requests : [];
       state.admin.pendingCount = state.admin.requests.length;
       state.admin.badgeUpdatedAt = Date.now();
-      state.admin.loaded = true;
-    } catch (err) {
-      state.admin.loaded = false;
-      showToast(friendlyError(err));
-      if (err.code === "UNAUTHORIZED" || err.code === "FORBIDDEN") goHome();
-    } finally {
-      state.admin.loading = false;
-      if (state.screen === "admin") render();
-      else renderNav();
     }
+    if (usersResult.status === "fulfilled" && Array.isArray(usersResult.value.users)) {
+      state.admin.users = usersResult.value.users;
+      state.admin.usersLoadError = false;
+    } else {
+      state.admin.usersLoadError = true;
+      showToast("Chưa tải được danh sách tài khoản. Anh hãy bấm Thử tải lại.");
+    }
+    state.admin.loaded = true;
+    state.admin.loading = false;
+    if (state.screen === "admin") render();
+    else renderNav();
   }
 
   function adminUserClass(user) {
@@ -3793,6 +3818,7 @@
   }
 
   function renderAdminUsersTab() {
+    if (state.admin.usersLoadError) return renderAdminUsersLoadError();
     const rows = filterAndSortAdminUsers();
     const filters = [
       ["all", "Tất cả", ""], ["admin", "Admin", "admin"], ["vip", "VIP", "vip"], ["trial", "Trial", "trial"], ["regular", "Regular", "regular"]
@@ -3801,7 +3827,12 @@
     return `<div class="admin-summary"><div><strong><span class="admin-user-count">${rows.length}</span> / ${state.admin.users.length} tài khoản</strong><div class="admin-muted">Tìm kiếm, lọc bằng hashtag và sắp xếp tức thời.</div></div><div class="admin-user-tools"><input id="admin-user-search" aria-label="Tìm người dùng" placeholder="Tìm tên hoặc UserId" value="${escapeHtml(state.admin.userQuery)}"><select id="admin-user-sort" aria-label="Sắp xếp người dùng"><option value="id-asc"${state.admin.userSort === "id-asc" ? " selected" : ""}>UserId tăng dần</option><option value="id-desc"${state.admin.userSort === "id-desc" ? " selected" : ""}>UserId giảm dần</option><option value="name-asc"${state.admin.userSort === "name-asc" ? " selected" : ""}>Tên A → Z</option><option value="name-desc"${state.admin.userSort === "name-desc" ? " selected" : ""}>Tên Z → A</option><option value="newest"${state.admin.userSort === "newest" ? " selected" : ""}>Mới đăng ký trước</option><option value="oldest"${state.admin.userSort === "oldest" ? " selected" : ""}>Cũ đăng ký trước</option><option value="admin-first"${state.admin.userSort === "admin-first" ? " selected" : ""}>Admin trước</option><option value="vip-first"${state.admin.userSort === "vip-first" ? " selected" : ""}>VIP trước</option><option value="trial-first"${state.admin.userSort === "trial-first" ? " selected" : ""}>Trial trước</option><option value="regular-first"${state.admin.userSort === "regular-first" ? " selected" : ""}>Regular trước</option></select></div></div><div class="admin-user-filters">${filters}</div><div class="admin-filter-note">Lớp 2 chỉ quản lý tài khoản của website Lớp 2; không có email/lớp hành chính trong hồ sơ.</div><div class="admin-table admin-user-table">${list}</div>`;
   }
 
+  function renderAdminUsersLoadError() {
+    return `<div class="admin-empty" role="status"><strong>Chưa tải được danh sách tài khoản.</strong><p>Danh sách chưa được tải thành công, không có nghĩa là đang có 0 tài khoản.</p><button id="admin-users-retry" class="mini-action" type="button">Thử tải lại</button></div>`;
+  }
+
   function renderAdminAccessTab() {
+    if (state.admin.usersLoadError) return renderAdminUsersLoadError();
     const query = String(state.admin.accessQuery || "").trim().toLowerCase();
     const rows = state.admin.users.filter((user) => !query || `${user.userId || ""} ${user.name || ""}`.toLowerCase().includes(query)).slice(0, 100);
     const list = rows.length ? rows.map(renderAdminUserCard).join("") : `<div class="admin-empty">Không tìm thấy tài khoản phù hợp.</div>`;
@@ -3860,6 +3891,7 @@
 
     document.getElementById("admin-back")?.addEventListener("click", goHome);
     document.getElementById("admin-refresh")?.addEventListener("click", loadAdminData);
+    document.getElementById("admin-users-retry")?.addEventListener("click", loadAdminData);
     el.content.querySelectorAll("[data-admin-tab]").forEach((button) => button.addEventListener("click", () => {
       const next = String(button.dataset.adminTab || "requests");
       if (!["requests", "users", "access", "overview"].includes(next)) return;
