@@ -55,12 +55,16 @@
     Object.freeze({ id: "virtualTelescope", icon: "🔭", title: "Kính thiên văn", description: "Điều khiển kính, thay đổi độ phóng đại và ngắm thiên thể.", badge: "Thiên văn", tone: "purple" }),
     Object.freeze({ id: "waterCycle", icon: "💧", title: "Vòng tuần hoàn của nước", description: "Khám phá vòng tuần hoàn, ba thể của nước và cách làm sạch nước bằng mô phỏng tương tác.", badge: "Khoa học", tone: "teal" }),
     Object.freeze({ id: "lifeCycle", icon: "🦋", title: "Vòng đời sinh vật", description: "Khám phá vòng đời bướm, ếch và quá trình cây đậu lớn lên bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
+    Object.freeze({ id: "bonesMuscles", icon: "🦴", title: "Bộ xương và cơ bắp", description: "Lắp bộ xương, tìm hiểu khớp, cơ và tư thế khỏe mạnh.", badge: "Cơ thể", tone: "pink" }),
     Object.freeze({ id: "humanBody", icon: "🫀", title: "Cơ thể em", description: "Khám phá hệ tiêu hóa, hô hấp, tim và mạch máu bằng mô phỏng tương tác.", badge: "Khoa học", tone: "pink" }),
     Object.freeze({ id: "nutrition", icon: "🥗", title: "Ăn uống lành mạnh", description: "Bày đĩa ăn cân bằng, tìm hiểu tháp dinh dưỡng và lượng đường trong đồ uống.", badge: "Dinh dưỡng", tone: "green" }),
     Object.freeze({ id: "fiveSenses", icon: "👀", title: "5 giác quan", description: "Khám phá mắt, tai, mũi, lưỡi và da qua các hoạt động quan sát, nghe, ngửi, nếm và chạm.", badge: "Cơ thể", tone: "indigo" }),
+    Object.freeze({ id: "animalWorld", icon: "🐾", title: "Thế giới động vật", description: "Phân loại động vật, tìm hiểu ngụy trang và các loài quý hiếm Việt Nam.", badge: "Khoa học", tone: "green" }),
+    Object.freeze({ id: "plantWonders", icon: "🌱", title: "Thực vật kỳ diệu", description: "Khám phá quang hợp, thụ phấn và cách hạt giống phát tán.", badge: "Khoa học", tone: "teal" }),
     Object.freeze({ id: "natureAround", icon: "🌿", title: "Thiên nhiên quanh em", description: "Khám phá chuỗi thức ăn, bóng nắng trong ngày và cách cầu vồng hình thành bằng mô phỏng tương tác.", badge: "Khoa học", tone: "green" }),
     Object.freeze({ id: "earthMotion", icon: "🌍", title: "Trái Đất chuyển động", description: "Khám phá múi giờ, Trái Đất quay và gió mùa Việt Nam bằng mô phỏng tương tác.", badge: "Thiên văn", tone: "blue" }),
     Object.freeze({ id: "earthChanges", icon: "🌋", title: "Trái Đất biến đổi", description: "Khám phá núi lửa, động đất, các mảng kiến tạo và sự bồi tụ đồng bằng bằng mô phỏng tương tác.", badge: "Thiên nhiên", tone: "coral" }),
+    Object.freeze({ id: "vnCulture", icon: "🏮", title: "Văn hóa Việt Nam", description: "Khám phá di sản, lễ hội bốn mùa và làng gốm Bát Tràng.", badge: "Văn hóa", tone: "amber" }),
     Object.freeze({ id: "vnHistory", icon: "📜", title: "Lịch sử Việt Nam", description: "Dòng thời gian, trận Bạch Đằng và trống đồng.", badge: "Lịch sử", tone: "amber" }),
     Object.freeze({ id: "vietnamMap", icon: "🗺️", title: "Bản đồ Việt Nam", description: "Khám phá tỉnh thành, vùng miền và luyện tập trực tiếp trên bản đồ Việt Nam.", badge: "Địa lý", tone: "green" }),
     Object.freeze({ id: "inventions", icon: "💡", title: "Những phát minh", description: "Thử bánh xe, giấy, la bàn, bóng đèn và điện thoại.", badge: "Công nghệ", tone: "indigo" }),
@@ -82,12 +86,12 @@
   const TOOL_GROUPS = Object.freeze([
     Object.freeze({ id: "math", icon: "🧮", title: "Toán", tone: "purple", ids: Object.freeze(["calculator", "converter", "geometryArea", "mathTables", "learningClock", "calendarRoman", "lineDiagram"]) }),
     Object.freeze({ id: "earthSpace", icon: "🌍", title: "Trái Đất và thiên văn", tone: "blue", ids: Object.freeze(["solarSystem", "moon", "starrySky", "virtualTelescope", "earthMotion", "earthChanges"]) }),
-    Object.freeze({ id: "naturalScience", icon: "🔬", title: "Khoa học tự nhiên", tone: "teal", ids: Object.freeze(["waterCycle", "lifeCycle", "natureAround", "circuitLab"]) }),
-    Object.freeze({ id: "socialScience", icon: "🏛️", title: "Khoa học xã hội", tone: "green", ids: Object.freeze(["vietnamMap", "vnHistory"]) }),
+    Object.freeze({ id: "naturalScience", icon: "🔬", title: "Khoa học tự nhiên", tone: "teal", ids: Object.freeze(["waterCycle", "lifeCycle", "animalWorld", "plantWonders", "natureAround", "circuitLab"]) }),
+    Object.freeze({ id: "socialScience", icon: "🏛️", title: "Khoa học xã hội", tone: "green", ids: Object.freeze(["vietnamMap", "vnHistory", "vnCulture"]) }),
     Object.freeze({ id: "technology", icon: "💻", title: "Tin học và công nghệ", tone: "blue", ids: Object.freeze(["bunnyCoding", "typingTenFingers", "inventions"]) }),
     Object.freeze({ id: "arts", icon: "🎨", title: "Nghệ thuật", tone: "pink", ids: Object.freeze(["colorMixer", "virtualPiano", "vnInstruments"]) }),
     Object.freeze({ id: "lifeSkills", icon: "🤝", title: "Kỹ năng sống", tone: "amber", ids: Object.freeze(["trafficSafety", "homeSafety", "emotions", "waterSafety", "lostAndStrangers", "smartMoney"]) }),
-    Object.freeze({ id: "bodyNutrition", icon: "🫀", title: "Cơ thể và dinh dưỡng", tone: "pink", ids: Object.freeze(["humanBody", "fiveSenses", "nutrition"]) })
+    Object.freeze({ id: "bodyNutrition", icon: "🫀", title: "Cơ thể và dinh dưỡng", tone: "pink", ids: Object.freeze(["humanBody", "bonesMuscles", "fiveSenses", "nutrition"]) })
   ]);
 
   // 10 tông pastel cố định cho Tools: không trùng màu các card sát nhau.
@@ -353,6 +357,10 @@
       waterCycle: "assets/js/tools/vong-tuan-hoan-nuoc.js?v=class2-mascot-20261010",
       lifeCycle: "assets/js/tools/vong-doi-sinh-vat.js?v=class2-mascot-20261010",
       humanBody: "assets/js/tools/co-the-em.js?v=class2-mascot-20261010",
+      bonesMuscles: "assets/js/tools/bo-xuong-co-bap.js?v=class2-tools-20261012",
+      animalWorld: "assets/js/tools/the-gioi-dong-vat.js?v=class2-tools-20261012",
+      plantWonders: "assets/js/tools/thuc-vat-ky-dieu.js?v=class2-tools-20261012",
+      vnCulture: "assets/js/tools/van-hoa-viet-nam.js?v=class2-tools-20261012",
       nutrition: "assets/js/tools/an-uong-lanh-manh.js?v=class2-mascot-20261010",
       fiveSenses: "assets/js/tools/nam-giac-quan.js?v=class2-mascot-20261010",
       natureAround: "assets/js/tools/thien-nhien-quanh-em.js?v=class2-mascot-20261010",
@@ -590,7 +598,11 @@
   // Tương thích tạm với Games/Tools local được kế thừa từ Lớp 1; ưu tiên namespace CLASS2.
   // Khi các file Games/Tools được migrate riêng, có thể bỏ fallback CLASS1_* này.
   function homeFeatureRegistry(kind, featureId) {
-    if (kind === "tools") return window.CLASS2_TOOL_MODULES || window.CLASS1_TOOL_MODULES || null;
+    if (kind === "tools") {
+      if (window.CLASS2_TOOL_MODULES && window.CLASS2_TOOL_MODULES[featureId]) return window.CLASS2_TOOL_MODULES;
+      if (window.CLASS1_TOOL_MODULES && window.CLASS1_TOOL_MODULES[featureId]) return window.CLASS1_TOOL_MODULES;
+      return window.CLASS2_TOOL_MODULES || window.CLASS1_TOOL_MODULES || null;
+    }
     if (kind === "games") return window.CLASS2_GAME_MODULES || window.CLASS1_GAME_MODULES || null;
     if (kind === "aiLab") {
       if (window.CLASS2_AI_LAB_MODULES && window.CLASS2_AI_LAB_MODULES[featureId]) return window.CLASS2_AI_LAB_MODULES;
