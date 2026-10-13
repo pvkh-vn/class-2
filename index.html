@@ -918,15 +918,13 @@
       padding:0 1rem;
       pointer-events:none;
     }
-    .footer-copy{
-      color:#0000FF;
-      text-shadow:0 1px 0 rgba(255,255,255,.98);
-      transform:translateY(-7px);
-      line-height:1.25;
-      font-weight:900;
-      font-size:16px;
+    .footer-brand-logo{
+      display:block;
+      width:min(37%,360px);
+      height:auto;
+      max-height:85%;
+      object-fit:contain;
     }
-    .footer-copy small{display:block;font-size:16px;margin-top:.16rem}
 
     .modal-backdrop{
       position:fixed;inset:0;z-index:100;
@@ -1398,8 +1396,8 @@
       .subject-card .card-desc{font-size:16px}
       .app-footer{margin-top:-.6rem;padding-bottom:0}
       .content-stage:has(> .card-grid) + .app-footer{margin-top:0}
-      .footer-copy{font-size:14px;transform:none}
-      .footer-copy small{font-size:14px}
+      .app-footer{min-height:86px}
+      .footer-brand-logo{width:min(52vw,225px)}
       .auth-logo{width:225px;max-width:74%}
     }
 
@@ -1608,8 +1606,7 @@
       .card-grid .content-card .card-desc{font-size:17px;}
       .card-grid .content-card .badge{font-size:16px;}
 
-      .footer-copy{font-size:18px;}
-      .footer-copy small{font-size:16px;}
+
     }
 
     @media (max-width:767px){
@@ -1623,8 +1620,7 @@
       .card-grid .content-card .card-title{font-size:19px;}
       .card-grid .content-card .card-desc{font-size:16px;}
       .card-grid .content-card .badge{font-size:16px;}
-      .footer-copy{font-size:14px;}
-      .footer-copy small{font-size:14px;}
+
     }
 
 
@@ -1742,10 +1738,7 @@
     <main id="content-stage" class="content-stage" tabindex="-1"></main>
 
     <footer class="app-footer" aria-label="Chân trang">
-      <div class="footer-copy">
-        Epsilon Edu - Tiến bộ từng ngày
-        <small><span aria-hidden="true">📱</span> 0865.749.402</small>
-      </div>
+      <img class="footer-brand-logo" src="ee-logo-slogan.png" alt="Epsilon Edu - Tiến bộ từng ngày" loading="lazy" decoding="async">
     </footer>
   </div>
 
