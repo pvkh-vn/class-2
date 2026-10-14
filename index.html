@@ -1404,6 +1404,17 @@
       .app-footer{margin-top:-.6rem;padding-bottom:0}
       .content-stage:has(> .card-grid) + .app-footer{margin-top:0}
       .footer-logo{transform:none}
+      /* Anh footer mobile theo dung ti le anh goc 2048x292, khong cat hai dau. */
+      .app-footer{
+        aspect-ratio:2048 / 292;
+        min-height:0;
+        padding-left:0;
+        padding-right:0;
+        background-size:contain;
+        background-position:center;
+      }
+      .footer-logo{position:absolute;inset:0;width:100%;}
+      .footer-logo img{width:min(32vw,150px);max-height:70%;}
       .auth-logo{width:225px;max-width:74%}
     }
 
