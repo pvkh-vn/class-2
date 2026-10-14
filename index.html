@@ -4,29 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="referrer" content="no-referrer">
-  <meta name="theme-color" content="#FEFCF1">
+  <meta name="theme-color" content="#FFFCEB">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <script>
     // Bắt lời mời cài PWA càng sớm càng tốt để nút Cài App không bỏ lỡ sự kiện của Chromium.
-    window.__class1InstallPrompt = null;
+    window.__class2InstallPrompt = null;
     window.addEventListener("beforeinstallprompt", (event) => {
       event.preventDefault();
-      window.__class1InstallPrompt = event;
-      window.dispatchEvent(new Event("class1-install-ready"));
+      window.__class2InstallPrompt = event;
+      window.dispatchEvent(new Event("class2-install-ready"));
     });
     window.addEventListener("appinstalled", () => {
-      window.__class1InstallPrompt = null;
+      window.__class2InstallPrompt = null;
     });
   </script>
-  <link rel="manifest" href="manifest.json?v=class1-core-8">
+  <link rel="manifest" href="manifest.json?v=class2-shell-1">
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <title>Lớp 1 - Cô Thỏ Hồng | Epsilon Edu</title>
+  <title>Lớp 2 - Cô Thỏ Ngọc | Epsilon Edu</title>
   <style>
     :root{
-      --page:#FEFCF1;
+      --page:#FFFCEB;
       --white:#FFFFFF;
       --ink:#344054;
       --muted:#667085;
@@ -84,16 +84,17 @@
     .home-btn{
       width:112px;
       height:74px;
-      border:1px solid #E9D5FF;
-      border-radius:17px;
+      border:0 !important;
+      border-radius:0;
       padding:0;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:var(--shadow);
-      transition:transform .18s ease, box-shadow .18s ease;
+      overflow:visible;
+      background:transparent !important;
+      box-shadow:none !important;
+      transition:transform .18s ease;
+      box-sizing:border-box;
     }
-    .home-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(139,92,246,.18)}
-    .home-btn img{width:100%;height:100%;object-fit:cover;display:block}
+    .home-btn:hover{transform:translateY(-1px);box-shadow:none !important;background:transparent !important}
+    .home-btn img{width:100%;height:100%;object-fit:contain;display:block;border:0;border-radius:0;box-shadow:none}
 
     .primary-nav{
       min-width:0;
@@ -136,21 +137,12 @@
       background:currentColor;opacity:0;transform:scaleX(.5);transition:.16s ease;
     }
     .nav-tab.is-active::after{opacity:1;transform:scaleX(1)}
-    .nav-tab.is-active{color:white!important;border-color:transparent!important}
-    .nav-tab.is-locked:not(.is-active)::before{content:"🔒";position:absolute;right:7px;top:6px;font-size:16px;opacity:.72}
-    .nav-alert-badge{position:absolute;right:6px;top:5px;min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:#EF4444;color:#fff;border:2px solid #fff;display:inline-flex;align-items:center;justify-content:center;font-size:16px;font-weight:950;line-height:1;box-shadow:0 3px 8px rgba(239,68,68,.28);z-index:2}
+    .nav-tab.is-active{color:white!important;border-width:1px!important;border-color:rgba(255,255,255,.58)!important}
+    .nav-tab.is-locked:not(.is-active)::before{content:"🔒";position:absolute;right:7px;top:6px;font-size:11px;opacity:.72}
+    .nav-alert-badge{position:absolute;right:6px;top:5px;min-width:23px;height:23px;padding:0 6px;border-radius:999px;background:#EF4444;color:#fff;border:2px solid #fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:950;line-height:1;box-shadow:0 3px 8px rgba(239,68,68,.28);z-index:2}
     .nav-tab.is-active .nav-alert-badge{background:#fff;color:#DC2626;border-color:rgba(255,255,255,.75)}
-    .nav-ai-badge{
-      position:absolute;right:6px;top:5px;min-width:30px;height:21px;padding:0 7px;border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;
-      border:1px solid rgba(255,255,255,.92);
-      background:linear-gradient(90deg,#EC4899 0%,#8B5CF6 52%,#3B82F6 100%);
-      color:#fff;font-size:11px;font-weight:950;line-height:1;letter-spacing:.03em;
-      box-shadow:0 3px 8px rgba(99,102,241,.22);z-index:2;pointer-events:none;
-    }
-    .nav-tab.is-active .nav-ai-badge{
-      background:#fff;color:#2563EB;border-color:rgba(255,255,255,.95);box-shadow:0 3px 8px rgba(30,64,175,.16);
-    }
+    .nav-ai-badge{position:absolute;right:6px;top:5px;min-width:30px;height:21px;padding:0 7px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.92);background:linear-gradient(90deg,#EC4899 0%,#8B5CF6 52%,#3B82F6 100%);color:#fff;font-size:11px;font-weight:950;line-height:1;letter-spacing:.03em;box-shadow:0 3px 8px rgba(99,102,241,.22);z-index:2;pointer-events:none}
+    .nav-tab.is-active .nav-ai-badge{background:#fff;color:#2563EB;border-color:rgba(255,255,255,.95);box-shadow:0 3px 8px rgba(30,64,175,.16)}
 
     .tone-purple{background:#F3E8FF;color:#7C3AED;border-color:#DDD6FE}
     .tone-purple.is-active{background:linear-gradient(90deg,#A855F7,#7C3AED)}
@@ -274,6 +266,9 @@
     .score-box .bad{color:#E11D48}
     .score-box strong{font-size:16px}
 
+    /* Lớp 2: mọi khung điều hướng chính dùng viền đúng 1px. */
+    .nav-tab,.tool-btn,.user-btn,.score-box{border-width:1px!important}
+
     .banner-slot{width:100%;position:relative}
     .main-banner{
       width:100%;
@@ -322,7 +317,6 @@
       background:var(--page);
     }
 
-
     .home-vip-notice{
       width:max-content;
       max-width:calc(100% - 1rem);
@@ -367,61 +361,6 @@
       color:#6D28D9;
       font-size:16px;
       font-weight:850;
-    }
-
-
-
-    /* Games / Tools / AI Lab: thông báo VIP theo số môn (chỉ UI, không khóa truy cập). */
-    .feature-vip-notice{
-      width:100%;
-      margin:.72rem auto .12rem;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:stretch;
-      justify-content:center;
-      gap:.65rem;
-    }
-    .feature-vip-notice-message{
-      flex:1 1 470px;
-      min-width:0;
-      min-height:49px;
-      padding:.65rem 1rem;
-      border:1px solid #C4B5FD;
-      border-radius:16px;
-      background:linear-gradient(90deg,#FFF1F7 0%,#FAF5FF 52%,#EFF8FF 100%);
-      box-shadow:0 5px 14px rgba(124,58,237,.09);
-      color:#6D28D9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      font-size:17px;
-      font-weight:950;
-      line-height:1.35;
-      overflow-wrap:break-word;
-    }
-    .feature-vip-notice-button{
-      flex:0 1 235px;
-      min-width:0;
-      min-height:49px;
-      padding:.65rem 1rem;
-      border:0;
-      border-radius:15px;
-      background:linear-gradient(90deg,#3B82F6 0%,#10B981 100%);
-      box-shadow:0 6px 15px rgba(16,185,129,.17);
-      color:#fff;
-      font-size:16px;
-      line-height:1.25;
-      font-weight:950;
-      text-align:center;
-      white-space:normal;
-    }
-    .feature-vip-notice-button:hover{filter:brightness(1.055);box-shadow:0 8px 18px rgba(16,185,129,.23);}
-    .feature-vip-notice-button:focus-visible{outline:3px solid #93C5FD;outline-offset:3px;}
-    @media (max-width:767px){
-      .feature-vip-notice{gap:.5rem;margin:.55rem auto .08rem;}
-      .feature-vip-notice-message{flex:1 1 100%;min-height:44px;padding:.62rem .7rem;font-size:16px;}
-      .feature-vip-notice-button{flex:1 1 100%;min-height:44px;padding:.6rem .75rem;font-size:16px;}
     }
 
     /* Trang Liên hệ */
@@ -504,6 +443,7 @@
     .contact-experience-card:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(76,29,149,.11);filter:brightness(1.012)}
     .contact-experience-card.games{background:linear-gradient(135deg,#F5F3FF,#FFF1F7);border-color:#C4B5FD;color:#6D28D9}
     .contact-experience-card.tools{background:linear-gradient(135deg,#ECFDF5,#EFF8FF);border-color:#86EFAC;color:#047857}
+    .contact-experience-card.ai-lab{background:linear-gradient(135deg,#EFF8FF,#FAF5FF);border-color:#A5B4FC;color:#4F46E5}
     .contact-experience-icon{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.88);font-size:29px;box-shadow:0 4px 10px rgba(76,29,149,.06)}
     .contact-experience-copy strong{display:block;color:currentColor;font-size:21px;line-height:1.2;font-weight:950}
     .contact-experience-copy span{display:block;margin-top:.34rem;color:#475467;font-size:16px;line-height:1.48;font-weight:750}
@@ -687,20 +627,20 @@
     .contact-vip-action:hover{transform:translateY(-1px);filter:brightness(1.04);box-shadow:0 8px 18px rgba(139,92,246,.24)}
     .contact-vip-note{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.74rem .86rem;border:1px dashed #C4B5FD;border-radius:16px;background:rgba(255,255,255,.72);color:#6D28D9;font-size:16px;line-height:1.4;font-weight:750;text-align:center}
 
-    /* Nền tổng Lớp 1 hòa với vùng trống của ảnh footer.
+    /* Nền tổng Lớp 2 hòa với vùng trống của ảnh footer.
        Chỉ làm trong suốt các mặt nền cấp module; card/control vẫn giữ màu riêng. */
-    #content-stage #class1-math-runtime,
-    #content-stage #class1-vietnamese-runtime,
-    #content-stage #class1-english-runtime,
-    #content-stage #class1-math-runtime #screen-dashboard,
-    #content-stage #class1-vietnamese-runtime #screen-dashboard,
-    #content-stage #class1-english-runtime #screen-dashboard,
-    #content-stage #class1-math-runtime #app-viewport,
-    #content-stage #class1-vietnamese-runtime #app-viewport,
-    #content-stage #class1-english-runtime #app-viewport,
-    #content-stage #class1-math-runtime #view-dashboard-grid,
-    #content-stage #class1-vietnamese-runtime #view-dashboard-grid,
-    #content-stage #class1-english-runtime #view-dashboard-grid{
+    #content-stage #class2-math-runtime,
+    #content-stage #class2-vietnamese-runtime,
+    #content-stage #class2-english-runtime,
+    #content-stage #class2-math-runtime #screen-dashboard,
+    #content-stage #class2-vietnamese-runtime #screen-dashboard,
+    #content-stage #class2-english-runtime #screen-dashboard,
+    #content-stage #class2-math-runtime #app-viewport,
+    #content-stage #class2-vietnamese-runtime #app-viewport,
+    #content-stage #class2-english-runtime #app-viewport,
+    #content-stage #class2-math-runtime #view-dashboard-grid,
+    #content-stage #class2-vietnamese-runtime #view-dashboard-grid,
+    #content-stage #class2-english-runtime #view-dashboard-grid{
       background:transparent!important;
     }
     .section-heading{
@@ -837,11 +777,11 @@
     }
     .arrow span{color:#fff}
     .subject-card{min-height:160px;padding:1.15rem}
-    /* Trang chủ Lớp 1: pastel rõ màu hơn nhưng vẫn giữ nền trắng tổng thể. */
+    /* Trang chủ Lớp 2: pastel rõ màu hơn nhưng vẫn giữ nền trắng tổng thể. */
     .subject-card[data-tone="blue"]{background:#DFF3FF;border-color:#7DD3FC;color:#0369A1}
     .subject-card[data-tone="pink"]{background:#FCE3F0;border-color:#F9A8D4;color:#BE185D}
     .subject-card[data-tone="green"]{background:#DCFCE7;border-color:#86EFAC;color:#047857}
-    /* Toán 1 trên Trang chủ: chuyển sang tông tím để nổi bật hơn. */
+    /* Toán 2 trên Trang chủ: chuyển sang tông tím để nổi bật hơn. */
     .subject-card[data-subject="math"]{background:#F3E8FF;border-color:#C4B5FD;color:#7C3AED}
     .subject-card[data-subject="math"] .card-desc{color:#5B21B6}
     .subject-card[data-subject="math"] .badge{background:rgba(255,255,255,.82);color:#6D28D9}
@@ -1159,7 +1099,7 @@
     .access-request-note{margin:0;padding:.65rem;border-radius:14px;background:#FFF7FB;border:1px solid #FBCFE8;color:#667085;font-size:16px;font-weight:800;line-height:1.45}
     .access-request-summary{min-height:38px;display:flex;align-items:center;justify-content:center;border:1px dashed #D8B4FE;border-radius:12px;background:#FAF5FF;color:#7C3AED;font-size:16px;font-weight:950}
 
-    /* LỚP 1 - tăng cỡ chữ riêng cho toàn bộ khu vực Tài khoản */
+    /* LỚP 2 - tăng cỡ chữ riêng cho toàn bộ khu vực Tài khoản */
     .account-page-hero strong{font-size:27px}
     .account-page-hero span{font-size:16px}
     .account-hero-copy small{font-size:16px}
@@ -1189,7 +1129,7 @@
     .access-request-note{font-size:16px;line-height:1.55}
     .access-request-summary{font-size:16px}
 
-    /* LỚP 1 - tăng cỡ chữ khu vực Liên hệ và Quyền học VIP */
+    /* LỚP 2 - tăng cỡ chữ khu vực Liên hệ và Quyền học VIP */
     .contact-subtab{font-size:18.5px}
     .contact-intro-card strong{font-size:20px}
     .contact-intro-card span:not(.contact-intro-icon){font-size:17px;line-height:1.52}
@@ -1251,23 +1191,13 @@
     .admin-note{margin-top:.55rem;padding:.55rem;border-radius:12px;background:#FFF7FB;color:#667085;font-size:16px;font-weight:800}
     .dialog-actions{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:1rem}
     .dialog-actions .primary-action,.dialog-actions .secondary-action{margin-top:0;min-width:0}
-    /* Phản hồi tương tác chung: mọi nút sáng và nhấc nhẹ khi rê chuột.
-       Dùng thuộc tính translate riêng để không ghi đè transform đặc thù của từng nút/card. */
+
+    /* Phản hồi tương tác chung: sáng nhẹ, nhấc nhẹ; tôn trọng reduced motion. */
     button:not(:disabled){
       transition:translate .16s ease,filter .16s ease,box-shadow .16s ease,background-color .16s ease,border-color .16s ease;
     }
-    button:not(:disabled):hover{
-      translate:0 -1px;
-      filter:brightness(1.055) saturate(1.03);
-    }
-    button:not(:disabled):active{
-      translate:0 0;
-      filter:brightness(.985);
-    }
-    @media (prefers-reduced-motion: reduce){
-      button:not(:disabled){transition:none}
-      button:not(:disabled):hover,button:not(:disabled):active{translate:0 0}
-    }
+    button:not(:disabled):hover{translate:0 -1px;filter:brightness(1.055) saturate(1.03)}
+    button:not(:disabled):active{translate:0 0;filter:brightness(.985)}
 
     .spinner{
       width:17px;height:17px;border-radius:50%;
@@ -1374,7 +1304,7 @@
       .contact-vip-action{min-height:48px;font-size:16px}
       .contact-vip-note{font-size:16px;line-height:1.36;padding:.65rem .7rem}
 
-      /* LỚP 1 - tăng thêm cỡ chữ Liên hệ/VIP trên mobile */
+      /* LỚP 2 - tăng thêm cỡ chữ Liên hệ/VIP trên mobile */
       .contact-subtab{font-size:16px}
       .contact-intro-card strong{font-size:18px}
       .contact-intro-card span:not(.contact-intro-icon){font-size:16px;line-height:1.5}
@@ -1413,7 +1343,7 @@
       }
       .home-btn{
         grid-column:1;grid-row:1;
-        width:86px;height:57px;border-radius:14px;
+        width:86px;height:57px;border-radius:0;
       }
       .header-tools{
         grid-column:2;grid-row:1;
@@ -1447,17 +1377,8 @@
       .score-box{height:46px;padding:.18rem .38rem;font-size:16px}
       .score-box strong{font-size:16px}
       .main-banner{aspect-ratio:3.5/1}
-      /* Sub Banner mobile (khung chung Toan, Tieng Viet, Tieng Anh): khong ep 15:1 */
-      .sub-banner{aspect-ratio:auto;min-height:64px;padding:8px .55rem}
-      .sub-pill{min-width:0;max-width:72%;min-height:40px;padding:.4rem .68rem;font-size:16px}
-      #sub-banner #sub-pill.math-sub-breadcrumbs .math-breadcrumb-tab,
-      #sub-banner #sub-pill.english-sub-breadcrumbs .english-breadcrumb-tab,
-      #sub-banner #sub-pill.home-sub-breadcrumbs .home-breadcrumb-tab{
-        height:40px!important;
-        max-width:min(220px,62vw)!important;
-        padding:0 11px!important;
-        font-size:16px!important;
-      }
+      .sub-banner{aspect-ratio:15/1;padding:0 .55rem}
+      .sub-pill{min-width:0;max-width:72%;min-height:32px;padding:.34rem .68rem;font-size:16px}
       .content-stage{min-height:300px;padding:.72rem .05rem 1.65rem}
       .section-heading{align-items:flex-start}
       .section-heading h1{font-size:23px}
@@ -1483,7 +1404,6 @@
       .app-footer{margin-top:-.6rem;padding-bottom:0}
       .content-stage:has(> .card-grid) + .app-footer{margin-top:0}
       .footer-logo{transform:none}
-      
       .auth-logo{width:225px;max-width:74%}
     }
 
@@ -1496,9 +1416,11 @@
 
     @media (prefers-reduced-motion:reduce){
       *{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+      button:not(:disabled){transition:none}
+      button:not(:disabled):hover,button:not(:disabled):active{translate:0 0}
     }
 
-    /* LOP 1 UI - card muc hoc cute + chon footer nhe */
+    /* LOP 2 UI - card muc hoc cute + chon footer nhe */
     .card-grid .content-card{
       min-height:148px;
       border-radius:22px;
@@ -1690,8 +1612,7 @@
       .card-grid .content-card .card-desc{font-size:17px;}
       .card-grid .content-card .badge{font-size:16px;}
 
-      
-      
+
     }
 
     @media (max-width:767px){
@@ -1705,8 +1626,7 @@
       .card-grid .content-card .card-title{font-size:19px;}
       .card-grid .content-card .card-desc{font-size:16px;}
       .card-grid .content-card .badge{font-size:16px;}
-      
-      
+
     }
 
 
@@ -1783,8 +1703,8 @@
 <body>
   <div class="app-shell">
     <header class="app-header" aria-label="Điều hướng chính">
-      <button id="home-button" class="home-btn" type="button" title="Về Trang chủ Lớp 1">
-        <img src="logo-home.jpg" alt="Lớp 1 - Trang chủ">
+      <button id="home-button" class="home-btn" type="button" title="Về Trang chủ Lớp 2">
+        <img src="logo-home.jpg" alt="Lớp 2 - Trang chủ">
       </button>
 
       <nav id="primary-nav" class="primary-nav" aria-label="Các tab chính"></nav>
@@ -1803,7 +1723,7 @@
       <div id="main-banner" class="main-banner">
         <picture>
           <source media="(max-width: 767px)" srcset="banner-main-mobile.jpg">
-          <img src="banner-main.jpg" alt="Lớp 1 - Cô Thỏ Hồng">
+          <img src="banner-main.jpg" alt="Lớp 2 - Cô Thỏ Ngọc">
         </picture>
       </div>
       <div id="sub-banner" class="sub-banner hidden">
@@ -1821,11 +1741,6 @@
       <span class="home-vip-notice-copy">Để được ghi nhớ lịch sử học, được học nhiều hơn và có những trải nghiệm tuyệt vời nhé!</span>
     </div>
 
-    <div id="feature-vip-notice" class="feature-vip-notice hidden" role="note" aria-label="Thông báo quyền học VIP của Games, Tools và AI Lab">
-      <span id="feature-vip-notice-message" class="feature-vip-notice-message"></span>
-      <button id="feature-vip-notice-button" class="feature-vip-notice-button" type="button">Đăng ký quyền học VIP</button>
-    </div>
-
     <main id="content-stage" class="content-stage" tabindex="-1"></main>
 
     <footer class="app-footer" aria-label="Chân trang">
@@ -1838,8 +1753,8 @@
   <div id="auth-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="auth-title">
     <div class="auth-card">
       <button id="auth-close" class="close-btn" type="button" aria-label="Đóng">×</button>
-      <img class="auth-logo" src="logo-home.jpg" alt="Lớp 1">
-      <div id="auth-title" class="auth-name">Cô Thỏ Hồng</div>
+      <img class="auth-logo" src="logo-home.jpg" alt="Lớp 2">
+      <div id="auth-title" class="auth-name">Cô Thỏ Ngọc</div>
 
       <div id="auth-tabs" class="auth-tabs" role="tablist" aria-label="Tài khoản">
         <button id="auth-tab-login" class="auth-tab is-active" type="button">Đăng nhập</button>
@@ -1849,7 +1764,7 @@
       <form id="login-form" class="form-stack" novalidate>
         <div class="field">
           <label for="login-id">Mã ID</label>
-          <input id="login-id" name="login-id" autocomplete="username" placeholder="Ví dụ: L1-A001">
+          <input id="login-id" name="login-id" autocomplete="username" placeholder="Ví dụ: L2-A001">
         </div>
         <div class="field">
           <label for="login-password">Mật khẩu</label>
@@ -1893,7 +1808,7 @@
 
   <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
 
-  <script src="assets/js/core/class1-data.js?v=class1-greeting-audio-2"></script>
-  <script src="assets/js/app.js?v=class1-vip-notice-1"></script>
+  <script src="assets/js/core/class2-data.js?v=class2-shell-1"></script>
+  <script src="assets/js/app.js?v=class2-shell-8-vip-preview"></script>
 </body>
 </html>
