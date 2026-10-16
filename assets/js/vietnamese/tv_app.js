@@ -2502,7 +2502,7 @@ function renderStoryQuestions_(story) {
             <div class="font-black text-purple-700 text-base md:text-lg mb-1.5">Bé nghe hiểu · 3 câu</div>
             ${qs.map((q, qi) => `
                 <div class="mb-1.5 p-2 rounded-xl bg-white border border-purple-100 shadow-sm">
-                    <div class="font-black text-slate-700 text-sm md:text-base mb-1.5 leading-snug">Câu ${qi + 1}. ${escapeHtml(q.q || '')}</div>
+                    <div class="tv2-story-question font-black text-slate-700 text-sm md:text-base mb-1.5 leading-snug">Câu ${qi + 1}. ${escapeHtml(q.q || '')}</div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
                         ${(q.o || []).map((opt, oi) => `<button id="story-q-${qi}-o-${oi}" onclick="answerStoryQuestion_(${qi},${oi})" class="story-answer-btn px-2.5 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-purple-50 text-slate-700 text-sm md:text-[15px] font-bold text-left leading-snug">${escapeHtml(opt)}</button>`).join('')}
                     </div>
@@ -2620,6 +2620,12 @@ function selectSubtopic(idx) {
     const firstCycleQuestions = buildAdaptiveQuestionOrder_(pool, topicNum);
 
     updateDiscoverBreadcrumb_(topicName, TOPICS_CONFIG.find(t => t.id === topicNum)?.icon || '🌸', displaySubLabel || 'Tất cả các mục');
+    if (Number(topicNum) === 1 && idx !== null && pool.length && pool.every(q => String(q.sub_id) === 'TV_2_M1_1')) {
+        tv2Alphabet11Pending_ = {topicNum, title:finalTitle, questions:firstCycleQuestions, subLabel:displaySubLabel};
+        showTV2Alphabet11Intro_();
+        return;
+    }
+    tv2Alphabet11Pending_ = null;
     startTopicQuiz(topicNum, finalTitle, firstCycleQuestions, displaySubLabel);
 }
 
@@ -2919,7 +2925,7 @@ function renderTopic3FusionQuestion(q) {
                 </div>
             </div>
 
-            <div class="mt-2 text-xs md:text-sm font-black text-pink-600">Bé chọn tiếng được ghép đúng:</div>
+            <div class="tv2-quiz-question mt-2 text-xs md:text-sm font-black text-pink-600">Bé chọn tiếng được ghép đúng:</div>
 
             <div class="w-full max-w-3xl grid grid-cols-2 gap-2 mt-1.5">
                 ${optionsHtml}
@@ -2962,10 +2968,10 @@ function renderTopic8SentenceBuilder(q) {
     const built = topic8SentenceFromSelected(state);
 
     const topHtml = state.selected.length
-        ? state.selected.map((tok, i) => `<button ${completed ? 'disabled' : ''} onclick="topic8ReturnToken(${i})" class="px-3 py-2 md:px-4 md:py-2.5 rounded-2xl border-2 ${completed ? 'bg-emerald-100 border-emerald-400 text-emerald-800' : 'bg-white border-fuchsia-300 text-fuchsia-700 hover:bg-fuchsia-50'} font-black text-sm md:text-base shadow-sm transition-all">${escapeHtml(tok.text)}</button>`).join('')
+        ? state.selected.map((tok, i) => `<button ${completed ? 'disabled' : ''} onclick="topic8ReturnToken(${i})" class="tv2-topic8-token px-3 py-2 md:px-4 md:py-2.5 rounded-2xl border-2 ${completed ? 'bg-emerald-100 border-emerald-400 text-emerald-800' : 'bg-white border-fuchsia-300 text-fuchsia-700 hover:bg-fuchsia-50'} font-black text-sm md:text-base shadow-sm transition-all">${escapeHtml(tok.text)}</button>`).join('')
         : `<span class="text-slate-400 font-bold text-sm md:text-base">Chọn từ bên dưới để ghép câu...</span>`;
 
-    const poolHtml = available.map(tok => `<button ${completed ? 'disabled' : ''} onclick="topic8PickToken('${tok.id.replace(/'/g, "\\'")}')" class="px-3.5 py-2.5 md:px-4 md:py-3 rounded-2xl bg-amber-50 hover:bg-amber-100 border-2 border-amber-300 text-amber-800 font-black text-sm md:text-base shadow-sm transition-all active:scale-95">${escapeHtml(tok.text)}</button>`).join('');
+    const poolHtml = available.map(tok => `<button ${completed ? 'disabled' : ''} onclick="topic8PickToken('${tok.id.replace(/'/g, "\\'")}')" class="tv2-topic8-token px-3.5 py-2.5 md:px-4 md:py-3 rounded-2xl bg-amber-50 hover:bg-amber-100 border-2 border-amber-300 text-amber-800 font-black text-sm md:text-base shadow-sm transition-all active:scale-95">${escapeHtml(tok.text)}</button>`).join('');
 
     const statusHtml = completed
         ? `<div class="mt-3 px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-700 font-black text-sm md:text-base">🎉 Chính xác! ${escapeHtml(q.answer)}</div>`
@@ -2974,7 +2980,7 @@ function renderTopic8SentenceBuilder(q) {
     document.getElementById('question-box').innerHTML = `
         <div class="w-full max-w-4xl flex flex-col items-center px-2">
             <div class="text-4xl md:text-5xl mb-2">🧩</div>
-            <h3 class="text-base md:text-lg font-black text-slate-900 text-center">Sắp xếp các từ thành câu hoàn chỉnh</h3>
+            <h3 class="tv2-quiz-question text-base md:text-lg font-black text-slate-900 text-center">Sắp xếp các từ thành câu hoàn chỉnh</h3>
             <p class="text-xs md:text-sm font-bold text-slate-500 mt-1 text-center">Chạm từ bên dưới để đưa lên. Chạm từ phía trên để đưa xuống.</p>
 
             <div class="w-full mt-4 rounded-3xl border-2 border-dashed border-fuchsia-300 bg-fuchsia-50/40 p-4 min-h-[92px] flex flex-wrap gap-2 items-center justify-center">
@@ -3281,6 +3287,76 @@ function renderTopic4ReadingQuestion(q) {
     return true;
 }
 
+// Muc 1.1 (Kham pha): on lai DU 29 chu cai truoc khi lam 50 cau hoi.
+// Phan nay bam SGK TV2 KNTT, tap 1, trang 14: bang chu cai va xep thu tu.
+// Khong lay tu ALPHABET_29_DETAILS vi mang do con co 11 cum phu am ghep.
+const TV2_ALPHABET_29_ = Object.freeze([
+    'a','ă','â','b','c','d','đ','e','ê','g','h','i','k','l','m',
+    'n','o','ô','ơ','p','q','r','s','t','u','ư','v','x','y'
+]);
+let tv2Alphabet11Pending_ = null;
+
+function isTopic1Alphabet11_(q) {
+    return !activeExamContext && !activeRoadmapContext
+        && Number(activeTopicId) === 1
+        && String(q?.sub_id || '') === 'TV_2_M1_1';
+}
+
+function renderTV2Alphabet29Grid_() {
+    return `<div class="tv2-a11-grid w-full" role="list" aria-label="29 chữ cái tiếng Việt theo đúng thứ tự">
+        ${TV2_ALPHABET_29_.map((l, i) => `<div role="listitem" class="bg-white/95 border border-violet-200 rounded-xl min-h-[70px] sm:min-h-[75px] md:min-h-[80px] flex flex-col justify-center items-center shadow-sm" aria-label="Chữ số ${i + 1}: ${l}">
+            <span class="tv2-a11-key-upper leading-none font-black text-violet-700">${escapeHtml(l.toUpperCase())}</span>
+            <span class="tv2-a11-key-lower leading-none font-extrabold text-pink-600 mt-1">${escapeHtml(l)}</span>
+        </div>`).join('')}
+    </div>`;
+}
+
+function showTV2Alphabet11Intro_() {
+    if (!tv2Alphabet11Pending_) return;
+    stopSpeaking();
+    const board = document.getElementById('question-box');
+    if (!board) return;
+    ['quiz-top-bar','quiz-card-header','nav-group-practice','nav-group-exam'].forEach(id => {
+        document.getElementById(id)?.classList.add('hidden');
+    });
+    const card = board.closest('.pastel-card');
+    if (card) { card.style.minHeight = '0'; card.style.justifyContent = 'flex-start'; }
+    board.style.justifyContent = 'flex-start';
+    board.style.paddingTop = '0.4rem';
+    board.style.paddingBottom = '0.35rem';
+    board.style.flex = '0 0 auto';
+    board.innerHTML = `<section class="w-full max-w-[56rem] mx-auto flex flex-col items-center gap-3 px-1 sm:px-2">
+        <div class="text-center">
+            <h2 class="text-xl sm:text-2xl font-black text-violet-700">Ôn lại bảng chữ cái</h2>
+            <p class="mt-1 text-sm sm:text-base font-bold text-slate-600">29 chữ cái tiếng Việt · Chữ hoa ở trên, chữ thường ở dưới</p>
+        </div>
+        ${renderTV2Alphabet29Grid_()}
+        <p class="text-center text-sm sm:text-base font-bold text-slate-600">Con hãy đọc từ trái sang phải, từ trên xuống dưới nhé!</p>
+        <div class="flex items-center justify-center gap-2 flex-wrap pb-1">
+            <button type="button" onclick="startTV2Alphabet11AfterIntro_()" class="px-6 py-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white text-base sm:text-lg font-black rounded-2xl shadow-md pastel-btn">Con đã nhớ – Bắt đầu luyện tập <i class="fa-solid fa-arrow-right ml-1"></i></button>
+        </div>
+    </section>`;
+    switchAppView('view-quiz');
+}
+
+function startTV2Alphabet11AfterIntro_() {
+    const next = tv2Alphabet11Pending_;
+    if (!next) return;
+    tv2Alphabet11Pending_ = null;
+    startTopicQuiz(next.topicNum, next.title, next.questions, next.subLabel);
+}
+
+function toggleTV2Alphabet11Reference_() {
+    const panel = document.getElementById('tv2-alphabet11-reference');
+    const btn = document.getElementById('tv2-alphabet11-reference-btn');
+    if (!panel || !btn) return;
+    const willShow = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !willShow);
+    btn.setAttribute('aria-expanded', String(willShow));
+    const label = btn.querySelector('span');
+    if (label) label.textContent = willShow ? 'Ẩn bảng chữ cái' : 'Xem lại bảng chữ cái';
+}
+
 // Muc 1 (Kham pha): chi doi cach TRINH BAY, khong sua JSON/dap an/cham diem.
 // Tinh huong bang chu cai duoc dien dat bang the chu, tranh emoji trang tri va loi dan dai.
 function getTopic1QuestionView_(q) {
@@ -3289,11 +3365,11 @@ function getTopic1QuestionView_(q) {
         ${label ? `<p class="text-[11px] md:text-xs font-bold text-violet-500 mb-1.5">${escapeHtml(label)}</p>` : ''}
         <div class="text-lg md:text-2xl font-extrabold text-slate-800 leading-relaxed whitespace-pre-line break-words">${escapeHtml(text)}</div>
     </div>`;
-    const tile = (text, muted = false) => `<span class="inline-flex items-center justify-center min-w-[66px] h-[70px] md:min-w-[80px] md:h-[80px] rounded-2xl border-2 ${muted ? 'border-dashed border-violet-200 bg-white text-violet-400' : 'border-pink-200 bg-pink-50 text-pink-700'} text-[2.35rem] md:text-[2.8rem] font-black shadow-sm">${escapeHtml(text)}</span>`;
+    const tile = (text, muted = false) => `<span class="tv2-a11-target-tile inline-flex items-center justify-center rounded-2xl border-2 ${muted ? 'border-dashed border-violet-200 bg-white text-violet-400' : 'border-pink-200 bg-pink-50 text-pink-700'} font-black shadow-sm">${escapeHtml(text)}</span>`;
     const line = (content, prompt, spokenText) => ({
         html: `<div class="w-full flex flex-col items-center gap-2.5 mb-2">
             ${content}
-            <h3 class="text-base md:text-xl font-black text-slate-900 leading-snug text-center px-2">${escapeHtml(prompt)}</h3>
+            <h3 class="tv2-quiz-question text-lg md:text-2xl font-black text-slate-900 leading-snug text-center px-2">${escapeHtml(prompt)}</h3>
         </div>`,
         spokenText
     });
@@ -3437,8 +3513,6 @@ function loadQuestion() {
     if (!isTopic2Compact && q.image_url) {
         const imageSize = isDiscoverImageTV2_ ? 'w-28 h-28 md:w-36 md:h-36' : 'w-14 h-14 md:w-16 md:h-16';
         mediaHtml = `<img src="${q.image_url}" alt="Minh họa cho câu hỏi" class="${imageSize} object-contain mb-1 rounded-2xl border border-pink-100 bg-white/80 shadow-sm" onerror="this.remove()">`;
-    } else if (!isTopic1Compact && !isTopic2Compact && q.emoji) {
-        mediaHtml = `<div class="text-5xl md:text-6xl leading-none mb-1 floating select-none" role="img" aria-label="minh họa">${escapeHtml(q.emoji)}</div>`;
     }
 
     const pText = q.reading_passage;
@@ -3450,7 +3524,7 @@ function loadQuestion() {
     const passageHtml = pText ? `
         <div class="w-full max-w-3xl bg-pink-50/70 border-2 border-pink-200 rounded-2xl p-3 mb-1.5 text-left shadow-xs">
             ${pTitle ? `<p class="font-black text-pink-700 text-sm md:text-base mb-1">${escapeHtml(pTitle)}</p>` : ''}
-            <p class="text-gray-800 text-sm md:text-base font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${escapeHtml(pText)}</p>
+            <p class="tv2-quiz-reading-passage text-gray-800 text-sm md:text-base font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${escapeHtml(pText)}</p>
         </div>` : '';
 
     const practiceSpeakerBtnHtml = !isEvaluationMode ? `
@@ -3464,6 +3538,11 @@ function loadQuestion() {
 
     const isLetterListen = q.render_style === 'letter_listen';
     const topic1View = isTopic1Compact && !isLetterListen ? getTopic1QuestionView_(q) : null;
+    const isTopic11 = isTopic1Alphabet11_(q);
+    const alphabet11ReviewHtml = isTopic11 ? `<div class="w-full max-w-3xl flex flex-col items-center mb-2">
+        <button type="button" id="tv2-alphabet11-reference-btn" aria-controls="tv2-alphabet11-reference" aria-expanded="false" onclick="toggleTV2Alphabet11Reference_()" class="px-3 py-1.5 bg-violet-50 hover:bg-violet-100 rounded-full border border-violet-200 text-violet-700 text-sm sm:text-base font-bold pastel-btn"><i class="fa-solid fa-table-cells mr-1"></i><span>Xem lại bảng chữ cái</span></button>
+        <div id="tv2-alphabet11-reference" class="hidden w-full mt-2 p-2 rounded-xl bg-violet-50/90 border border-violet-200">${renderTV2Alphabet29Grid_()}</div>
+    </div>` : '';
 
     let html;
     if (isLetterListen) {
@@ -3473,7 +3552,7 @@ function loadQuestion() {
                 ${isTopic1Compact ? '' : `<div class="text-3xl md:text-4xl mb-1.5 space-x-2">
                     <span>🎧</span><span>👂</span><span>🌸</span>
                 </div>`}
-                <p class="text-sm md:text-base lg:text-lg font-black text-rose-600 leading-snug">${isTopic1Compact ? 'Nghe âm và chọn chữ cái đúng.' : escapeHtml(q.question_text)}</p>
+                <p class="tv2-quiz-question text-sm md:text-base lg:text-lg font-black text-rose-600 leading-snug">${isTopic1Compact ? 'Nghe âm và chọn chữ cái đúng.' : escapeHtml(q.question_text)}</p>
                 ${practiceSpeakerBtnHtml}
             </div>
 
@@ -3497,8 +3576,9 @@ function loadQuestion() {
         html = `
         ${mediaHtml}
         ${passageHtml}
+        ${alphabet11ReviewHtml}
         ${topic1View ? topic1View.html : `<div class="flex flex-col items-center justify-center max-w-3xl text-center px-2 mb-0.5">
-            <h3 class="text-sm md:text-base lg:text-lg font-black text-slate-900 leading-snug ${!isEvaluationMode ? 'whitespace-pre-line' : ''}">
+            <h3 class="tv2-quiz-question text-sm md:text-base lg:text-lg font-black text-slate-900 leading-snug ${!isEvaluationMode ? 'whitespace-pre-line' : ''}">
                 ${escapeHtml(q.question_text)}
             </h3>
         </div>`}
@@ -3508,7 +3588,12 @@ function loadQuestion() {
     `;
 
     q.options.forEach((opt, idx) => {
-        const formattedOpt = capitalizeFirstLetter(opt);
+        const isTopic3EndingLetter = /^TV_2_M3_[123]$/.test(String(q.sub_id || ''));
+        // Khám phá Mục 2–3: tôn trọng chữ thường trong JSON khi điền từ vào câu.
+        const isTopic23WordChoice = !isEvaluationMode && /^TV_2_M[23]_/.test(String(q.sub_id || ''));
+        const formattedOpt = (isTopic11 || isTopic3EndingLetter || isTopic23WordChoice) ? String(opt) : capitalizeFirstLetter(opt);
+        const isSingleAlphabetLetter11 = isTopic11 && TV2_ALPHABET_29_.includes(String(opt).toLowerCase());
+        const answerTextSize11 = isTopic11 ? (isSingleAlphabetLetter11 ? 'tv2-a11-answer-letter' : 'tv2-a11-answer-word') : '';
         const letter = String.fromCharCode(65 + idx);
 
         if (activeExamContext) {
@@ -3523,7 +3608,7 @@ function loadQuestion() {
         } else {
             html += `
                 <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-2 border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs pastel-btn">
-                    <span><strong class="text-pink-600 mr-2 text-base md:text-lg">${letter}.</strong> ${escapeHtml(formattedOpt)}</span>
+                    <span><strong class="text-pink-600 mr-3 text-base md:text-lg">${letter}.</strong> <span class="${answerTextSize11}">${escapeHtml(formattedOpt)}</span></span>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         }
@@ -5048,6 +5133,7 @@ function openMainTab(tabName) {
     }
 }
 function goHome() {
+    tv2Alphabet11Pending_ = null;
     stopActiveMiniGameTV2_();
     setAppShellRootMode_(true);
     inMiniGameFlow = false;
@@ -5270,12 +5356,12 @@ function renderBaiHocQuestionsPageTV2_(p) {
     const items = (p.items || []).map((x, i) => {
         if (x.type === 'choice') {
             return `<div class="rounded-2xl bg-pink-50/70 border border-pink-100 p-3">
-                <div class="font-black text-[15px] md:text-base text-slate-700 mb-2 leading-7">${i+1}. ${escapeHtml(x.prompt)}</div>
-                ${(x.options || []).map((op,j) => `<button onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('bg-emerald-100','border-emerald-300','bg-rose-50','border-rose-200')); if(${j}===${Number(x.answer || 0)}){this.classList.add('bg-emerald-100','border-emerald-300')}else{this.classList.add('bg-rose-50','border-rose-200')}" class="w-full text-left px-3 py-2.5 my-1 rounded-xl bg-white border border-pink-100 font-bold text-[15px] md:text-base leading-7">${String.fromCharCode(65+j)}. ${escapeHtml(op)}</button>`).join('')}
+                <div class="tv2-lesson-question font-black text-[15px] md:text-base text-slate-700 mb-2 leading-7">${i+1}. ${escapeHtml(x.prompt)}</div>
+                ${(x.options || []).map((op,j) => `<button onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('bg-emerald-100','border-emerald-300','bg-rose-50','border-rose-200')); if(${j}===${Number(x.answer || 0)}){this.classList.add('bg-emerald-100','border-emerald-300')}else{this.classList.add('bg-rose-50','border-rose-200')}" class="tv2-lesson-answer w-full text-left px-3 py-2.5 my-1 rounded-xl bg-white border border-pink-100 font-bold text-[15px] md:text-base leading-7">${String.fromCharCode(65+j)}. ${escapeHtml(op)}</button>`).join('')}
             </div>`;
         }
         const tone = x.type === 'speak' ? 'bg-emerald-50 border-emerald-100' : 'bg-purple-50 border-purple-100';
-        return `<div class="rounded-2xl ${tone} border p-3"><div class="font-bold text-[15px] md:text-base text-slate-700 leading-7">${i+1}. ${x.type === 'speak' ? '🎙️' : '💭'} ${escapeHtml(x.prompt || '')}</div></div>`;
+        return `<div class="rounded-2xl ${tone} border p-3"><div class="tv2-lesson-question font-bold text-[15px] md:text-base text-slate-700 leading-7">${i+1}. ${x.type === 'speak' ? '🎙️' : '💭'} ${escapeHtml(x.prompt || '')}</div></div>`;
     }).join('');
     const ex = (p.extra_examples || []).map(x => `<div class="rounded-xl bg-white border border-purple-100 px-3 py-2 text-[15px] md:text-base font-semibold text-slate-700 leading-7">✨ ${escapeHtml(x)}</div>`).join('');
     return `<div class="space-y-3">
@@ -5847,6 +5933,8 @@ const TV_INLINE_BRIDGE_GETTERS_ = Object.freeze({
     'prevQuestion': () => (typeof prevQuestion === 'function' ? prevQuestion : null),
     'renderAccountManagerRows': () => (typeof renderAccountManagerRows === 'function' ? renderAccountManagerRows : null),
     'renderAlphabetBoard': () => (typeof renderAlphabetBoard === 'function' ? renderAlphabetBoard : null),
+    'startTV2Alphabet11AfterIntro_': () => (typeof startTV2Alphabet11AfterIntro_ === 'function' ? startTV2Alphabet11AfterIntro_ : null),
+    'toggleTV2Alphabet11Reference_': () => (typeof toggleTV2Alphabet11Reference_ === 'function' ? toggleTV2Alphabet11Reference_ : null),
     'resolveClass2VietnameseImageSrc': () => (typeof resolveClass2VietnameseImageSrc === 'function' ? resolveClass2VietnameseImageSrc : null),
     'returnToTopicLecture': () => (typeof returnToTopicLecture === 'function' ? returnToTopicLecture : null),
     'selectBaiTapTV2_': () => (typeof selectBaiTapTV2_ === 'function' ? selectBaiTapTV2_ : null),
@@ -6319,7 +6407,113 @@ const TV_FAIRY_CARD_GRID_CSS_ = `
 }
 `;
 
-function ensureTvStyles_(){if(document.getElementById(TV_MODULE_STYLE_ID_))return;const st=document.createElement('style');st.id=TV_MODULE_STYLE_ID_;st.textContent=TV_RUNTIME_CSS_+TV_SHELL_BREADCRUMB_CSS_+TV_MODULE_UI_CSS_+TV_EXPLORE_TA2_SCALE_CSS_+TV_FOLDER_TA2_HOVER_CSS_+TV_CHILD_TA_PARITY_CSS_+TV_FAIRY_CARD_GRID_CSS_;document.head.appendChild(st);}
+// Muc 1.1: CSS tu dong theo man hinh, khong phu thuoc Tailwind dynamic class.
+const TV2_ALPHABET11_CSS_ = `
+#class2-vietnamese-runtime .tv2-a11-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
+#class2-vietnamese-runtime .tv2-a11-key-upper{font-size:29px;}
+#class2-vietnamese-runtime .tv2-a11-key-lower{font-size:27px;}
+#class2-vietnamese-runtime .tv2-a11-target-tile{min-width:92px;height:95px;font-size:48px;}
+#class2-vietnamese-runtime .tv2-a11-answer-letter{font-size:31px;font-weight:900;line-height:1.2;}
+#class2-vietnamese-runtime .tv2-a11-answer-word{font-size:19px;font-weight:800;line-height:1.35;}
+@media(min-width:640px){
+ #class2-vietnamese-runtime .tv2-a11-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;}
+ #class2-vietnamese-runtime .tv2-a11-key-upper{font-size:34px;}
+ #class2-vietnamese-runtime .tv2-a11-key-lower{font-size:31px;}
+}
+@media(min-width:768px){
+ #class2-vietnamese-runtime .tv2-a11-grid{grid-template-columns:repeat(10,minmax(0,1fr));}
+ #class2-vietnamese-runtime .tv2-a11-target-tile{min-width:112px;height:112px;font-size:60px;}
+ #class2-vietnamese-runtime .tv2-a11-answer-letter{font-size:36px;}
+ #class2-vietnamese-runtime .tv2-a11-answer-word{font-size:22px;}
+}
+`;
+
+// Đồng bộ nét chữ học tập trong toàn module Tiếng Việt 2.
+// Chỉ tác động câu hỏi/đáp án; không đổi Home, nút điều hướng, thuật toán chấm.
+const TV2_LEARNING_TYPOGRAPHY_CSS_ = `
+/* Khám phá / Bài tập / Ôn tập / Đề thi: một chuẩn cho các trạng thái trước/sau trả lời. */
+#class2-vietnamese-runtime #question-box .tv2-quiz-question{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:23px!important;
+  font-weight:900!important;
+  line-height:1.38!important;
+  letter-spacing:0!important;
+  overflow-wrap:break-word;
+}
+#class2-vietnamese-runtime #question-box .option-btn{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:19px!important;
+  font-weight:800!important;
+  line-height:1.42!important;
+  letter-spacing:0!important;
+  overflow-wrap:anywhere;
+  min-height:58px;
+}
+#class2-vietnamese-runtime #question-box .option-btn .opt-text,
+#class2-vietnamese-runtime #question-box .option-btn > span,
+#class2-vietnamese-runtime #question-box .option-btn > span > span{
+  font-family:inherit!important;
+  font-weight:800!important;
+  line-height:inherit!important;
+}
+/* Giữ chữ cái đơn ở mục 1.1 lớn hơn chữ đáp án thông thường. */
+#class2-vietnamese-runtime #question-box .option-btn .tv2-a11-answer-letter{font-size:31px!important;font-weight:900!important;}
+#class2-vietnamese-runtime #question-box .option-btn .opt-badge{font-size:15px!important;line-height:1!important;}
+#class2-vietnamese-runtime #question-box .tv2-quiz-reading-passage{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:18px!important;
+  font-weight:700!important;
+  line-height:1.55!important;
+}
+#class2-vietnamese-runtime #question-box .tv2-topic8-token{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:19px!important;
+  font-weight:800!important;
+  line-height:1.4!important;
+}
+/* Câu hỏi tại Bài học và phần đọc hiểu Truyện: vẫn dùng cùng bộ chữ. */
+#class2-vietnamese-runtime #bai-hoc-sections .tv2-lesson-question{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:20px!important;
+  font-weight:900!important;
+  line-height:1.48!important;
+}
+#class2-vietnamese-runtime #bai-hoc-sections .tv2-lesson-answer{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:19px!important;
+  font-weight:800!important;
+  line-height:1.45!important;
+  min-height:50px;
+}
+#class2-vietnamese-runtime .tv2-story-question{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:20px!important;
+  font-weight:900!important;
+  line-height:1.45!important;
+}
+#class2-vietnamese-runtime .story-answer-btn{
+  font-family:'Nunito',system-ui,sans-serif!important;
+  font-size:18px!important;
+  font-weight:800!important;
+  line-height:1.45!important;
+}
+@media(max-width:639px){
+  #class2-vietnamese-runtime #question-box .tv2-quiz-question{font-size:21px!important;line-height:1.4!important;}
+  #class2-vietnamese-runtime #question-box .option-btn{font-size:18px!important;line-height:1.43!important;min-height:56px;}
+  #class2-vietnamese-runtime #question-box .option-btn .tv2-a11-answer-letter{font-size:31px!important;}
+  #class2-vietnamese-runtime #question-box .tv2-quiz-reading-passage{font-size:17px!important;}
+  #class2-vietnamese-runtime #question-box .tv2-topic8-token{font-size:18px!important;}
+  #class2-vietnamese-runtime #bai-hoc-sections .tv2-lesson-question{font-size:19px!important;}
+  #class2-vietnamese-runtime #bai-hoc-sections .tv2-lesson-answer{font-size:18px!important;}
+  #class2-vietnamese-runtime .tv2-story-question{font-size:19px!important;}
+  #class2-vietnamese-runtime .story-answer-btn{font-size:18px!important;}
+}
+@media(min-width:768px){
+  #class2-vietnamese-runtime #question-box .option-btn .tv2-a11-answer-letter{font-size:36px!important;}
+}
+`;
+
+function ensureTvStyles_(){if(document.getElementById(TV_MODULE_STYLE_ID_))return;const st=document.createElement('style');st.id=TV_MODULE_STYLE_ID_;st.textContent=TV_RUNTIME_CSS_+TV_SHELL_BREADCRUMB_CSS_+TV_MODULE_UI_CSS_+TV_EXPLORE_TA2_SCALE_CSS_+TV_FOLDER_TA2_HOVER_CSS_+TV_CHILD_TA_PARITY_CSS_+TV_FAIRY_CARD_GRID_CSS_+TV2_ALPHABET11_CSS_+TV2_LEARNING_TYPOGRAPHY_CSS_;document.head.appendChild(st);}
 function primeTvAudio_(){if(tvModuleAudioPrimed_)return;tvModuleAudioPrimed_=true;const once=()=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!audioCtx&&C)audioCtx=new C();if(audioCtx?.state==='suspended')audioCtx.resume();}catch(_){}};tvModuleRoot_?.addEventListener('pointerdown',once,{once:true,passive:true});}
 function mountTvRuntime_(){if(!tvModuleCtx_?.host)throw new Error('TV_MODULE_HOST_MISSING');ensureTvStyles_();ensureTvDependencies_();tvModuleCtx_.host.innerHTML=`<div id="${TV_MODULE_RUNTIME_ID_}">${TV_RUNTIME_HTML_}</div>`;tvModuleRoot_=document.getElementById(TV_MODULE_RUNTIME_ID_);installTvInlineBridge_();syncClass2ModuleStateTV2_();resetStars();updateAutoSpeechButtonUI();primeTvAudio_();tvModuleMounted_=true;}
 async function bootstrapTvRuntime_(){if(!tvModuleMounted_||!tvModuleRoot_||!tvModuleRoot_.isConnected||tvModuleRoot_.parentElement!==tvModuleCtx_.host){mountTvRuntime_();await loadSharedImageCatalogTV2_();await Promise.resolve(renderDashboardGrid());await Promise.resolve(renderExamHubGrid());}else syncClass2ModuleStateTV2_();if(tvModuleCtx_?.isAuthenticated)loadLearningProfile_();}
