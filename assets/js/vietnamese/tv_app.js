@@ -14,7 +14,7 @@ const TOPICS_CONFIG = [
     { id: 8, title: "8. Đại sứ giao tiếp", desc: "Lời nói/lời đáp, tin nhắn, thư ngắn, bưu thiếp và bảng biểu", icon: "🤝", color: "sky" },
     { id: 9, title: "9. Nhà thông thái nhỏ", desc: "Đọc hiểu thơ, truyện, văn bản thông tin và suy luận", icon: "📖", color: "fuchsia" },
     { id: 10, title: "10. Trí tuệ Trạng Nguyên", desc: "Câu đố, suy luận bằng lời và trò chơi ngôn ngữ tăng hứng thú", icon: "🧩", color: "yellow" },
-    { id: 11, title: "11. Ôn tập tổng hợp", desc: "Ôn tích lũy Học kỳ I, Học kỳ II và cả năm", icon: "📚", color: "violet", hidden: true, internalRole: "review" },
+    { id: 11, title: "11. Đố vui bé ngoan", desc: "300 câu đố thơ lục bát qua 5 thế giới; mục 6 là Câu đố tổng hợp", icon: "📜", color: "violet" },
     { id: 12, title: "12. Truyện dân gian & cổ tích", desc: "240 truyện Việt Nam & thế giới", icon: "📚", color: "fuchsia", isStoryLibrary: true }
 ];
 
@@ -29,7 +29,7 @@ const SUBTOPIC_PALETTES = [
 
 const TOPIC_TO_SKILL = {
     1:'C1', 2:'C1', 3:'C1', 4:'C2', 5:'C3', 6:'C4',
-    7:'C4', 8:'C2', 9:'C5', 10:'C6', 11:'C1', 12:'C5'
+    7:'C4', 8:'C2', 9:'C5', 10:'C6', 11:'C6', 12:'C5'
 };
 
 const examFileMap = {
@@ -699,18 +699,37 @@ const TOPICS_DATA_FILES = [
 ];
 const ON_TAP_DATA_FILE_TV2 = `${CLASS2_TV_DATA_ROOT}on_tap_tieng_viet_2.json`;
 
+// Ôn tập là chuyên mục độc lập, không bị gộp hay ghi đè Khám phá Mục 11.
+let reviewTopicTV2Cache_ = null;
+async function fetchReviewTopicTV2_() {
+    if (reviewTopicTV2Cache_) return reviewTopicTV2Cache_;
+    const res = await fetch(ON_TAP_DATA_FILE_TV2, { cache:'no-store' });
+    if (!res.ok) throw new Error('Không thể tải dữ liệu Ôn tập');
+    const review = await res.json();
+    const reviewQuestions = (review.sections || []).flatMap(sec => sec.qs || sec.questions || []);
+    if (!reviewQuestions.length) throw new Error('Chưa có dữ liệu ôn tập học kỳ');
+    reviewTopicTV2Cache_ = normalizeTopic({
+        id:13, name:'Ôn tập tổng hợp', desc:review.desc || 'Ôn tập học kỳ',
+        l_title:review.l_title || 'Ôn tập học kỳ',
+        l_content:review.l_content || '', l_audio:review.l_audio || '',
+        qs:reviewQuestions
+    });
+    return reviewTopicTV2Cache_;
+}
+
 async function fetchAllTopicsData() {
     if (allTopicsDataCache) return allTopicsDataCache;
     await loadSharedImageCatalogTV2_();
-    const [p1,p2,review] = await Promise.all([
-        ...TOPICS_DATA_FILES.map(async file => { const res=await fetch(file,{cache:'no-store'}); if(!res.ok) throw new Error(`Không thể tải file dữ liệu ${file}`); return res.json(); }),
-        (async()=>{ const res=await fetch(ON_TAP_DATA_FILE_TV2,{cache:'no-store'}); if(!res.ok) throw new Error('Không thể tải dữ liệu Ôn tập'); return res.json(); })()
-    ]);
-    const rawTopics=[...(p1.topics||[]),...(p2.topics||[])].filter(t=>Number(t.id??t.topic_id)!==11);
-    const reviewQuestions=(review.sections||[]).flatMap(sec=>(sec.qs||sec.questions||[]));
-    rawTopics.push({id:11,name:'Ôn tập tổng hợp',desc:review.desc||'Ôn tập học kỳ',l_title:review.l_title||'Ôn tập học kỳ',l_content:review.l_content||'',l_audio:review.l_audio||'',qs:reviewQuestions});
-    allTopicsDataCache=rawTopics.map(normalizeTopic).filter(Boolean);
-    allQuestionsFlatCache=allTopicsDataCache.flatMap(t=>(t.questions||[]).map(q=>({...q,source_topic_id:t.topic_id})));
+    const [p1,p2] = await Promise.all(TOPICS_DATA_FILES.map(async file => {
+        const res = await fetch(file, { cache:'no-store' });
+        if (!res.ok) throw new Error(`Không thể tải file dữ liệu ${file}`);
+        return res.json();
+    }));
+    const rawTopics = [...(p1.topics || []), ...(p2.topics || [])];
+    allTopicsDataCache = rawTopics.map(normalizeTopic).filter(Boolean);
+    allQuestionsFlatCache = allTopicsDataCache.flatMap(t =>
+        (t.questions || []).map(q => ({...q, source_topic_id:t.topic_id}))
+    );
     return allTopicsDataCache;
 }
 
@@ -740,7 +759,7 @@ async function renderDashboardGrid() {
     try { topicsData = await fetchAllTopicsData(); } catch (e) {}
 
     let html = '';
-    TOPICS_CONFIG.filter(t => Number(t.id) <= 10 || Number(t.id) === 12).forEach(t => {
+    TOPICS_CONFIG.filter(t => Number(t.id) <= 12).forEach(t => {
         const topicObj = topicsData.find(item => Number(item.topic_id) === Number(t.id));
         const totalCount = topicObj && topicObj.questions ? topicObj.questions.length : 0;
         const mediaCount = Number(t.id) === 12 ? Number(topicObj?.story_count || 80) : 0;
@@ -1251,12 +1270,12 @@ function returnToCurrentDiscoverTopic_() {
         return;
     }
 
-    // Truyện cổ tích có màn chuyên biệt riêng; các chủ đề 1-10 đọc trực tiếp từ JSON TV2.
+    // Truyện cổ tích có màn chuyên biệt riêng; các chủ đề 1-11 đọc từ JSON Khám phá TV2.
     if (topicId === 12) {
         openThoNhacMenu();
         return;
     }
-    if (topicId === 11) {
+    if (topicId === 13) {
         openSemesterReviewMenu();
         return;
     }
@@ -1361,7 +1380,7 @@ function adaptiveSkillKey_(q, topicId = null) {
     const map = {
         1: 'alphabet', 2: 'tone', 3: 'phonics', 4: 'reading',
         5: 'fill_missing', 6: 'spelling', 7: 'vocabulary', 8: 'word_class',
-        9: 'sentence_order', 10: 'reading_comprehension', 11: 'review', 12: 'language_enjoyment'
+        9: 'sentence_order', 10: 'reading_comprehension', 11: 'riddle_poetry', 12: 'language_enjoyment', 13: 'review'
     };
     if (!t) {
         const skillMap = { C1:'phonics', C2:'spelling', C3:'vocabulary', C4:'sentence_order', C5:'reading_comprehension', C6:'logic' };
@@ -1505,6 +1524,24 @@ function adaptiveLatestByQuestion_() {
 
 function buildAdaptiveQuestionOrder_(pool, topicNum) {
     const source = Array.isArray(pool) ? pool.slice() : [];
+    // Mục 9 (Đọc hiểu): giữ 5 câu của cùng một bài đọc đi liền nhau.
+    // Chỉ đổi thứ tự trình bày, không thay câu hỏi, đáp án, chấm điểm hay adaptive profile.
+    if (Number(topicNum) === 9 && source.some(q => q?.reading_title && q?.reading_passage)) {
+        const groupsByReading = new Map();
+        const withoutReading = [];
+        source.forEach(q => {
+            const readingKey = String(q?.reading_title || '').trim();
+            if (!readingKey || !q?.reading_passage) {
+                withoutReading.push(q);
+                return;
+            }
+            if (!groupsByReading.has(readingKey)) groupsByReading.set(readingKey, []);
+            groupsByReading.get(readingKey).push(q);
+        });
+        return [...groupsByReading.values()].flatMap(group =>
+            group.sort((a, b) => Number(a.question_id || 0) - Number(b.question_id || 0))
+        ).concat(withoutReading);
+    }
     if (source.length < 3 || !currentUser || currentUser.isGuest || currentUser.sessionPending || !adaptiveLearningState.loaded) return shuffleArray(source);
     const latest = adaptiveLatestByQuestion_();
     const skills = adaptiveLearningState.profile?.skills || {};
@@ -1743,11 +1780,6 @@ function openTopic(topicNum, topicName, icon) {
         return;
     }
 
-    if (topicNum === 11) {
-        openSemesterReviewMenu();
-        return;
-    }
-
     showLoadingOverlay(`Đang tải chủ đề "${topicName}"...`);
     fetchAllTopicsData().then(topics => {
         hideLoadingOverlay();
@@ -1763,20 +1795,19 @@ function openTopic(topicNum, topicName, icon) {
 
 function openSemesterReviewMenu(keepMainBanner = currentMainTab === 'review') {
     stopSpeaking();
-    activeTopicId = 11;
+    activeTopicId = 13;
     currentTopicKey = 'semester_review_menu';
     currentTopicName = 'Ôn tập học kỳ';
     if (keepMainBanner) setAppShellRootMode_(true);
     updateNavTabs('Ôn tập', '🧠', 'Ôn tập học kỳ', null);
 
     showLoadingOverlay('Đang tải kho ôn tập học kỳ...');
-    return fetchAllTopicsData().then(topics => {
+    return fetchReviewTopicTV2_().then(topicObj => {
         hideLoadingOverlay();
-        const topicObj = topics.find(t => Number(t.topic_id) === 11);
         if (!topicObj || !Array.isArray(topicObj.questions) || !topicObj.questions.length) {
             throw new Error('Chưa có dữ liệu ôn tập học kỳ');
         }
-        showLectureAndSubtopics(11, 'Ôn tập học kỳ', topicObj);
+        showLectureAndSubtopics(13, 'Ôn tập học kỳ', topicObj);
         if (keepMainBanner) setAppShellRootMode_(true);
     }).catch(err => {
         hideLoadingOverlay();
@@ -2018,19 +2049,19 @@ function tvChildCardDescription_(topicNum, title, description) {
     return String(mainTopic?.desc || 'Chọn mục để bắt đầu luyện tập.');
 }
 
-function tvChildCardHtml_({ onclick, title, badge = '', description = '', icon = '', topicNum = 0, idx = 0, classes = '' }) {
+function tvChildCardHtml_({ onclick, title, badge = '', description = '', icon = '', topicNum = 0, idx = 0, classes = '', hideDescription = false }) {
     // Tai su dung dung cau truc the hoc con trong ta_app(7).js:
     // icon + tieu de, ngan duoi co mo ta + so cau; chi hoat anh icon, the dung yen.
     const tone = ['pink', 'violet', 'sky', 'fuchsia', 'mint', 'peach'][Math.abs(Number(idx) || 0) % 6];
     const selectedIcon = icon || tvChildIcon_(topicNum, title, idx);
-    const text = tvChildCardDescription_(topicNum, title, description);
+    const text = hideDescription ? '' : tvChildCardDescription_(topicNum, title, description);
     return `<button type="button" onclick="${escapeHtml(onclick)}" class="tv2-child-card tv2-learning-card tv2-learning-card--${tone}${classes ? ` ${classes}` : ''}">
       <span class="tv2-learning-top">
         <span class="tv2-learning-icon" aria-hidden="true"><span class="tv2-learning-icon-glyph">${escapeHtml(selectedIcon)}</span></span>
         <span class="tv2-learning-heading"><span class="tv2-learning-title">${escapeHtml(title)}</span></span>
       </span>
       <span class="tv2-learning-bottom">
-        <span class="tv2-learning-details"><span class="tv2-learning-desc-en">${escapeHtml(text)}</span></span>
+        ${hideDescription ? '' : `<span class="tv2-learning-details"><span class="tv2-learning-desc-en">${escapeHtml(text)}</span></span>`}
         ${badge !== '' ? `<span class="tv2-learning-badge">${escapeHtml(badge)}</span>` : ''}
       </span>
     </button>`;
@@ -2554,7 +2585,16 @@ function openThoNhacSection_(kind) { return openThoNhacMenu(); }
 function openThoNhacPoem_(index) { return openThoNhacMenu(); }
 
 function showLectureAndSubtopics(topicNum, topicName, topicObj) {
-    setLectureUtilityVisibility_(true, true);
+    setLectureUtilityVisibility_(true, true); // Giữ nguyên màn hình chuẩn khi rời Mục 11.
+    const isRiddleTopic = Number(topicNum) === 11;
+    const lectureView = document.getElementById('view-lecture');
+    const lectureContentWrap = document.getElementById('lecture-content')?.parentElement;
+    if (lectureContentWrap) lectureContentWrap.style.display = isRiddleTopic ? 'none' : '';
+    if (isRiddleTopic) {
+        // Mục 11 có 6 thẻ tự giải thích: không cần lời dẫn, nút nghe dẫn hay nút trộn chung.
+        setLectureUtilityVisibility_(false, false);
+        if (lectureView) lectureView.style.minHeight = '0px';
+    }
     pendingTopicQuiz = { topicNum, topicName, questions: topicObj.questions };
     
     document.getElementById('lecture-title').textContent = topicObj.lecture_title || topicName;
@@ -2568,10 +2608,10 @@ function showLectureAndSubtopics(topicNum, topicName, topicObj) {
         if (!groupMap[k]) { groupMap[k] = []; groups.push(k); }
         groupMap[k].push(q);
     });
-    // Đố vui (ID nội bộ 11): thêm một mục ảo "Trộn ngẫu nhiên" dùng toàn bộ kho câu hỏi,
+    // Đố vui (Mục Khám phá 11): thêm mục ảo "Câu đố tổng hợp" dùng toàn bộ kho câu hỏi,
     // không nhân đôi dữ liệu trong JSON.
     if (Number(topicNum) === 11 && topicObj.questions.length) {
-        const randomKey = '__TOPIC10_RANDOM_ALL__';
+        const randomKey = '__TV11_RANDOM_ALL__';
         groups.push(randomKey);
         groupMap[randomKey] = topicObj.questions;
     }
@@ -2581,15 +2621,17 @@ function showLectureAndSubtopics(topicNum, topicName, topicObj) {
 
     let subHtml = '';
     groups.forEach((subName, idx) => {
-        const isTopic10Random = Number(topicNum) === 11 && subName === '__TOPIC10_RANDOM_ALL__';
-        const displayTitle = isTopic10Random ? '🎲 Trộn ngẫu nhiên' : beautifySubtopicName(subName);
+        const isMixedRiddlesTV2_ = Number(topicNum) === 11 && subName === '__TV11_RANDOM_ALL__';
+        const displayTitle = isMixedRiddlesTV2_ ? 'Câu đố tổng hợp' : beautifySubtopicName(subName);
         const count = groupMap[subName].length;
         subHtml += tvChildCardHtml_({
             onclick: `selectSubtopic(${idx})`,
             title: `${idx + 1}. ${displayTitle}`,
             badge: `${count} ${Number(topicNum) === 4 ? 'lượt' : 'câu'}`,
             topicNum,
-            idx
+            idx,
+            hideDescription: isRiddleTopic,
+            classes: isRiddleTopic ? 'tv2-m11-subtopic-card' : ''
         });
     });
 
@@ -2609,15 +2651,15 @@ function selectSubtopic(idx) {
     if (!pendingTopicQuiz) return;
     setAppShellRootMode_(false);
     const { topicNum, topicName, questions, groups, groupMap } = pendingTopicQuiz;
-    if (Number(topicNum) === 11 && !requirePremiumAccess('Ôn tập')) return;
+    if (Number(topicNum) === 13 && !requirePremiumAccess('Ôn tập')) return;
     const subLabel = idx !== null ? groups[idx] : null;
     const pool = idx !== null ? groupMap[subLabel] : questions;
-    const isTopic10Random = Number(topicNum) === 11 && subLabel === '__TOPIC10_RANDOM_ALL__';
-    const displaySubLabel = isTopic10Random ? '🎲 Trộn ngẫu nhiên' : (subLabel ? beautifySubtopicName(subLabel) : null);
+    const isMixedRiddlesTV2_ = Number(topicNum) === 11 && subLabel === '__TV11_RANDOM_ALL__';
+    const displaySubLabel = isMixedRiddlesTV2_ ? 'Câu đố tổng hợp' : (subLabel ? beautifySubtopicName(subLabel) : null);
     const finalTitle = displaySubLabel ? `${topicName} - ${displaySubLabel}` : topicName;
 
     practiceCycleRawPool = [...pool];
-    const firstCycleQuestions = buildAdaptiveQuestionOrder_(pool, topicNum);
+    const firstCycleQuestions = isMixedRiddlesTV2_ ? shuffleArray(pool) : buildAdaptiveQuestionOrder_(pool, topicNum);
 
     updateDiscoverBreadcrumb_(topicName, TOPICS_CONFIG.find(t => t.id === topicNum)?.icon || '🌸', displaySubLabel || 'Tất cả các mục');
     if (Number(topicNum) === 1 && idx !== null && pool.length && pool.every(q => String(q.sub_id) === 'TV_2_M1_1')) {
@@ -3426,6 +3468,15 @@ function getTopic1QuestionView_(q) {
     return line(stage(cleaned), '', cleaned);
 }
 
+// Muc 9.1: Trinh bay tho theo kho 4 dong, giu nguyen noi dung va TTS trong JSON.
+function renderTopic9PoemStanzas_(lines) {
+    const stanzas = [];
+    for (let i = 0; i < lines.length; i += 4) {
+        stanzas.push(`<span class="tv2-m9-poem-stanza">${escapeHtml(lines.slice(i, i + 4).join('\n'))}</span>`);
+    }
+    return stanzas.join('');
+}
+
 function loadQuestion() {
     stopSpeaking();
     const q = activeQuestionsList[currentQIndex];
@@ -3439,13 +3490,20 @@ function loadQuestion() {
     const isTopic2Compact = !isEvaluationMode && Number(activeTopicId) === 2;
     const isTopic3Compact = !isEvaluationMode && Number(activeTopicId) === 3;
     const isTopic4Reading = !isEvaluationMode && Number(activeTopicId) === 4;
-    const isCompactPractice = isTopic1Compact || isTopic2Compact || isTopic3Compact || isTopic4Reading;
+    // Muc 7-8: khung tinh huong / cau hoi / dap an rong va de doc hon.
+    const isTopic78Wide = !isEvaluationMode && (Number(activeTopicId) === 7 || Number(activeTopicId) === 8);
+    // Muc 9: giu van ban ben trai, cau hoi va dap an ben phai (chi Khám phá).
+    const isTopic9ReadingLayout = !isEvaluationMode && Number(activeTopicId) === 9 && !!q.reading_passage;
+    const isTopic11PoemLayout = !isEvaluationMode && Number(activeTopicId) === 11 && !!q.reading_passage;
+    const isSideReadingLayout = isTopic9ReadingLayout || isTopic11PoemLayout;
+    const isCompactPractice = isTopic1Compact || isTopic2Compact || isTopic3Compact || isTopic4Reading || isSideReadingLayout;
     const questionBox = document.getElementById('question-box');
     const quizCard = questionBox ? questionBox.closest('.pastel-card') : null;
     const quizBottomNav = document.getElementById('quiz-bottom-nav');
     if (questionBox) {
+        questionBox.classList.toggle('tv2-m78-wide', isTopic78Wide);
         questionBox.style.justifyContent = isCompactPractice ? 'flex-start' : 'center';
-        questionBox.style.paddingTop = isTopic1Compact ? '0.4rem' : (isTopic2Compact ? '0.75rem' : (isTopic3Compact ? '0.35rem' : (isTopic4Reading ? '0.25rem' : '')));
+        questionBox.style.paddingTop = isTopic1Compact ? '0.4rem' : (isTopic2Compact ? '0.75rem' : (isTopic3Compact ? '0.35rem' : ((isTopic4Reading || isSideReadingLayout) ? '0.25rem' : '')));
         questionBox.style.paddingBottom = isCompactPractice ? '0.2rem' : '';
         questionBox.style.flex = isCompactPractice ? '0 0 auto' : '';
     }
@@ -3520,11 +3578,19 @@ function loadQuestion() {
     const passageLines = pText ? pText.split('\n').map(l => l.trim()).filter(Boolean) : [];
     const avgLineLen = passageLines.length ? passageLines.reduce((a, l) => a + l.length, 0) / passageLines.length : 0;
     const isPoemLike = passageLines.length >= 4 && avgLineLen > 0 && avgLineLen < 35;
-    const useTwoColumns = isPoemLike;
+    // Tho trong Muc 9 hien nguyen mot cot, khong chia doi noi dung.
+    const useTwoColumns = isPoemLike && !isSideReadingLayout;
+    const isTopic9Poem = isTopic9ReadingLayout && String(q.sub_id || '') === 'TV_2_M9_1';
+    const isSidePoem = isTopic9Poem || isTopic11PoemLayout;
     const passageHtml = pText ? `
-        <div class="w-full max-w-3xl bg-pink-50/70 border-2 border-pink-200 rounded-2xl p-3 mb-1.5 text-left shadow-xs">
-            ${pTitle ? `<p class="font-black text-pink-700 text-sm md:text-base mb-1">${escapeHtml(pTitle)}</p>` : ''}
-            <p class="tv2-quiz-reading-passage text-gray-800 text-sm md:text-base font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${escapeHtml(pText)}</p>
+        <div class="${isSideReadingLayout ? `tv2-m9-reading-pane${isSidePoem ? ' tv2-m9-poem' : ''}${isTopic11PoemLayout ? ' tv2-m11-poem' : ''}` : `w-full max-w-3xl bg-pink-50/70 border-2 border-pink-200 rounded-2xl p-3 mb-1.5 text-left shadow-xs${isTopic78Wide ? ' tv2-m78-situation-pane' : ''}`}">
+            ${pTitle ? `<p class="${isSideReadingLayout ? 'tv2-m9-reading-title' : 'font-black text-pink-700 text-sm md:text-base mb-1'}${isTopic78Wide ? ' tv2-m78-situation-title' : ''}">${escapeHtml(pTitle)}</p>` : ''}
+            <p class="tv2-quiz-reading-passage text-gray-800 text-sm md:text-base font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${isSidePoem ? renderTopic9PoemStanzas_(passageLines) : escapeHtml(pText)}</p>
+            ${isTopic11PoemLayout ? `<div class="tv2-m11-poem-listen-wrap">
+                <button type="button" onclick="speakTopic11Poem_()" class="tv2-m11-poem-listen-btn px-4 py-2 bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 rounded-2xl text-sm md:text-base font-extrabold inline-flex items-center justify-center gap-2 pastel-btn shadow-xs" aria-label="Nghe cô đọc bài thơ">
+                    <i class="fa-solid fa-volume-high" aria-hidden="true"></i><span>Nghe cô đọc</span>
+                </button>
+            </div>` : ''}
         </div>` : '';
 
     const practiceSpeakerBtnHtml = !isEvaluationMode ? `
@@ -3573,18 +3639,27 @@ function loadQuestion() {
                 </div>`;
         }
     } else {
-        html = `
+        // Khám phá Mục 9/11: thơ/văn trái, câu hỏi và đáp án phải.
+        // Các mục khác và Đề thi/Ôn tập giữ renderer của riêng mình.
+        html = isSideReadingLayout ? `
+        <div class="tv2-m9-layout">
+            ${passageHtml}
+            <section class="tv2-m9-question-pane" aria-label="Câu hỏi và đáp án">
+                <h3 class="tv2-quiz-question tv2-m9-question-title text-slate-900 whitespace-pre-line">${escapeHtml(q.question_text)}</h3>
+                ${practiceSpeakerBtnHtml}
+                <div class="tv2-m9-answer-grid">
+        ` : `
         ${mediaHtml}
         ${passageHtml}
         ${alphabet11ReviewHtml}
-        ${topic1View ? topic1View.html : `<div class="flex flex-col items-center justify-center max-w-3xl text-center px-2 mb-0.5">
+        ${topic1View ? topic1View.html : `<div class="flex flex-col items-center justify-center max-w-3xl text-center px-2 mb-0.5${isTopic78Wide ? ' tv2-m78-question-head' : ''}">
             <h3 class="tv2-quiz-question text-sm md:text-base lg:text-lg font-black text-slate-900 leading-snug ${!isEvaluationMode ? 'whitespace-pre-line' : ''}">
                 ${escapeHtml(q.question_text)}
             </h3>
         </div>`}
         ${practiceSpeakerBtnHtml}
         
-        <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-1">
+        <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-2.5 mt-1${isTopic78Wide ? ' tv2-m78-answer-grid' : ''}">
     `;
 
     q.options.forEach((opt, idx) => {
@@ -3613,7 +3688,7 @@ function loadQuestion() {
                 </button>`;
         }
     });
-        html += `</div>`;
+        html += isSideReadingLayout ? `</div></section></div>` : `</div>`;
     }
 
     document.getElementById('question-box').innerHTML = html;
@@ -4744,6 +4819,14 @@ function speakPedagogicalEvaluation() {
     speakVietnamese(textToRead, 0.96);
 }
 
+// Muc 11: doc rieng bai tho ben trai bang luong Google TTS hien co.
+function speakTopic11Poem_() {
+    if (activeExamContext || activeRoadmapContext || Number(activeTopicId) !== 11) return;
+    const q = activeQuestionsList[currentQIndex];
+    if (!q?.reading_passage) return;
+    speakVietnamese(q.reading_passage, 0.96);
+}
+
 function speakCurrentQuestion() {
     const q = activeQuestionsList[currentQIndex];
     if (!q) return;
@@ -5114,7 +5197,7 @@ function openReviewTab() {
     inMiniGameFlow = false;
     activeExamContext = null;
     activeRoadmapContext = null;
-    activeTopicId = 11;
+    activeTopicId = 13;
     pendingTopicQuiz = null;
     setAppShellRootMode_(true);
     return openSemesterReviewMenu(true);
@@ -5944,6 +6027,7 @@ const TV_INLINE_BRIDGE_GETTERS_ = Object.freeze({
     'sortAccountManager': () => (typeof sortAccountManager === 'function' ? sortAccountManager : null),
     'speakActiveFairyStory_': () => (typeof speakActiveFairyStory_ === 'function' ? speakActiveFairyStory_ : null),
     'speakCurrentQuestion': () => (typeof speakCurrentQuestion === 'function' ? speakCurrentQuestion : null),
+    'speakTopic11Poem_': () => (typeof speakTopic11Poem_ === 'function' ? speakTopic11Poem_ : null),
     'speakLecture': () => (typeof speakLecture === 'function' ? speakLecture : null),
     'speakMiniGameQuestion': () => (typeof speakMiniGameQuestion === 'function' ? speakMiniGameQuestion : null),
     'speakMiniGameTextSafe': () => (typeof speakMiniGameTextSafe === 'function' ? speakMiniGameTextSafe : null),
@@ -6316,6 +6400,13 @@ const TV_CHILD_TA_PARITY_CSS_ = `
   white-space:nowrap;background:#fff;color:var(--lc-ink);font-size:13px!important;
   font-weight:900!important;line-height:1.2!important;
 }
+/* Mục 11: bỏ mô tả lặp, vẫn giữ số câu và thu gọn thẻ chủ đề. */
+#class2-vietnamese-runtime #lecture-subtopics-list > button.tv2-learning-card.tv2-m11-subtopic-card{
+  min-height:108px!important;
+}
+#class2-vietnamese-runtime .tv2-m11-subtopic-card .tv2-learning-bottom{
+  justify-content:flex-end;
+}
 @media(hover:hover) and (pointer:fine){
  #class2-vietnamese-runtime #lecture-subtopics-list > button.tv2-learning-card:not(.is-locked):hover{
    border-color:var(--lc-ink,#e879f9)!important;
@@ -6510,6 +6601,154 @@ const TV2_LEARNING_TYPOGRAPHY_CSS_ = `
 }
 @media(min-width:768px){
   #class2-vietnamese-runtime #question-box .option-btn .tv2-a11-answer-letter{font-size:36px!important;}
+}
+
+/* Khám phá Mục 9/11: thơ hoặc văn bản bên trái, câu hỏi và đáp án bên phải.
+   Khong anh huong renderer Khám phá khac / De thi / Bai tap / On tap. */
+#class2-vietnamese-runtime #question-box .tv2-m9-layout{
+  width:100%; max-width:100%; min-width:0;
+  display:grid; grid-template-columns:minmax(0,1fr);
+  align-items:stretch; gap:14px; margin:0 auto;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-reading-pane,
+#class2-vietnamese-runtime #question-box .tv2-m9-question-pane{
+  box-sizing:border-box; min-width:0;
+  border:1px solid #f5c5dd; border-radius:20px;
+  padding:clamp(14px,1.8vw,22px);
+  box-shadow:0 2px 9px rgba(190,93,144,.06);
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-reading-pane{
+  background:#fff9fc; text-align:left;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-question-pane{
+  display:flex; flex-direction:column; justify-content:flex-start;
+  background:#fff; border-color:#e9d5f8;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-reading-title{
+  font-family:'Nunito',system-ui,sans-serif;
+  font-size:21px; font-weight:900; line-height:1.35;
+  text-align:center; color:#a21caf; margin-bottom:13px;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-reading-pane .tv2-quiz-reading-passage{
+  column-count:1!important; columns:1!important;
+  text-align:left; white-space:pre-line;
+  overflow-wrap:break-word; margin:0;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-poem .tv2-quiz-reading-passage{
+  width:max-content; max-width:100%; margin:0 auto;
+}
+/* Muc 11: nut doc tho o day khung trai, khong anh huong Muc 9. */
+#class2-vietnamese-runtime #question-box .tv2-m11-poem{
+  display:flex;
+  flex-direction:column;
+}
+#class2-vietnamese-runtime #question-box .tv2-m11-poem-listen-wrap{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  margin-top:auto;
+  padding-top:16px;
+}
+/* Chi Muc 11: tang 1px co chu tho, can giua tung dong luc bat (ca mobile). */
+#class2-vietnamese-runtime #question-box .tv2-m11-poem .tv2-quiz-reading-passage{
+  width:100%; max-width:100%; margin:0 auto;
+  text-align:center!important;
+  font-size:19px!important;
+}
+@media(max-width:639px){
+  #class2-vietnamese-runtime #question-box .tv2-m11-poem .tv2-quiz-reading-passage{
+    font-size:18px!important;
+  }
+}
+/* Muc 9.1: giu tho mot cot va tach kho sau moi 4 dong. */
+#class2-vietnamese-runtime #question-box .tv2-m9-poem .tv2-m9-poem-stanza{
+  display:block;
+  white-space:pre-line;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-poem .tv2-m9-poem-stanza + .tv2-m9-poem-stanza{
+  margin-top:14px;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-question-title{
+  text-align:left; margin:0 0 10px; width:100%;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-answer-grid{
+  display:grid; grid-template-columns:minmax(0,1fr);
+  gap:10px; width:100%; margin-top:6px;
+}
+#class2-vietnamese-runtime #question-box .tv2-m9-answer-grid .option-btn{
+  width:100%; text-align:left; min-width:0;
+}
+@media(min-width:880px){
+  #class2-vietnamese-runtime #question-box .tv2-m9-layout{
+    grid-template-columns:minmax(0,0.94fr) minmax(0,1.06fr);
+    gap:16px;
+  }
+}
+@media(max-width:879px){
+  #class2-vietnamese-runtime #question-box .tv2-m9-layout{gap:12px;}
+  #class2-vietnamese-runtime #question-box .tv2-m9-question-title{text-align:center;}
+}
+
+/* Khám phá Mục 7 & 8: tận dụng chiều rộng, chữ lớn hơn và ô trả lời thoáng hơn.
+   Chỉ kích hoạt khi loadQuestion đánh dấu #question-box.tv2-m78-wide. */
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-pane,
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-question-head,
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-answer-grid{
+  box-sizing:border-box;
+  width:100%!important;
+  max-width:min(100%,58rem)!important;
+  min-width:0;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-pane{
+  padding:16px 20px!important;
+  margin-bottom:7px!important;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-title{
+  font-size:18px!important;
+  line-height:1.4!important;
+  margin-bottom:6px!important;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-pane .tv2-quiz-reading-passage{
+  font-size:20px!important;
+  line-height:1.56!important;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-question-head .tv2-quiz-question{
+  font-size:24px!important;
+  line-height:1.4!important;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-answer-grid{
+  column-gap:14px!important;
+  row-gap:12px!important;
+  margin-top:8px!important;
+}
+#class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-answer-grid .option-btn{
+  font-size:20px!important;
+  font-weight:800!important;
+  min-height:70px;
+  padding:15px 18px!important;
+}
+@media(max-width:767px){
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-pane{
+    padding:13px 14px!important;
+  }
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-title{
+    font-size:17px!important;
+  }
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-situation-pane .tv2-quiz-reading-passage{
+    font-size:18px!important;
+  }
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-question-head .tv2-quiz-question{
+    font-size:22px!important;
+  }
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-answer-grid{
+    row-gap:10px!important;
+    column-gap:10px!important;
+  }
+  #class2-vietnamese-runtime #question-box.tv2-m78-wide .tv2-m78-answer-grid .option-btn{
+    font-size:19px!important;
+    min-height:64px;
+    padding:13px 14px!important;
+  }
 }
 `;
 
