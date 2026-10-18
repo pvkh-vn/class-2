@@ -22097,7 +22097,7 @@ async function bootstrapMathRuntime_() {
     } else { syncClass2MathUser_(); installMathInlineBridge_(); applyClass2MathSceneImageVars_(); }
 }
 async function renderClass2Math_(ctx) {
-    mathModuleDestroyed_=false; mathModuleCtx_=ctx||null; await bootstrapMathRuntime_();
+    mathModuleDestroyed_=false; mathModuleCtx_=ctx||null; await bootstrapMathRuntime_(); syncMathScore_();
     const tab=String(ctx?.tabId||'discover'); mathModuleLastTab_=tab;
     if(tab==='lessons') return openBaiHocHub(1);
     if(tab==='exercises') return openRoadmap(1);
