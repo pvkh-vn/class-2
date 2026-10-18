@@ -6077,7 +6077,21 @@ function assessmentAnswersPayloadTV2_(){return activeQuestionsList.map((q,i)=>({
 function handleTvAssessmentBackendUnavailable_(err){
   if(['ASSESSMENT_NOT_SUPPORTED','UNSUPPORTED_ACTION'].includes(String(err?.code||''))&&!tvOfficialAssessmentBackendNoticeShown_){tvOfficialAssessmentBackendNoticeShown_=true; showAppToast('Tiến độ chính thức Tiếng Việt 2 chưa được backend Lớp 2 bật; kết quả vẫn dùng để luyện tập nhưng module không tự mở khóa từ dữ liệu client.', 'warning', 3600);}
 }
-function syncClass2ScoreTV2_(){tvModuleCtx_?.hooks?.setScore?.(Number(starGreenCount||0),Number(starRedCount||0));}
+let tvScoreObserver_ = null;
+function syncClass2ScoreTV2_(){
+ if(tvModuleDestroyed_ || !tvModuleCtx_)return;
+ tvModuleCtx_.hooks?.setScore?.(Math.max(0,Number(starGreenCount)||0),Math.max(0,Number(starRedCount)||0));
+}
+function installTvScoreObserver_(){
+ tvScoreObserver_?.disconnect(); tvScoreObserver_=null;
+ const green=document.getElementById('star-green-count');
+ const red=document.getElementById('star-red-count');
+ if(!green||!red)return;
+ tvScoreObserver_=new MutationObserver(syncClass2ScoreTV2_);
+ tvScoreObserver_.observe(green,{childList:true,characterData:true,subtree:true});
+ tvScoreObserver_.observe(red,{childList:true,characterData:true,subtree:true});
+ syncClass2ScoreTV2_();
+}
 const __tvPlayAudioStandalone_=playAudio;
 playAudio=function(type){const out=__tvPlayAudioStandalone_.apply(this,arguments);setTimeout(syncClass2ScoreTV2_,0);return out;};
 function resetStars(){starGreenCount=0;starRedCount=0; const g=document.getElementById('star-green-count');if(g)g.textContent='0';const r=document.getElementById('star-red-count');if(r)r.textContent='0';syncClass2ScoreTV2_();}
@@ -6754,11 +6768,12 @@ const TV2_LEARNING_TYPOGRAPHY_CSS_ = `
 
 function ensureTvStyles_(){if(document.getElementById(TV_MODULE_STYLE_ID_))return;const st=document.createElement('style');st.id=TV_MODULE_STYLE_ID_;st.textContent=TV_RUNTIME_CSS_+TV_SHELL_BREADCRUMB_CSS_+TV_MODULE_UI_CSS_+TV_EXPLORE_TA2_SCALE_CSS_+TV_FOLDER_TA2_HOVER_CSS_+TV_CHILD_TA_PARITY_CSS_+TV_FAIRY_CARD_GRID_CSS_+TV2_ALPHABET11_CSS_+TV2_LEARNING_TYPOGRAPHY_CSS_;document.head.appendChild(st);}
 function primeTvAudio_(){if(tvModuleAudioPrimed_)return;tvModuleAudioPrimed_=true;const once=()=>{try{const C=window.AudioContext||window.webkitAudioContext;if(!audioCtx&&C)audioCtx=new C();if(audioCtx?.state==='suspended')audioCtx.resume();}catch(_){}};tvModuleRoot_?.addEventListener('pointerdown',once,{once:true,passive:true});}
-function mountTvRuntime_(){if(!tvModuleCtx_?.host)throw new Error('TV_MODULE_HOST_MISSING');ensureTvStyles_();ensureTvDependencies_();tvModuleCtx_.host.innerHTML=`<div id="${TV_MODULE_RUNTIME_ID_}">${TV_RUNTIME_HTML_}</div>`;tvModuleRoot_=document.getElementById(TV_MODULE_RUNTIME_ID_);installTvInlineBridge_();syncClass2ModuleStateTV2_();resetStars();updateAutoSpeechButtonUI();primeTvAudio_();tvModuleMounted_=true;}
+function mountTvRuntime_(){if(!tvModuleCtx_?.host)throw new Error('TV_MODULE_HOST_MISSING');ensureTvStyles_();ensureTvDependencies_();tvModuleCtx_.host.innerHTML=`<div id="${TV_MODULE_RUNTIME_ID_}">${TV_RUNTIME_HTML_}</div>`;tvModuleRoot_=document.getElementById(TV_MODULE_RUNTIME_ID_);installTvInlineBridge_();syncClass2ModuleStateTV2_();resetStars();installTvScoreObserver_();updateAutoSpeechButtonUI();primeTvAudio_();tvModuleMounted_=true;}
 async function bootstrapTvRuntime_(){if(!tvModuleMounted_||!tvModuleRoot_||!tvModuleRoot_.isConnected||tvModuleRoot_.parentElement!==tvModuleCtx_.host){mountTvRuntime_();await loadSharedImageCatalogTV2_();await Promise.resolve(renderDashboardGrid());await Promise.resolve(renderExamHubGrid());}else syncClass2ModuleStateTV2_();if(tvModuleCtx_?.isAuthenticated)loadLearningProfile_();}
-async function renderClass2Vietnamese_(ctx){tvModuleDestroyed_=false;tvModuleCtx_=ctx||null;await bootstrapTvRuntime_();const tab=String(ctx?.tabId||'discover');tvModuleLastTab_=tab;if(tab==='lessons')return openBaiHocHub(1);if(tab==='exercises')return openRoadmap(1);if(tab==='review')return openReviewTab();if(tab==='exams')return openExamHub();if(tab==='games')return openMiniGameHub();return goHome();}
+async function renderClass2Vietnamese_(ctx){tvModuleDestroyed_=false;tvModuleCtx_=ctx||null;await bootstrapTvRuntime_();syncClass2ScoreTV2_();const tab=String(ctx?.tabId||'discover');tvModuleLastTab_=tab;if(tab==='lessons')return openBaiHocHub(1);if(tab==='exercises')return openRoadmap(1);if(tab==='review')return openReviewTab();if(tab==='exams')return openExamHub();if(tab==='games')return openMiniGameHub();return goHome();}
 function destroyClass2Vietnamese_(){
   tvModuleDestroyed_=true;
+  tvScoreObserver_?.disconnect?.(); tvScoreObserver_=null;
   try{closeAppDialog_(false);}catch(_){} try{stopSpeaking();}catch(_){} try{window.speechSynthesis?.cancel?.();}catch(_){}
   try{clearInterval(quizTimerInterval);}catch(_){} try{if(speechChunkTimer_)clearTimeout(speechChunkTimer_);}catch(_){} try{clearTopic23AutoAdvance_();}catch(_){} try{stopActiveMiniGameTV2_();}catch(_){}
   try{if(adaptiveLearningState.flushTimer)clearTimeout(adaptiveLearningState.flushTimer);}catch(_){} try{histLineChartInstance?.destroy?.();}catch(_){} try{histBarChartInstance?.destroy?.();}catch(_){}
