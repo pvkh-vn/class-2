@@ -57,7 +57,12 @@
     ],
     "a": "69",
     "h": "Số liền trước kém số đã cho đúng 1: 70 − 1 = 69.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 69,
+      "unit": ""
+    }
   },
   {
     "id": 111104,
@@ -72,7 +77,12 @@
     ],
     "a": "90",
     "h": "Số liền sau hơn 89 đúng 1 đơn vị: 89 + 1 = 90.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 90,
+      "unit": ""
+    }
   },
   {
     "id": 111105,
@@ -87,7 +97,12 @@
     ],
     "a": "57",
     "h": "Các số liên tiếp theo thứ tự là 56, 57, 58.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 57,
+      "unit": ""
+    }
   },
   {
     "id": 111106,
@@ -102,7 +117,12 @@
     ],
     "a": "72",
     "h": "Số đứng giữa 71 và 73 là 72, vì 71 < 72 < 73.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 72,
+      "unit": ""
+    }
   },
   {
     "id": 111107,
@@ -117,7 +137,20 @@
     ],
     "a": "39, 49, 93",
     "h": "So sánh hàng chục trước: 3 chục < 4 chục < 9 chục.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "order",
+      "numbers": [
+        39,
+        93,
+        49
+      ],
+      "expected": [
+        39,
+        49,
+        93
+      ]
+    }
   },
   {
     "id": 111108,
@@ -147,7 +180,12 @@
     ],
     "a": "50",
     "h": "Mỗi số tăng thêm 10: 20, 30, 40, 50.",
-    "tag": "TOAN_C4"
+    "tag": "TOAN_C4",
+    "review_interaction": {
+      "type": "number",
+      "value": 50,
+      "unit": ""
+    }
   },
   {
     "id": 111110,
@@ -162,7 +200,12 @@
     ],
     "a": "30",
     "h": "Mỗi số hơn số đứng trước 1 đơn vị. Sau 29 là 30.",
-    "tag": "TOAN_C4"
+    "tag": "TOAN_C4",
+    "review_interaction": {
+      "type": "number",
+      "value": 30,
+      "unit": ""
+    }
   },
   {
     "id": 111111,
@@ -177,7 +220,12 @@
     ],
     "a": "14",
     "h": "Tách 5 = 1 + 4; 9 + 1 = 10, rồi 10 + 4 = 14.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 14,
+      "unit": ""
+    }
   },
   {
     "id": 111112,
@@ -192,7 +240,12 @@
     ],
     "a": "15",
     "h": "Tách 7 = 2 + 5; 8 + 2 = 10, rồi 10 + 5 = 15.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 15,
+      "unit": ""
+    }
   },
   {
     "id": 111113,
@@ -207,7 +260,12 @@
     ],
     "a": "14",
     "h": "Tách 8 = 4 + 4; 6 + 4 = 10, rồi cộng thêm 4 được 14.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 14,
+      "unit": ""
+    }
   },
   {
     "id": 111114,
@@ -222,7 +280,12 @@
     ],
     "a": "13",
     "h": "Tách 6 = 3 + 3; 7 + 3 = 10, rồi 10 + 3 = 13.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 13,
+      "unit": ""
+    }
   },
   {
     "id": 111115,
@@ -237,7 +300,12 @@
     ],
     "a": "8",
     "h": "Lấy 13 − 3 = 10, sau đó 10 − 2 = 8.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 111116,
@@ -252,7 +320,12 @@
     ],
     "a": "8",
     "h": "Lấy 15 − 5 = 10, rồi 10 − 2 = 8.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 111117,
@@ -267,7 +340,12 @@
     ],
     "a": "4",
     "h": "Tách 8 = 2 + 6; 12 − 2 = 10, rồi 10 − 6 = 4.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 4,
+      "unit": ""
+    }
   },
   {
     "id": 111118,
@@ -282,7 +360,12 @@
     ],
     "a": "8",
     "h": "Tách 9 = 7 + 2; 17 − 7 = 10, rồi 10 − 2 = 8.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 111119,
@@ -297,7 +380,12 @@
     ],
     "a": "7",
     "h": "Từ 9 đến 16 cần thêm 7, vì 16 − 9 = 7.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 7,
+      "unit": ""
+    }
   },
   {
     "id": 111120,
@@ -312,7 +400,12 @@
     ],
     "a": "8",
     "h": "Tìm số bị lấy đi: 14 − 6 = 8. Kiểm tra 14 − 8 = 6.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 111121,
@@ -327,7 +420,12 @@
     ],
     "a": "7",
     "h": "Ta lấy 15 − 8 = 7; vậy 8 + 7 = 15.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 7,
+      "unit": ""
+    }
   },
   {
     "id": 111122,
@@ -342,7 +440,12 @@
     ],
     "a": "17",
     "h": "Tách 8 = 1 + 7; 9 + 1 = 10; 10 + 7 = 17.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 17,
+      "unit": ""
+    }
   },
   {
     "id": 111123,
@@ -357,7 +460,14 @@
     ],
     "a": "77",
     "h": "Cộng đơn vị: 2 + 5 = 7; cộng chục: 4 + 3 = 7. Kết quả 77.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 42,
+      "b": 35,
+      "op": "+",
+      "value": 77
+    }
   },
   {
     "id": 111124,
@@ -372,7 +482,14 @@
     ],
     "a": "44",
     "h": "6 + 8 = 14, viết 4 nhớ 1 chục; 3 chục thêm 1 chục thành 4 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 36,
+      "b": 8,
+      "op": "+",
+      "value": 44
+    }
   },
   {
     "id": 111125,
@@ -387,7 +504,14 @@
     ],
     "a": "43",
     "h": "8 + 5 = 13, viết 3 nhớ 1 chục; 2 + 1 + 1 = 4 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 28,
+      "b": 15,
+      "op": "+",
+      "value": 43
+    }
   },
   {
     "id": 111126,
@@ -402,7 +526,14 @@
     ],
     "a": "83",
     "h": "7 + 6 = 13, viết 3 nhớ 1; 5 + 2 + 1 = 8 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 57,
+      "b": 26,
+      "op": "+",
+      "value": 83
+    }
   },
   {
     "id": 111127,
@@ -417,7 +548,14 @@
     ],
     "a": "85",
     "h": "8 + 7 = 15, viết 5 nhớ 1; 6 + 1 + 1 = 8 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 68,
+      "b": 17,
+      "op": "+",
+      "value": 85
+    }
   },
   {
     "id": 111128,
@@ -432,7 +570,14 @@
     ],
     "a": "62",
     "h": "6 − 4 = 2 đơn vị; 8 − 2 = 6 chục, được 62.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 86,
+      "b": 24,
+      "op": "-",
+      "value": 62
+    }
   },
   {
     "id": 111129,
@@ -447,7 +592,14 @@
     ],
     "a": "44",
     "h": "Đổi 1 chục thành 10 đơn vị: 10 − 6 = 4; còn 6 chục trừ 2 chục = 4 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 70,
+      "b": 26,
+      "op": "-",
+      "value": 44
+    }
   },
   {
     "id": 111130,
@@ -462,7 +614,14 @@
     ],
     "a": "44",
     "h": "Đổi 1 chục thành 10 đơn vị: 12 − 8 = 4; còn 4 chục, được 44.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 52,
+      "b": 8,
+      "op": "-",
+      "value": 44
+    }
   },
   {
     "id": 111131,
@@ -477,7 +636,14 @@
     ],
     "a": "57",
     "h": "Đổi 1 chục: 14 − 7 = 7; hàng chục 8 − 3 = 5.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 94,
+      "b": 37,
+      "op": "-",
+      "value": 57
+    }
   },
   {
     "id": 111132,
@@ -492,7 +658,14 @@
     ],
     "a": "37",
     "h": "Đổi 1 chục: 13 − 6 = 7; còn 7 chục trừ 4 chục = 3 chục.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 83,
+      "b": 46,
+      "op": "-",
+      "value": 37
+    }
   },
   {
     "id": 111133,
@@ -507,7 +680,12 @@
     ],
     "a": "27",
     "h": "Lấy tổng trừ số hạng đã biết: 72 − 45 = 27.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 27,
+      "unit": ""
+    }
   },
   {
     "id": 111134,
@@ -522,7 +700,12 @@
     ],
     "a": "24",
     "h": "Số cần tìm bằng 72 − 48 = 24. Thử lại: 72 − 24 = 48.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 24,
+      "unit": ""
+    }
   },
   {
     "id": 111135,
@@ -537,7 +720,15 @@
     ],
     "a": "41 nhãn vở",
     "h": "Có thêm thì cộng: 24 + 17 = 41 (nhãn vở).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 24,
+      "b": 17,
+      "op": "+",
+      "result": 41,
+      "unit": "nhãn vở"
+    }
   },
   {
     "id": 111136,
@@ -552,7 +743,15 @@
     ],
     "a": "28 chiếc",
     "h": "Ăn bớt đi thì trừ: 46 − 18 = 28 (chiếc).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 46,
+      "b": 18,
+      "op": "-",
+      "result": 28,
+      "unit": "chiếc"
+    }
   },
   {
     "id": 111137,
@@ -567,7 +766,15 @@
     ],
     "a": "44 viên",
     "h": "Bình nhiều hơn nên lấy 35 + 9 = 44 (viên).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 35,
+      "b": 9,
+      "op": "+",
+      "result": 44,
+      "unit": "viên"
+    }
   },
   {
     "id": 111138,
@@ -582,7 +789,15 @@
     ],
     "a": "37 tấm",
     "h": "Lan ít hơn nên lấy 50 − 13 = 37 (tấm).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 50,
+      "b": 13,
+      "op": "-",
+      "result": 37,
+      "unit": "tấm"
+    }
   },
   {
     "id": 111139,
@@ -597,7 +812,15 @@
     ],
     "a": "8 bông",
     "h": "Tìm phần hơn: lấy 27 − 19 = 8 (bông).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 27,
+      "b": 19,
+      "op": "-",
+      "result": 8,
+      "unit": "bông"
+    }
   },
   {
     "id": 111140,
@@ -612,7 +835,15 @@
     ],
     "a": "11 quyển",
     "h": "Tìm chênh lệch: 48 − 37 = 11 (quyển).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 48,
+      "b": 37,
+      "op": "-",
+      "result": 11,
+      "unit": "quyển"
+    }
   },
   {
     "id": 111141,
@@ -627,7 +858,15 @@
     ],
     "a": "18 chiếc",
     "h": "Số bút còn lại: 32 − 14 = 18 (chiếc).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 32,
+      "b": 14,
+      "op": "-",
+      "result": 18,
+      "unit": "chiếc"
+    }
   },
   {
     "id": 111142,
@@ -642,7 +881,15 @@
     ],
     "a": "15 bông",
     "h": "Số hoa còn lại: 29 − 14 = 15 (bông).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 29,
+      "b": 14,
+      "op": "-",
+      "result": 15,
+      "unit": "bông"
+    }
   },
   {
     "id": 111143,
@@ -657,7 +904,15 @@
     ],
     "a": "14 con",
     "h": "Vịt lên bờ nên lấy 32 − 18 = 14 (con).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 32,
+      "b": 18,
+      "op": "-",
+      "result": 14,
+      "unit": "con"
+    }
   },
   {
     "id": 111144,
@@ -672,7 +927,15 @@
     ],
     "a": "33 chiếc",
     "h": "Hai loại bút gộp lại: 21 + 12 = 33 (chiếc).",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 21,
+      "b": 12,
+      "op": "+",
+      "result": 33,
+      "unit": "chiếc"
+    }
   },
   {
     "id": 111145,
@@ -702,7 +965,13 @@
     ],
     "a": "9 cm",
     "h": "Vì B nằm giữa A và C nên AC = AB + BC = 4 + 5 = 9 cm.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "ruler",
+      "length": 9,
+      "max": 12,
+      "unit": "cm"
+    }
   },
   {
     "id": 111147,
@@ -717,7 +986,13 @@
     ],
     "a": "13 cm",
     "h": "Cộng độ dài từng đoạn: 3 + 6 + 4 = 13 cm.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "ruler",
+      "length": 13,
+      "max": 16,
+      "unit": "cm"
+    }
   },
   {
     "id": 111148,
@@ -732,7 +1007,13 @@
     ],
     "a": "12 cm",
     "h": "Độ dài đường gấp khúc là 5 + 7 = 12 cm.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "ruler",
+      "length": 12,
+      "max": 15,
+      "unit": "cm"
+    }
   },
   {
     "id": 111149,
@@ -747,7 +1028,11 @@
     ],
     "a": "4 cạnh",
     "h": "Tứ giác là hình có 4 cạnh và 4 đỉnh.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "connect_shape",
+      "count": 4
+    }
   },
   {
     "id": 111150,
@@ -762,7 +1047,11 @@
     ],
     "a": "3 đỉnh",
     "h": "Hình tam giác có 3 cạnh, 3 đỉnh.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "connect_shape",
+      "count": 3
+    }
   },
   {
     "id": 111151,
@@ -942,7 +1231,12 @@
     ],
     "a": "60 phút",
     "h": "Một giờ được chia thành 60 phút.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 60,
+      "unit": "phút"
+    }
   },
   {
     "id": 111163,
@@ -957,7 +1251,12 @@
     ],
     "a": "24 giờ",
     "h": "Một ngày có 24 giờ.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 24,
+      "unit": "giờ"
+    }
   },
   {
     "id": 111164,
@@ -972,7 +1271,12 @@
     ],
     "a": "7 ngày",
     "h": "Thứ Hai đến Chủ nhật là 7 ngày trong một tuần.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 7,
+      "unit": "ngày"
+    }
   },
   {
     "id": 111165,
@@ -987,7 +1291,12 @@
     ],
     "a": "10 giờ sáng",
     "h": "Tăng số giờ thêm 2: 8 + 2 = 10 giờ sáng.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 10,
+      "unit": "giờ sáng"
+    }
   },
   {
     "id": 111166,
@@ -1032,7 +1341,12 @@
     ],
     "a": "30 ngày",
     "h": "Trong lịch, tháng 9 có 30 ngày.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 30,
+      "unit": "ngày"
+    }
   },
   {
     "id": 111169,
@@ -1062,7 +1376,12 @@
     ],
     "a": "14",
     "h": "Bảng nhân 2: 2 lấy 7 lần được 14.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 14,
+      "unit": ""
+    }
   },
   {
     "id": 112101,
@@ -1077,7 +1396,12 @@
     ],
     "a": "30",
     "h": "Bảng nhân 5: 5 × 6 = 30.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 30,
+      "unit": ""
+    }
   },
   {
     "id": 112102,
@@ -1092,7 +1416,12 @@
     ],
     "a": "18",
     "h": "Cộng 2 chín lần hoặc dùng bảng nhân 2: kết quả 18.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 18,
+      "unit": ""
+    }
   },
   {
     "id": 112103,
@@ -1107,7 +1436,12 @@
     ],
     "a": "40",
     "h": "Cộng thêm 5 liên tiếp 8 lần được 40.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 40,
+      "unit": ""
+    }
   },
   {
     "id": 112104,
@@ -1152,7 +1486,12 @@
     ],
     "a": "8",
     "h": "Vì 2 × 8 = 16 nên 16 : 2 = 8.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 112107,
@@ -1167,7 +1506,12 @@
     ],
     "a": "7",
     "h": "Vì 5 × 7 = 35 nên 35 : 5 = 7.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 7,
+      "unit": ""
+    }
   },
   {
     "id": 112108,
@@ -1182,7 +1526,12 @@
     ],
     "a": "10",
     "h": "Vì 2 × 10 = 20 nên 20 : 2 = 10.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 10,
+      "unit": ""
+    }
   },
   {
     "id": 112109,
@@ -1197,7 +1546,12 @@
     ],
     "a": "9",
     "h": "Vì 5 × 9 = 45 nên 45 : 5 = 9.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 9,
+      "unit": ""
+    }
   },
   {
     "id": 112110,
@@ -1212,7 +1566,12 @@
     ],
     "a": "8",
     "h": "Vì 16 : 2 = 8 nên 2 × 8 = 16.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 112111,
@@ -1227,7 +1586,12 @@
     ],
     "a": "5",
     "h": "Vì 25 : 5 = 5 nên 5 × 5 = 25.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 5,
+      "unit": ""
+    }
   },
   {
     "id": 112112,
@@ -1242,7 +1606,12 @@
     ],
     "a": "8",
     "h": "Vì 5 × 8 = 40 nên thương là 8.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "number",
+      "value": 8,
+      "unit": ""
+    }
   },
   {
     "id": 112113,
@@ -1272,7 +1641,12 @@
     ],
     "a": "0",
     "h": "705 có 7 trăm, 0 chục, 5 đơn vị. Hàng chục là 0.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 0,
+      "unit": ""
+    }
   },
   {
     "id": 112115,
@@ -1287,7 +1661,12 @@
     ],
     "a": "10 trăm",
     "h": "Một nghìn bằng mười trăm: 10 × 100 = 1 000.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 10,
+      "unit": "trăm"
+    }
   },
   {
     "id": 112116,
@@ -1347,7 +1726,20 @@
     ],
     "a": "780, 807, 870",
     "h": "So hàng trăm trước: 780 có 7 trăm nên nhỏ nhất; giữa 807 và 870, 807 nhỏ hơn.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "order",
+      "numbers": [
+        870,
+        807,
+        780
+      ],
+      "expected": [
+        780,
+        807,
+        870
+      ]
+    }
   },
   {
     "id": 112120,
@@ -1362,7 +1754,12 @@
     ],
     "a": "900",
     "h": "9 nằm ở hàng trăm nên có giá trị 900.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 900,
+      "unit": ""
+    }
   },
   {
     "id": 112121,
@@ -1377,7 +1774,12 @@
     ],
     "a": "1 000",
     "h": "Thêm 1 vào 999 được 1 000, tức một nghìn.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "number",
+      "value": 1000,
+      "unit": ""
+    }
   },
   {
     "id": 112122,
@@ -1392,7 +1794,14 @@
     ],
     "a": "377",
     "h": "Đơn vị 5 + 2 = 7; chục 4 + 3 = 7; trăm 2 + 1 = 3.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 245,
+      "b": 132,
+      "op": "+",
+      "value": 377
+    }
   },
   {
     "id": 112123,
@@ -1407,7 +1816,14 @@
     ],
     "a": "665",
     "h": "Viết 58 dưới hai hàng chục và đơn vị: 607 + 058 = 665.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 607,
+      "b": 58,
+      "op": "+",
+      "value": 665
+    }
   },
   {
     "id": 112124,
@@ -1422,7 +1838,14 @@
     ],
     "a": "423",
     "h": "Đơn vị 8 + 5 = 13 viết 3 nhớ 1; chục 7 + 4 + 1 = 12 nhớ 1; trăm 2 + 1 + 1 = 4.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 278,
+      "b": 145,
+      "op": "+",
+      "value": 423
+    }
   },
   {
     "id": 112125,
@@ -1437,7 +1860,14 @@
     ],
     "a": "626",
     "h": "9 + 7 = 16 nhớ 1; 6 + 5 + 1 = 12 nhớ 1; 3 + 2 + 1 = 6.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 369,
+      "b": 257,
+      "op": "+",
+      "value": 626
+    }
   },
   {
     "id": 112126,
@@ -1452,7 +1882,14 @@
     ],
     "a": "800",
     "h": "48 chục + 32 chục = 80 chục = 800.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 480,
+      "b": 320,
+      "op": "+",
+      "value": 800
+    }
   },
   {
     "id": 112127,
@@ -1467,7 +1904,14 @@
     ],
     "a": "580",
     "h": "Đặt tính thẳng hàng; 0 − 0 = 0, đổi 1 trăm để trừ 7 chục, được 580.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 850,
+      "b": 270,
+      "op": "-",
+      "value": 580
+    }
   },
   {
     "id": 112128,
@@ -1482,7 +1926,14 @@
     ],
     "a": "524",
     "h": "6 − 2 = 4; 3 − 1 = 2 chục; 9 − 4 = 5 trăm.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 936,
+      "b": 412,
+      "op": "-",
+      "value": 524
+    }
   },
   {
     "id": 112129,
@@ -1497,7 +1948,14 @@
     ],
     "a": "435",
     "h": "Đổi hàng để trừ: 13 − 8 = 5; 9 chục − 6 chục = 3; 6 trăm − 2 trăm = 4.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 703,
+      "b": 268,
+      "op": "-",
+      "value": 435
+    }
   },
   {
     "id": 112130,
@@ -1512,7 +1970,14 @@
     ],
     "a": "375",
     "h": "Đổi từ hàng trăm sang chục rồi sang đơn vị: 10 − 5 = 5, 9 − 2 = 7, 4 − 1 = 3.",
-    "tag": "TOAN_C2"
+    "tag": "TOAN_C2",
+    "review_interaction": {
+      "type": "column",
+      "a": 500,
+      "b": 125,
+      "op": "-",
+      "value": 375
+    }
   },
   {
     "id": 112131,
@@ -1617,7 +2082,11 @@
     ],
     "a": "3 cạnh",
     "h": "Hình tam giác có 3 cạnh thẳng nối 3 đỉnh.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "connect_shape",
+      "count": 3
+    }
   },
   {
     "id": 112138,
@@ -1632,7 +2101,13 @@
     ],
     "a": "9 cm",
     "h": "Cộng độ dài các đoạn: 2 + 3 + 4 = 9 cm.",
-    "tag": "TOAN_C1"
+    "tag": "TOAN_C1",
+    "review_interaction": {
+      "type": "ruler",
+      "length": 9,
+      "max": 12,
+      "unit": "cm"
+    }
   },
   {
     "id": 112139,
@@ -1692,7 +2167,12 @@
     ],
     "a": "30",
     "h": "Vì 1 m = 10 dm nên 3 m = 3 × 10 = 30 dm.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 30,
+      "unit": ""
+    }
   },
   {
     "id": 112143,
@@ -1707,7 +2187,12 @@
     ],
     "a": "2000",
     "h": "Mỗi ki-lô-mét bằng 1 000 m, vậy 2 km = 2 000 m.",
-    "tag": "TOAN_C3"
+    "tag": "TOAN_C3",
+    "review_interaction": {
+      "type": "number",
+      "value": 2000,
+      "unit": ""
+    }
   },
   {
     "id": 112144,
@@ -1797,7 +2282,12 @@
     ],
     "a": "13 quả",
     "h": "Cộng số quả từng loại: 6 + 3 + 4 = 13 quả.",
-    "tag": "TOAN_C4"
+    "tag": "TOAN_C4",
+    "review_interaction": {
+      "type": "number",
+      "value": 13,
+      "unit": "quả"
+    }
   },
   {
     "id": 112150,
@@ -1827,7 +2317,12 @@
     ],
     "a": "6 bông",
     "h": "Đếm sáu dấu ● ở hàng hoa cúc, nên có 6 bông.",
-    "tag": "TOAN_C4"
+    "tag": "TOAN_C4",
+    "review_interaction": {
+      "type": "number",
+      "value": 6,
+      "unit": "bông"
+    }
   },
   {
     "id": 112152,
@@ -1872,7 +2367,12 @@
     ],
     "a": "6 bạn",
     "h": "Có 3 ngôi sao, mỗi ngôi sao là 2 bạn nên 2 + 2 + 2 = 6.",
-    "tag": "TOAN_C4"
+    "tag": "TOAN_C4",
+    "review_interaction": {
+      "type": "number",
+      "value": 6,
+      "unit": "bạn"
+    }
   },
   {
     "id": 112155,
@@ -1977,7 +2477,15 @@
     ],
     "a": "20 quả",
     "h": "Bốn nhóm 5 quả nên tính 5 × 4 = 20 quả.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 4,
+      "b": 5,
+      "op": "*",
+      "result": 20,
+      "unit": "quả"
+    }
   },
   {
     "id": 112162,
@@ -1992,7 +2500,15 @@
     ],
     "a": "9 chiếc",
     "h": "Chia thành 2 phần bằng nhau: 18 : 2 = 9 chiếc.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 18,
+      "b": 2,
+      "op": "/",
+      "result": 9,
+      "unit": "chiếc"
+    }
   },
   {
     "id": 112163,
@@ -2007,7 +2523,15 @@
     ],
     "a": "5 bông",
     "h": "25 bông chia đều 5 lọ: 25 : 5 = 5 bông.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 25,
+      "b": 5,
+      "op": "/",
+      "result": 5,
+      "unit": "bông"
+    }
   },
   {
     "id": 112164,
@@ -2022,7 +2546,15 @@
     ],
     "a": "861 quyển",
     "h": "Nhận thêm thì cộng: 735 + 126 = 861 quyển.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 735,
+      "b": 126,
+      "op": "+",
+      "result": 861,
+      "unit": "quyển"
+    }
   },
   {
     "id": 112165,
@@ -2037,7 +2569,15 @@
     ],
     "a": "735 quyển",
     "h": "Bán đi thì trừ: 920 − 185 = 735 quyển.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 920,
+      "b": 185,
+      "op": "-",
+      "result": 735,
+      "unit": "quyển"
+    }
   },
   {
     "id": 112166,
@@ -2052,7 +2592,15 @@
     ],
     "a": "230 l",
     "h": "Lượng nước còn lại: 350 − 120 = 230 l.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 350,
+      "b": 120,
+      "op": "-",
+      "result": 230,
+      "unit": "l"
+    }
   },
   {
     "id": 112167,
@@ -2067,7 +2615,15 @@
     ],
     "a": "3 km",
     "h": "Cộng hai quãng đường cùng đơn vị km: 2 + 1 = 3 km.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 2,
+      "b": 1,
+      "op": "+",
+      "result": 3,
+      "unit": "km"
+    }
   },
   {
     "id": 112168,
@@ -2082,7 +2638,15 @@
     ],
     "a": "7 kg",
     "h": "Cùng đơn vị kg: 2 + 5 = 7 kg.",
-    "tag": "TOAN_C5"
+    "tag": "TOAN_C5",
+    "review_interaction": {
+      "type": "solution",
+      "a": 2,
+      "b": 5,
+      "op": "+",
+      "result": 7,
+      "unit": "kg"
+    }
   },
   {
     "id": 112169,
