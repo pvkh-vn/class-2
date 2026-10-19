@@ -170,6 +170,7 @@ const BAI_HOC_DATA_FILE = `${CLASS2_MATH_DATA_ROOT}bai_hoc_toan_2.json`;
 const BAI_TAP_HK1_DATA_FILE = `${CLASS2_MATH_DATA_ROOT}bai_tap_toan_2_hk1.json`;
 const BAI_TAP_HK2_DATA_FILE = `${CLASS2_MATH_DATA_ROOT}bai_tap_toan_2_hk2.json`;
 const ON_TAP_DATA_FILE = `${CLASS2_MATH_DATA_ROOT}on_tap_toan_2.json`;
+const REVIEW_DATA_VERSION = '20261019-review-interactions-v1';
 const SHARED_IMAGE_CATALOG_FILE = 'assets/data/shared_image_catalog.json';
 let exerciseQuestionsFlatCache_ = null;
 let reviewQuestionsFlatCache_ = null;
@@ -202,6 +203,8 @@ let score = 0;
 let userAnswers = {};
 let wrongAttemptsByQ = {};
 let orderInteractionState = {};
+let reviewInteractiveState_ = {}; // Chỉ dùng cho thao tác Ôn tập 11.1/11.2; không persist.
+
 let quizWrongAnswers = [];
 let quizAnsweredLog = [];
 let quizStartTime = null;
@@ -563,6 +566,7 @@ function normalizeQuestion(q) {
         explore_branch: q.explore_branch ?? '',
         explore_hidden: Boolean(q.explore_hidden ?? false),
         visual_data: q.visual_data ?? null,
+        review_interaction: q.review_interaction && typeof q.review_interaction === 'object' && !Array.isArray(q.review_interaction) ? q.review_interaction : null,
         lesson_refs: Array.isArray(q.lesson_refs) ? q.lesson_refs.map(String) : [],
         diem: Number(q.diem ?? q.score ?? 0.5),
         explanation: q.explanation ?? q.h ?? 'Không có giải thích chi tiết.'
@@ -1588,7 +1592,7 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
     groups.forEach((subName, idx) => {
         const style = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         const displayTitle = beautifySubtopicName(groupLabels[subName]).replace(/^\s*\d+(?:\.\d+)?[.)]?\s*/, '').trim();
-        const displayCode = `${Number(topicNum)}.${idx + 1}`;
+        const displayCode = String(topicNum) === 'review' ? String(subName) : `${Number(topicNum)}.${idx + 1}`;
         const rawCount = groupMap[subName].length;
         // Đếm số câu hỏi thực tế: Cấp 1 và Cấp 2 của mục 3.4 cùng dùng một bộ 75 câu.
         const count = rawCount;
@@ -2496,6 +2500,7 @@ function startTopicQuiz(topicNum, topicName, questions, subLabel) {
     userAnswers = {};
     wrongAttemptsByQ = {};
     orderInteractionState = {};
+    reviewInteractiveState_ = {};
     quizWrongAnswers = []; 
     quizAnsweredLog = []; 
     quizStartTime = Date.now();
@@ -4281,12 +4286,381 @@ function highlightQuestionNumbers_(text) {
     );
 }
 
+// ==========================================
+// ÔN TẬP TOÁN 2 - BÀI TẬP THAO TÁC (chỉ 11.1 / 11.2)
+// Mỗi câu vẫn giữ q/o/a/h cũ để tương thích và có phương án trắc nghiệm dự phòng.
+// Không thay đổi Đề thi, Bài tập, Khám phá, HSG, quyền học hay API.
+// ==========================================
+function reviewNumberValue_(raw) {
+    const found = String(raw ?? '').trim().match(/^(\d[\d\s]*)/);
+    return found ? Number(found[1].replace(/\s+/g, '')) : NaN;
+}
+function getActiveReviewInteraction_(q) {
+    if (currentMainTab !== 'review' || String(activeTopicId) !== 'review' || activeExamContext || activeRoadmapContext) return null;
+    if (!['11.1', '11.2'].includes(String(q?.sub_topic))) return null;
+    const meta = q?.review_interaction;
+    if (!meta || typeof meta !== 'object' || Array.isArray(meta)) return null;
+    const type = String(meta.type || '');
+    const expected = reviewNumberValue_(q.answer);
+    const isInt = (value, min = 0, max = 9999) => Number.isInteger(value) && value >= min && value <= max;
+    if (type === 'number') return isInt(meta.value) && meta.value === expected ? meta : null;
+    if (type === 'column') {
+        const {a,b,op,value} = meta;
+        if (!isInt(a) || !isInt(b) || !isInt(value) || !['+', '-'].includes(op)) return null;
+        return value === expected && (op === '+' ? a + b : a - b) === value ? meta : null;
+    }
+    if (type === 'solution') {
+        const {a,b,op,result} = meta;
+        if (!isInt(a) || !isInt(b) || !isInt(result) || !['+', '-', '*', '/'].includes(op)) return null;
+        const actual = op === '+' ? a + b : op === '-' ? a - b : op === '*' ? a * b : (b ? a / b : NaN);
+        return actual === result && result === expected ? meta : null;
+    }
+    if (type === 'order') {
+        const {numbers, expected: sorted} = meta;
+        if (!Array.isArray(numbers) || !Array.isArray(sorted) || numbers.length < 2 || numbers.length > 6 || numbers.length !== sorted.length || !numbers.every(x => isInt(x)) || !sorted.every(x => isInt(x))) return null;
+        if (new Set(numbers).size !== numbers.length || numbers.slice().sort((a,b) => a-b).join(',') !== sorted.slice().sort((a,b) => a-b).join(',')) return null;
+        return String(q.answer).replace(/\s+/g, '') === sorted.join(',') ? meta : null;
+    }
+    if (type === 'ruler') return isInt(meta.length,1,24) && isInt(meta.max,meta.length+1,30) && meta.length === expected ? meta : null;
+    if (type === 'connect_shape') return [3,4].includes(meta.count) && meta.count === expected ? meta : null;
+    return null;
+}
+function getReviewInteractiveState_(q) {
+    const key = currentQIndex;
+    const id = String(q.question_id);
+    if (!reviewInteractiveState_[key] || reviewInteractiveState_[key].questionId !== id) {
+        reviewInteractiveState_[key] = {
+            questionId: id, fields: {}, ordered: [], length: null, vertices: [], feedback: null
+        };
+    }
+    return reviewInteractiveState_[key];
+}
+function reviewTaskInput_(name, aria, value = '', extra = '') {
+    return `<input data-review-field="${escapeHtml(name)}" aria-label="${escapeHtml(aria)}" value="${escapeHtml(value)}" inputmode="numeric" autocomplete="off" spellcheck="false" ${extra} class="w-20 sm:w-24 h-12 rounded-xl bg-white border-2 border-violet-200 focus:border-pink-500 focus:outline-none text-center font-black text-xl text-purple-800 shadow-sm" />`;
+}
+function renderReviewTaskBody_(meta, st) {
+    if (meta.type === 'number') {
+        const unit = String(meta.unit || '').trim();
+        return `<div class="flex flex-wrap gap-3 justify-center items-center py-4">
+            <label class="font-extrabold text-purple-800 text-base" for="review-value-input">Đáp án của con:</label>
+            <input id="review-value-input" data-review-field="value" aria-label="Nhập đáp án" value="${escapeHtml(st.fields.value || '')}" inputmode="numeric" autocomplete="off" maxlength="6" class="w-32 h-14 rounded-2xl bg-white border-2 border-violet-300 focus:border-pink-500 focus:outline-none text-center font-black text-2xl text-purple-800 shadow-sm" />
+            ${unit ? `<strong class="text-lg text-purple-700">${escapeHtml(unit)}</strong>` : ''}
+        </div>`;
+    }
+    if (meta.type === 'column') {
+        const op = meta.op === '+' ? '+' : '−';
+        const width = Math.max(String(meta.a).length,String(meta.b).length,String(meta.value).length);
+        const cells = Array.from({length:width},(_,idx) => {
+            const tag = `digit${idx}`;
+            return `<input data-review-field="${tag}" inputmode="numeric" autocomplete="off" maxlength="1" aria-label="Chữ số hàng ${width - idx === 1 ? 'đơn vị' : width - idx === 2 ? 'chục' : 'trăm'}" value="${escapeHtml(st.fields[tag] || '')}" class="w-12 h-14 sm:w-14 sm:h-16 rounded-xl border-2 border-violet-300 bg-white text-center text-2xl font-black text-purple-800 focus:border-pink-500 focus:outline-none" />`;
+        }).join('');
+        return `<div class="mx-auto w-fit max-w-full py-3">
+            <div class="rounded-2xl border border-pink-200 bg-white/90 px-5 sm:px-8 py-4 shadow-sm">
+                <div class="font-mono text-3xl sm:text-4xl leading-tight tracking-[0.12em] text-right text-slate-800 font-bold pr-2">${meta.a}</div>
+                <div class="font-mono text-3xl sm:text-4xl leading-tight tracking-[0.12em] text-right text-slate-800 font-bold pr-2">${op} ${meta.b}</div>
+                <div class="border-t-4 border-purple-500 my-2"></div>
+                <div class="flex justify-end gap-1.5">${cells}</div>
+            </div>
+            <p class="text-center text-xs sm:text-sm text-slate-500 font-bold mt-2">Viết từng chữ số kết quả đúng cột hàng.</p>
+        </div>`;
+    }
+    if (meta.type === 'solution') {
+        const opValue = String(st.fields.operator || '');
+        const opItems = [['+','+'],['-','−'],['*','×'],['/',':']];
+        return `<div class="rounded-2xl border border-pink-200 bg-white/85 px-3 sm:px-5 py-4 space-y-3">
+            <p class="font-extrabold text-purple-800 text-sm sm:text-base">✍️ Bài giải — con tự lập phép tính và viết kết quả:</p>
+            <div class="flex items-center justify-center gap-1.5 sm:gap-3 flex-wrap">
+                ${reviewTaskInput_('a','Số thứ nhất',st.fields.a || '')}
+                <select data-review-field="operator" aria-label="Chọn phép tính" class="w-16 h-12 rounded-xl border-2 border-violet-200 bg-white text-center text-xl font-black text-purple-800 focus:border-pink-500">${[['','?'],...opItems].map(([key,label])=>`<option value="${key}" ${opValue===key?'selected':''}>${label}</option>`).join('')}</select>
+                ${reviewTaskInput_('b','Số thứ hai',st.fields.b || '')}
+                <span class="font-black text-xl text-purple-700">=</span>
+                ${reviewTaskInput_('result','Kết quả',st.fields.result || '')}
+                ${meta.unit ? `<span class="font-black text-base text-purple-700">${escapeHtml(meta.unit)}</span>` : ''}
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 font-bold text-center">Đọc đề, chọn phép tính rồi nhập cả hai số và đáp số. Phép cộng/nhân có thể đổi thứ tự các số.</p>
+        </div>`;
+    }
+    if (meta.type === 'order') {
+        return `<div class="py-3">
+            <p class="text-sm text-purple-800 font-extrabold mb-2">🧩 Chạm vào từng thẻ số theo thứ tự, hoặc kéo thả vào ô trống:</p>
+            <div id="review-order-target" class="rounded-2xl border-2 border-dashed border-purple-300 bg-white/80 min-h-[72px] p-3 flex flex-wrap items-center justify-center gap-2" aria-label="Vùng thả thẻ số"></div>
+            <div id="review-order-pool" class="flex flex-wrap items-center justify-center gap-2 mt-3"></div>
+            <button type="button" id="review-order-undo" class="mt-3 text-sm font-black text-purple-700 border border-purple-200 rounded-xl bg-purple-50 px-3 py-2">↶ Bỏ số cuối</button>
+        </div>`;
+    }
+    if (meta.type === 'ruler') {
+        const max = meta.max;
+        const x0 = 48, x1 = 732, y = 106, step = (x1-x0)/max;
+        const ticks = Array.from({length:max+1},(_,i)=>{
+            const x=x0+step*i;
+            return `<line x1="${x}" x2="${x}" y1="${y+5}" y2="${y+21}" stroke="#a78bfa" stroke-width="2"/><text x="${x}" y="${y+43}" text-anchor="middle" fill="#6d28d9" font-size="${max>17?'13':'15'}" font-weight="700">${i}</text>`;
+        }).join('');
+        return `<div class="py-2">
+            <p class="text-sm text-purple-800 font-extrabold mb-2">📏 Kéo ngón tay/chuột trên thước để <strong>vẽ đoạn thẳng bằng tổng độ dài cần tìm</strong>.</p>
+            <svg id="review-ruler-svg" viewBox="0 0 780 172" width="100%" role="img" aria-label="Thước kẻ để vẽ đoạn thẳng" style="touch-action:none;max-width:780px;cursor:crosshair;background:#fff;border-radius:18px;border:2px solid #e9d5ff">
+                <rect x="${x0-16}" y="${y-8}" width="${x1-x0+32}" height="41" rx="9" fill="#f5f3ff" />
+                <line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" stroke="#a78bfa" stroke-width="3"/>
+                ${ticks}
+                <line id="review-ruler-line" x1="${x0}" x2="${x0}" y1="48" y2="48" stroke="#e11d48" stroke-width="8" stroke-linecap="round"/>
+                <circle id="review-ruler-end" cx="${x0}" cy="48" r="11" fill="#e11d48" stroke="white" stroke-width="3" />
+                <circle cx="${x0}" cy="48" r="8" fill="#e11d48" />
+                <text x="${x0}" y="25" text-anchor="middle" font-size="16" font-weight="900" fill="#be123c">A</text>
+                <text id="review-ruler-letter" x="${x0}" y="25" text-anchor="middle" font-size="16" font-weight="900" fill="#be123c"></text>
+            </svg>
+            <p id="review-ruler-value" class="mt-2 font-black text-center text-purple-700" aria-live="polite">Con chưa vẽ đoạn thẳng.</p>
+        </div>`;
+    }
+    if (meta.type === 'connect_shape') {
+        const points = meta.count===3 ? [[75,208],[218,48],[365,208]] : [[66,62],[345,62],[368,211],[52,211]];
+        return `<div class="py-2">
+            <p class="text-sm text-purple-800 font-extrabold mb-2">📐 Chạm lần lượt các điểm <strong>${points.map((_,i)=>String.fromCharCode(65+i)).join(' → ')}</strong> để vẽ rồi khép kín hình.</p>
+            <svg id="review-shape-svg" viewBox="0 0 430 260" role="img" aria-label="Vùng nối các điểm tạo hình" style="width:100%;max-width:450px;background:#fff;border:2px solid #e9d5ff;border-radius:18px;touch-action:manipulation">
+                <path id="review-shape-path" fill="rgba(192,132,252,.15)" stroke="#e11d48" stroke-linejoin="round" stroke-width="6" />
+                ${points.map(([x,y],i)=>`<g data-review-vertex="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="25" fill="#fae8ff" stroke="#a855f7" stroke-width="2"/><circle cx="${x}" cy="${y}" r="8" fill="#a21caf"/><text x="${x}" y="${y-32}" text-anchor="middle" font-size="18" font-weight="900" fill="#6b21a8">${String.fromCharCode(65+i)}</text></g>`).join('')}
+            </svg>
+            <p id="review-shape-progress" class="mt-2 font-black text-center text-purple-700" aria-live="polite">Con hãy bắt đầu từ điểm A.</p>
+        </div>`;
+    }
+    return '';
+}
+function renderReviewInteractiveQuestion_(q, meta) {
+    const st = getReviewInteractiveState_(q);
+    const questionBox = document.getElementById('question-box');
+    if (!questionBox) return;
+    const step = document.getElementById('practice-step-text');
+    if (step) step.textContent = `${currentQIndex + 1} / ${activeQuestionsList.length}`;
+    const icon = {number:'✍️',column:'🧮',solution:'📝',order:'🧩',ruler:'📏',connect_shape:'📐'}[meta.type] || '✍️';
+    const name = {number:'Tự điền đáp án',column:'Đặt tính rồi tính',solution:'Tự trình bày phép tính',order:'Sắp xếp thẻ số',ruler:'Vẽ đoạn thẳng',connect_shape:'Vẽ hình bằng cách nối điểm'}[meta.type];
+    questionBox.style.minHeight = '';
+    questionBox.style.justifyContent = '';
+    questionBox.style.paddingTop = '';
+    questionBox.style.paddingBottom = '';
+    const card = questionBox.closest('.pastel-card'); if (card) card.style.minHeight = '';
+    questionBox.innerHTML = `<div id="review-active-task" class="w-full max-w-4xl rounded-3xl border-2 border-purple-200 bg-gradient-to-br from-white via-pink-50/55 to-violet-50/75 p-3 sm:p-5 shadow-sm text-center">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <span class="rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1.5 text-xs sm:text-sm font-black">${icon} ${name}</span>
+            <button type="button" id="review-speak-button" class="rounded-xl border border-pink-200 bg-pink-50 text-pink-700 px-3 py-2 font-extrabold text-xs sm:text-sm"><i class="fa-solid fa-volume-high text-pink-600"></i> Nghe câu hỏi</button>
+        </div>
+        <h3 class="text-base sm:text-lg md:text-xl font-black text-slate-900 leading-snug">${escapeHtml(q.question_text)}</h3>
+        <div id="review-task-body" class="mt-4">${renderReviewTaskBody_(meta,st)}</div>
+        <div class="flex flex-wrap gap-2 justify-center mt-3">
+            <button type="button" id="review-check-button" class="rounded-2xl px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-black shadow-sm hover:shadow-md">✓ Kiểm tra</button>
+            <button type="button" id="review-clear-button" class="rounded-2xl border border-purple-200 bg-white text-purple-700 px-4 py-3 font-extrabold">↶ Làm lại</button>
+        </div>
+        <div id="review-feedback" role="status" aria-live="polite" class="min-h-[28px] text-sm sm:text-base font-extrabold mt-3"></div>
+        <div id="review-explanation" class="hidden mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 text-left text-sm sm:text-base font-bold text-emerald-900"></div>
+    </div>`;
+    initializeReviewTaskEvents_(q,meta,st);
+    updateReviewInteractionUI_(q,meta,st);
+    updateNavButtons(); updateQuizPalletUI();
+}
+function updateReviewInteractionUI_(q,meta,st) {
+    const host = document.getElementById('review-active-task');
+    if (!host) return;
+    const finished = userAnswers[currentQIndex] !== undefined;
+    host.querySelectorAll('[data-review-field]').forEach(el => {el.disabled=finished;});
+    const check = host.querySelector('#review-check-button'); if (check) {check.disabled=finished; check.classList.toggle('opacity-50',finished);}
+    const clear = host.querySelector('#review-clear-button'); if (clear) {clear.disabled=finished;clear.classList.toggle('opacity-50',finished);}
+    if (meta.type==='order') updateReviewOrderUI_(meta,st,finished);
+    if (meta.type==='ruler') updateReviewRulerUI_(meta,st);
+    if (meta.type==='connect_shape') updateReviewShapeUI_(meta,st);
+    const feedback = host.querySelector('#review-feedback');
+    if (feedback) {
+        feedback.textContent=finished ? '🎉 Chính xác! Bé đã tự làm được bài này!' : (st.feedback?.text || '');
+        feedback.className=`min-h-[28px] text-sm sm:text-base font-extrabold mt-3 ${finished?'text-emerald-700':st.feedback?.error?'text-rose-600':'text-purple-700'}`;
+    }
+    const explain=host.querySelector('#review-explanation');
+    if (explain) {
+        const reveal=finished || (wrongAttemptsByQ[currentQIndex]||[]).length>=2;
+        explain.classList.toggle('hidden',!reveal);
+        explain.textContent=reveal ? `🐰 Cô Thỏ Ngọc hướng dẫn: ${q.hint || q.explanation || 'Bé đọc lại đề và kiểm tra từng bước nhé!'}` : '';
+    }
+    if (finished) host.querySelectorAll('[data-review-vertex]').forEach(el=>{el.style.pointerEvents='none';});
+}
+function updateReviewOrderUI_(meta,st,finished) {
+    const target=document.getElementById('review-order-target');const pool=document.getElementById('review-order-pool');
+    if (!target || !pool) return;
+    const used=new Set(st.ordered);
+    target.innerHTML=meta.numbers.map((_,i)=>{
+        const n=st.ordered[i];
+        return `<div class="min-w-[57px] h-14 px-2 rounded-xl flex items-center justify-center text-xl font-black ${n === undefined ? 'border-2 border-dashed border-violet-200 bg-white text-violet-200' : 'bg-fuchsia-100 border-2 border-fuchsia-300 text-fuchsia-800'}">${n===undefined?'?':n}</div>`;
+    }).join('');
+    pool.innerHTML=meta.numbers.filter(n=>!used.has(n)).map(n=>`<button type="button" data-review-order-number="${n}" draggable="${!finished}" ${finished?'disabled':''} class="min-w-[57px] h-14 px-3 bg-white border-2 border-purple-300 rounded-xl font-black text-xl text-purple-800 shadow-sm hover:bg-pink-50">${n}</button>`).join('');
+    const undo=document.getElementById('review-order-undo');if(undo)undo.disabled=finished||!st.ordered.length;
+}
+function updateReviewRulerUI_(meta,st) {
+    const line=document.getElementById('review-ruler-line');const end=document.getElementById('review-ruler-end');
+    const tag=document.getElementById('review-ruler-letter');const text=document.getElementById('review-ruler-value');
+    const n=Math.max(0,Math.min(meta.max,Number(st.length)||0)),x=48+(732-48)*n/meta.max;
+    if(line)line.setAttribute('x2',x);
+    if(end)end.setAttribute('cx',x);
+    if(tag){tag.textContent=st.length===null?'':'B';tag.setAttribute('x',x);}
+    if(text)text.textContent=st.length===null?'Con chưa vẽ đoạn thẳng.':`Đoạn thẳng con vẽ dài: ${n} cm`;
+}
+function updateReviewShapeUI_(meta,st) {
+    const svg=document.getElementById('review-shape-svg');const path=document.getElementById('review-shape-path');const txt=document.getElementById('review-shape-progress');
+    if(!svg||!path) return;
+    const pts=meta.count===3?[[75,208],[218,48],[365,208]]:[[66,62],[345,62],[368,211],[52,211]];
+    let d=st.vertices.map((i,j)=>`${j===0?'M':'L'} ${pts[i][0]} ${pts[i][1]}`).join(' ');
+    if(st.vertices.length===meta.count)d+=' Z';
+    path.setAttribute('d',d);
+    svg.querySelectorAll('[data-review-vertex]').forEach((el,i)=>{
+        const circle=el.querySelector('circle');if(circle)circle.setAttribute('fill',st.vertices.includes(i)?'#86efac':'#fae8ff');
+    });
+    if(txt)txt.textContent=st.vertices.length===meta.count?`Con đã vẽ xong hình ${meta.count} cạnh. Hãy kiểm tra nhé!`:`Đã nối ${st.vertices.length}/${meta.count} điểm. Tiếp theo là ${String.fromCharCode(65+st.vertices.length)}.`;
+}
+function collectReviewAnswer_(meta,st) {
+    const number=(raw)=>/^\d{1,5}$/.test(String(raw||'').trim()) ? Number(raw) : null;
+    if(meta.type==='number'){
+        const x=number(st.fields.value);
+        return x===null?null:{ok:x===meta.value,key:String(x)};
+    }
+    if(meta.type==='column'){
+        const width=Math.max(String(meta.a).length,String(meta.b).length,String(meta.value).length);
+        const digits=Array.from({length:width},(_,idx)=>String(st.fields[`digit${idx}`]||'').trim());
+        if(digits.every(v=>!v) || digits.some((v,i)=>v!==''&&!/^\d$/.test(v)))return null;
+        const packed=digits.join('');
+        if(!packed || digits.some((v,i)=>i>0&&v===''))return null;
+        const x=Number(packed);
+        return {ok:x===meta.value,key:packed};
+    }
+    if(meta.type==='solution'){
+        const a=number(st.fields.a),b=number(st.fields.b),answer=number(st.fields.result),op=st.fields.operator;
+        if(a===null||b===null||answer===null||!['+','-','*','/'].includes(op))return null;
+        const operandOK=(a===meta.a&&b===meta.b) || (['+','*'].includes(meta.op)&&a===meta.b&&b===meta.a);
+        return {ok:operandOK&&op===meta.op&&answer===meta.result,key:`${a}${op}${b}=${answer}`};
+    }
+    if(meta.type==='order'){
+        if(st.ordered.length!==meta.expected.length)return null;
+        return {ok:st.ordered.every((n,i)=>n===meta.expected[i]),key:st.ordered.join(',')};
+    }
+    if(meta.type==='ruler'){
+        if(!Number.isInteger(st.length))return null;
+        return {ok:st.length===meta.length,key:`${st.length}cm`};
+    }
+    if(meta.type==='connect_shape'){
+        if(st.vertices.length!==meta.count)return null;
+        return {ok:st.vertices.every((n,i)=>n===i),key:st.vertices.join(',')};
+    }
+    return null;
+}
+function reviewCheckCurrent_(q,meta,st) {
+    if(userAnswers[currentQIndex]!==undefined)return;
+    const outcome=collectReviewAnswer_(meta,st);
+    if(!outcome){showAppNotice('Bé hãy hoàn thành thao tác hoặc điền đủ phép tính trước khi kiểm tra nhé!');return;}
+    if(outcome.ok){
+        userAnswers[currentQIndex]=q.answer;
+        score+=(q.diem??0.5);
+        starGreenCount++;
+        const green=document.getElementById('star-green-count');if(green)green.textContent=starGreenCount;
+        st.feedback={text:'Chính xác!',error:false};
+        playAudio('correct');
+        if(typeof confetti==='function')confetti({particleCount:28,spread:55,origin:{y:0.7}});
+        const answeredIndex=currentQIndex,id=String(q.question_id);
+        setTimeout(()=>{if(currentMainTab==='review'&&currentQIndex===answeredIndex&&String(activeQuestionsList[currentQIndex]?.question_id)===id)speakVietnamese('Giỏi lắm! Con đã làm đúng rồi.');},160);
+    }else{
+        if(!wrongAttemptsByQ[currentQIndex])wrongAttemptsByQ[currentQIndex]=[];
+        if(!wrongAttemptsByQ[currentQIndex].includes(outcome.key)){
+            wrongAttemptsByQ[currentQIndex].push(outcome.key);
+            starRedCount++;
+            const red=document.getElementById('star-red-count');if(red)red.textContent=starRedCount;
+        }
+        st.feedback={text:meta.type==='solution'?'Con hãy xem lại số đã cho, phép tính và đáp số nhé!':'Chưa đúng rồi. Bé kiểm tra lại từng bước rồi thử tiếp nhé!',error:true};
+        playAudio('wrong');
+    }
+    updateReviewInteractionUI_(q,meta,st);
+    updateQuizPalletUI();
+}
+function reviewResetCurrent_(q,meta,st) {
+    if(userAnswers[currentQIndex]!==undefined)return;
+    st.fields={};st.ordered=[];st.length=null;st.vertices=[];st.feedback=null;
+    const body=document.getElementById('review-task-body');
+    if(body){const replacement=body.cloneNode(false);replacement.innerHTML=renderReviewTaskBody_(meta,st);body.replaceWith(replacement);initializeReviewBodyEvents_(q,meta,st);}
+    updateReviewInteractionUI_(q,meta,st);
+}
+function initializeReviewTaskEvents_(q,meta,st) {
+    const host=document.getElementById('review-active-task');if(!host)return;
+    host.querySelector('#review-speak-button')?.addEventListener('click',()=>speakCurrentQuestion());
+    host.querySelector('#review-check-button')?.addEventListener('click',()=>reviewCheckCurrent_(q,meta,st));
+    host.querySelector('#review-clear-button')?.addEventListener('click',()=>reviewResetCurrent_(q,meta,st));
+    initializeReviewBodyEvents_(q,meta,st);
+}
+function initializeReviewBodyEvents_(q,meta,st) {
+    const body=document.getElementById('review-task-body');if(!body)return;
+    body.querySelectorAll('[data-review-field]').forEach(el=>{
+        const name=el.getAttribute('data-review-field');
+        const fn=()=>{
+            if(userAnswers[currentQIndex]!==undefined)return;
+            st.fields[name]=el.value;
+            if(meta.type==='column'&&el.value.length===1){
+                const all=Array.from(body.querySelectorAll('[data-review-field]'));
+                const next=all[all.indexOf(el)+1];if(next)next.focus();
+            }
+        };
+        el.addEventListener(el.tagName==='SELECT'?'change':'input',fn);
+        el.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();reviewCheckCurrent_(q,meta,st);}});
+    });
+    if(meta.type==='order'){
+        body.addEventListener('click',event=>{
+            if(userAnswers[currentQIndex]!==undefined)return;
+            const btn=event.target.closest('[data-review-order-number]');
+            if(btn){const num=Number(btn.dataset.reviewOrderNumber);if(meta.numbers.includes(num)&&!st.ordered.includes(num)){st.ordered.push(num);st.feedback=null;updateReviewInteractionUI_(q,meta,st);}return;}
+            if(event.target.closest('#review-order-undo')){st.ordered.pop();st.feedback=null;updateReviewInteractionUI_(q,meta,st);}
+        });
+        body.addEventListener('dragstart',event=>{
+            const btn=event.target.closest('[data-review-order-number]');
+            if(!btn || userAnswers[currentQIndex]!==undefined)return;
+            event.dataTransfer?.setData('text/plain',btn.dataset.reviewOrderNumber);
+            if(event.dataTransfer)event.dataTransfer.effectAllowed='move';
+        });
+        body.querySelector('#review-order-target')?.addEventListener('dragover',event=>{event.preventDefault();});
+        body.querySelector('#review-order-target')?.addEventListener('drop',event=>{
+            event.preventDefault();if(userAnswers[currentQIndex]!==undefined)return;
+            const val=Number(event.dataTransfer?.getData('text/plain'));
+            if(meta.numbers.includes(val)&&!st.ordered.includes(val)){st.ordered.push(val);st.feedback=null;updateReviewInteractionUI_(q,meta,st);}
+        });
+    }
+    if(meta.type==='ruler'){
+        const svg=body.querySelector('#review-ruler-svg');if(!svg)return;
+        let drawing=false;
+        const apply=ev=>{
+            if(userAnswers[currentQIndex]!==undefined)return;
+            const point=svg.createSVGPoint();point.x=ev.clientX;point.y=ev.clientY;
+            const ctm=svg.getScreenCTM();
+            if(!ctm)return;
+            const local=point.matrixTransform(ctm.inverse());
+            st.length=Math.max(0,Math.min(meta.max,Math.round((local.x-48)*meta.max/(732-48))));
+            st.feedback=null;updateReviewInteractionUI_(q,meta,st);
+        };
+        svg.addEventListener('pointerdown',ev=>{if(userAnswers[currentQIndex]!==undefined)return;drawing=true;try{svg.setPointerCapture(ev.pointerId)}catch(_){}apply(ev);ev.preventDefault();});
+        svg.addEventListener('pointermove',ev=>{if(drawing)apply(ev);});
+        svg.addEventListener('pointerup',ev=>{if(drawing){apply(ev);drawing=false;}try{svg.releasePointerCapture(ev.pointerId)}catch(_){}});
+        svg.addEventListener('pointercancel',()=>{drawing=false;});
+    }
+    if(meta.type==='connect_shape'){
+        body.querySelector('#review-shape-svg')?.addEventListener('click',event=>{
+            if(userAnswers[currentQIndex]!==undefined)return;
+            const vertex=event.target.closest('[data-review-vertex]');if(!vertex)return;
+            const idx=Number(vertex.getAttribute('data-review-vertex'));
+            if(st.vertices.length===meta.count)return;
+            if(idx!==st.vertices.length){showAppNotice(`Con hãy nối tới điểm ${String.fromCharCode(65+st.vertices.length)} trước nhé!`);return;}
+            st.vertices.push(idx);st.feedback=null;updateReviewInteractionUI_(q,meta,st);
+        });
+    }
+}
+
 function loadQuestion() {
     stopSpeaking();
     const q = activeQuestionsList[currentQIndex];
     if (!q) return;
 
     const isEvaluationMode = !!activeExamContext || !!activeRoadmapContext;
+    const reviewTask = getActiveReviewInteraction_(q);
+    if (reviewTask) {
+        renderReviewInteractiveQuestion_(q, reviewTask);
+        if (autoSpeechEnabled) speakCurrentQuestion();
+        return;
+    }
     const exploreMath = !isEvaluationMode ? getExploreMathPresentation(q) : null;
     const isNumberCompose = !isEvaluationMode && q.explore_type === 'compose_words';
     const isFindNumber = !isEvaluationMode && q.explore_type === 'find_number';
@@ -4924,6 +5298,7 @@ function nextQuestion(event) {
             currentQIndex = 0;
             userAnswers = {};
             wrongAttemptsByQ = {};
+            reviewInteractiveState_ = {};
             loadQuestion();
         }
     }
@@ -20035,7 +20410,7 @@ async function fetchExerciseQuestionsFlat_() {
 }
 async function fetchReviewQuestionsFlat_() {
     if (reviewQuestionsFlatCache_) return reviewQuestionsFlatCache_;
-    const res = await fetch(`${ON_TAP_DATA_FILE}?v=${DATA_VERSION}`, {cache:'no-store'});
+    const res = await fetch(`${ON_TAP_DATA_FILE}?v=${REVIEW_DATA_VERSION}`, {cache:'no-store'});
     if (!res.ok) throw new Error('Không thể tải dữ liệu Ôn tập Toán 2');
     const data = await res.json();
     const raw = Array.isArray(data) ? data : (Array.isArray(data?.questions) ? data.questions : []);
@@ -22108,6 +22483,7 @@ async function renderClass2Math_(ctx) {
 }
 function destroyClass2Math_() {
     mathModuleDestroyed_=true;
+    reviewInteractiveState_={};
     try{stopSpeaking()}catch(_){}; try{clearInterval(quizTimerInterval)}catch(_){}; try{stopActiveMiniGame_()}catch(_){};
     try{histLineChartInstance?.destroy?.()}catch(_){}; try{histBarChartInstance?.destroy?.()}catch(_){};
     try{banMaiAudio.pause();banMaiAudio.currentTime=0;banMaiAudio.onended=null}catch(_){};
