@@ -1,2103 +1,2103 @@
 [
   {
-    "id": 111000,
+    "id": 111100,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 63 - 40 = ?",
+    "q": "Số 67 gồm mấy chục và mấy đơn vị?",
     "o": [
-      "23",
-      "22",
-      "25",
-      "24"
+      "7 chục và 6 đơn vị",
+      "6 chục và 7 đơn vị",
+      "7 chục và 7 đơn vị",
+      "6 chục và 6 đơn vị"
     ],
-    "a": "23",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 63 - 40 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 23.",
-    "tag": "TOAN_C2"
+    "a": "6 chục và 7 đơn vị",
+    "h": "Trong 67, chữ số 6 ở hàng chục, chữ số 7 ở hàng đơn vị.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 111001,
+    "id": 111101,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 40 + 28 = ?",
-    "o": [
-      "68",
-      "70",
-      "69",
-      "67"
-    ],
-    "a": "68",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 40 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111002,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 76 - 28 = ?",
-    "o": [
-      "47",
-      "48",
-      "49",
-      "50"
-    ],
-    "a": "48",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 76 - 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 48.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111003,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 41 + 27 = ?",
-    "o": [
-      "67",
-      "68",
-      "69",
-      "70"
-    ],
-    "a": "68",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111004,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 72 - 26 = ?",
-    "o": [
-      "47",
-      "46",
-      "45",
-      "48"
-    ],
-    "a": "46",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 72 - 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 46.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111005,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 51 + 29 = ?",
+    "q": "Trong số 84, chữ số 8 có giá trị bao nhiêu?",
     "o": [
       "80",
-      "81",
-      "82",
-      "79"
+      "84",
+      "40",
+      "8"
     ],
     "a": "80",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 51 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 80.",
-    "tag": "TOAN_C2"
+    "h": "8 đứng ở hàng chục, nghĩa là 8 chục = 80.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 111006,
+    "id": 111102,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 82 - 14 = ?",
+    "q": "Số 58 được viết thành tổng nào?",
     "o": [
+      "5 + 8",
+      "50 + 8",
+      "5 + 80",
+      "50 + 80"
+    ],
+    "a": "50 + 8",
+    "h": "58 gồm 5 chục và 8 đơn vị nên 58 = 50 + 8.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111103,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Số liền trước của 70 là số nào?",
+    "o": [
+      "71",
       "68",
-      "70",
       "69",
-      "67"
+      "60"
     ],
-    "a": "68",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 82 - 14 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
-    "tag": "TOAN_C2"
+    "a": "69",
+    "h": "Số liền trước kém số đã cho đúng 1: 70 − 1 = 69.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 111007,
+    "id": 111104,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 44 + 21 = ?",
+    "q": "Số liền sau của 89 là số nào?",
     "o": [
-      "65",
-      "66",
-      "67",
-      "64"
-    ],
-    "a": "65",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 44 + 21 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 65.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111008,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 51 - 24 = ?",
-    "o": [
-      "27",
-      "28",
-      "29",
-      "26"
-    ],
-    "a": "27",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 51 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 27.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111009,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 45 + 30 = ?",
-    "o": [
-      "76",
-      "77",
-      "74",
-      "75"
-    ],
-    "a": "75",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 45 + 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 75.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111010,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 50 - 16 = ?",
-    "o": [
-      "35",
-      "34",
-      "36",
-      "33"
-    ],
-    "a": "34",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 50 - 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 34.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111011,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 49 + 33 = ?",
-    "o": [
-      "83",
-      "84",
-      "82",
-      "81"
-    ],
-    "a": "82",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 49 + 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 82.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111012,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 78 - 33 = ?",
-    "o": [
-      "44",
-      "47",
-      "46",
-      "45"
-    ],
-    "a": "45",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 78 - 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 45.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111013,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 52 + 36 = ?",
-    "o": [
-      "87",
-      "89",
-      "88",
-      "90"
-    ],
-    "a": "88",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 52 + 36 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 88.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111014,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 58 - 35 = ?",
-    "o": [
-      "24",
-      "22",
-      "23",
-      "25"
-    ],
-    "a": "23",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 58 - 35 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 23.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111015,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 38 + 16 = ?",
-    "o": [
-      "55",
-      "56",
-      "53",
-      "54"
-    ],
-    "a": "54",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 38 + 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 54.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111016,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 90 - 13 = ?",
-    "o": [
-      "78",
-      "77",
-      "79",
-      "76"
-    ],
-    "a": "77",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 77.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111017,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 29 + 37 = ?",
-    "o": [
-      "66",
-      "68",
-      "65",
-      "67"
-    ],
-    "a": "66",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 29 + 37 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 66.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111018,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 56 - 27 = ?",
-    "o": [
-      "29",
-      "31",
-      "30",
-      "28"
-    ],
-    "a": "29",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 56 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 29.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111019,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 56 + 18 = ?",
-    "o": [
-      "73",
-      "76",
-      "75",
-      "74"
-    ],
-    "a": "74",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 56 + 18 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111020,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 77 - 15 = ?",
-    "o": [
-      "62",
-      "61",
-      "63",
-      "64"
-    ],
-    "a": "62",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 77 - 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111021,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 45 + 23 = ?",
-    "o": [
-      "67",
-      "70",
-      "68",
-      "69"
-    ],
-    "a": "68",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 45 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 68.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111022,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 64 - 24 = ?",
-    "o": [
-      "42",
-      "41",
-      "40",
-      "39"
-    ],
-    "a": "40",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 64 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 40.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111023,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 49 + 26 = ?",
-    "o": [
-      "74",
-      "76",
-      "77",
-      "75"
-    ],
-    "a": "75",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 49 + 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 75.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111024,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 90 - 38 = ?",
-    "o": [
-      "51",
-      "52",
-      "53",
-      "54"
-    ],
-    "a": "52",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 52.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111025,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 41 + 26 = ?",
-    "o": [
-      "67",
-      "68",
-      "66",
-      "69"
-    ],
-    "a": "67",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 26 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 67.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111026,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 74 - 27 = ?",
-    "o": [
-      "49",
-      "48",
-      "47",
-      "46"
-    ],
-    "a": "47",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 74 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 47.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111027,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 21 + 27 = ?",
-    "o": [
-      "50",
-      "49",
-      "48",
-      "47"
-    ],
-    "a": "48",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 21 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 48.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111028,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 57 - 32 = ?",
-    "o": [
-      "27",
-      "24",
-      "25",
-      "26"
-    ],
-    "a": "25",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 57 - 32 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 25.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111029,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 48 + 30 = ?",
-    "o": [
-      "77",
+      "90",
       "80",
-      "78",
-      "79"
+      "88",
+      "99"
     ],
-    "a": "78",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 48 + 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 78.",
-    "tag": "TOAN_C2"
+    "a": "90",
+    "h": "Số liền sau hơn 89 đúng 1 đơn vị: 89 + 1 = 90.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 111030,
+    "id": 111105,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 67 - 28 = ?",
+    "q": "Trên tia số, số nào nằm ngay giữa 56 và 58?",
     "o": [
-      "40",
-      "39",
-      "38",
-      "41"
-    ],
-    "a": "39",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 67 - 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 39.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111031,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 20 + 15 = ?",
-    "o": [
-      "34",
-      "37",
-      "36",
-      "35"
-    ],
-    "a": "35",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 20 + 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 35.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111032,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 89 - 27 = ?",
-    "o": [
-      "61",
-      "63",
-      "62",
-      "64"
-    ],
-    "a": "62",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 89 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111033,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 17 + 29 = ?",
-    "o": [
-      "48",
-      "45",
-      "46",
-      "47"
-    ],
-    "a": "46",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 17 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 46.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111034,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 70 - 20 = ?",
-    "o": [
-      "50",
-      "51",
-      "52",
-      "49"
-    ],
-    "a": "50",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 70 - 20 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111035,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 32 + 31 = ?",
-    "o": [
-      "65",
-      "62",
-      "63",
-      "64"
-    ],
-    "a": "63",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 32 + 31 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 63.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111036,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 84 - 20 = ?",
-    "o": [
-      "65",
-      "63",
-      "64",
-      "66"
-    ],
-    "a": "64",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 84 - 20 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111037,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 15 + 38 = ?",
-    "o": [
-      "52",
-      "54",
       "55",
-      "53"
-    ],
-    "a": "53",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 15 + 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 53.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111038,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 75 - 25 = ?",
-    "o": [
-      "52",
-      "50",
-      "51",
-      "49"
-    ],
-    "a": "50",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 75 - 25 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111039,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 30 + 28 = ?",
-    "o": [
-      "58",
       "60",
-      "59",
-      "57"
-    ],
-    "a": "58",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 30 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 58.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111040,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 84 - 40 = ?",
-    "o": [
-      "45",
-      "46",
-      "44",
-      "43"
-    ],
-    "a": "44",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 84 - 40 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 44.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111041,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 47 + 27 = ?",
-    "o": [
-      "73",
-      "75",
-      "76",
-      "74"
-    ],
-    "a": "74",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 47 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111042,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 77 - 32 = ?",
-    "o": [
-      "46",
-      "47",
-      "44",
-      "45"
-    ],
-    "a": "45",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 77 - 32 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 45.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111043,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 23 + 29 = ?",
-    "o": [
-      "51",
-      "52",
-      "54",
-      "53"
-    ],
-    "a": "52",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 23 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 52.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111044,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 69 - 38 = ?",
-    "o": [
-      "32",
-      "31",
-      "30",
-      "33"
-    ],
-    "a": "31",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 69 - 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 31.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111045,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 58 + 27 = ?",
-    "o": [
-      "86",
-      "85",
-      "87",
-      "84"
-    ],
-    "a": "85",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 58 + 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 85.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111046,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 90 - 16 = ?",
-    "o": [
-      "75",
-      "73",
-      "76",
-      "74"
-    ],
-    "a": "74",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 16 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 74.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111047,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 27 + 28 = ?",
-    "o": [
       "57",
-      "54",
-      "55",
-      "56"
-    ],
-    "a": "55",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 27 + 28 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 55.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111048,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 90 - 30 = ?",
-    "o": [
-      "62",
-      "61",
-      "60",
       "59"
     ],
-    "a": "60",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 30 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 60.",
-    "tag": "TOAN_C2"
+    "a": "57",
+    "h": "Các số liên tiếp theo thứ tự là 56, 57, 58.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 111049,
+    "id": 111106,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 41 + 23 = ?",
+    "q": "Số nào lớn hơn 71 và nhỏ hơn 73?",
     "o": [
-      "64",
-      "65",
-      "63",
-      "66"
+      "72",
+      "70",
+      "71",
+      "74"
     ],
-    "a": "64",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 41 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
+    "a": "72",
+    "h": "Số đứng giữa 71 và 73 là 72, vì 71 < 72 < 73.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111107,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Sắp xếp 39, 93, 49 theo thứ tự từ bé đến lớn.",
+    "o": [
+      "93, 49, 39",
+      "39, 49, 93",
+      "39, 93, 49",
+      "49, 39, 93"
+    ],
+    "a": "39, 49, 93",
+    "h": "So sánh hàng chục trước: 3 chục < 4 chục < 9 chục.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111108,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Trong các số 64, 46, 69, 59, số nào lớn nhất?",
+    "o": [
+      "69",
+      "46",
+      "59",
+      "64"
+    ],
+    "a": "69",
+    "h": "69 có 6 chục 9 đơn vị; lớn hơn 64 và các số chỉ có 4 hoặc 5 chục.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111109,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Dãy số: 20, 30, 40, ... Số tiếp theo là số nào?",
+    "o": [
+      "41",
+      "45",
+      "60",
+      "50"
+    ],
+    "a": "50",
+    "h": "Mỗi số tăng thêm 10: 20, 30, 40, 50.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 111110,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Điền số tiếp theo trong dãy: 27, 28, 29, ...",
+    "o": [
+      "31",
+      "32",
+      "30",
+      "26"
+    ],
+    "a": "30",
+    "h": "Mỗi số hơn số đứng trước 1 đơn vị. Sau 29 là 30.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 111111,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "9 + 5 = ?",
+    "o": [
+      "13",
+      "14",
+      "12",
+      "15"
+    ],
+    "a": "14",
+    "h": "Tách 5 = 1 + 4; 9 + 1 = 10, rồi 10 + 4 = 14.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111050,
+    "id": 111112,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Thỏ Con: Hãy tính nhanh kết quả phép tính sau: 54 - 39 = ?",
+    "q": "8 + 7 = ?",
+    "o": [
+      "16",
+      "14",
+      "15",
+      "13"
+    ],
+    "a": "15",
+    "h": "Tách 7 = 2 + 5; 8 + 2 = 10, rồi 10 + 5 = 15.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111113,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "6 + 8 = ?",
     "o": [
       "14",
+      "12",
+      "13",
+      "15"
+    ],
+    "a": "14",
+    "h": "Tách 8 = 4 + 4; 6 + 4 = 10, rồi cộng thêm 4 được 14.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111114,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "7 + 6 = ?",
+    "o": [
+      "13",
+      "11",
+      "12",
+      "14"
+    ],
+    "a": "13",
+    "h": "Tách 6 = 3 + 3; 7 + 3 = 10, rồi 10 + 3 = 13.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111115,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "13 − 5 = ?",
+    "o": [
+      "7",
+      "6",
+      "9",
+      "8"
+    ],
+    "a": "8",
+    "h": "Lấy 13 − 3 = 10, sau đó 10 − 2 = 8.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111116,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "15 − 7 = ?",
+    "o": [
+      "9",
+      "8",
+      "7",
+      "6"
+    ],
+    "a": "8",
+    "h": "Lấy 15 − 5 = 10, rồi 10 − 2 = 8.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111117,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "12 − 8 = ?",
+    "o": [
+      "6",
+      "4",
+      "5",
+      "3"
+    ],
+    "a": "4",
+    "h": "Tách 8 = 2 + 6; 12 − 2 = 10, rồi 10 − 6 = 4.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111118,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "17 − 9 = ?",
+    "o": [
+      "9",
+      "7",
+      "8",
+      "6"
+    ],
+    "a": "8",
+    "h": "Tách 9 = 7 + 2; 17 − 7 = 10, rồi 10 − 2 = 8.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111119,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "9 + □ = 16. Số thích hợp vào ô trống là số nào?",
+    "o": [
+      "6",
+      "7",
+      "9",
+      "8"
+    ],
+    "a": "7",
+    "h": "Từ 9 đến 16 cần thêm 7, vì 16 − 9 = 7.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111120,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "14 − □ = 6. Điền số nào vào ô trống?",
+    "o": [
+      "7",
+      "6",
+      "9",
+      "8"
+    ],
+    "a": "8",
+    "h": "Tìm số bị lấy đi: 14 − 6 = 8. Kiểm tra 14 − 8 = 6.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111121,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "8 + □ = 15. Số còn thiếu là số nào?",
+    "o": [
+      "7",
+      "6",
+      "8",
+      "5"
+    ],
+    "a": "7",
+    "h": "Ta lấy 15 − 8 = 7; vậy 8 + 7 = 15.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111122,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "9 + 8 = ?",
+    "o": [
+      "18",
       "15",
       "16",
       "17"
     ],
-    "a": "15",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 54 - 39 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 15.",
+    "a": "17",
+    "h": "Tách 8 = 1 + 7; 9 + 1 = 10; 10 + 7 = 17.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111051,
+    "id": 111123,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sư Tử: Hãy tính nhanh kết quả phép tính sau: 29 + 29 = ?",
+    "q": "42 + 35 = ?",
     "o": [
-      "57",
-      "58",
-      "59",
-      "60"
+      "67",
+      "77",
+      "87",
+      "76"
     ],
-    "a": "58",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 29 + 29 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 58.",
+    "a": "77",
+    "h": "Cộng đơn vị: 2 + 5 = 7; cộng chục: 4 + 3 = 7. Kết quả 77.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111052,
+    "id": 111124,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Tê Giác: Hãy tính nhanh kết quả phép tính sau: 90 - 31 = ?",
-    "o": [
-      "58",
-      "60",
-      "61",
-      "59"
-    ],
-    "a": "59",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 90 - 31 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 59.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111053,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Ngựa Vằn: Hãy tính nhanh kết quả phép tính sau: 48 + 34 = ?",
-    "o": [
-      "83",
-      "84",
-      "81",
-      "82"
-    ],
-    "a": "82",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 48 + 34 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 82.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111054,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Trúc: Hãy tính nhanh kết quả phép tính sau: 52 - 27 = ?",
-    "o": [
-      "24",
-      "26",
-      "25",
-      "27"
-    ],
-    "a": "25",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 52 - 27 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 25.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111055,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Chim Cánh Cụt: Hãy tính nhanh kết quả phép tính sau: 30 + 34 = ?",
-    "o": [
-      "64",
-      "65",
-      "66",
-      "63"
-    ],
-    "a": "64",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 30 + 34 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 64.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111056,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hải Cẩu: Hãy tính nhanh kết quả phép tính sau: 63 - 13 = ?",
-    "o": [
-      "51",
-      "52",
-      "50",
-      "49"
-    ],
-    "a": "50",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 63 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111057,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cá Heo: Hãy tính nhanh kết quả phép tính sau: 20 + 22 = ?",
+    "q": "36 + 8 = ?",
     "o": [
       "43",
+      "44",
       "42",
-      "41",
-      "44"
+      "54"
     ],
-    "a": "42",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 20 + 22 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 42.",
+    "a": "44",
+    "h": "6 + 8 = 14, viết 4 nhớ 1 chục; 3 chục thêm 1 chục thành 4 chục.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111058,
+    "id": 111125,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Rùa Biển: Hãy tính nhanh kết quả phép tính sau: 53 - 25 = ?",
+    "q": "28 + 15 = ?",
     "o": [
-      "27",
-      "28",
-      "29",
-      "30"
+      "53",
+      "33",
+      "43",
+      "42"
     ],
-    "a": "28",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 53 - 25 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 28.",
+    "a": "43",
+    "h": "8 + 5 = 13, viết 3 nhớ 1 chục; 2 + 1 + 1 = 4 chục.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111059,
+    "id": 111126,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khủng Long: Hãy tính nhanh kết quả phép tính sau: 17 + 38 = ?",
+    "q": "57 + 26 = ?",
     "o": [
-      "56",
-      "55",
-      "54",
-      "57"
+      "82",
+      "73",
+      "83",
+      "93"
     ],
-    "a": "55",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 17 + 38 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 55.",
+    "a": "83",
+    "h": "7 + 6 = 13, viết 3 nhớ 1; 5 + 2 + 1 = 8 chục.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111060,
+    "id": 111127,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nai Nhỏ: Hãy tính nhanh kết quả phép tính sau: 86 - 24 = ?",
+    "q": "68 + 17 = ?",
+    "o": [
+      "85",
+      "84",
+      "95",
+      "75"
+    ],
+    "a": "85",
+    "h": "8 + 7 = 15, viết 5 nhớ 1; 6 + 1 + 1 = 8 chục.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111128,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "86 − 24 = ?",
     "o": [
       "62",
-      "63",
-      "61",
-      "64"
-    ],
-    "a": "62",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 86 - 24 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111061,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Sóc Nhỏ: Hãy tính nhanh kết quả phép tính sau: 26 + 23 = ?",
-    "o": [
-      "48",
-      "51",
-      "49",
-      "50"
-    ],
-    "a": "49",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 26 + 23 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 49.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111062,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cáo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 89 - 39 = ?",
-    "o": [
-      "49",
-      "52",
-      "50",
-      "51"
-    ],
-    "a": "50",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 89 - 39 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 50.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111063,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Gấu Con: Hãy tính nhanh kết quả phép tính sau: 27 + 33 = ?",
-    "o": [
-      "59",
-      "62",
-      "61",
+      "72",
+      "64",
       "60"
     ],
-    "a": "60",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 27 + 33 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 60.",
+    "a": "62",
+    "h": "6 − 4 = 2 đơn vị; 8 − 2 = 6 chục, được 62.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111064,
+    "id": 111129,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Cún Con: Hãy tính nhanh kết quả phép tính sau: 68 - 11 = ?",
+    "q": "70 − 26 = ?",
     "o": [
+      "54",
+      "44",
+      "34",
+      "46"
+    ],
+    "a": "44",
+    "h": "Đổi 1 chục thành 10 đơn vị: 10 − 6 = 4; còn 6 chục trừ 2 chục = 4 chục.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111130,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "52 − 8 = ?",
+    "o": [
+      "43",
+      "46",
+      "44",
+      "54"
+    ],
+    "a": "44",
+    "h": "Đổi 1 chục thành 10 đơn vị: 12 − 8 = 4; còn 4 chục, được 44.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 111131,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "94 − 37 = ?",
+    "o": [
+      "67",
+      "53",
       "57",
-      "56",
-      "59",
-      "58"
+      "47"
     ],
     "a": "57",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 68 - 11 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 57.",
+    "h": "Đổi 1 chục: 14 − 7 = 7; hàng chục 8 − 3 = 5.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 111065,
+    "id": 111132,
     "sub_code": "11.1",
     "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Mèo Nhỏ: Hãy tính nhanh kết quả phép tính sau: 40 + 22 = ?",
+    "q": "83 − 46 = ?",
     "o": [
-      "63",
-      "64",
-      "62",
-      "61"
-    ],
-    "a": "62",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 40 + 22 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 62.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111066,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Khỉ Nhỏ: Hãy tính nhanh kết quả phép tính sau: 75 - 12 = ?",
-    "o": [
-      "63",
-      "64",
-      "62",
-      "65"
-    ],
-    "a": "63",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 75 - 12 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 63.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111067,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Voi Con: Hãy tính nhanh kết quả phép tính sau: 52 + 15 = ?",
-    "o": [
-      "69",
-      "68",
-      "66",
-      "67"
-    ],
-    "a": "67",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 52 + 15 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 67.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111068,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Hươu Nhỏ: Hãy tính nhanh kết quả phép tính sau: 83 - 13 = ?",
-    "o": [
-      "69",
-      "70",
-      "72",
-      "71"
-    ],
-    "a": "70",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính trừ 83 - 13 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 70.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 111069,
-    "sub_code": "11.1",
-    "sub": "Ôn tập Học kỳ I",
-    "q": "Luyện tập tổng hợp học kỳ I cho bạn Nhím Con: Hãy tính nhanh kết quả phép tính sau: 21 + 17 = ?",
-    "o": [
-      "40",
-      "39",
       "37",
-      "38"
+      "43",
+      "47",
+      "36"
     ],
-    "a": "38",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Thực hiện phép tính cộng 21 + 17 thẳng hàng dọc cẩn thận nhé! Kết quả bằng 38.",
+    "a": "37",
+    "h": "Đổi 1 chục: 13 − 6 = 7; còn 7 chục trừ 4 chục = 3 chục.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112000,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 396 + 86?",
+    "id": 111133,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "45 + □ = 72. Điền số nào vào ô trống?",
     "o": [
-      "502",
-      "482",
-      "472",
-      "492"
+      "37",
+      "17",
+      "27",
+      "26"
     ],
-    "a": "482",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 482.",
+    "a": "27",
+    "h": "Lấy tổng trừ số hạng đã biết: 72 − 45 = 27.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112001,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 485 - 156?",
+    "id": 111134,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "72 − □ = 48. Số cần điền là bao nhiêu?",
     "o": [
-      "339",
-      "349",
-      "319",
-      "329"
+      "26",
+      "24",
+      "14",
+      "34"
     ],
-    "a": "329",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 329.",
+    "a": "24",
+    "h": "Số cần tìm bằng 72 − 48 = 24. Thử lại: 72 − 24 = 48.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112002,
+    "id": 111135,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hà có 24 nhãn vở, được cô cho thêm 17 nhãn vở. Hà có tất cả bao nhiêu nhãn vở?",
+    "o": [
+      "40 nhãn vở",
+      "31 nhãn vở",
+      "7 nhãn vở",
+      "41 nhãn vở"
+    ],
+    "a": "41 nhãn vở",
+    "h": "Có thêm thì cộng: 24 + 17 = 41 (nhãn vở).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111136,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Có 46 chiếc kẹo, các bạn ăn hết 18 chiếc. Còn lại bao nhiêu chiếc kẹo?",
+    "o": [
+      "26 chiếc",
+      "64 chiếc",
+      "28 chiếc",
+      "38 chiếc"
+    ],
+    "a": "28 chiếc",
+    "h": "Ăn bớt đi thì trừ: 46 − 18 = 28 (chiếc).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111137,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "An có 35 viên bi. Bình có nhiều hơn An 9 viên. Bình có bao nhiêu viên bi?",
+    "o": [
+      "34 viên",
+      "44 viên",
+      "26 viên",
+      "45 viên"
+    ],
+    "a": "44 viên",
+    "h": "Bình nhiều hơn nên lấy 35 + 9 = 44 (viên).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111138,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Mai có 50 tấm thẻ. Lan ít hơn Mai 13 tấm. Lan có bao nhiêu tấm thẻ?",
+    "o": [
+      "47 tấm",
+      "35 tấm",
+      "37 tấm",
+      "63 tấm"
+    ],
+    "a": "37 tấm",
+    "h": "Lan ít hơn nên lấy 50 − 13 = 37 (tấm).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111139,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hoa có 27 bông, Cúc có 19 bông. Hoa nhiều hơn Cúc bao nhiêu bông?",
+    "o": [
+      "7 bông",
+      "9 bông",
+      "8 bông",
+      "46 bông"
+    ],
+    "a": "8 bông",
+    "h": "Tìm phần hơn: lấy 27 − 19 = 8 (bông).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111140,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Lớp 2A quyên góp 48 quyển sách; lớp 2B quyên góp 37 quyển. Lớp 2B ít hơn bao nhiêu quyển?",
+    "o": [
+      "85 quyển",
+      "11 quyển",
+      "12 quyển",
+      "10 quyển"
+    ],
+    "a": "11 quyển",
+    "h": "Tìm chênh lệch: 48 − 37 = 11 (quyển).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111141,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một cửa hàng có 32 chiếc bút, đã bán 14 chiếc. Hỏi còn lại bao nhiêu chiếc bút?",
+    "o": [
+      "16 chiếc",
+      "46 chiếc",
+      "18 chiếc",
+      "19 chiếc"
+    ],
+    "a": "18 chiếc",
+    "h": "Số bút còn lại: 32 − 14 = 18 (chiếc).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111142,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Cô Thỏ Ngọc chuẩn bị 29 bông hoa, đã dùng 14 bông. Cô còn lại bao nhiêu bông hoa?",
+    "o": [
+      "16 bông",
+      "15 bông",
+      "14 bông",
+      "43 bông"
+    ],
+    "a": "15 bông",
+    "h": "Số hoa còn lại: 29 − 14 = 15 (bông).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111143,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Trong ao có 32 con vịt, 18 con lên bờ. Trong ao còn bao nhiêu con vịt?",
+    "o": [
+      "16 con",
+      "15 con",
+      "50 con",
+      "14 con"
+    ],
+    "a": "14 con",
+    "h": "Vịt lên bờ nên lấy 32 − 18 = 14 (con).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111144,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một bạn có 21 bút chì màu và 12 bút chì đen. Bạn có tất cả bao nhiêu chiếc bút chì?",
+    "o": [
+      "9 chiếc",
+      "32 chiếc",
+      "43 chiếc",
+      "33 chiếc"
+    ],
+    "a": "33 chiếc",
+    "h": "Hai loại bút gộp lại: 21 + 12 = 33 (chiếc).",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 111145,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một đoạn thẳng có bao nhiêu đầu mút?",
+    "o": [
+      "Không có đầu mút",
+      "3 đầu mút",
+      "1 đầu mút",
+      "2 đầu mút"
+    ],
+    "a": "2 đầu mút",
+    "h": "Đoạn thẳng được giới hạn bởi hai đầu mút.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111146,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Ba điểm A, B, C thẳng hàng, B ở giữa. Biết AB = 4 cm và BC = 5 cm. AC dài bao nhiêu?",
+    "o": [
+      "8 cm",
+      "20 cm",
+      "9 cm",
+      "1 cm"
+    ],
+    "a": "9 cm",
+    "h": "Vì B nằm giữa A và C nên AC = AB + BC = 4 + 5 = 9 cm.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111147,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một đường gấp khúc gồm ba đoạn dài 3 cm, 6 cm, 4 cm. Độ dài đường gấp khúc là:",
+    "o": [
+      "13 cm",
+      "10 cm",
+      "9 cm",
+      "24 cm"
+    ],
+    "a": "13 cm",
+    "h": "Cộng độ dài từng đoạn: 3 + 6 + 4 = 13 cm.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111148,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Đường gấp khúc ABC gồm AB = 5 cm và BC = 7 cm. Đường gấp khúc dài bao nhiêu?",
+    "o": [
+      "35 cm",
+      "12 cm",
+      "2 cm",
+      "11 cm"
+    ],
+    "a": "12 cm",
+    "h": "Độ dài đường gấp khúc là 5 + 7 = 12 cm.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111149,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hình tứ giác có bao nhiêu cạnh?",
+    "o": [
+      "5 cạnh",
+      "3 cạnh",
+      "4 cạnh",
+      "6 cạnh"
+    ],
+    "a": "4 cạnh",
+    "h": "Tứ giác là hình có 4 cạnh và 4 đỉnh.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111150,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hình tam giác có bao nhiêu đỉnh?",
+    "o": [
+      "2 đỉnh",
+      "3 đỉnh",
+      "5 đỉnh",
+      "4 đỉnh"
+    ],
+    "a": "3 đỉnh",
+    "h": "Hình tam giác có 3 cạnh, 3 đỉnh.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111151,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Ba điểm A, B, C cùng nằm trên một đường thẳng được gọi là gì?",
+    "o": [
+      "Ba điểm thẳng hàng",
+      "Ba điểm không thẳng hàng",
+      "Ba đường cong",
+      "Ba điểm trùng nhau"
+    ],
+    "a": "Ba điểm thẳng hàng",
+    "h": "Ba điểm cùng nằm trên một đường thẳng thì được gọi là ba điểm thẳng hàng.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111152,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Đoạn thẳng nối hai điểm A và B được gọi là gì?",
+    "o": [
+      "Đoạn thẳng AC",
+      "Đường cong AB",
+      "Hình tứ giác AB",
+      "Đoạn thẳng AB"
+    ],
+    "a": "Đoạn thẳng AB",
+    "h": "Tên đoạn thẳng lấy theo hai đầu mút của nó: A và B.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111153,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Đường nào có thể kéo dài thẳng mãi về cả hai phía?",
+    "o": [
+      "Đoạn thẳng",
+      "Đường gấp khúc",
+      "Đường cong",
+      "Đường thẳng"
+    ],
+    "a": "Đường thẳng",
+    "h": "Đường thẳng kéo dài về cả hai phía; đoạn thẳng có hai đầu mút.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 111154,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một bao gạo nặng 5 ... Đơn vị thích hợp điền vào chỗ trống là:",
+    "o": [
+      "kg",
+      "cm",
+      "giờ",
+      "l"
+    ],
+    "a": "kg",
+    "h": "Gạo được cân theo khối lượng, dùng ki-lô-gam (kg).",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111155,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một can nước chứa 2 ... Đơn vị thích hợp là:",
+    "o": [
+      "ngày",
+      "cm",
+      "l",
+      "kg"
+    ],
+    "a": "l",
+    "h": "Lượng nước trong can được đo bằng lít (l).",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111156,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Có túi đường 2 kg và túi bột 3 kg. Cả hai túi nặng bao nhiêu?",
+    "o": [
+      "5 l",
+      "5 kg",
+      "6 kg",
+      "1 kg"
+    ],
+    "a": "5 kg",
+    "h": "Cùng đơn vị kg nên cộng 2 + 3 = 5 kg.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111157,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Can có 5 l nước, rót ra 2 l. Can còn bao nhiêu lít?",
+    "o": [
+      "2 l",
+      "3 l",
+      "7 l",
+      "5 l"
+    ],
+    "a": "3 l",
+    "h": "Lượng nước còn lại bằng 5 − 2 = 3 l.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111158,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Đĩa cân bên trái có vật 2 kg và vật 1 kg. Bên phải đặt vật nặng bao nhiêu để cân thăng bằng?",
+    "o": [
+      "2 kg",
+      "4 kg",
+      "1 kg",
+      "3 kg"
+    ],
+    "a": "3 kg",
+    "h": "Tổng khối lượng bên trái là 2 + 1 = 3 kg nên bên phải cũng phải 3 kg.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111159,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Bình có 10 l nước, người ta đổ thêm 7 l. Bình có tất cả bao nhiêu lít nước?",
+    "o": [
+      "3 l",
+      "16 l",
+      "70 l",
+      "17 l"
+    ],
+    "a": "17 l",
+    "h": "Đổ thêm nên cộng 10 + 7 = 17 l.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111160,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Chum có 15 l nước, lấy ra 6 l. Chum còn bao nhiêu lít?",
+    "o": [
+      "21 l",
+      "9 l",
+      "8 l",
+      "10 l"
+    ],
+    "a": "9 l",
+    "h": "Còn lại: 15 − 6 = 9 l.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111161,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Quả dưa hấu nặng khoảng 4 ... Chọn đơn vị đúng.",
+    "o": [
+      "kg",
+      "km",
+      "l",
+      "phút"
+    ],
+    "a": "kg",
+    "h": "Khối lượng một quả dưa được đo bằng kg, không phải bằng lít hoặc đơn vị độ dài.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111162,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "1 giờ có bao nhiêu phút?",
+    "o": [
+      "30 phút",
+      "60 phút",
+      "24 phút",
+      "100 phút"
+    ],
+    "a": "60 phút",
+    "h": "Một giờ được chia thành 60 phút.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111163,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một ngày có bao nhiêu giờ?",
+    "o": [
+      "24 giờ",
+      "12 giờ",
+      "7 giờ",
+      "60 giờ"
+    ],
+    "a": "24 giờ",
+    "h": "Một ngày có 24 giờ.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111164,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Một tuần có bao nhiêu ngày?",
+    "o": [
+      "7 ngày",
+      "6 ngày",
+      "12 ngày",
+      "5 ngày"
+    ],
+    "a": "7 ngày",
+    "h": "Thứ Hai đến Chủ nhật là 7 ngày trong một tuần.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111165,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Bây giờ là 8 giờ sáng. Sau 2 giờ là mấy giờ?",
+    "o": [
+      "10 giờ sáng",
+      "9 giờ sáng",
+      "11 giờ sáng",
+      "6 giờ sáng"
+    ],
+    "a": "10 giờ sáng",
+    "h": "Tăng số giờ thêm 2: 8 + 2 = 10 giờ sáng.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111166,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Đồng hồ chỉ 3 giờ rưỡi. Đó là mấy giờ mấy phút?",
+    "o": [
+      "3 giờ 30 phút",
+      "3 giờ 15 phút",
+      "3 giờ 45 phút",
+      "4 giờ 30 phút"
+    ],
+    "a": "3 giờ 30 phút",
+    "h": "Nửa giờ là 30 phút, vậy 3 giờ rưỡi là 3 giờ 30 phút.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111167,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hôm nay là thứ Ba. Ngày mai là thứ mấy?",
+    "o": [
+      "Thứ Tư",
+      "Thứ Hai",
+      "Chủ nhật",
+      "Thứ Năm"
+    ],
+    "a": "Thứ Tư",
+    "h": "Ngày sau thứ Ba là thứ Tư.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111168,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Tháng 9 có bao nhiêu ngày?",
+    "o": [
+      "31 ngày",
+      "30 ngày",
+      "28 ngày",
+      "29 ngày"
+    ],
+    "a": "30 ngày",
+    "h": "Trong lịch, tháng 9 có 30 ngày.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 111169,
+    "sub_code": "11.1",
+    "sub": "Ôn tập Học kỳ I",
+    "q": "Hôm nay là ngày 15 tháng 3. Ngày mai là ngày nào?",
+    "o": [
+      "Ngày 15 tháng 4",
+      "Ngày 17 tháng 3",
+      "Ngày 16 tháng 3",
+      "Ngày 14 tháng 3"
+    ],
+    "a": "Ngày 16 tháng 3",
+    "h": "Ngày tiếp theo của 15 tháng 3 là 16 tháng 3.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112100,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 270 + 126?",
+    "q": "2 × 7 = ?",
     "o": [
-      "406",
-      "416",
-      "396",
-      "386"
+      "9",
+      "14",
+      "16",
+      "12"
     ],
-    "a": "396",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 396.",
+    "a": "14",
+    "h": "Bảng nhân 2: 2 lấy 7 lần được 14.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112003,
+    "id": 112101,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 399 - 158?",
+    "q": "5 × 6 = ?",
     "o": [
-      "261",
-      "251",
-      "231",
-      "241"
+      "11",
+      "25",
+      "30",
+      "35"
     ],
-    "a": "241",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 241.",
+    "a": "30",
+    "h": "Bảng nhân 5: 5 × 6 = 30.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112004,
+    "id": 112102,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 416 + 98?",
+    "q": "2 × 9 = ?",
     "o": [
-      "514",
-      "504",
-      "524",
-      "534"
+      "18",
+      "20",
+      "16",
+      "11"
     ],
-    "a": "514",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 514.",
+    "a": "18",
+    "h": "Cộng 2 chín lần hoặc dùng bảng nhân 2: kết quả 18.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112005,
+    "id": 112103,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 430 - 105?",
+    "q": "5 × 8 = ?",
     "o": [
-      "335",
-      "315",
-      "345",
-      "325"
+      "35",
+      "13",
+      "40",
+      "45"
     ],
-    "a": "325",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 325.",
+    "a": "40",
+    "h": "Cộng thêm 5 liên tiếp 8 lần được 40.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112006,
+    "id": 112104,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 307 + 111?",
+    "q": "Có 3 nhóm, mỗi nhóm 2 bạn. Có tất cả bao nhiêu bạn?",
     "o": [
-      "418",
-      "438",
-      "428",
-      "408"
+      "9 bạn",
+      "6 bạn",
+      "5 bạn",
+      "8 bạn"
     ],
-    "a": "418",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 418.",
+    "a": "6 bạn",
+    "h": "Ba nhóm 2 bạn: 2 + 2 + 2 = 6, hay 2 × 3 = 6.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112007,
+    "id": 112105,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 332 - 162?",
+    "q": "Có 4 hộp, mỗi hộp 5 viên bi. Tất cả có bao nhiêu viên?",
     "o": [
-      "170",
-      "160",
-      "180",
-      "190"
+      "25 viên",
+      "20 viên",
+      "15 viên",
+      "9 viên"
     ],
-    "a": "170",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 170.",
+    "a": "20 viên",
+    "h": "Có bốn nhóm 5 viên: 5 × 4 = 20 viên.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112008,
+    "id": 112106,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 152 + 76?",
+    "q": "16 : 2 = ?",
     "o": [
-      "238",
-      "228",
-      "218",
-      "248"
+      "9",
+      "7",
+      "6",
+      "8"
     ],
-    "a": "228",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 228.",
+    "a": "8",
+    "h": "Vì 2 × 8 = 16 nên 16 : 2 = 8.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112009,
+    "id": 112107,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 448 - 240?",
+    "q": "35 : 5 = ?",
     "o": [
-      "198",
-      "208",
-      "218",
-      "228"
+      "7",
+      "8",
+      "6",
+      "9"
     ],
-    "a": "208",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 208.",
+    "a": "7",
+    "h": "Vì 5 × 7 = 35 nên 35 : 5 = 7.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112010,
+    "id": 112108,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 260 + 77?",
+    "q": "20 : 2 = ?",
     "o": [
-      "347",
-      "327",
-      "357",
-      "337"
+      "9",
+      "8",
+      "5",
+      "10"
     ],
-    "a": "337",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 337.",
+    "a": "10",
+    "h": "Vì 2 × 10 = 20 nên 20 : 2 = 10.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112011,
+    "id": 112109,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 522 - 200?",
+    "q": "45 : 5 = ?",
     "o": [
-      "342",
-      "312",
-      "332",
-      "322"
+      "8",
+      "10",
+      "9",
+      "7"
     ],
-    "a": "322",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 322.",
+    "a": "9",
+    "h": "Vì 5 × 9 = 45 nên 45 : 5 = 9.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112012,
+    "id": 112110,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 185 + 90?",
+    "q": "2 × □ = 16. Số thích hợp vào ô trống là:",
     "o": [
-      "285",
-      "265",
-      "295",
-      "275"
+      "8",
+      "6",
+      "9",
+      "7"
     ],
-    "a": "275",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 275.",
+    "a": "8",
+    "h": "Vì 16 : 2 = 8 nên 2 × 8 = 16.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112013,
+    "id": 112111,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 579 - 180?",
+    "q": "5 × □ = 25. Số cần điền là:",
     "o": [
-      "389",
-      "419",
-      "409",
-      "399"
+      "10",
+      "4",
+      "6",
+      "5"
     ],
-    "a": "399",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 399.",
+    "a": "5",
+    "h": "Vì 25 : 5 = 5 nên 5 × 5 = 25.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112014,
+    "id": 112112,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 399 + 139?",
+    "q": "40 : 5 = ?",
     "o": [
-      "558",
-      "538",
-      "528",
-      "548"
+      "9",
+      "6",
+      "8",
+      "7"
     ],
-    "a": "538",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 538.",
+    "a": "8",
+    "h": "Vì 5 × 8 = 40 nên thương là 8.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112015,
+    "id": 112113,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 302 - 232?",
+    "q": "Số gồm 3 trăm, 4 chục và 6 đơn vị là:",
     "o": [
-      "80",
-      "60",
-      "70",
-      "90"
-    ],
-    "a": "70",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 70.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112016,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 340 + 80?",
-    "o": [
-      "410",
-      "420",
-      "430",
-      "440"
-    ],
-    "a": "420",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 420.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112017,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 558 - 152?",
-    "o": [
-      "406",
-      "416",
-      "426",
-      "396"
-    ],
-    "a": "406",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 406.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112018,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 444 + 44?",
-    "o": [
-      "488",
-      "478",
-      "498",
-      "508"
-    ],
-    "a": "488",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 488.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112019,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 370 - 182?",
-    "o": [
-      "178",
-      "208",
-      "198",
-      "188"
-    ],
-    "a": "188",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 188.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112020,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 360 + 93?",
-    "o": [
-      "443",
-      "463",
-      "453",
-      "473"
-    ],
-    "a": "453",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 453.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112021,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 326 - 210?",
-    "o": [
-      "106",
-      "136",
-      "116",
-      "126"
-    ],
-    "a": "116",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 116.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112022,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 426 + 80?",
-    "o": [
-      "526",
-      "496",
-      "516",
-      "506"
-    ],
-    "a": "506",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 506.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112023,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 550 - 171?",
-    "o": [
-      "389",
-      "379",
-      "399",
-      "369"
-    ],
-    "a": "379",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 379.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112024,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 238 + 89?",
-    "o": [
-      "347",
-      "337",
-      "317",
-      "327"
-    ],
-    "a": "327",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 327.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112025,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 534 - 212?",
-    "o": [
-      "322",
-      "332",
-      "342",
-      "312"
-    ],
-    "a": "322",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 322.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112026,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 424 + 126?",
-    "o": [
-      "540",
-      "570",
-      "550",
-      "560"
-    ],
-    "a": "550",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 550.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112027,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 448 - 173?",
-    "o": [
-      "285",
-      "265",
-      "275",
-      "295"
-    ],
-    "a": "275",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 275.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112028,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 400 + 71?",
-    "o": [
-      "491",
-      "461",
-      "481",
-      "471"
-    ],
-    "a": "471",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 471.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112029,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 591 - 213?",
-    "o": [
-      "378",
-      "388",
-      "398",
-      "368"
-    ],
-    "a": "378",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 378.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112030,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 430 + 23?",
-    "o": [
-      "453",
-      "463",
-      "473",
-      "443"
-    ],
-    "a": "453",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 453.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112031,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 423 - 115?",
-    "o": [
-      "308",
-      "318",
-      "298",
-      "328"
-    ],
-    "a": "308",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 308.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112032,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 227 + 63?",
-    "o": [
-      "310",
-      "280",
-      "290",
-      "300"
-    ],
-    "a": "290",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 290.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112033,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 515 - 273?",
-    "o": [
-      "262",
-      "242",
-      "232",
-      "252"
-    ],
-    "a": "242",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 242.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112034,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 246 + 128?",
-    "o": [
-      "394",
-      "374",
-      "384",
+      "304",
+      "346",
+      "436",
       "364"
     ],
-    "a": "374",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 374.",
-    "tag": "TOAN_C2"
+    "a": "346",
+    "h": "3 trăm = 300, 4 chục = 40, thêm 6 được 346.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112035,
+    "id": 112114,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 456 - 113?",
+    "q": "Trong số 705, chữ số hàng chục là số nào?",
     "o": [
-      "353",
-      "363",
-      "333",
-      "343"
+      "0",
+      "7",
+      "70",
+      "5"
     ],
-    "a": "343",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 343.",
-    "tag": "TOAN_C2"
+    "a": "0",
+    "h": "705 có 7 trăm, 0 chục, 5 đơn vị. Hàng chục là 0.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112036,
+    "id": 112115,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 182 + 59?",
+    "q": "Số 1 000 gồm bao nhiêu trăm?",
     "o": [
-      "241",
-      "251",
-      "261",
-      "231"
+      "1 trăm",
+      "10 trăm",
+      "100 trăm",
+      "5 trăm"
     ],
-    "a": "241",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 241.",
-    "tag": "TOAN_C2"
+    "a": "10 trăm",
+    "h": "Một nghìn bằng mười trăm: 10 × 100 = 1 000.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112037,
+    "id": 112116,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 326 - 209?",
+    "q": "630 được viết thành tổng nào?",
     "o": [
-      "117",
-      "137",
-      "107",
-      "127"
+      "60 + 300",
+      "60 + 30",
+      "600 + 3",
+      "600 + 30"
     ],
-    "a": "117",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 117.",
-    "tag": "TOAN_C2"
+    "a": "600 + 30",
+    "h": "630 gồm 6 trăm, 3 chục và 0 đơn vị: 600 + 30.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112038,
+    "id": 112117,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 198 + 90?",
+    "q": "Trong các số 580, 508, 589, 590, số nào lớn nhất?",
     "o": [
-      "278",
-      "298",
-      "288",
-      "308"
+      "590",
+      "589",
+      "508",
+      "580"
     ],
-    "a": "288",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 288.",
-    "tag": "TOAN_C2"
+    "a": "590",
+    "h": "Cùng 5 trăm: so hàng chục, số 590 có 9 chục lớn hơn 8 và 0 chục.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112039,
+    "id": 112118,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 356 - 117?",
+    "q": "Chọn dấu đúng: 456 ... 465",
     "o": [
-      "229",
-      "239",
-      "259",
-      "249"
+      ">",
+      "=",
+      "<",
+      "+"
     ],
-    "a": "239",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 239.",
-    "tag": "TOAN_C2"
+    "a": "<",
+    "h": "Hai số cùng 4 trăm; 5 chục nhỏ hơn 6 chục nên 456 < 465.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112040,
+    "id": 112119,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 431 + 28?",
+    "q": "Sắp xếp 870, 807, 780 từ bé đến lớn.",
     "o": [
-      "459",
-      "469",
-      "479",
-      "449"
+      "780, 807, 870",
+      "870, 807, 780",
+      "780, 870, 807",
+      "807, 780, 870"
     ],
-    "a": "459",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 459.",
-    "tag": "TOAN_C2"
+    "a": "780, 807, 870",
+    "h": "So hàng trăm trước: 780 có 7 trăm nên nhỏ nhất; giữa 807 và 870, 807 nhỏ hơn.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112041,
+    "id": 112120,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 337 - 279?",
+    "q": "Trong số 902, chữ số 9 có giá trị bằng bao nhiêu?",
     "o": [
-      "48",
-      "78",
-      "68",
-      "58"
+      "9",
+      "900",
+      "902",
+      "90"
     ],
-    "a": "58",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 58.",
-    "tag": "TOAN_C2"
+    "a": "900",
+    "h": "9 nằm ở hàng trăm nên có giá trị 900.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112042,
+    "id": 112121,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 368 + 56?",
+    "q": "Số liền sau của 999 là số nào?",
     "o": [
-      "444",
-      "414",
-      "434",
-      "424"
+      "998",
+      "1 000",
+      "990",
+      "909"
     ],
-    "a": "424",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 424.",
-    "tag": "TOAN_C2"
+    "a": "1 000",
+    "h": "Thêm 1 vào 999 được 1 000, tức một nghìn.",
+    "tag": "TOAN_C1"
   },
   {
-    "id": 112043,
+    "id": 112122,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 597 - 175?",
+    "q": "245 + 132 = ?",
     "o": [
-      "412",
-      "442",
-      "422",
-      "432"
+      "347",
+      "367",
+      "387",
+      "377"
     ],
-    "a": "422",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 422.",
+    "a": "377",
+    "h": "Đơn vị 5 + 2 = 7; chục 4 + 3 = 7; trăm 2 + 1 = 3.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112044,
+    "id": 112123,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 408 + 111?",
+    "q": "607 + 58 = ?",
     "o": [
-      "519",
-      "509",
-      "539",
-      "529"
+      "655",
+      "565",
+      "675",
+      "665"
     ],
-    "a": "519",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 519.",
+    "a": "665",
+    "h": "Viết 58 dưới hai hàng chục và đơn vị: 607 + 058 = 665.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112045,
+    "id": 112124,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 351 - 178?",
+    "q": "278 + 145 = ?",
     "o": [
-      "173",
-      "163",
-      "193",
-      "183"
+      "423",
+      "433",
+      "323",
+      "413"
     ],
-    "a": "173",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 173.",
+    "a": "423",
+    "h": "Đơn vị 8 + 5 = 13 viết 3 nhớ 1; chục 7 + 4 + 1 = 12 nhớ 1; trăm 2 + 1 + 1 = 4.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112046,
+    "id": 112125,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 350 + 25?",
+    "q": "369 + 257 = ?",
     "o": [
-      "395",
+      "616",
+      "626",
+      "636",
+      "526"
+    ],
+    "a": "626",
+    "h": "9 + 7 = 16 nhớ 1; 6 + 5 + 1 = 12 nhớ 1; 3 + 2 + 1 = 6.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112126,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "480 + 320 = ?",
+    "o": [
+      "800",
+      "810",
+      "900",
+      "700"
+    ],
+    "a": "800",
+    "h": "48 chục + 32 chục = 80 chục = 800.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112127,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "850 − 270 = ?",
+    "o": [
+      "680",
+      "580",
+      "570",
+      "590"
+    ],
+    "a": "580",
+    "h": "Đặt tính thẳng hàng; 0 − 0 = 0, đổi 1 trăm để trừ 7 chục, được 580.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112128,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "936 − 412 = ?",
+    "o": [
+      "524",
+      "624",
+      "534",
+      "514"
+    ],
+    "a": "524",
+    "h": "6 − 2 = 4; 3 − 1 = 2 chục; 9 − 4 = 5 trăm.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112129,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "703 − 268 = ?",
+    "o": [
+      "445",
+      "435",
+      "425",
+      "535"
+    ],
+    "a": "435",
+    "h": "Đổi hàng để trừ: 13 − 8 = 5; 9 chục − 6 chục = 3; 6 trăm − 2 trăm = 4.",
+    "tag": "TOAN_C2"
+  },
+  {
+    "id": 112130,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "500 − 125 = ?",
+    "o": [
       "375",
-      "365",
-      "385"
+      "475",
+      "385",
+      "325"
     ],
     "a": "375",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 375.",
+    "h": "Đổi từ hàng trăm sang chục rồi sang đơn vị: 10 − 5 = 5, 9 − 2 = 7, 4 − 1 = 3.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112047,
+    "id": 112131,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 314 - 243?",
+    "q": "480 + □ = 730. Số còn thiếu là:",
     "o": [
-      "71",
-      "61",
-      "91",
-      "81"
+      "150",
+      "350",
+      "240",
+      "250"
     ],
-    "a": "71",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 71.",
+    "a": "250",
+    "h": "Lấy 730 − 480 = 250, kiểm tra 480 + 250 = 730.",
     "tag": "TOAN_C2"
   },
   {
-    "id": 112048,
+    "id": 112132,
     "sub_code": "11.2",
     "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 336 + 92?",
+    "q": "900 − □ = 560. Điền số nào?",
     "o": [
-      "448",
-      "428",
-      "418",
-      "438"
-    ],
-    "a": "428",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 428.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112049,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 321 - 207?",
-    "o": [
-      "104",
-      "134",
-      "114",
-      "124"
-    ],
-    "a": "114",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 114.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112050,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Thỏ Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 439 + 137?",
-    "o": [
-      "596",
-      "586",
-      "566",
-      "576"
-    ],
-    "a": "576",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 576.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112051,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sư Tử: Hãy tính kết quả phép đặt tính của phép trừ sau: 461 - 134?",
-    "o": [
-      "327",
-      "317",
-      "337",
-      "347"
-    ],
-    "a": "327",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 327.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112052,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Tê Giác: Hãy tính kết quả phép đặt tính của phép cộng sau: 398 + 80?",
-    "o": [
-      "468",
-      "488",
-      "478",
-      "498"
-    ],
-    "a": "478",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 478.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112053,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Ngựa Vằn: Hãy tính kết quả phép đặt tính của phép trừ sau: 423 - 160?",
-    "o": [
-      "283",
-      "253",
-      "263",
-      "273"
-    ],
-    "a": "263",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 263.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112054,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Trúc: Hãy tính kết quả phép đặt tính của phép cộng sau: 230 + 21?",
-    "o": [
-      "241",
-      "251",
-      "261",
-      "271"
-    ],
-    "a": "251",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 251.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112055,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Chim Cánh Cụt: Hãy tính kết quả phép đặt tính của phép trừ sau: 529 - 103?",
-    "o": [
-      "446",
-      "426",
-      "436",
-      "416"
-    ],
-    "a": "426",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 426.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112056,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hải Cẩu: Hãy tính kết quả phép đặt tính của phép cộng sau: 354 + 136?",
-    "o": [
-      "500",
-      "490",
-      "510",
-      "480"
-    ],
-    "a": "490",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 490.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112057,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cá Heo: Hãy tính kết quả phép đặt tính của phép trừ sau: 316 - 197?",
-    "o": [
-      "139",
-      "109",
-      "119",
-      "129"
-    ],
-    "a": "119",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 119.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112058,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Rùa Biển: Hãy tính kết quả phép đặt tính của phép cộng sau: 334 + 105?",
-    "o": [
-      "449",
-      "459",
-      "439",
-      "429"
-    ],
-    "a": "439",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 439.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112059,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khủng Long: Hãy tính kết quả phép đặt tính của phép trừ sau: 582 - 255?",
-    "o": [
-      "317",
-      "347",
-      "337",
-      "327"
-    ],
-    "a": "327",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 327.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112060,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nai Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 325 + 104?",
-    "o": [
-      "429",
-      "449",
-      "439",
-      "419"
-    ],
-    "a": "429",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 429.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112061,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Sóc Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 311 - 103?",
-    "o": [
-      "198",
-      "218",
-      "228",
-      "208"
-    ],
-    "a": "208",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 208.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112062,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cáo Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 446 + 138?",
-    "o": [
-      "594",
-      "584",
-      "574",
-      "604"
-    ],
-    "a": "584",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 584.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112063,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Gấu Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 452 - 179?",
-    "o": [
-      "283",
-      "263",
-      "293",
-      "273"
-    ],
-    "a": "273",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 273.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112064,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Cún Con: Hãy tính kết quả phép đặt tính của phép cộng sau: 318 + 88?",
-    "o": [
-      "396",
-      "426",
-      "416",
-      "406"
-    ],
-    "a": "406",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 406.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112065,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Mèo Nhỏ: Hãy tính kết quả phép đặt tính của phép trừ sau: 505 - 266?",
-    "o": [
-      "229",
-      "259",
-      "239",
-      "249"
-    ],
-    "a": "239",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 239.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112066,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Khỉ Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 272 + 134?",
-    "o": [
-      "406",
-      "426",
-      "416",
-      "396"
-    ],
-    "a": "406",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 406.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112067,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Voi Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 396 - 205?",
-    "o": [
-      "211",
-      "201",
-      "181",
-      "191"
-    ],
-    "a": "191",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 191.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112068,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Hươu Nhỏ: Hãy tính kết quả phép đặt tính của phép cộng sau: 262 + 57?",
-    "o": [
-      "329",
-      "319",
-      "339",
-      "309"
-    ],
-    "a": "319",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, cộng hàng đơn vị, chục, rồi trăm nhé! Kết quả là 319.",
-    "tag": "TOAN_C2"
-  },
-  {
-    "id": 112069,
-    "sub_code": "11.2",
-    "sub": "Ôn tập Học kỳ II",
-    "q": "Ôn tập học kỳ II cho bạn Nhím Con: Hãy tính kết quả phép đặt tính của phép trừ sau: 568 - 148?",
-    "o": [
-      "430",
+      "240",
       "440",
-      "420",
-      "410"
+      "360",
+      "340"
     ],
-    "a": "420",
-    "h": "Cô giáo Thỏ Ngọc gợi ý: Hãy đặt tính thẳng hàng dọc, thực hiện trừ từ phải sang trái thật cẩn thận nhé! Kết quả là 420.",
+    "a": "340",
+    "h": "Số bị lấy đi là 900 − 560 = 340. Thử lại 900 − 340 = 560.",
     "tag": "TOAN_C2"
+  },
+  {
+    "id": 112133,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Vỏ lon nước có hình dạng gần giống khối nào?",
+    "o": [
+      "Hình tam giác",
+      "Khối trụ",
+      "Hình tứ giác",
+      "Khối cầu"
+    ],
+    "a": "Khối trụ",
+    "h": "Vỏ lon có hai đáy hình tròn và mặt xung quanh cong, gần giống khối trụ.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112134,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Quả bóng đá có hình dạng gần giống khối nào?",
+    "o": [
+      "Khối trụ",
+      "Hình vuông",
+      "Khối cầu",
+      "Đường gấp khúc"
+    ],
+    "a": "Khối cầu",
+    "h": "Quả bóng tròn đều theo mọi hướng, gần giống khối cầu.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112135,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Đồ vật nào có dạng khối trụ?",
+    "o": [
+      "Quả bóng đá",
+      "Lon nước ngọt",
+      "Viên gạch chữ nhật",
+      "Quyển sách"
+    ],
+    "a": "Lon nước ngọt",
+    "h": "Lon nước ngọt là đồ vật thường gặp có dạng khối trụ.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112136,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Khối nào có thể lăn theo mọi hướng trên mặt phẳng?",
+    "o": [
+      "Khối trụ",
+      "Khối hộp chữ nhật",
+      "Khối lập phương",
+      "Khối cầu"
+    ],
+    "a": "Khối cầu",
+    "h": "Khối cầu có mặt cong đều nên có thể lăn về mọi phía.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112137,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Hình tam giác có bao nhiêu cạnh?",
+    "o": [
+      "5 cạnh",
+      "4 cạnh",
+      "3 cạnh",
+      "2 cạnh"
+    ],
+    "a": "3 cạnh",
+    "h": "Hình tam giác có 3 cạnh thẳng nối 3 đỉnh.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112138,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một đường gấp khúc có ba đoạn dài 2 cm, 3 cm, 4 cm. Độ dài của nó là:",
+    "o": [
+      "24 cm",
+      "9 cm",
+      "8 cm",
+      "7 cm"
+    ],
+    "a": "9 cm",
+    "h": "Cộng độ dài các đoạn: 2 + 3 + 4 = 9 cm.",
+    "tag": "TOAN_C1"
+  },
+  {
+    "id": 112139,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "1 m bằng bao nhiêu dm?",
+    "o": [
+      "1 dm",
+      "10 dm",
+      "100 dm",
+      "1000 dm"
+    ],
+    "a": "10 dm",
+    "h": "Một mét bằng 10 đề-xi-mét.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112140,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "1 m bằng bao nhiêu cm?",
+    "o": [
+      "100 cm",
+      "1 cm",
+      "1000 cm",
+      "10 cm"
+    ],
+    "a": "100 cm",
+    "h": "Một mét bằng 100 xăng-ti-mét.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112141,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "1 km bằng bao nhiêu mét?",
+    "o": [
+      "100 m",
+      "1 000 m",
+      "10 000 m",
+      "10 m"
+    ],
+    "a": "1 000 m",
+    "h": "Một ki-lô-mét bằng 1 000 mét.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112142,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "3 m = ... dm. Điền số thích hợp.",
+    "o": [
+      "300",
+      "30",
+      "3000",
+      "3"
+    ],
+    "a": "30",
+    "h": "Vì 1 m = 10 dm nên 3 m = 3 × 10 = 30 dm.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112143,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "2 km = ... m. Điền số nào?",
+    "o": [
+      "2000",
+      "20000",
+      "20",
+      "200"
+    ],
+    "a": "2000",
+    "h": "Mỗi ki-lô-mét bằng 1 000 m, vậy 2 km = 2 000 m.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112144,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "5 dm bằng bao nhiêu cm?",
+    "o": [
+      "500 cm",
+      "15 cm",
+      "5 cm",
+      "50 cm"
+    ],
+    "a": "50 cm",
+    "h": "Mỗi dm bằng 10 cm nên 5 dm = 50 cm.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112145,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Có tờ 100 đồng và tờ 200 đồng. Tổng số tiền là:",
+    "o": [
+      "300 đồng",
+      "200 đồng",
+      "400 đồng",
+      "100 đồng"
+    ],
+    "a": "300 đồng",
+    "h": "Cộng giá trị hai tờ tiền: 100 + 200 = 300 đồng.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112146,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Có một tờ 500 đồng và một tờ 200 đồng. Có tất cả bao nhiêu tiền?",
+    "o": [
+      "800 đồng",
+      "700 đồng",
+      "300 đồng",
+      "600 đồng"
+    ],
+    "a": "700 đồng",
+    "h": "500 + 200 = 700 đồng.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112147,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Chiều cao cửa lớp khoảng 2 ... Đơn vị thích hợp là:",
+    "o": [
+      "cm",
+      "km",
+      "m",
+      "l"
+    ],
+    "a": "m",
+    "h": "Cửa lớp cao khoảng hai mét, không phải 2 xăng-ti-mét hoặc 2 ki-lô-mét.",
+    "tag": "TOAN_C3"
+  },
+  {
+    "id": 112148,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Bảng kiểm đếm: Cam 6 quả, Táo 3 quả, Chuối 4 quả. Loại nào có nhiều nhất?",
+    "o": [
+      "Cam",
+      "Táo",
+      "Chuối",
+      "Ba loại bằng nhau"
+    ],
+    "a": "Cam",
+    "h": "Cam có 6 quả, nhiều hơn chuối 4 quả và táo 3 quả.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112149,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Bảng kiểm đếm: Cam 6 quả, Táo 3 quả, Chuối 4 quả. Có tất cả bao nhiêu quả?",
+    "o": [
+      "12 quả",
+      "9 quả",
+      "13 quả",
+      "10 quả"
+    ],
+    "a": "13 quả",
+    "h": "Cộng số quả từng loại: 6 + 3 + 4 = 13 quả.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112150,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Bảng kiểm đếm: Cam 6 quả, Táo 3 quả. Cam nhiều hơn táo bao nhiêu quả?",
+    "o": [
+      "9 quả",
+      "2 quả",
+      "4 quả",
+      "3 quả"
+    ],
+    "a": "3 quả",
+    "h": "Lấy số cam trừ số táo: 6 − 3 = 3 quả.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112151,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Biểu đồ tranh: Hoa hồng ●●●●, hoa cúc ●●●●●●. Mỗi ● là 1 bông. Có mấy bông hoa cúc?",
+    "o": [
+      "4 bông",
+      "10 bông",
+      "6 bông",
+      "5 bông"
+    ],
+    "a": "6 bông",
+    "h": "Đếm sáu dấu ● ở hàng hoa cúc, nên có 6 bông.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112152,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Kết quả điều tra: Chim 4 con, mèo 3 con, chó 5 con. Chó nhiều hơn mèo bao nhiêu con?",
+    "o": [
+      "3 con",
+      "8 con",
+      "1 con",
+      "2 con"
+    ],
+    "a": "2 con",
+    "h": "Bảng có 5 con chó và 3 con mèo; 5 − 3 = 2 con.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112153,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Bảng sở thích: Vẽ tranh 8 bạn, đọc sách 6 bạn, đá bóng 7 bạn. Hoạt động nào ít bạn chọn nhất?",
+    "o": [
+      "Đá bóng",
+      "Cả ba bằng nhau",
+      "Vẽ tranh",
+      "Đọc sách"
+    ],
+    "a": "Đọc sách",
+    "h": "So sánh 8, 6, 7: 6 ít nhất, ứng với đọc sách.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112154,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Biểu đồ tranh: Lớp A có ★★★. Mỗi ★ biểu thị 2 bạn. Lớp A có bao nhiêu bạn được thống kê?",
+    "o": [
+      "5 bạn",
+      "6 bạn",
+      "3 bạn",
+      "8 bạn"
+    ],
+    "a": "6 bạn",
+    "h": "Có 3 ngôi sao, mỗi ngôi sao là 2 bạn nên 2 + 2 + 2 = 6.",
+    "tag": "TOAN_C4"
+  },
+  {
+    "id": 112155,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một xúc xắc thông thường có các mặt từ 1 đến 6 chấm. Gieo được mặt 7 chấm là việc:",
+    "o": [
+      "Có thể",
+      "Không thể",
+      "Luôn xảy ra",
+      "Chắc chắn"
+    ],
+    "a": "Không thể",
+    "h": "Xúc xắc không có mặt 7 chấm nên không thể gieo ra kết quả đó.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112156,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Gieo một xúc xắc có các mặt từ 1 đến 6 chấm. Gieo được mặt 4 chấm là việc:",
+    "o": [
+      "Không thể",
+      "Có thể",
+      "Luôn xảy ra",
+      "Chắc chắn"
+    ],
+    "a": "Có thể",
+    "h": "Xúc xắc có mặt 4 chấm, nhưng không phải lần gieo nào cũng ra 4.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112157,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Trong túi chỉ có 5 viên bi đỏ. Nhắm mắt lấy một viên. Nhận định nào đúng?",
+    "o": [
+      "Không thể lấy được bi đỏ",
+      "Có thể lấy được bi xanh",
+      "Chắc chắn lấy được bi đỏ",
+      "Chắc chắn lấy được bi vàng"
+    ],
+    "a": "Chắc chắn lấy được bi đỏ",
+    "h": "Vì tất cả các viên bi đều đỏ nên lấy viên nào cũng là viên bi đỏ.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112158,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một túi chỉ có 4 viên bi xanh. Nhận định nào đúng khi lấy 1 viên?",
+    "o": [
+      "Chắc chắn lấy được bi đỏ",
+      "Không thể lấy được bi xanh",
+      "Không thể lấy được bi đỏ",
+      "Có thể lấy được bi đỏ"
+    ],
+    "a": "Không thể lấy được bi đỏ",
+    "h": "Túi chỉ có bi xanh, nên không thể lấy bi đỏ ra từ túi này.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112159,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Túi có 3 bi đỏ và 2 bi vàng. Nhận định nào đúng khi lấy 1 viên?",
+    "o": [
+      "Chắc chắn lấy được bi vàng",
+      "Có thể lấy được bi vàng",
+      "Không thể lấy được bi vàng",
+      "Trong túi không có bi vàng"
+    ],
+    "a": "Có thể lấy được bi vàng",
+    "h": "Trong túi có bi vàng nhưng không phải tất cả đều vàng, nên chỉ có thể lấy được bi vàng.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112160,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Hộp có 2 bút tím và 2 bút xanh. Nhận định nào đúng khi rút 1 bút?",
+    "o": [
+      "Có thể rút được bút tím",
+      "Trong hộp chỉ có bút tím",
+      "Chắc chắn rút được bút tím",
+      "Không thể rút được bút tím"
+    ],
+    "a": "Có thể rút được bút tím",
+    "h": "Trong hộp có cả hai màu; lấy bút tím là việc có thể xảy ra nhưng không chắc chắn.",
+    "tag": "TOAN_C6"
+  },
+  {
+    "id": 112161,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Có 4 giỏ, mỗi giỏ 5 quả cam. Hỏi có tất cả bao nhiêu quả cam?",
+    "o": [
+      "20 quả",
+      "15 quả",
+      "25 quả",
+      "9 quả"
+    ],
+    "a": "20 quả",
+    "h": "Bốn nhóm 5 quả nên tính 5 × 4 = 20 quả.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112162,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Có 18 chiếc bánh chia đều cho 2 bạn. Mỗi bạn được mấy chiếc?",
+    "o": [
+      "16 chiếc",
+      "6 chiếc",
+      "9 chiếc",
+      "8 chiếc"
+    ],
+    "a": "9 chiếc",
+    "h": "Chia thành 2 phần bằng nhau: 18 : 2 = 9 chiếc.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112163,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Có 25 bông hoa cắm đều vào 5 lọ. Mỗi lọ có mấy bông?",
+    "o": [
+      "6 bông",
+      "10 bông",
+      "20 bông",
+      "5 bông"
+    ],
+    "a": "5 bông",
+    "h": "25 bông chia đều 5 lọ: 25 : 5 = 5 bông.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112164,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Thư viện có 735 quyển sách, nhận thêm 126 quyển. Hỏi thư viện có tất cả bao nhiêu quyển?",
+    "o": [
+      "609 quyển",
+      "851 quyển",
+      "861 quyển",
+      "871 quyển"
+    ],
+    "a": "861 quyển",
+    "h": "Nhận thêm thì cộng: 735 + 126 = 861 quyển.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112165,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một cửa hàng có 920 quyển vở, bán đi 185 quyển. Hỏi cửa hàng còn bao nhiêu quyển?",
+    "o": [
+      "725 quyển",
+      "745 quyển",
+      "735 quyển",
+      "835 quyển"
+    ],
+    "a": "735 quyển",
+    "h": "Bán đi thì trừ: 920 − 185 = 735 quyển.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112166,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một bể có 350 l nước, đã dùng 120 l. Bể còn bao nhiêu lít nước?",
+    "o": [
+      "230 l",
+      "470 l",
+      "220 l",
+      "240 l"
+    ],
+    "a": "230 l",
+    "h": "Lượng nước còn lại: 350 − 120 = 230 l.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112167,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một bạn đi bộ buổi sáng 2 km, buổi chiều 1 km. Bạn đã đi tất cả bao nhiêu ki-lô-mét?",
+    "o": [
+      "3 km",
+      "2 km",
+      "4 km",
+      "1 km"
+    ],
+    "a": "3 km",
+    "h": "Cộng hai quãng đường cùng đơn vị km: 2 + 1 = 3 km.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112168,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Một túi cam nặng 2 kg và một túi gạo nặng 5 kg. Cả hai túi nặng bao nhiêu?",
+    "o": [
+      "3 kg",
+      "7 l",
+      "7 kg",
+      "10 kg"
+    ],
+    "a": "7 kg",
+    "h": "Cùng đơn vị kg: 2 + 5 = 7 kg.",
+    "tag": "TOAN_C5"
+  },
+  {
+    "id": 112169,
+    "sub_code": "11.2",
+    "sub": "Ôn tập Học kỳ II",
+    "q": "Minh có hai tờ 500 đồng, mua một chiếc bút giá 700 đồng. Minh còn lại bao nhiêu tiền?",
+    "o": [
+      "200 đồng",
+      "700 đồng",
+      "1 000 đồng",
+      "300 đồng"
+    ],
+    "a": "300 đồng",
+    "h": "Hai tờ 500 đồng là 1 000 đồng; mua bút còn 1 000 − 700 = 300 đồng.",
+    "tag": "TOAN_C5"
   },
   {
     "id": 113000,
