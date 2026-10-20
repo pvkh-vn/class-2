@@ -196,6 +196,13 @@ let inMiniGameFlow = false;
 let activeQuestionsList = [];
 let practiceCycleRawPool = [];
 let pendingTopicQuiz = null;
+// Mục 4.1 là bài học tương tác; các mã 3.1–3.4 trong JSON giữ nguyên.
+const MULDIV_INTRO_SUB_ID_ = '__muldiv_intro_4_1__';
+let mulDivIntroState_ = {
+    mode: 'multiply', groups: 3, perGroup: 2,
+    shareTotal: 8, shareGroups: 4, sharedCount: 0,
+    bundleTotal: 10, bundleSize: 2, bundledGroups: 0
+};
 // Mục 4.2/4.3: ghi nhớ lựa chọn Gợi ý khi bé chuyển câu (không ghi vào storage).
 let mulDivHintEnabled_ = true;
 let currentQIndex = 0;
@@ -1560,6 +1567,13 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
         }
         groupMap[k].push(q);
     });
+    // Mục 4: thêm bài học trực quan trước các bộ câu hỏi hiện có. Giữ nguyên sub_code
+    // 3.1–3.4 để Roadmap/Bài tập không thay đổi dữ liệu hoặc tiến trình.
+    if (Number(topicNum) === 4) {
+        groups.unshift(MULDIV_INTRO_SUB_ID_);
+        groupMap[MULDIV_INTRO_SUB_ID_] = [];
+        groupLabels[MULDIV_INTRO_SUB_ID_] = 'Phép nhân, phép chia là gì?';
+    }
     // Mục 3 · Phép cộng và trừ: cho "Tên gọi thành phần phép cộng và phép trừ" lên đầu.
     // Dữ liệu gốc vẫn giữ sub_code 2.6 để không làm vỡ roadmap/bài tập cũ; chỉ đổi thứ tự hiển thị Khám phá.
     if (Number(topicNum) === 3) {
@@ -1585,7 +1599,7 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
 
     const container = document.getElementById('view-dashboard-grid');
     if (!container) return;
-    container.className = `w-full grid grid-cols-1 sm:grid-cols-2 ${groups.length > 6 ? 'lg:grid-cols-3' : ''} gap-2.5`;
+    container.className = `w-full grid grid-cols-1 sm:grid-cols-2 ${(groups.length > 6 || (Number(topicNum) === 4 && groups.length >= 5)) ? 'lg:grid-cols-3' : ''} gap-2.5`;
 
     let subHtml = '';
     const compactTopic3Cards = Number(topicNum) === 3;
@@ -1593,6 +1607,7 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
         const style = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         const displayTitle = beautifySubtopicName(groupLabels[subName]).replace(/^\s*\d+(?:\.\d+)?[.)]?\s*/, '').trim();
         const displayCode = String(topicNum) === 'review' ? String(subName) : `${Number(topicNum)}.${idx + 1}`;
+        const introCard = Number(topicNum) === 4 && subName === MULDIV_INTRO_SUB_ID_;
         const rawCount = groupMap[subName].length;
         // Đếm số câu hỏi thực tế: Cấp 1 và Cấp 2 của mục 3.4 cùng dùng một bộ 75 câu.
         const count = rawCount;
@@ -1600,20 +1615,22 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
             '2.2': 'Cầu 10: tách số → về 10 → tính phần còn lại',
             '2.3': 'Đơn vị trước → nhớ/mượn 1 chục → chục sau'
         };
-        const desc = Number(topicNum) === 1
-            ? (subName === '1A'
-                ? 'Đọc – viết – tách gộp – giá trị hàng – ước lượng'
-                : 'Liền trước/sau – vị trí trên tia số – so sánh – sắp xếp')
-            : (Number(topicNum) === 3 ? (topic3PedagogyDesc[String(subName)] || '') : '');
+        const desc = introCard
+            ? 'Học bằng thao tác: nhóm kẹo, chia đều và xếp kẹo theo nhóm'
+            : Number(topicNum) === 1
+                ? (subName === '1A'
+                    ? 'Đọc – viết – tách gộp – giá trị hàng – ước lượng'
+                    : 'Liền trước/sau – vị trí trên tia số – so sánh – sắp xếp')
+                : (Number(topicNum) === 3 ? (topic3PedagogyDesc[String(subName)] || '') : '');
         const needsPedagogyDesc = Number(topicNum) === 3 && ['2.2', '2.3'].includes(String(subName));
         const cardSizeClass = compactTopic3Cards
             ? (needsPedagogyDesc ? 'px-4 py-3 min-h-[88px]' : 'px-4 py-3 min-h-[76px]')
             : 'p-4 min-h-[96px]';
         subHtml += `
-            <button onclick="selectSubtopic(${idx})" class="${cardSizeClass} ${style.card} border-2 rounded-2xl font-bold text-left transition-all flex flex-col justify-between shadow-sm pastel-btn">
+            <button onclick="selectSubtopic(${idx})" class="${cardSizeClass} ${style.card} ${introCard ? 'math-muldiv-intro-entry' : ''} border-2 rounded-2xl font-bold text-left transition-all flex flex-col justify-between shadow-sm pastel-btn">
                 <div class="flex items-start justify-between gap-3 w-full">
-                    <span class="math-subtopic-card-title leading-snug"><strong class="${style.num} mr-1.5">${escapeHtml(displayCode)}</strong> ${escapeHtml(displayTitle)}</span>
-                    <span class="text-xs font-extrabold ${style.badge} px-2.5 py-0.5 rounded-full border shrink-0 shadow-inner">${count} câu</span>
+                    <span class="math-subtopic-card-title leading-snug"><strong class="${style.num} mr-1.5">${escapeHtml(displayCode)}</strong> ${introCard ? '🍬 ' : ''}${escapeHtml(displayTitle)}</span>
+                    <span class="text-xs font-extrabold ${style.badge} px-2.5 py-0.5 rounded-full border shrink-0 shadow-inner">${introCard ? 'Học tương tác' : `${count} câu`}</span>
                 </div>
                 ${desc ? `<span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(desc)}</span>` : ''}
             </button>`;
@@ -1980,6 +1997,9 @@ function selectSubtopic(idx) {
     const { topicNum, topicName, questions, groups, groupMap, groupLabels, groupDisplayLabels } = pendingTopicQuiz;
     if (String(topicNum) === 'review' && !requirePremium('Ôn tập')) return;
     const subLabel = idx !== null ? groups[idx] : null;
+    if (Number(topicNum) === 4 && subLabel === MULDIV_INTRO_SUB_ID_) {
+        return renderMulDivIntro_();
+    }
     const pool = idx !== null ? groupMap[subLabel] : questions;
     const displayLabel = subLabel
         ? (groupDisplayLabels?.[subLabel] || getExploreSubtopicDisplayLabel_(topicNum, idx, groupLabels[subLabel]))
@@ -1999,6 +2019,237 @@ function selectSubtopic(idx) {
 }
 
 
+
+// ============================================================
+// KHÁM PHÁ 4.1 — HỌC TRỰC QUAN Ý NGHĨA PHÉP NHÂN / PHÉP CHIA
+// Không sửa câu hỏi/mã 3.1–3.4 trong JSON. Không chấm sao hay lưu tiến độ.
+// ============================================================
+// Giới hạn chung cho ba thao tác 4.1: không quá 50 viên kẹo và 10 nhóm/đĩa.
+// Mọi thay đổi phải giữ tích (kẹo mỗi nhóm x số nhóm) <= 50.
+// Phép chia chỉ dùng các trường hợp chia hết, không có số dư.
+const MULDIV_DIVISION_LIMITS_ = Object.freeze({
+    total: 50, multiplyGroups: 10, multiplyPerGroup: 10,
+    dishes: 10, candiesPerDish: 10, bundleSize: 10, bundleGroups: 10
+});
+function mulDivIntroAction_(action, value) {
+    if (Number(activeTopicId) !== 4 || !pendingTopicQuiz || Number(pendingTopicQuiz.topicNum) !== 4) return;
+    const state = mulDivIntroState_;
+    const n = Number(value);
+    const limits = MULDIV_DIVISION_LIMITS_;
+    // Chỉ nhận các phép chia hết. Khi đổi số đĩa/nhóm, giữ nguyên thương hiện tại
+    // và điều chỉnh tổng số kẹo; khi đổi tổng, tăng theo bội số của số chia.
+    const setShare = (total, dishes) => {
+        if (!Number.isInteger(total) || !Number.isInteger(dishes)
+            || dishes < 1 || dishes > limits.dishes || total < dishes
+            || total > limits.total || total % dishes !== 0
+            || total / dishes > limits.candiesPerDish) return false;
+        state.shareTotal = total;
+        state.shareGroups = dishes;
+        state.sharedCount = 0;
+        return true;
+    };
+    const setBundle = (total, size) => {
+        if (!Number.isInteger(total) || !Number.isInteger(size)
+            || size < 1 || size > limits.bundleSize || total < size
+            || total > limits.total || total % size !== 0
+            || total / size > limits.bundleGroups) return false;
+        state.bundleTotal = total;
+        state.bundleSize = size;
+        state.bundledGroups = 0;
+        return true;
+    };
+    stopSpeaking();
+    switch (action) {
+        case 'tab':
+            if (!['multiply', 'share', 'bundle'].includes(String(value))) return;
+            state.mode = String(value);
+            break;
+        case 'groups': {
+            if (![-1, 1].includes(n)) return;
+            const nextGroups = state.groups + n;
+            if (nextGroups < 2 || nextGroups > limits.multiplyGroups
+                || nextGroups * state.perGroup > limits.total) return;
+            state.groups = nextGroups;
+            break;
+        }
+        case 'per-group': {
+            if (![-1, 1].includes(n)) return;
+            const nextPerGroup = state.perGroup + n;
+            if (nextPerGroup < 1 || nextPerGroup > limits.multiplyPerGroup
+                || state.groups * nextPerGroup > limits.total) return;
+            state.perGroup = nextPerGroup;
+            break;
+        }
+        case 'share-total':
+            if (![-1, 1].includes(n) || !setShare(state.shareTotal + n * state.shareGroups, state.shareGroups)) return;
+            break;
+        case 'share-dishes':
+            if (![-1, 1].includes(n)) return;
+            if (!setShare((state.shareTotal / state.shareGroups) * (state.shareGroups + n), state.shareGroups + n)) return;
+            break;
+        case 'share-one':
+            if (state.sharedCount >= state.shareTotal) return;
+            state.sharedCount += 1;
+            break;
+        case 'share-reset':
+            state.sharedCount = 0;
+            break;
+        case 'bundle-total':
+            if (![-1, 1].includes(n) || !setBundle(state.bundleTotal + n * state.bundleSize, state.bundleSize)) return;
+            break;
+        case 'bundle-size':
+            if (![-1, 1].includes(n)) return;
+            if (!setBundle((state.bundleTotal / state.bundleSize) * (state.bundleSize + n), state.bundleSize + n)) return;
+            break;
+        case 'bundle-one':
+            if (state.bundledGroups >= state.bundleTotal / state.bundleSize) return;
+            state.bundledGroups += 1;
+            break;
+        case 'bundle-reset':
+            state.bundledGroups = 0;
+            break;
+        default: return;
+    }
+    renderMulDivIntro_();
+}
+function speakMulDivIntro_() {
+    if (Number(activeTopicId) !== 4 || !pendingTopicQuiz) return;
+    const s = mulDivIntroState_;
+    let text = '';
+    if (s.mode === 'multiply') {
+        const total = s.groups * s.perGroup;
+        text = `Cô Thỏ Ngọc hướng dẫn: Mỗi nhóm có ${s.perGroup} viên kẹo, có ${s.groups} nhóm bằng nhau. `
+            + `${s.perGroup} được lấy ${s.groups} lần, ta có: ${Array.from({length:s.groups},()=>s.perGroup).join(' cộng ')} bằng ${total}. `
+            + `Ta viết thành phép nhân: ${s.perGroup} nhân ${s.groups} bằng ${total}. `
+            + `Bé thử thay đổi số kẹo mỗi nhóm, số nhóm để khám phá nhé!`;
+    } else if (s.mode === 'share') {
+        const total = s.shareTotal, groups = s.shareGroups;
+        const done = s.sharedCount >= total;
+        text = `Cô Thỏ Ngọc hướng dẫn: Con chọn ${total} viên kẹo, chia đều vào ${groups} đĩa. `
+            + `Con bấm chia một viên, lần lượt từng đĩa nhận một viên. `
+            + (done
+                ? `Mỗi đĩa được ${total / groups} viên. ${total} chia ${groups} bằng ${total / groups}. `
+                    + `Ta kiểm tra: ${total / groups} nhân ${groups} bằng ${total}.`
+                : 'Con hãy chia hết kẹo rồi tự xem mỗi đĩa có bao nhiêu viên nhé. ')
+            + `Khi đổi số đĩa, số kẹo trong giỏ tự điều chỉnh để phép chia luôn hết.`;
+    } else {
+        const total = s.bundleTotal, size = s.bundleSize;
+        const done = s.bundledGroups >= total / size;
+        text = `Cô Thỏ Ngọc hướng dẫn: Con chọn ${total} viên kẹo. Cứ ${size} viên xếp vào một đĩa. `
+            + `Con bấm xếp thêm một đĩa cho đến hết kẹo. `
+            + (done
+                ? `Con đã xếp được ${total / size} đĩa. ${total} chia ${size} bằng ${total / size}. `
+                    + `Ta kiểm tra: ${size} nhân ${total / size} bằng ${total}.`
+                : 'Con hãy xếp hết kẹo rồi tự đếm có bao nhiêu đĩa nhé. ')
+            + `Khi đổi số kẹo mỗi đĩa, tổng số kẹo tự điều chỉnh để phép chia luôn hết.`;
+    }
+    speakVietnamese(text, 0.94);
+}
+function renderMulDivIntro_() {
+    if (Number(activeTopicId) !== 4 || !pendingTopicQuiz || Number(pendingTopicQuiz.topicNum) !== 4) return;
+    const host = document.getElementById('view-dashboard-grid');
+    if (!host) return;
+    const s = mulDivIntroState_;
+    const candy = (n, tappable = false, action = '') => Array.from({ length: Math.max(0, Math.min(MULDIV_DIVISION_LIMITS_.total, n)) }, () =>
+        tappable
+            ? `<button type="button" class="mdi-candy mdi-candy--tap" onclick="mulDivIntroAction_('${action}')" aria-label="Bấm để chuyển một viên kẹo">🍬</button>`
+            : `<span class="mdi-candy" aria-hidden="true">🍬</span>`
+    ).join('');
+    const tabs = [
+        ['multiply', '✖️', 'Phép nhân'],
+        ['share', '🍬', 'Chia đều'],
+        ['bundle', '🧺', 'Chia theo đĩa']
+    ];
+    const tabHtml = tabs.map(([key, icon, label]) => `<button type="button" role="tab" aria-selected="${s.mode === key}" class="mdi-tab${s.mode === key ? ' mdi-tab--selected' : ''}" onclick="mulDivIntroAction_('tab','${key}')">${icon} ${label}</button>`).join('');
+    let visualHtml = '', infoHtml = '';
+    if (s.mode === 'multiply') {
+        const limits = MULDIV_DIVISION_LIMITS_;
+        const groups = s.groups, perGroup = s.perGroup;
+        const total = groups * perGroup;
+        const canIncreaseGroups = groups < limits.multiplyGroups && (groups + 1) * perGroup <= limits.total;
+        const canIncreasePerGroup = perGroup < limits.multiplyPerGroup && groups * (perGroup + 1) <= limits.total;
+        visualHtml = `<div class="mdi-visual-title">🍬 Các nhóm kẹo bằng nhau</div>
+            <p class="mdi-muted">Thay đổi số kẹo mỗi nhóm hoặc số nhóm, con sẽ thấy tổng thay đổi ngay (không quá 50 viên).</p>
+            <div class="mdi-controls">
+                <div class="mdi-stepper mdi-stepper--per-group"><span>Số kẹo mỗi nhóm</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('per-group',-1)" aria-label="Giảm số kẹo mỗi nhóm" ${perGroup <= 1 ? 'disabled' : ''}>−</button><strong>${perGroup}</strong><button type="button" onclick="mulDivIntroAction_('per-group',1)" aria-label="Tăng số kẹo mỗi nhóm" ${!canIncreasePerGroup ? 'disabled' : ''}>+</button></div></div>
+                <div class="mdi-stepper mdi-stepper--groups"><span>Số nhóm</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('groups',-1)" aria-label="Giảm số nhóm" ${groups <= 2 ? 'disabled' : ''}>−</button><strong>${groups}</strong><button type="button" onclick="mulDivIntroAction_('groups',1)" aria-label="Tăng số nhóm" ${!canIncreaseGroups ? 'disabled' : ''}>+</button></div></div>
+            </div>
+            <div class="mdi-group-grid mdi-group-grid--multiply">${Array.from({length: groups}, (_, i) => `<div class="mdi-bowl"><div class="mdi-bowl-name">Nhóm ${i+1}</div><div class="mdi-bowl-items">${candy(perGroup)}</div><div class="mdi-bowl-count">${perGroup} viên</div></div>`).join('')}</div>
+            <div class="mdi-counter">Mỗi nhóm <b class="mdi-qty--per-group">${perGroup} viên</b>, có <b class="mdi-qty--groups">${groups} nhóm</b> → tất cả <b class="mdi-qty--total">${total} viên kẹo</b></div>`;
+        infoHtml = `<span class="mdi-rule-label">TỪ PHÉP CỘNG ĐẾN PHÉP NHÂN</span>
+            <div class="mdi-equation mdi-equation--add">${Array.from({length:groups},()=>perGroup).join(' + ')} = <em>${total}</em></div>
+            <div class="mdi-equation mdi-equation--mult"><span class="mdi-qty--per-group">${perGroup}</span> <span>×</span> <span class="mdi-qty--groups">${groups}</span> = <em>${total}</em></div>
+            <p class="mdi-info-copy"><b class="mdi-qty--per-group">${perGroup}</b> được lấy <b class="mdi-qty--groups">${groups} lần</b>, ta có: ${Array.from({length:groups},()=>`<b class="mdi-qty--per-group">${perGroup}</b>`).join(' + ')} = <b class="mdi-qty--total">${total}</b>. Ta viết thành phép nhân: <b class="mdi-qty--per-group">${perGroup}</b> × <b class="mdi-qty--groups">${groups}</b> = <b class="mdi-qty--total">${total}</b>.</p>
+            <div class="mdi-note">💡 <strong>Cô Thỏ Ngọc nhắc:</strong> Phép nhân giúp tính nhanh tổng của <b>các nhóm có số lượng bằng nhau</b>.</div>
+            <div class="mdi-concept-check">Bé thử tăng một nhóm: tổng số kẹo sẽ tăng thêm <b>${perGroup} viên</b> đấy!</div>`;
+    } else if (s.mode === 'share') {
+        const total = s.shareTotal, groups = s.shareGroups;
+        const limits = MULDIV_DIVISION_LIMITS_;
+        const perDish = total / groups;
+        const placed = Math.max(0, Math.min(total, s.sharedCount));
+        const done = placed === total;
+        const bowls = Array.from({ length: groups }, (_, i) => {
+            const count = Math.max(0, Math.ceil((placed - i) / groups));
+            return `<div class="mdi-bowl"><div class="mdi-bowl-name">Đĩa ${i+1}</div><div class="mdi-bowl-items">${candy(count) || '<span class="mdi-empty">Chưa có kẹo</span>'}</div><div class="mdi-bowl-count">${count} viên</div></div>`;
+        }).join('');
+        const canIncreaseTotal = total + groups <= limits.total && perDish < limits.candiesPerDish;
+        const canIncreaseDishes = groups < limits.dishes && perDish * (groups + 1) <= limits.total;
+        visualHtml = `<div class="mdi-visual-title">🍬 Chia kẹo cho các đĩa</div>
+            <p class="mdi-muted">Chọn số kẹo và số đĩa, rồi chia <b>từng viên</b> để các đĩa nhận bằng nhau.</p>
+            <div class="mdi-controls">
+                <div class="mdi-stepper mdi-stepper--total"><span>Tổng số kẹo</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('share-total',-1)" aria-label="Giảm tổng số kẹo" ${perDish <= 1 ? 'disabled' : ''}>−</button><strong>${total}</strong><button type="button" onclick="mulDivIntroAction_('share-total',1)" aria-label="Tăng tổng số kẹo" ${!canIncreaseTotal ? 'disabled' : ''}>+</button></div></div>
+                <div class="mdi-stepper mdi-stepper--groups"><span>Số đĩa</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('share-dishes',-1)" aria-label="Giảm số đĩa" ${groups <= 1 ? 'disabled' : ''}>−</button><strong>${groups}</strong><button type="button" onclick="mulDivIntroAction_('share-dishes',1)" aria-label="Tăng số đĩa" ${!canIncreaseDishes ? 'disabled' : ''}>+</button></div></div>
+            </div>
+            <div class="mdi-selection-hint">💡 Số kẹo được chia đều cho mỗi đĩa.</div>
+            <div class="mdi-tray"><div class="mdi-tray-title">Giỏ kẹo còn <b class="mdi-qty--total">${total - placed}</b> viên</div><div class="mdi-tray-items">${candy(total-placed, !done, 'share-one') || '<span class="mdi-done">✓ Đã chia hết!</span>'}</div></div>
+            <div class="mdi-group-grid">${bowls}</div>
+            <div class="mdi-action-row"><button type="button" class="mdi-action-main" onclick="mulDivIntroAction_('share-one')" ${done ? 'disabled' : ''}>🍬 ${done ? 'Đã chia xong' : 'Chia 1 viên'}</button><button type="button" class="mdi-action-secondary" onclick="mulDivIntroAction_('share-reset')">↺ Làm lại</button></div>`;
+        infoHtml = `<span class="mdi-rule-label">CHIA ĐỀU: MỖI ĐĨA ĐƯỢC BAO NHIÊU?</span>
+            <div class="mdi-equation mdi-equation--mult"><span class="mdi-qty--total">${total}</span> <span>:</span> <span class="mdi-qty--groups">${groups}</span> = <em class="mdi-qty--per-group">${done ? perDish : '?'}</em></div>
+            <p class="mdi-info-copy">Có <b class="mdi-qty--total">${total} viên kẹo</b>, chia đều vào <b class="mdi-qty--groups">${groups} đĩa</b>. ${done ? `Mỗi đĩa được <b class="mdi-qty--per-group">${perDish} viên</b>.` : 'Con hãy phát lần lượt từng viên cho đến khi hết kẹo nhé.'}</p>
+            <div class="mdi-note">💡 <strong>Cô Thỏ Ngọc nhắc:</strong> <b>Chia đều</b> nghĩa là các đĩa nhận <b>số kẹo bằng nhau</b>.</div>
+            <div class="mdi-concept-check">${done ? `🎉 Chính xác! <b class="mdi-qty--total">${total}</b> : <b class="mdi-qty--groups">${groups}</b> = <b class="mdi-qty--per-group">${perDish}</b>.<span class="mdi-check-equation">Kiểm tra: <b class="mdi-qty--per-group">${perDish}</b> × <b class="mdi-qty--groups">${groups}</b> = <b class="mdi-qty--total">${total}</b>.</span>` : `Con đã chia ${placed}/${total} viên. Làm tiếp để tìm thương nhé!`}</div>`;
+    } else {
+        const total = s.bundleTotal, size = s.bundleSize;
+        const limits = MULDIV_DIVISION_LIMITS_;
+        const maxGroups = total / size;
+        const doneGroups = Math.max(0, Math.min(maxGroups, s.bundledGroups));
+        const remaining = total - doneGroups * size;
+        const done = remaining === 0;
+        const canIncreaseTotal = total + size <= limits.total && maxGroups < limits.bundleGroups;
+        const canIncreaseSize = size < limits.bundleSize && maxGroups * (size + 1) <= limits.total;
+        visualHtml = `<div class="mdi-visual-title">🧺 Xếp kẹo vào từng đĩa</div>
+            <p class="mdi-muted">Chọn số kẹo và số kẹo mỗi đĩa. Con xếp hết kẹo để tìm số đĩa.</p>
+            <div class="mdi-controls">
+                <div class="mdi-stepper mdi-stepper--total"><span>Tổng số kẹo</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('bundle-total',-1)" aria-label="Giảm tổng số kẹo" ${maxGroups <= 1 ? 'disabled' : ''}>−</button><strong>${total}</strong><button type="button" onclick="mulDivIntroAction_('bundle-total',1)" aria-label="Tăng tổng số kẹo" ${!canIncreaseTotal ? 'disabled' : ''}>+</button></div></div>
+                <div class="mdi-stepper mdi-stepper--per-group"><span>Số kẹo mỗi đĩa</span><div class="mdi-stepper-buttons"><button type="button" onclick="mulDivIntroAction_('bundle-size',-1)" aria-label="Giảm số kẹo mỗi đĩa" ${size <= 1 ? 'disabled' : ''}>−</button><strong>${size}</strong><button type="button" onclick="mulDivIntroAction_('bundle-size',1)" aria-label="Tăng số kẹo mỗi đĩa" ${!canIncreaseSize ? 'disabled' : ''}>+</button></div></div>
+            </div>
+            <div class="mdi-selection-hint">💡 Mỗi đĩa sẽ nhận số lượng kẹo bằng nhau.</div>
+            <div class="mdi-tray"><div class="mdi-tray-title">Giỏ kẹo còn <b class="mdi-qty--total">${remaining}</b> viên</div><div class="mdi-tray-items">${candy(remaining) || '<span class="mdi-done">✓ Đã xếp hết!</span>'}</div></div>
+            <div class="mdi-group-grid">${Array.from({length:doneGroups}, (_, i) => `<div class="mdi-bowl"><div class="mdi-bowl-name">Đĩa ${i+1}</div><div class="mdi-bowl-items">${candy(size)}</div><div class="mdi-bowl-count">${size} viên</div></div>`).join('') || '<div class="mdi-group-placeholder">Nhấn “Xếp 1 đĩa” để bắt đầu nhé!</div>'}</div>
+            <div class="mdi-action-row"><button type="button" class="mdi-action-main" onclick="mulDivIntroAction_('bundle-one')" ${done ? 'disabled' : ''}>🧺 ${done ? 'Đã xếp xong' : `Xếp 1 đĩa (${size} viên)`}</button><button type="button" class="mdi-action-secondary" onclick="mulDivIntroAction_('bundle-reset')">↺ Làm lại</button></div>`;
+        infoHtml = `<span class="mdi-rule-label">CHIA THEO ĐĨA: ĐƯỢC BAO NHIÊU ĐĨA?</span>
+            <div class="mdi-equation mdi-equation--mult"><span class="mdi-qty--total">${total}</span> <span>:</span> <span class="mdi-qty--per-group">${size}</span> = <em class="mdi-qty--groups">${done ? maxGroups : '?'}</em></div>
+            <p class="mdi-info-copy">Có <b class="mdi-qty--total">${total} viên</b>, mỗi đĩa có <b class="mdi-qty--per-group">${size} viên</b>. ${done ? `Con đã xếp được <b class="mdi-qty--groups">${maxGroups} đĩa</b>.` : 'Hãy xếp hết kẹo để biết có mấy đĩa nhé.'}</p>
+            <div class="mdi-note">💡 <strong>Cô Thỏ Ngọc nhắc:</strong> Chia theo đĩa là xếp <b>cùng số kẹo vào mỗi đĩa</b> cho đến khi hết kẹo.</div>
+            <div class="mdi-concept-check">${done ? `🎉 Giỏi lắm! <b class="mdi-qty--total">${total}</b> : <b class="mdi-qty--per-group">${size}</b> = <b class="mdi-qty--groups">${maxGroups}</b>.<span class="mdi-check-equation">Kiểm tra: <b class="mdi-qty--per-group">${size}</b> × <b class="mdi-qty--groups">${maxGroups}</b> = <b class="mdi-qty--total">${total}</b>.</span>` : `Đã xếp <b class="mdi-qty--groups">${doneGroups}</b> đĩa, còn ${remaining} viên kẹo.`}</div>`;
+    }
+
+    host.className = 'w-full';
+    host.innerHTML = `<section class="mdi-lesson" aria-label="Bài học 4.1 Phép nhân và phép chia">
+        <div class="mdi-tabs" role="tablist" aria-label="Ba cách khám phá phép nhân và phép chia">${tabHtml}</div>
+        <div class="mdi-grid"><div class="mdi-panel mdi-panel--visual">${visualHtml}</div>
+        <div class="mdi-panel mdi-panel--info">${infoHtml}
+            <button type="button" class="mdi-listen" onclick="speakMulDivIntro_()"><i class="fa-solid fa-volume-high" aria-hidden="true"></i> <span>Nghe cô giảng bài</span></button>
+        </div></div>
+        <div class="mdi-footer"><button type="button" class="mdi-back" onclick="returnToTopicLecture()">← Các mục học</button>
+            <span>Học xong, bé có thể luyện 35 câu ở mục 4.2</span>
+            <button type="button" class="mdi-next" onclick="selectSubtopic(1)">Luyện tập 4.2 →</button>
+        </div>
+    </section>`;
+    updateNavTabs(pendingTopicQuiz.topicName, '✖️', '4.1 Phép nhân, phép chia là gì?');
+    switchAppView('view-dashboard-grid');
+}
 
 // ==========================================
 // 12. MATH LAB - TOÁN TƯ DUY MỸ
@@ -2664,6 +2915,40 @@ function revealCarryConceptFeedback_(q) {
         el.classList.remove('opacity-25', 'text-slate-300', 'border-slate-200', 'bg-slate-50', 'text-rose-600', 'border-rose-300', 'bg-rose-50');
         el.classList.add('opacity-100', 'text-blue-600', 'border-blue-300', 'bg-blue-50');
     });
+}
+
+function isTopic3Vertical1000Question_(q) {
+    if (!q || activeExamContext || activeRoadmapContext ||
+        Number(pendingTopicQuiz?.topicNum) !== 3) return false;
+    const key = String(q.sub_topic || '');
+    return (key === '2.4' && q.explore_type === 'vertical_no_carry_1000') ||
+           (key === '2.5' && q.explore_type === 'vertical_carry_1000');
+}
+
+// Cac cau 3.5/3.6 doc hai so va phep tinh thay vi doc loi huong dan chung.
+function getTopic3Vertical1000Speech_(q) {
+    if (!isTopic3Vertical1000Question_(q)) return '';
+    const expression = String(q.question_text || '')
+        .replace(/−/g, '-')
+        .match(/(\d+)\s*([+\-])\s*(\d+)\s*=\s*\?/);
+    if (!expression) return '';
+    const [, a, op, b] = expression;
+    return `Bé ơi, ${a} ${op === '+' ? 'cộng' : 'trừ'} ${b} bằng bao nhiêu?`;
+}
+
+function revealTopic3Vertical1000Answer_(q) {
+    // 3.5/3.6: chi thay ba dau ? khi be chon dap an dung.
+    if (!isTopic3Vertical1000Question_(q)) return;
+    const result = String(q.answer ?? '');
+    if (!/^\d{1,3}$/.test(result)) return;
+    const digits = result.padStart(3, ' ').split('');
+    const card = document.querySelector('#question-box .math-1000-vertical');
+    if (!card) return;
+    card.querySelectorAll('[data-math1000-result]').forEach((cell, index) => {
+        cell.textContent = digits[index] === ' ' ? '' : digits[index];
+        cell.classList.add('is-revealed');
+    });
+    card.setAttribute('aria-label', `Kết quả phép đặt tính là ${result}`);
 }
 
 function revealCarryPracticeAnswer_(q) {
@@ -4065,7 +4350,19 @@ function getExploreMathPresentation(q) {
     if (mulDivTablePresentation) return mulDivTablePresentation;
 
     else if(/^2\.[1]$/.test(sub)&&math){prompt='Bé ơi, hãy tính nhẩm nhé!';visual=card(`<div class="text-5xl md:text-6xl font-black">${math[1]} <span class="text-pink-500">${math[2]}</span> ${math[3]} <span class="text-purple-400">= ?</span></div>`)}
-    else if(/^2\.[45]$/.test(sub)&&(math||nums.length>=2)){const a=math?math[1]:nums[0],op=math?math[2]:(/trừ/i.test(raw)?'-':'+'),b=math?math[3]:nums[1];prompt='Bé ơi, hãy đặt tính rồi tính nhé!';visual=card(`<div class="inline-grid grid-cols-[32px_auto] text-right text-5xl font-black leading-tight"><span></span><span>${a}</span><span class="text-pink-500">${op}</span><span>${b}</span><span class="col-span-2 border-t-4 border-slate-700 mt-1 pt-2 text-purple-400">?</span></div>`)}
+    else if(isTopic3Vertical1000Question_(q) && math){
+        // Muc 3.5/3.6: dat tinh thang cot tram/chuc/don vi, ket qua chi lo sau khi chon dung.
+        const [, a, op, b] = math;
+        const digits = value => String(value).padStart(3, ' ').split('').map(d =>
+            `<span class="math-1000-digit">${d === ' ' ? '&nbsp;' : d}</span>`).join('');
+        prompt = 'Bé ơi, hãy đặt tính rồi tính nhé!';
+        visual = card(`<div class="math-1000-vertical" role="img" aria-label="${a} ${op==='+'?'cộng':'trừ'} ${b}, chưa biết kết quả">
+            <span class="math-1000-operator"></span>${digits(a)}
+            <span class="math-1000-operator math-1000-sign">${op==='+'?'+':'−'}</span>${digits(b)}
+            <span class="math-1000-rule" aria-hidden="true"></span>
+            <span class="math-1000-operator"></span>${[0,1,2].map(i=>`<span data-math1000-result="${i}" class="math-1000-result-digit" aria-hidden="true">?</span>`).join('')}
+        </div>`);
+    }
     else if(sub==='2.6'&&nums.length>=3){
         const meta = getOperationTermsMeta_(q);
         if (meta) {
@@ -4667,6 +4964,7 @@ function loadQuestion() {
     // Mục 3 (Cộng - trừ) và Mục 4 (Nhân - chia) có đáp án ngắn,
     // nên dùng bố cục gọn: 4 đáp án trên một hàng ở desktop.
     const isCompactTopic34 = !isEvaluationMode && [3, 4].includes(Number(pendingTopicQuiz?.topicNum));
+    const isTopic3Vertical1000 = !isEvaluationMode && isTopic3Vertical1000Question_(q);
     // Mục 8-11: vẫn tô đỏ các con số trong câu hỏi, nhưng giảm cỡ chữ để cân bố cục đẹp hơn.
     const isLargeTopic8910 = !isEvaluationMode && [8, 9, 10, 11].includes(Number(pendingTopicQuiz?.topicNum));
     const topic8910QuestionHtml = isLargeTopic8910 ? highlightQuestionNumbers_(q.question_text) : escapeHtml(q.question_text);
@@ -4970,7 +5268,7 @@ function loadQuestion() {
                 </button>`;
         } else {
             html += `
-                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full ${exploreMath ? (isNumberCompose ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isFindNumber ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isOperationTerms ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : (isCompareSignQuestion ? 'min-h-[58px] md:min-h-[64px] px-3 py-2.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-2xl md:text-3xl' : (isCarryLearning ? 'px-3 py-1.5 md:py-2 min-h-[42px] bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isCompactTopic34 ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : 'p-3.5 md:p-4 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl')))))) : (isLargeTopic8910 ? 'p-3.5 md:p-4 min-h-[64px] bg-white hover:bg-pink-50 border-pink-200 font-black text-slate-900 text-center justify-center text-base md:text-lg lg:text-xl' : 'p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-pink-200 font-extrabold text-gray-800 text-left justify-between text-sm md:text-base')} border-2 rounded-2xl transition-all flex items-center shadow-xs pastel-btn">
+                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full ${isTopic3Vertical1000 ? 'math-1000-option' : ''} ${exploreMath ? (isNumberCompose ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isFindNumber ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isOperationTerms ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : (isCompareSignQuestion ? 'min-h-[58px] md:min-h-[64px] px-3 py-2.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-2xl md:text-3xl' : (isCarryLearning ? 'px-3 py-1.5 md:py-2 min-h-[42px] bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isCompactTopic34 ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : 'p-3.5 md:p-4 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl')))))) : (isLargeTopic8910 ? 'p-3.5 md:p-4 min-h-[64px] bg-white hover:bg-pink-50 border-pink-200 font-black text-slate-900 text-center justify-center text-base md:text-lg lg:text-xl' : 'p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-pink-200 font-extrabold text-gray-800 text-left justify-between text-sm md:text-base')} border-2 rounded-2xl transition-all flex items-center shadow-xs pastel-btn">
                     <span>${exploreMath ? '' : `<strong class="text-pink-600 mr-2 ${isLargeTopic8910 ? 'text-base md:text-lg' : 'text-base md:text-lg'}">${letter}.</strong>`} ${escapeHtml(formattedOpt)}</span>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
@@ -5089,6 +5387,7 @@ function restoreQuestionState(q) {
             revealOperationTermsFeedback_(q);
             revealCarryConceptFeedback_(q);
             revealCarryPracticeAnswer_(q);
+            revealTopic3Vertical1000Answer_(q);
             // Trở về câu đúng vẫn hiện lời giải, kể cả khi Gợi ý đang tắt.
             if (q.explore_type === 'mul_div_table_visual') revealMulDivFeedback_();
             revealTopic56Solution_(q);
@@ -5222,6 +5521,7 @@ function checkAnswer(selectedOpt) {
         if (isOperationTerms) revealOperationTermsFeedback_(q);
         if (isCarryGuided) revealCarryConceptFeedback_(q);
         revealCarryPracticeAnswer_(q);
+        revealTopic3Vertical1000Answer_(q);
         if (isNeighborBasic) revealNeighborRuleFeedback_(q);
         if (isMulDivVisual) revealMulDivFeedback_();
         if (isUnknownNumberQuestion_(q)) revealUnknownNumberFeedback_(q);
@@ -6240,12 +6540,152 @@ function speakVietnamese(text, rate = 0.96) {
     } catch (err) {}
 }
 
+// Khám phá 1–11: đọc dữ kiện CỦA CÂU HIỆN TẠI, không lặp prompt chung của renderer.
+// Không lấy q.answer, hint, full_sequence hoặc trường kết quả từ visual_data
+// để tránh cô đọc lộ đáp án trước khi bé tự làm.
+function getExploreSpecificQuestionSpeech_(q) {
+    if (!q || activeExamContext || activeRoadmapContext) return '';
+    const topic = Number(pendingTopicQuiz?.topicNum);
+    if (!Number.isInteger(topic) || topic < 1 || topic > 11) return '';
+
+    const type = String(q.explore_type || '');
+    const question = String(q.question_text || '').trim();
+    const vd = q.visual_data && typeof q.visual_data === 'object' ? q.visual_data : {};
+    const isNumber = n => typeof n === 'number' && Number.isFinite(n);
+    const numsSpeech = values => values.map(v => v == null ? 'ô trống' : String(v)).join(', ');
+    const emojiName = {
+        '🍎':'quả táo','🍊':'quả cam','⭐':'ngôi sao','🌟':'ngôi sao',
+        '🐟':'con cá','🍪':'chiếc bánh','🐔':'con gà','🐶':'con chó',
+        '🐷':'con lợn','🐱':'con mèo','🍌':'quả chuối','🍇':'chùm nho',
+        '⚽':'quả bóng đá','🏀':'quả bóng rổ','🌙':'mặt trăng',
+        '☀️':'mặt trời','🐝':'con ong','🦋':'con bướm','🐞':'con bọ rùa',
+        '🐻':'con gấu','🐰':'con thỏ','🐇':'con thỏ','🎈':'quả bóng bay',
+        '🌽':'bắp ngô','🍓':'quả dâu','🌼':'bông hoa','🌧️':'đám mây mưa',
+        '🎁':'hộp quà','🟢':'hình tròn xanh lá','🟣':'hình tròn tím',
+        '🔵':'hình tròn xanh dương','🟠':'hình tròn cam','🟨':'hình vuông vàng',
+        '🐙':'con bạch tuộc','🥝':'quả kiwi','🌍':'trái đất',
+        '📘':'quyển sách','🚲':'chiếc xe đạp','🐸':'con ếch',
+        '🦀':'con cua','🚀':'tên lửa','🍉':'quả dưa hấu',
+        '🚌':'xe buýt','🥕':'củ cà rốt','🍅':'quả cà chua',
+        '🎉':'pháo giấy','🎂':'bánh sinh nhật',
+        '🚗':'ô tô','🚕':'xe taxi','🔺':'hình tam giác đỏ',
+        '🦊':'con cáo','🌸':'bông hoa anh đào','🌻':'bông hoa hướng dương',
+        '🌷':'bông hoa tu líp','✏️':'bút chì','🖍️':'bút màu',
+        '🍍':'quả dứa','🐥':'gà con','🐢':'con rùa',
+        '☁️':'đám mây','🌈':'cầu vồng'
+    };
+    const shapeName = { circle:'hình tròn', square:'hình vuông',
+                        rectangle:'hình chữ nhật', triangle:'hình tam giác' };
+    const formatTime = time => {
+        const hour = Number(time?.hour), minute = Number(time?.minute);
+        if (!Number.isInteger(hour) || !Number.isInteger(minute)) return '';
+        return minute ? `${hour} giờ ${minute} phút` : `${hour} giờ`;
+    };
+
+    // Phép tính cụ thể: đọc số và phép toán, không lặp lời nhắc "hãy tính nhẩm".
+    if (['mental_no_carry','mental_carry_20','vertical_carry_100',
+         'vertical_no_carry_1000','vertical_carry_1000','mul_div_table_visual'].includes(type)) {
+        const expr = question.replace(/−/g, '-').match(/(\d+)\s*([+\-×xX÷:])\s*(\d+)\s*=\s*\?/);
+        if (expr) {
+            const op = {'+':'cộng','-':'trừ','×':'nhân','x':'nhân','X':'nhân','÷':'chia',':':'chia'}[expr[2]];
+            if (op) return `Bé ơi, ${expr[1]} ${op} ${expr[3]} bằng bao nhiêu?`;
+        }
+    }
+
+    // Ô trống trong phép nhân/chia: thay dấu ? bằng lời hỏi về số chưa biết.
+    // Chỉ xử lý biểu thức có đúng 1 ô trống, không tự tính ra đáp án.
+    if (type === 'mul_div_advanced') {
+        const blank = question.match(/(?:^|:)\s*(\?|\d+)\s*([×÷])\s*(\?|\d+)\s*=\s*(\d+)/);
+        if (blank && (blank[1] === '?' || blank[3] === '?') && blank[1] !== blank[3]) {
+            const op = blank[2] === '×' ? 'nhân' : 'chia';
+            return blank[1] === '?'
+                ? `Bé ơi, số nào ${op} ${blank[3]} thì bằng ${blank[4]}?`
+                : `Bé ơi, ${blank[1]} ${op} số nào thì bằng ${blank[4]}?`;
+        }
+    }
+    if (type === 'length_convert' && isNumber(vd.value)) {
+        const units = { cm:'xăng-ti-mét', dm:'đề-xi-mét', m:'mét', km:'ki-lô-mét' };
+        if (units[vd.from_unit] && units[vd.to_unit])
+            return `Bé ơi, ${vd.value} ${units[vd.from_unit]} bằng bao nhiêu ${units[vd.to_unit]}?`;
+    }
+    if (type === 'length_unit_choice' && vd.value_text && vd.object)
+        return `Bé ơi, ${vd.object} dài khoảng ${vd.value_text}, con hãy chọn đơn vị đo thích hợp nhé!`;
+
+    // Cấu tạo số: số liệu nằm ở visual_data, câu hỏi JSON chỉ là lời nhắc chung.
+    if (type === 'compose_words') {
+        const parts = getComposeSpeechText(q);
+        if (parts) return `Bé ơi, ${parts.replace(/ cộng /g, ' và ')} tạo thành số nào?`;
+    }
+    if (type === 'expanded_form_missing' && isNumber(vd.number) && isNumber(vd.left))
+        return `Bé ơi, số ${vd.number} được tách thành ${vd.left} cộng với bao nhiêu?`;
+    if (type === 'compare_pair' && isNumber(vd.left) && isNumber(vd.right))
+        return `Bé ơi, giữa ${vd.left} và ${vd.right} cần điền dấu lớn hơn, bé hơn hay bằng nhau?`;
+    if (type === 'order_numbers_interactive' && Array.isArray(vd.numbers) && vd.numbers.length) {
+        const direction = String(vd.direction) === 'desc' ? 'lớn đến bé' : 'bé đến lớn';
+        return `Bé ơi, con hãy xếp các số ${numsSpeech(vd.numbers)} theo thứ tự từ ${direction} nhé!`;
+    }
+    if (type === 'estimate_groups' && isNumber(vd.groups)) {
+        const obj = emojiName[vd.emoji] || 'đồ vật';
+        return `Bé ơi, quan sát ${vd.groups} nhóm ${obj} trên hình. Có tất cả khoảng bao nhiêu ${obj}?`;
+    }
+    if (type === 'sequence_missing' && Array.isArray(vd.sequence)) {
+        const values = vd.sequence;
+        const hasEmojis = vd.kind === 'emoji' || values.some(v => typeof v === 'string');
+        if (hasEmojis) {
+            // Chỉ dùng các ký hiệu nhìn thấy, tuyệt đối không đọc "pattern" hay "full_sequence".
+            const text = values.map(v => v == null ? 'ô trống' : (emojiName[v] || '')).join(', ');
+            if (values.every(v => v == null || emojiName[v]))
+                return `Bé ơi, dãy hình gồm ${text}. Hình nào còn thiếu ở ô trống?`;
+            return 'Bé ơi, con quan sát dãy hình trong câu hỏi và tìm hình còn thiếu nhé!';
+        }
+        return `Bé ơi, trong dãy số ${numsSpeech(values)}, số nào còn thiếu?`;
+    }
+    if (['pattern_constant_step','pattern_cycle_steps'].includes(type) && Array.isArray(vd.sequence))
+        return `Bé ơi, quan sát dãy số ${numsSpeech(vd.sequence)}. Số nào thích hợp điền vào ô trống?`;
+    if (type === 'shape_repeat_pattern' && Array.isArray(vd.sequence)) {
+        const seq = vd.sequence.map(v => v == null ? 'ô trống' : (shapeName[v] || 'hình lạ'));
+        return `Bé ơi, dãy hình gồm ${seq.join(', ')}. Hình nào phù hợp ở ô trống?`;
+    }
+    if (type === 'number_triangle_sum') {
+        const vertices = [['top','đỉnh trên'],['left','đỉnh trái'],['right','đỉnh phải']];
+        const missing = String(vd.target || '');
+        if (missing === 'center' && vertices.every(([key]) => isNumber(vd[key])))
+            return `Bé ơi, ba đỉnh có các số ${vd.top}, ${vd.left} và ${vd.right}. Cộng ba số đó lại, số ở giữa là bao nhiêu?`;
+        if (isNumber(vd.center) && vertices.some(([key]) => key === missing)) {
+            const known = vertices.filter(([key]) => key !== missing && isNumber(vd[key]));
+            if (known.length === 2)
+                return `Bé ơi, số ở giữa là ${vd.center}, ${known[0][1]} có số ${vd[known[0][0]]}, ${known[1][1]} có số ${vd[known[1][0]]}. ${vertices.find(([key]) => key === missing)[1]} còn thiếu số nào?`;
+        }
+    }
+    if (type === 'clock_compare' && /^(?:Thời điểm nào sớm hơn|Thời điểm nào muộn hơn)\?$/i.test(question)) {
+        const a = formatTime(vd.a), b = formatTime(vd.b);
+        if (a && b) return `Bé ơi, có hai thời điểm ${a} và ${b}. ${question}`;
+    }
+    if (type === 'money_note' && vd.mode === 'sum' && Array.isArray(vd.notes) && vd.notes.length)
+        return `Bé ơi, các tờ tiền có mệnh giá ${vd.notes.map(v => `${v} đồng`).join(', ')}. Tất cả là bao nhiêu tiền?`;
+
+    // Câu hỏi mô tả thật trong JSON đã mang đủ dữ kiện, đọc nguyên đề.
+    // Riêng hình đồng hồ/thước/tờ tiền nhận diện: không đọc số liệu trong
+    // visual_data vì đó chính là đáp án bé phải tự quan sát.
+    return question;
+}
+
 function speakCurrentQuestion() {
     const q = activeQuestionsList[currentQIndex];
     if (!q) return;
+    const verticalSpeech = getTopic3Vertical1000Speech_(q);
+    if (verticalSpeech) {
+        speakVietnamese(verticalSpeech, 0.96);
+        return;
+    }
     if (q.explore_type === 'find_number') {
         const clue = q.visual_data?.clue || String(q.question_text || '').replace(/^🔎\s*/, '');
         speakVietnamese(clue, 0.96);
+        return;
+    }
+    const exploreQuestion = getExploreSpecificQuestionSpeech_(q);
+    if (exploreQuestion) {
+        speakVietnamese(q.audio_text || exploreQuestion, 0.96);
         return;
     }
     const composeSpeech = getComposeSpeechText(q);
@@ -22093,9 +22533,119 @@ const MATH_FOLDER_TA2_HOVER_CSS_ = `
 }
 `;
 
+// Phần học trực quan 4.1, chỉ thuộc Khám phá → Phép nhân và chia.
+const MATH_1000_COLUMN_CSS_ = `
+/* Rieng Kham pha 3.5 va 3.6: can cot tram/chuc/don vi, gach ngang va 3 dau hoi. */
+#class2-math-runtime #question-box .math-1000-vertical{
+  display:grid;grid-template-columns:32px repeat(3,52px);
+  column-gap:10px;row-gap:13px;width:max-content;max-width:100%;
+  align-items:center;justify-items:center;margin:5px auto;
+  font-variant-numeric:tabular-nums;font-size:48px;font-weight:950;line-height:1.08;
+  color:#334155;
+}
+#class2-math-runtime #question-box .math-1000-digit,
+#class2-math-runtime #question-box .math-1000-result-digit,
+#class2-math-runtime #question-box .math-1000-operator{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;height:52px;min-width:0;line-height:1;
+}
+#class2-math-runtime #question-box .math-1000-sign{color:#ec4899;}
+#class2-math-runtime #question-box .math-1000-rule{
+  grid-column:1/-1;width:100%;height:3px;border-radius:99px;
+  margin:0;background:#e11d48;
+}
+#class2-math-runtime #question-box .math-1000-result-digit{color:#a855f7;}
+#class2-math-runtime #question-box .math-1000-result-digit.is-revealed{color:#dc2626;}
+/* Hai bai 3.5/3.6: co chu dap an +1px (desktop 18->19, mobile 17->18). */
+#class2-math-runtime #question-box .option-btn.math-1000-option,
+#class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:19px!important;}
+@media(max-width:767px){
+  #class2-math-runtime #question-box .option-btn.math-1000-option,
+  #class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:18px!important;}
+}
+@media(max-width:420px){
+  #class2-math-runtime #question-box .math-1000-vertical{grid-template-columns:28px repeat(3,44px);column-gap:6px;font-size:40px;row-gap:10px;}
+  #class2-math-runtime #question-box .math-1000-digit,
+  #class2-math-runtime #question-box .math-1000-result-digit,
+  #class2-math-runtime #question-box .math-1000-operator{height:46px;}
+}
+`;
+
+const MATH_MULDIV_INTRO_CSS_ = `
+#class2-math-runtime .math-muldiv-intro-entry{background:linear-gradient(140deg,#fff1f8 0%,#f4eaff 100%)!important;border-color:#e879f9!important;box-shadow:0 3px 14px rgba(190,24,93,.09)!important;}
+#class2-math-runtime .mdi-lesson{width:100%;padding:0 0 12px;font-size:18px;color:#334155;font-family:inherit;}
+#class2-math-runtime .mdi-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px;}
+#class2-math-runtime .mdi-tab{min-height:56px;padding:9px 12px;line-height:1.35;border:1px solid #e9d5ff;border-radius:14px;background:#faf5ff;color:#6d28d9;font-size:18px;font-weight:850;text-align:center;transition:background .15s,border-color .15s;}
+#class2-math-runtime .mdi-tab--selected{background:linear-gradient(110deg,#ec4899,#9333ea);border-color:#c026d3;color:#fff;box-shadow:0 4px 10px rgba(147,51,234,.16);}
+#class2-math-runtime .mdi-tab:focus-visible,#class2-math-runtime .mdi-lesson button:focus-visible{outline:3px solid #f59e0b;outline-offset:2px;}
+#class2-math-runtime .mdi-grid{display:grid;grid-template-columns:minmax(0,1.23fr) minmax(0,.85fr);gap:12px;align-items:stretch;}
+#class2-math-runtime .mdi-panel{min-width:0;border-radius:19px;border:1px solid #e9d5ff;padding:17px;background:#fff;}
+#class2-math-runtime .mdi-panel--visual{background:linear-gradient(180deg,#fff,#fdf4ff);}
+#class2-math-runtime .mdi-panel--info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;background:linear-gradient(160deg,#fff,#f5f3ff);}
+#class2-math-runtime .mdi-visual-title{font-weight:850;color:#be185d;font-size:20px;margin-bottom:3px;text-align:center;}
+#class2-math-runtime .mdi-muted{color:#64748b;font-size:18px;font-weight:600;text-align:center;line-height:1.5;margin:0 0 12px;}
+#class2-math-runtime .mdi-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 13px;}
+#class2-math-runtime .mdi-stepper{padding:9px 10px;background:#fff;border:1px solid #ddd6fe;border-radius:13px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+#class2-math-runtime .mdi-stepper>span{font-size:18px;font-weight:800;color:#475569;}
+#class2-math-runtime .mdi-stepper-buttons{display:flex;align-items:center;gap:9px;}
+#class2-math-runtime .mdi-stepper-buttons button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:12px;border:1px solid #e9d5ff;background:#f5f3ff;color:#7e22ce;font-size:28px;font-weight:800;line-height:1;display:inline-flex;align-items:center;justify-content:center;}
+#class2-math-runtime .mdi-stepper-buttons button:disabled,#class2-math-runtime .mdi-action-main:disabled{opacity:.42;cursor:not-allowed;}
+#class2-math-runtime .mdi-stepper-buttons strong{min-width:18px;text-align:center;color:#be185d;font-size:20px;}
+#class2-math-runtime .mdi-selection-hint{padding:9px 11px;border:1px dashed #c4b5fd;border-radius:12px;background:#f5f3ff;color:#6d28d9;font-size:18px;font-weight:700;line-height:1.4;text-align:center;margin:-2px 0 12px;}
+#class2-math-runtime .mdi-group-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:116px;align-content:flex-start;margin:8px 0;}
+#class2-math-runtime .mdi-bowl{flex:1 1 112px;max-width:190px;min-width:94px;border-radius:14px;border:1px solid #93c5fd;background:#eff6ff;padding:10px 7px;text-align:center;}
+#class2-math-runtime .mdi-bowl-name{color:#9333ea;font-size:18px;font-weight:900;}
+#class2-math-runtime .mdi-bowl-items{display:flex;justify-content:center;align-content:center;align-items:center;flex-wrap:wrap;gap:3px;min-height:45px;padding:4px 1px;}
+#class2-math-runtime .mdi-bowl-count{font-size:18px;color:#2563eb;font-weight:800;}
+#class2-math-runtime .mdi-candy{font-size:24px;line-height:1.2;display:inline-flex;align-items:center;justify-content:center;}
+#class2-math-runtime .mdi-candy--tap{border:1px solid #f9a8d4;background:#fff;border-radius:9px;padding:3px;cursor:pointer;min-width:37px;min-height:37px;}
+#class2-math-runtime .mdi-counter{padding:11px 10px;text-align:center;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;font-size:18px;color:#9a3412;font-weight:650;}
+#class2-math-runtime .mdi-rule-label{display:block;color:#7e22ce;font-size:18px;font-weight:900;letter-spacing:.03em;}
+#class2-math-runtime .mdi-equation{font-weight:900;line-height:1.25;word-break:break-word;}
+#class2-math-runtime .mdi-equation--add{font-size:clamp(20px,2.7vw,28px);color:#2563eb;}
+#class2-math-runtime .mdi-equation--mult{font-size:clamp(34px,3.8vw,47px);color:#4338ca;}
+#class2-math-runtime .mdi-equation--mult span{color:#9333ea;}
+#class2-math-runtime .mdi-equation em{color:#db2777;font-style:normal;}
+#class2-math-runtime .mdi-info-copy{font-size:18px;font-weight:650;color:#334155;line-height:1.55;margin:0;}
+#class2-math-runtime .mdi-note{width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:#fff1f2;border:1px solid #fecdd3;font-size:18px;font-weight:620;line-height:1.5;color:#9f1239;}
+#class2-math-runtime .mdi-concept-check{width:100%;padding:10px 12px;border-radius:12px;border:1px dashed #c4b5fd;background:#f5f3ff;color:#6d28d9;font-size:18px;font-weight:750;}
+#class2-math-runtime .mdi-check-equation{display:block;margin-top:4px;white-space:nowrap;text-align:center;}
+#class2-math-runtime .mdi-listen{border:1px solid #e879f9;background:linear-gradient(110deg,#a855f7,#ec4899);color:#fff!important;border-radius:11px;padding:9px 15px;font-size:18px;font-weight:850;display:inline-flex;align-items:center;gap:7px;}
+#class2-math-runtime .mdi-listen i{color:#fff;}
+#class2-math-runtime .mdi-tray{padding:10px;border-radius:14px;background:#fff7ed;border:1px solid #fed7aa;text-align:center;}
+#class2-math-runtime .mdi-tray-title{color:#9a3412;font-size:18px;font-weight:850;}
+#class2-math-runtime .mdi-tray-items{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;align-items:center;min-height:46px;padding:4px;}
+#class2-math-runtime .mdi-done{color:#15803d;font-size:18px;font-weight:850;}
+#class2-math-runtime .mdi-empty{font-size:18px;color:#64748b;font-weight:700;}
+#class2-math-runtime .mdi-group-placeholder{width:100%;align-self:center;text-align:center;color:#64748b;font-size:18px;font-weight:750;border:1px dashed #c4b5fd;border-radius:14px;padding:25px 10px;}
+#class2-math-runtime .mdi-action-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:12px;}
+#class2-math-runtime .mdi-action-main{background:linear-gradient(115deg,#ec4899,#9333ea);border:1px solid #db2777;border-radius:12px;color:#fff;padding:10px 17px;font-size:18px;font-weight:850;}
+#class2-math-runtime .mdi-action-secondary{background:#fff;border:1px solid #c4b5fd;border-radius:12px;color:#6d28d9;padding:10px 17px;font-size:18px;font-weight:850;}
+/* Màu nhất quán trong cả ba hoạt động 4.1: tổng hồng, nhóm/đĩa tím, kẹo mỗi nhóm xanh. */
+#class2-math-runtime .mdi-stepper--total>span,
+#class2-math-runtime .mdi-stepper--total .mdi-stepper-buttons strong{color:#db2777;}
+#class2-math-runtime .mdi-lesson .mdi-qty--per-group,
+#class2-math-runtime .mdi-stepper--per-group>span,
+#class2-math-runtime .mdi-stepper--per-group .mdi-stepper-buttons strong,
+#class2-math-runtime .mdi-group-grid .mdi-bowl-count{color:#2563eb;}
+#class2-math-runtime .mdi-lesson .mdi-qty--groups,
+#class2-math-runtime .mdi-stepper--groups>span,
+#class2-math-runtime .mdi-stepper--groups .mdi-stepper-buttons strong{color:#9333ea;}
+#class2-math-runtime .mdi-lesson .mdi-qty--total{color:#db2777;}
+/* Tất cả nhóm/đĩa cùng nền xanh nhạt, tên nhóm màu tím. */
+#class2-math-runtime .mdi-footer{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:13px;padding:11px 14px;border:1px solid #e9d5ff;border-radius:15px;background:#faf5ff;}
+#class2-math-runtime .mdi-footer>span{font-size:18px;color:#64748b;font-weight:650;text-align:center;flex:1 1 190px;}
+#class2-math-runtime .mdi-back,#class2-math-runtime .mdi-next{padding:10px 13px;font-size:18px;font-weight:850;border-radius:10px;}
+#class2-math-runtime .mdi-back{border:1px solid #ddd6fe;background:#fff;color:#6d28d9;}
+#class2-math-runtime .mdi-next{border:1px solid #db2777;background:linear-gradient(110deg,#ec4899,#db2777);color:#fff;}
+@media (max-width:1220px){#class2-math-runtime .mdi-stepper{flex-direction:column;justify-content:center;gap:6px;}#class2-math-runtime .mdi-stepper-buttons{justify-content:center;}}
+@media (max-width:780px){#class2-math-runtime .mdi-grid{grid-template-columns:1fr;}}
+@media (max-width:480px){#class2-math-runtime .mdi-controls{grid-template-columns:1fr;}#class2-math-runtime .mdi-tabs{gap:5px;}#class2-math-runtime .mdi-tab{padding:8px 5px;font-size:18px;min-height:56px;}#class2-math-runtime .mdi-panel{padding:12px;}#class2-math-runtime .mdi-stepper{padding:7px;}#class2-math-runtime .mdi-controls{gap:6px;}#class2-math-runtime .mdi-stepper-buttons{gap:5px;}#class2-math-runtime .mdi-bowl{flex-basis:100px;}#class2-math-runtime .mdi-candy{font-size:21px;}#class2-math-runtime .mdi-footer{justify-content:center;}#class2-math-runtime .mdi-rule-label{font-size:18px;}}
+`;
+
 function ensureMathStyles_() {
     if (document.getElementById(MATH_MODULE_STYLE_ID_)) return;
-    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_; document.head.appendChild(style);
+    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_ + MATH_MULDIV_INTRO_CSS_ + MATH_1000_COLUMN_CSS_; document.head.appendChild(style);
 }
 
 function mathReadStandaloneBreadcrumb_() {
@@ -22336,6 +22886,7 @@ function normalizeMathListenButtons_() {
     if (!mathModuleRoot_) return;
     mathModuleRoot_.querySelectorAll(MATH_LISTEN_BUTTON_SELECTOR_).forEach((btn) => {
         if (!(btn instanceof HTMLButtonElement)) return;
+        if (btn.classList.contains('mdi-listen')) return; // Giữ nhãn 'Nghe cô giảng bài' ở Mục 4.1.
         btn.classList.add('math-listen-button');
         btn.setAttribute('title', 'Nghe cô đọc');
         btn.setAttribute('aria-label', 'Nghe cô đọc');
@@ -22443,6 +22994,8 @@ const mathInlineBridgeGetters_ = {
     "selectTopic2NeighborLevel_": () => (typeof selectTopic2NeighborLevel_ === 'function' ? selectTopic2NeighborLevel_ : null),
     "showLockedBaiTapToan2_": () => (typeof showLockedBaiTapToan2_ === 'function' ? showLockedBaiTapToan2_ : null),
     "speakCurrentQuestion": () => (typeof speakCurrentQuestion === 'function' ? speakCurrentQuestion : null),
+    "mulDivIntroAction_": () => (typeof mulDivIntroAction_ === 'function' ? mulDivIntroAction_ : null),
+    "speakMulDivIntro_": () => (typeof speakMulDivIntro_ === 'function' ? speakMulDivIntro_ : null),
     "speakLessonTeacherToan2_": () => (typeof speakLessonTeacherToan2_ === 'function' ? speakLessonTeacherToan2_ : null),
     "speakMathPoem": () => (typeof speakMathPoem === 'function' ? speakMathPoem : null),
     "speakPedagogicalEvaluation": () => (typeof speakPedagogicalEvaluation === 'function' ? speakPedagogicalEvaluation : null),
@@ -22484,6 +23037,7 @@ async function renderClass2Math_(ctx) {
 function destroyClass2Math_() {
     mathModuleDestroyed_=true;
     reviewInteractiveState_={};
+    mulDivIntroState_={mode:'multiply',groups:3,perGroup:2,shareTotal:8,shareGroups:4,sharedCount:0,bundleTotal:10,bundleSize:2,bundledGroups:0};
     try{stopSpeaking()}catch(_){}; try{clearInterval(quizTimerInterval)}catch(_){}; try{stopActiveMiniGame_()}catch(_){};
     try{histLineChartInstance?.destroy?.()}catch(_){}; try{histBarChartInstance?.destroy?.()}catch(_){};
     try{banMaiAudio.pause();banMaiAudio.currentTime=0;banMaiAudio.onended=null}catch(_){};
