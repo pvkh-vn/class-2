@@ -1629,7 +1629,7 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
         subHtml += `
             <button onclick="selectSubtopic(${idx})" class="${cardSizeClass} ${style.card} ${introCard ? 'math-muldiv-intro-entry' : ''} border-2 rounded-2xl font-bold text-left transition-all flex flex-col justify-between shadow-sm pastel-btn">
                 <div class="flex items-start justify-between gap-3 w-full">
-                    <span class="math-subtopic-card-title leading-snug"><strong class="${style.num} mr-1.5">${escapeHtml(displayCode)}</strong> ${introCard ? '🍬 ' : ''}${escapeHtml(displayTitle)}</span>
+                    <span class="math-subtopic-card-title leading-snug"><strong class="${style.num} mr-1.5">${escapeHtml(displayCode)}</strong> ${introCard ? '<span class="math-intro-emoji" aria-hidden="true">🍬</span> ' : ''}${escapeHtml(displayTitle)}</span>
                     <span class="text-xl font-extrabold ${style.badge} px-2.5 py-0.5 rounded-full border shrink-0 shadow-inner">${introCard ? 'Học tương tác' : `${count} câu`}</span>
                 </div>
                 ${desc ? `<span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(desc)}</span>` : ''}
@@ -1671,7 +1671,7 @@ function renderExploreNumberScopes(topicNum, topicName, pool) {
         return `
             <button onclick="selectExploreNumberScope('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-center justify-between gap-3">
-                    <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${escapeHtml(item.label)}</span>
+                    <span class="math-explore-detail-title text-xl md:text-xl font-black"><span class="mr-2 math-explore-detail-icon" aria-hidden="true">${item.icon}</span>${escapeHtml(item.label)}</span>
                     <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
                 <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(item.desc)}</span>
@@ -1735,7 +1735,7 @@ function renderExploreNumberActivities(scopeLabel, pool) {
         const palette = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         return `<button onclick="selectExploreNumberActivity('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[126px] flex flex-col justify-between">
             <div class="flex items-start justify-between gap-3">
-                <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
+                <span class="math-explore-detail-title text-xl md:text-xl font-black"><span class="mr-2 math-explore-detail-icon" aria-hidden="true">${item.icon}</span>${item.title}</span>
                 ${item.count ? `<span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${item.count}</span>` : ''}
             </div>
             <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${item.desc}</span>
@@ -1961,7 +1961,7 @@ function renderCarryLearningModes_(subCode, subLabel, pool) {
         const palette = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         return `<button onclick="startCarryLearningMode_('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between">
             <div class="flex items-start justify-between gap-3">
-                <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
+                <span class="math-explore-detail-title text-xl md:text-xl font-black"><span class="mr-2 math-explore-detail-icon" aria-hidden="true">${item.icon}</span>${item.title}</span>
                 <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${sourcePool.length} câu</span>
             </div>
             <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${item.desc}</span>
@@ -2732,6 +2732,27 @@ function ensureUnifiedQuizNavStyles_() {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
+        }
+        /* Keep the existing desktop rhythm; prevent the legacy 40px rule
+           from forcing 20px mobile text to overlap or be clipped. */
+        @media (max-width:767px) {
+            #class2-math-runtime #view-quiz #btn-prev-q-prac,
+            #class2-math-runtime #view-quiz #btn-next-q-prac,
+            #class2-math-runtime #view-quiz #btn-prev-q-exam,
+            #class2-math-runtime #view-quiz #btn-next-q-exam {
+                height:auto!important;
+                min-height:56px!important;
+                max-height:none!important;
+                padding:10px 8px!important;
+                line-height:1.25!important;
+                white-space:normal!important;
+            }
+            #class2-math-runtime #view-quiz #practice-step-indicator {
+                height:auto!important;
+                min-height:46px!important;
+                max-height:none!important;
+                padding:8px 16px!important;
+            }
         }
     `;
     document.head.appendChild(style);
@@ -5421,7 +5442,7 @@ function updateNavButtons() {
             nextIcon.className = "fa-solid fa-rotate-right ml-1.5";
         }
     } else {
-        nextText.textContent = "Câu tiếp theo";
+        nextText.textContent = "Câu sau";
         nextIcon.className = "fa-solid fa-chevron-right ml-1.5";
     }
 }
@@ -5532,7 +5553,7 @@ function checkAnswer(selectedOpt) {
         confetti({ particleCount: 30, spread: 55, origin: { y: 0.7 } });
         setTimeout(() => speakVietnamese(`${q.answer}`), 180);
 
-        // Không tự chuyển câu ở bất kỳ phần luyện tập nào: bé tự bấm "Câu tiếp theo".
+        // Không tự chuyển câu ở bất kỳ phần luyện tập nào: bé tự bấm "Câu sau".
     } else {
         if (!wrongAttemptsByQ[currentQIndex]) wrongAttemptsByQ[currentQIndex] = [];
         if (!wrongAttemptsByQ[currentQIndex].includes(selectedOpt)) {
@@ -5568,7 +5589,7 @@ function prevQuestion() {
     }
 }
 
-// Riêng Khám phá: chỉ chuyển câu khi bé bấm nút Câu tiếp theo / Vòng tiếp theo.
+// Riêng Khám phá: chỉ chuyển câu khi bé bấm nút Câu sau / Vòng tiếp theo.
 // Các mục Bài tập, Ôn tập, Đề thi giữ nguyên logic điều hướng gốc.
 function nextQuestion(event) {
     if (currentMainTab === 'discover' && !activeExamContext && !activeRoadmapContext && pendingTopicQuiz) {
@@ -7325,7 +7346,7 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <span id="practice-step-text">1 / 59</span>
 </div>
 <button class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xl md:text-xl pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-prac" onclick="nextQuestion(event)">
-<span id="btn-next-text-prac">Câu tiếp theo</span>
+<span id="btn-next-text-prac">Câu sau</span>
 <i class="fa-solid fa-chevron-right ml-1" id="btn-next-icon-prac"></i>
 </button>
 </div>
@@ -7336,7 +7357,7 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 </button>
 <div class="grid grid-cols-10 gap-1.5 max-w-xl mx-2" id="quiz-pallet-container"></div>
 <button class="px-5 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-xl text-xl md:text-xl pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-exam" onclick="nextQuestion()">
-<span id="btn-next-text-exam">Câu tiếp theo</span>
+<span id="btn-next-text-exam">Câu sau</span>
 <i class="fa-solid fa-chevron-right ml-1" id="btn-next-icon-exam"></i>
 </button>
 </div>
@@ -21249,12 +21270,12 @@ const MATH_HUB_CARD_CSS_ = `
     margin:0!important;
     transform:none!important;
 }
-/* Tiêu đề các ô mục con Khám phá: tăng 1px so với bản trước. */
+/* Tiêu đề các ô mục con Khám phá: phân biệt rõ với mô tả 20px. */
 #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{
-    font-size:20px!important;
+    font-size:22px!important;
 }
 @media (min-width:768px){
-    #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{font-size:20px!important;}
+    #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{font-size:24px!important;}
 }
 #class2-math-runtime #view-dashboard-grid .math-topic-foot{
     margin-top:6px!important;
@@ -22283,7 +22304,7 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
 }
 #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{
     min-width:0!important;
-    font-size:20px!important;
+    font-size:24px!important;
     font-weight:900!important;
     line-height:1.18!important;
 }
@@ -22304,7 +22325,17 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
         min-width:52px!important;min-height:52px!important;
         flex-basis:52px!important;font-size:31px!important;border-radius:15px!important;
     }
-    #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{font-size:20px!important;}
+    #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{font-size:22px!important;}
+}
+
+/* Scope/activity cards remain under Discover only; badges and descriptions stay 20px. */
+#class2-math-runtime #view-dashboard-grid .math-explore-detail-title{font-size:24px!important;line-height:1.2!important;}
+#class2-math-runtime #view-dashboard-grid button > span.text-slate-500{font-size:20px!important;}
+#class2-math-runtime #view-dashboard-grid .math-explore-detail-icon,
+#class2-math-runtime #view-dashboard-grid .math-intro-emoji{font-size:20px!important;}
+@media(max-width:767px){
+  #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title,
+  #class2-math-runtime #view-dashboard-grid .math-explore-detail-title{font-size:22px!important;}
 }
 
 `;
@@ -22658,9 +22689,97 @@ const MATH_L2_FONT20_LAYOUT_CSS_ = `
   #class2-math-runtime #view-exam-hub .grid-cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 `;
+
+const MATH_MOBILE_CONTROLS_CSS_ = `
+/* Mobile only: unobstructed quiz navigation, clear touch targets, full-width audio row. */
+@media(max-width:767px){
+  #class2-math-runtime #view-quiz, #class2-math-runtime #view-quiz .pastel-card,
+  #class2-math-runtime #question-box{min-width:0!important;max-width:100%!important;}
+  #class2-math-runtime #question-box .math-mobile-listen-row{
+    width:100%;display:flex;align-items:center;justify-content:center;
+    flex-wrap:wrap;gap:8px;margin:0 auto 12px;padding:0 6px;order:-10;
+  }
+  #class2-math-runtime #question-box .math-mobile-listen-row .math-listen-button,
+  #class2-math-runtime #quiz-card-header button.math-listen-button,
+  #class2-math-runtime #question-box .math-carry-guide-tools .math-listen-button{
+    position:static!important;inset:auto!important;transform:none!important;
+    width:auto!important;max-width:100%!important;height:auto!important;
+    min-height:54px!important;padding:10px 16px!important;margin:0 auto!important;
+    font-size:20px!important;line-height:1.25!important;white-space:normal!important;
+  }
+  #class2-math-runtime #question-box .math-carry-guide-tools{justify-content:center!important;}
+  #class2-math-runtime #nav-group-practice,
+  #class2-math-runtime #nav-group-exam{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:stretch;justify-items:stretch;gap:10px;width:100%;min-width:0;
+  }
+  #class2-math-runtime #nav-group-practice.hidden,
+  #class2-math-runtime #nav-group-exam.hidden{display:none!important;}
+  #class2-math-runtime #btn-prev-q-prac,
+  #class2-math-runtime #btn-prev-q-exam{grid-column:1;grid-row:2;}
+  #class2-math-runtime #btn-next-q-prac,
+  #class2-math-runtime #btn-next-q-exam{grid-column:2;grid-row:2;}
+  #class2-math-runtime #practice-step-indicator{
+    grid-column:1/-1;grid-row:1;min-width:0;min-height:46px!important;
+    width:max-content;max-width:100%;margin:0 auto;padding:8px 18px!important;
+    white-space:normal;text-align:center;overflow-wrap:anywhere;
+  }
+  #class2-math-runtime #quiz-pallet-container{
+    grid-column:1/-1;grid-row:1;width:100%;max-width:100%;
+    margin:0!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;
+  }
+  #class2-math-runtime #quiz-pallet-container button{min-width:0;min-height:44px;padding:5px!important;}
+  #class2-math-runtime #btn-prev-q-prac,
+  #class2-math-runtime #btn-next-q-prac,
+  #class2-math-runtime #btn-prev-q-exam,
+  #class2-math-runtime #btn-next-q-exam{
+    min-width:0;width:100%;height:auto!important;min-height:56px!important;
+    max-height:none!important;padding:10px 8px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    gap:6px;white-space:normal!important;overflow-wrap:normal;
+    font-size:20px!important;line-height:1.25!important;text-align:center;
+  }
+  #class2-math-runtime #btn-prev-q-prac > span,
+  #class2-math-runtime #btn-next-q-prac > span,
+  #class2-math-runtime #btn-prev-q-exam > span,
+  #class2-math-runtime #btn-next-q-exam > span{min-width:0;white-space:normal!important;line-height:1.25!important;}
+  #class2-math-runtime #quiz-card-header{flex-wrap:wrap!important;gap:10px;}
+  #class2-math-runtime #quiz-card-header > div:first-child{width:100%;min-width:0;display:flex;flex-wrap:wrap;gap:6px;}
+  #class2-math-runtime #quiz-card-header > button[onclick*="speak"]{
+    flex:0 1 100%;max-width:320px;margin:0 auto;min-height:54px!important;
+    height:auto!important;padding:9px 15px!important;justify-content:center;
+  }
+  #class2-math-runtime #quiz-card-header > #btn-roadmap-history{
+    flex:0 1 100%;max-width:340px;min-height:52px!important;
+    height:auto!important;margin:0 auto;justify-content:center;
+  }
+  #class2-math-runtime #quiz-top-bar > button{min-height:54px!important;height:auto!important;padding:10px 16px!important;}
+  #class2-math-runtime #question-box .option-btn,
+  #class2-math-runtime #view-lecture button,
+  #class2-math-runtime #view-bai-hoc-detail button,
+  #class2-math-runtime #view-roadmap .semester-switch-btn,
+  #class2-math-runtime #view-exam-hub button:not(.math-topic-card){min-height:54px;}
+  #class2-math-runtime #view-dashboard-grid button,
+  #class2-math-runtime #view-roadmap button,
+  #class2-math-runtime #view-minigame-hub button{min-width:0;overflow-wrap:anywhere;}
+  /* Breadcrumbs wrap as complete buttons instead of overlapping the artwork. */
+  body:has(#class2-math-runtime) #sub-banner #sub-pill.math-sub-breadcrumbs{
+    max-width:100%!important;width:100%!important;flex-wrap:wrap!important;
+    overflow:visible!important;white-space:normal!important;gap:6px!important;
+  }
+  body:has(#class2-math-runtime) #sub-banner #sub-pill.math-sub-breadcrumbs .math-breadcrumb-tab{
+    height:auto!important;min-height:46px!important;max-width:100%!important;
+    padding:7px 12px!important;line-height:1.25!important;white-space:normal!important;
+    overflow-wrap:anywhere;text-overflow:clip!important;text-align:center;
+  }
+  body:has(#class2-math-runtime) #sub-banner #sub-pill.math-sub-breadcrumbs .math-breadcrumb-sep{display:none!important;}
+  body:has(#class2-math-runtime) #sub-banner:has(#sub-pill.math-sub-breadcrumbs){height:auto!important;min-height:66px!important;padding:8px!important;}
+}
+`;
+
 function ensureMathStyles_() {
     if (document.getElementById(MATH_MODULE_STYLE_ID_)) return;
-    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_ + MATH_MULDIV_INTRO_CSS_ + MATH_1000_COLUMN_CSS_+MATH_L2_FONT20_LAYOUT_CSS_; document.head.appendChild(style);
+    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_ + MATH_MULDIV_INTRO_CSS_ + MATH_1000_COLUMN_CSS_+MATH_L2_FONT20_LAYOUT_CSS_+MATH_MOBILE_CONTROLS_CSS_; document.head.appendChild(style);
 }
 
 function mathReadStandaloneBreadcrumb_() {
@@ -22917,9 +23036,36 @@ function normalizeMathListenButtons_() {
     });
 }
 
+
+// Move only the current question's reading control; do not move answer/lesson audio.
+const mathMobileListenHomes_ = new Map();
+function syncMathMobileListenRow_() {
+    const box = mathModuleRoot_?.querySelector('#question-box');
+    if (!box) return;
+    const mobile = window.matchMedia('(max-width:767px)').matches;
+    for (const [button,marker] of mathMobileListenHomes_) {
+        if (!button.isConnected && !marker.isConnected) { mathMobileListenHomes_.delete(button); continue; }
+        if (!mobile && marker.isConnected) marker.replaceWith(button);
+        if (!mobile) mathMobileListenHomes_.delete(button);
+    }
+    let row = box.querySelector(':scope > .math-mobile-listen-row');
+    if (!mobile) { row?.remove(); return; }
+    const buttons = Array.from(box.querySelectorAll('button[onclick*="speakCurrentQuestion"]'));
+    if (!buttons.length) { row?.remove(); return; }
+    if (!row) { row = document.createElement('div'); row.className = 'math-mobile-listen-row'; box.prepend(row); }
+    for (const button of buttons) {
+        if (button.parentElement === row) continue;
+        const marker = document.createComment('math-question-audio-place');
+        button.before(marker);
+        mathMobileListenHomes_.set(button, marker);
+        row.append(button);
+    }
+}
+
 function normalizeMathUi_() {
     normalizeMathAnswerPalette_();
     normalizeMathListenButtons_();
+    syncMathMobileListenRow_();
 }
 
 function scheduleMathUiNormalize_() {
@@ -22935,6 +23081,7 @@ function installMathUiObserver_() {
     if (!mathModuleRoot_) return;
     mathUiObserver_ = new MutationObserver(scheduleMathUiNormalize_);
     mathUiObserver_.observe(mathModuleRoot_, {childList:true, subtree:true});
+    window.addEventListener('resize', scheduleMathUiNormalize_);
     normalizeMathUi_();
 }
 
@@ -23058,7 +23205,7 @@ function destroyClass2Math_() {
     try{banMaiAudio.pause();banMaiAudio.currentTime=0;banMaiAudio.onended=null}catch(_){};
     try{window.speechSynthesis?.cancel?.()}catch(_){};
     mathScoreObserver_?.disconnect?.(); mathScoreObserver_=null;
-    mathUiObserver_?.disconnect?.(); mathUiObserver_=null; if(mathUiNormalizeRaf_){cancelAnimationFrame(mathUiNormalizeRaf_);mathUiNormalizeRaf_=0;}
+    mathUiObserver_?.disconnect?.(); mathUiObserver_=null; window.removeEventListener('resize', scheduleMathUiNormalize_); mathMobileListenHomes_.clear(); if(mathUiNormalizeRaf_){cancelAnimationFrame(mathUiNormalizeRaf_);mathUiNormalizeRaf_=0;}
     ['loading-overlay','premium-access-modal','class2-math-premium-access-modal','app-dialog-modal'].forEach(id=>{try{document.getElementById(id)?.remove()}catch(_){}});
     mathModuleCtx_?.hooks?.clearDetail?.(); resetClass2MathBreadcrumb_(); mathModuleCtx_?.hooks?.setScore?.(0,0); removeMathInlineBridge_();
     if(mathModuleRoot_?.isConnected) mathModuleRoot_.remove(); mathModuleRoot_=null; mathModuleMounted_=false; mathModuleAudioPrimed_=false; mathModuleCtx_=null;
