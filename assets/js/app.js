@@ -476,6 +476,7 @@
     homeVipNotice: document.getElementById("home-vip-notice"),
     scoreBox: document.getElementById("score-box"),
     installButton: document.getElementById("install-button"),
+    mobileAdminButton: document.getElementById("mobile-admin-button"),
     accountButton: document.getElementById("account-button"),
     authModal: document.getElementById("auth-modal"),
     authClose: document.getElementById("auth-close"),
@@ -1316,6 +1317,7 @@
       accessQuery: ""
     };
     updateAccountButton();
+    updateMobileAdminButton();
   }
 
   class ApiError extends Error {
@@ -1619,6 +1621,26 @@
     ];
   }
 
+  // The Admin shortcut is presentation only; all permissions remain server-side.
+  function updateMobileAdminButton() {
+    const button = el.mobileAdminButton;
+    if (!button) return;
+    const isAdmin = state.auth.ready && !!state.auth.user && state.auth.user.role === "admin";
+    button.classList.toggle("hidden", !isAdmin);
+    button.classList.toggle("is-active", isAdmin && state.screen === "admin");
+    button.querySelector(".nav-alert-badge")?.remove();
+
+    const pending = isAdmin ? Math.max(0, Number(state.admin.pendingCount || 0)) : 0;
+    if (pending > 0) {
+      const badge = document.createElement("span");
+      badge.className = "nav-alert-badge";
+      badge.textContent = String(Math.min(99, pending));
+      badge.setAttribute("aria-label", `${pending} yêu cầu đang chờ`);
+      button.appendChild(badge);
+    }
+    button.setAttribute("aria-label", pending > 0 ? `Quản lý, ${pending} yêu cầu đang chờ` : "Quản lý");
+  }
+
   function renderNav() {
     const tabs = state.screen === "subject" ? SUBJECT_TABS : homeTabsForCurrentUser();
     el.nav.replaceChildren();
@@ -1684,6 +1706,7 @@
       });
       el.nav.appendChild(button);
     });
+    updateMobileAdminButton();
   }
 
   function renderBanner() {
@@ -2995,6 +3018,9 @@
   }
 
   function updateAccountButton(verifying = false) {
+    // Keep the mobile Admin shortcut in sync after login/session verification.
+    // Server-side Admin authorization remains unchanged.
+    updateMobileAdminButton();
     if (!el.accountButton) return;
 
     const avatar = document.createElement("span");
@@ -4268,6 +4294,9 @@
   }
 
   el.homeButton.addEventListener("click", goHome);
+  el.mobileAdminButton?.addEventListener("click", () => {
+    if (state.auth.ready && state.auth.user && state.auth.user.role === "admin") openAdmin();
+  });
   el.homeVipNotice?.addEventListener("click", (event) => {
     // Thong bao Lop 2 van mo trang dang ky khi bam o bat ky cho nao.
     // Tren Games/Tools/AI Lab, chi nut CTA ben canh moi co hanh dong.
