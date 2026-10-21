@@ -1982,25 +1982,70 @@
       }
     }
 
+    /* L2: mobile chi giu hang Home/tai khoan/diem khi cuon.
+       Thanh 6 tab van hien o dau trang, nhung cuon theo noi dung.
+       Desktop giu nguyen toan bo header sticky. */
+    .app-header .header-mobile-row{display:contents}
+    @media(min-width:1176px){
+      .app-header .home-btn{grid-column:1;grid-row:1}
+      .app-header .primary-nav{grid-column:2;grid-row:1}
+      .app-header .header-tools{grid-column:3;grid-row:1}
+    }
+    @media(min-width:768px) and (max-width:1175px){
+      .app-header .home-btn{grid-column:1;grid-row:1}
+      .app-header .header-tools{grid-column:2;grid-row:1}
+      .app-header .primary-nav{grid-column:1/-1;grid-row:2}
+    }
+    @media(max-width:767px){
+      /* display:contents removes the header layout box so the sticky
+         mobile toolbar is constrained by app-shell, not the 2-row header. */
+      .app-header{display:contents;position:static}
+      .app-header .header-mobile-row{
+        display:grid;
+        grid-template-columns:clamp(72px,23vw,96px) minmax(0,1fr);
+        grid-template-rows:minmax(74px,auto);
+        gap:6px;
+        align-items:stretch;
+        position:sticky;
+        top:0;
+        z-index:70;
+        isolation:isolate;
+        padding:5px 0;
+        background:var(--page);
+      }
+      .app-header .home-btn{grid-column:1;grid-row:1}
+      .app-header .header-tools{grid-column:2;grid-row:1}
+      .app-header .primary-nav{
+        grid-column:auto;
+        grid-row:auto;
+        margin:6px 0 0;
+      }
+    }
+    @media(max-width:340px){
+      .app-header .header-mobile-row{grid-template-columns:66px minmax(0,1fr)}
+    }
   </style>
 </head>
 <body>
   <div class="app-shell">
     <header class="app-header" aria-label="Điều hướng chính">
-      <button id="home-button" class="home-btn" type="button" title="Về Trang chủ Lớp 2">
-        <img src="logo-home.jpg" alt="Lớp 2 - Trang chủ">
-      </button>
+      <div class="header-mobile-row">
+        <button id="home-button" class="home-btn" type="button" title="Về Trang chủ Lớp 2">
+          <img src="logo-home.jpg" alt="Lớp 2 - Trang chủ">
+        </button>
+
+        <div class="header-tools">
+          <button id="install-button" class="tool-btn install-btn hidden" type="button" aria-label="Cài APP"><span class="install-btn-line">Cài</span><span class="install-btn-line">APP</span></button>
+          <div id="score-box" class="score-box hidden" aria-label="Thống kê đúng sai">
+            <span class="good" aria-label="Câu đúng"><span aria-hidden="true">★</span><span class="score-label"> Đúng</span></span><strong class="good">0</strong>
+            <span class="bad" aria-label="Câu sai"><span aria-hidden="true">★</span><span class="score-label"> Sai</span></span><strong class="bad">0</strong>
+          </div>
+          <button id="account-button" class="tool-btn user-btn is-guest-auth" type="button" title="Đăng ký hoặc Đăng nhập" aria-label="Đăng ký hoặc Đăng nhập"><span class="user-btn-name guest-auth-label"><span class="guest-auth-line">Đăng ký</span><span class="guest-auth-line">Đăng nhập</span></span></button>
+        </div>
+      </div>
 
       <nav id="primary-nav" class="primary-nav" aria-label="Các tab chính"></nav>
 
-      <div class="header-tools">
-        <button id="install-button" class="tool-btn install-btn hidden" type="button" aria-label="Cài APP"><span class="install-btn-line">Cài</span><span class="install-btn-line">APP</span></button>
-        <div id="score-box" class="score-box hidden" aria-label="Thống kê đúng sai">
-          <span class="good" aria-label="Câu đúng"><span aria-hidden="true">★</span><span class="score-label"> Đúng</span></span><strong class="good">0</strong>
-          <span class="bad" aria-label="Câu sai"><span aria-hidden="true">★</span><span class="score-label"> Sai</span></span><strong class="bad">0</strong>
-        </div>
-        <button id="account-button" class="tool-btn user-btn is-guest-auth" type="button" title="Đăng ký hoặc Đăng nhập" aria-label="Đăng ký hoặc Đăng nhập"><span class="user-btn-name guest-auth-label"><span class="guest-auth-line">Đăng ký</span><span class="guest-auth-line">Đăng nhập</span></span></button>
-      </div>
     </header>
 
     <section class="banner-slot" aria-label="Không gian nhận diện">
