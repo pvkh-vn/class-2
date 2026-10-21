@@ -1210,8 +1210,8 @@
     .toast.is-visible{opacity:1;transform:translate(-50%,0)}
 
     @media (max-width:980px){
-      .app-header{grid-template-columns:96px minmax(0,1fr) auto}
-      .home-btn{width:96px;height:64px}
+      .app-header{grid-template-columns:112px minmax(0,1fr) auto}
+      .home-btn{width:112px;height:74px}
       .nav-tab{min-height:64px;font-size:20px}
       .nav-tab .tab-icon{font-size:19px}
       .tool-btn{height:39px}
@@ -1323,7 +1323,7 @@
       }
       .home-btn{
         grid-column:1;grid-row:1;
-        width:86px;height:57px;border-radius:0;
+        width:112px;height:74px;border-radius:0;
       }
       .header-tools{
         grid-column:2;grid-row:1;
@@ -1724,8 +1724,8 @@
     .toast,.dialog-card,.auth-card{overflow-wrap:anywhere}
     /* Man hinh tablet: tab sang hang 2 khi khong du ngang; moi tab cao bang Home. */
     @media(max-width:1175px) and (min-width:768px){
-      .app-header{grid-template-columns:96px minmax(0,1fr);grid-template-rows:74px 74px}
-      .home-btn{grid-column:1;grid-row:1;width:96px;height:74px}
+      .app-header{grid-template-columns:112px minmax(0,1fr);grid-template-rows:74px 74px}
+      .home-btn{grid-column:1;grid-row:1;width:112px;height:74px}
       .header-tools{grid-column:2;grid-row:1}
       .primary-nav{grid-column:1/-1;grid-row:2;width:100%;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:minmax(96px,1fr);overflow-x:auto}
     }
@@ -1796,7 +1796,15 @@
       padding:6px 0;
       background:var(--page);
     }
-    .app-header .home-btn{width:112px;height:var(--ee-header-height)}
+    .app-header .home-btn{
+      flex:0 0 112px;
+      width:112px;
+      min-width:112px;
+      max-width:112px;
+      height:var(--ee-header-height);
+      min-height:var(--ee-header-height);
+      max-height:var(--ee-header-height);
+    }
     .app-header .primary-nav{
       min-width:0;
       display:grid;
@@ -1876,22 +1884,22 @@
     }
     @media(min-width:768px) and (max-width:1175px){
       .app-header{
-        grid-template-columns:96px minmax(0,1fr);
+        grid-template-columns:112px minmax(0,1fr);
         grid-template-rows:74px 74px;
       }
-      .app-header .home-btn{grid-column:1;grid-row:1;width:96px;height:74px}
+      .app-header .home-btn{grid-column:1;grid-row:1;width:112px;height:74px}
       .app-header .header-tools{grid-column:2;grid-row:1}
       .app-header .primary-nav{grid-column:1/-1;grid-row:2;grid-auto-columns:minmax(0,1fr)}
     }
     @media(max-width:767px){
       .app-header{
-        grid-template-columns:clamp(72px,23vw,96px) minmax(0,1fr);
+        grid-template-columns:112px minmax(0,1fr);
         grid-template-rows:74px auto;
         column-gap:6px;
         row-gap:6px;
         padding:5px 0;
       }
-      .app-header .home-btn{grid-column:1;grid-row:1;width:100%;height:74px}
+      .app-header .home-btn{grid-column:1;grid-row:1;width:112px;height:74px}
       .app-header .header-tools{grid-column:2;grid-row:1;gap:4px}
       .app-header .primary-nav{
         grid-column:1/-1;
@@ -1969,7 +1977,7 @@
     }
     @media(max-width:340px){
       /* 320px: tang be ngang ten 4 tu ma khong giam font. */
-      .app-header{grid-template-columns:66px minmax(0,1fr)}
+      .app-header{grid-template-columns:112px minmax(0,1fr)}
       .app-header .header-tools #install-button.install-btn{
         flex-basis:56px;width:56px;min-width:56px;max-width:56px;
       }
@@ -2002,7 +2010,7 @@
       .app-header{display:contents;position:static}
       .app-header .header-mobile-row{
         display:grid;
-        grid-template-columns:clamp(72px,23vw,96px) minmax(0,1fr);
+        grid-template-columns:112px minmax(0,1fr);
         grid-template-rows:minmax(74px,auto);
         gap:6px;
         align-items:stretch;
@@ -2021,10 +2029,6 @@
         margin:6px 0 0;
       }
     }
-    @media(max-width:340px){
-      .app-header .header-mobile-row{grid-template-columns:66px minmax(0,1fr)}
-    }
-
     /* Admin: shortcut on mobile Home row; keep original Admin tab on desktop. */
     .app-header #mobile-admin-button{display:none!important}
     @media(max-width:767px){
@@ -2085,20 +2089,15 @@
         max-width:84px;
       }
     }
-    /* On roomy mobile screens, give the Home logo its native aspect ratio
-       at the full 74px height, rather than shrinking it inside a 96px slot. */
-    @media(min-width:420px) and (max-width:767px){
-      .app-header .header-mobile-row{grid-template-columns:112px minmax(0,1fr)}
-    }
     /* Extremely narrow phones cannot fit 5 readable, 74px-tall controls
        in one row. Keep the two action pairs compact instead of overlapping Home. */
-    @media(max-width:379px){
+    @media(max-width:420px){
       .app-header .header-mobile-row:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)){
         grid-template-rows:auto;
       }
       .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)){
         display:grid;
-        grid-template-columns:84px minmax(72px,126px);
+        grid-template-columns:84px minmax(72px,1fr);
         grid-template-rows:74px minmax(74px,auto);
         justify-content:end;
         align-items:stretch;
@@ -2119,6 +2118,47 @@
       .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)) #account-button{
         grid-column:2;grid-row:2;width:auto;max-width:100%;height:auto;min-height:74px;max-height:none;
       }
+    }
+
+    /* Home: fixed-size anchor across desktop, tablet and mobile.
+       Prevent navigation density and media queries from resizing its box. */
+    .app-header .home-btn{
+      box-sizing:border-box;
+      display:block;
+      flex:0 0 96px;
+      inline-size:96px;
+      min-inline-size:96px;
+      max-inline-size:96px;
+      block-size:74px;
+      min-block-size:74px;
+      max-block-size:74px;
+      padding:0;
+      margin:0;
+      transform:none;
+      overflow:hidden;
+      justify-self:start;
+      align-self:start;
+    }
+    .app-header .home-btn:hover{transform:none}
+    .app-header .home-btn img{
+      display:block;
+      box-sizing:border-box;
+      inline-size:96px;
+      min-inline-size:96px;
+      max-inline-size:96px;
+      block-size:74px;
+      min-block-size:74px;
+      max-block-size:74px;
+      object-fit:contain;
+    }
+    @media(min-width:1176px){
+      .app-header{grid-template-columns:96px minmax(0,1fr) auto}
+    }
+    @media(min-width:768px) and (max-width:1175px){
+      .app-header{grid-template-columns:96px minmax(0,1fr)}
+    }
+    @media(max-width:767px){
+      .app-header .header-mobile-row{grid-template-columns:96px minmax(0,1fr)}
     }
   </style>
 </head>
