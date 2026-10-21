@@ -114,13 +114,13 @@
       }
       #content-stage .class2-rich-feature .home-feature-card .card-top{display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important}
       #content-stage .class2-rich-feature .home-feature-card .card-copy{flex:1 1 auto!important;min-width:0!important}
-      #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:19.5px!important;line-height:1.23!important;font-weight:900!important;overflow-wrap:break-word}
-      #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:15.5px!important;line-height:1.32!important;font-weight:750!important;margin-top:3px!important}
+      #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:20px!important;line-height:1.23!important;font-weight:900!important;overflow-wrap:break-word}
+      #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:20px!important;line-height:1.32!important;font-weight:750!important;margin-top:3px!important}
       @media(max-width:767px){
         #content-stage .class2-rich-feature .home-feature-card{min-height:96px!important;padding:9px 10px!important}
         #content-stage .class2-rich-feature .home-feature-card .card-top{gap:10px!important}
-        #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:18px!important}
-        #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:14px!important}
+        #content-stage .class2-rich-feature .home-feature-card .card-title{font-size:20px!important}
+        #content-stage .class2-rich-feature .home-feature-card .card-desc{font-size:20px!important}
       }
     `;
     document.head.appendChild(style);
@@ -690,12 +690,12 @@
       }
       #sub-pill.home-sub-breadcrumbs::-webkit-scrollbar{display:none!important}
       #sub-pill.home-sub-breadcrumbs .home-breadcrumb-sep{
-        flex:0 0 auto;color:#c084fc;font-size:15px;font-weight:900;
+        flex:0 0 auto;color:#c084fc;font-size:20px;font-weight:900;
       }
       #sub-pill.home-sub-breadcrumbs .home-breadcrumb-tab{
         flex:0 0 auto;height:38px;max-width:min(430px,42vw);padding:0 16px;border-radius:13px;
         display:inline-flex;align-items:center;justify-content:center;overflow:hidden;text-overflow:ellipsis;
-        white-space:nowrap;font-size:15px;font-weight:900;line-height:1;box-shadow:0 2px 7px rgba(76,29,149,.08);
+        white-space:nowrap;font-size:20px;font-weight:900;line-height:1;box-shadow:0 2px 7px rgba(76,29,149,.08);
         cursor:default;font-family:inherit;
       }
       #sub-pill.home-sub-breadcrumbs button.home-breadcrumb-tab{
@@ -720,17 +720,17 @@
       }
       #sub-pill.home-sub-breadcrumbs.subject-sub-breadcrumbs .home-breadcrumb-tab{
         max-width:none!important;overflow:visible!important;text-overflow:clip!important;
-        padding-inline:14px!important;font-size:15px!important;
+        padding-inline:14px!important;font-size:20px!important;
       }
       @media(max-width:767px){
         #sub-pill.home-sub-breadcrumbs.subject-sub-breadcrumbs .home-breadcrumb-tab{
-          padding-inline:10px!important;font-size:13px!important;
+          padding-inline:10px!important;font-size:20px!important;
         }
       }
       @media(max-width:767px){
         #sub-pill.home-sub-breadcrumbs{max-width:calc(100% - .35rem)!important;gap:.22rem!important}
-        #sub-pill.home-sub-breadcrumbs .home-breadcrumb-tab{height:32px;max-width:68vw;padding:0 11px;font-size:12px;border-radius:11px}
-        #sub-pill.home-sub-breadcrumbs .home-breadcrumb-sep{font-size:12px}
+        #sub-pill.home-sub-breadcrumbs .home-breadcrumb-tab{height:32px;max-width:68vw;padding:0 11px;font-size:20px;border-radius:11px}
+        #sub-pill.home-sub-breadcrumbs .home-breadcrumb-sep{font-size:20px}
       }
     `;
     document.head.appendChild(style);
@@ -999,13 +999,13 @@
         #class2-premium-learning-gate .premium-gate-body{padding:24px 24px 18px;text-align:center;background:linear-gradient(145deg,#faf5ff,#fff7fb 55%,#eff6ff)}
         #class2-premium-learning-gate .premium-gate-icon{width:64px;height:64px;margin:0 auto 12px;border-radius:20px;display:flex;align-items:center;justify-content:center;border:1px solid #d8b4fe;background:#fff;font-size:32px;box-shadow:0 6px 18px rgba(139,92,246,.12)}
         #class2-premium-learning-gate .premium-gate-title{margin:0;color:#6d28d9;font-size:21px;line-height:1.25;font-weight:950}
-        #class2-premium-learning-gate .premium-gate-message{margin:10px auto 0;max-width:590px;color:#475467;font-size:16px;line-height:1.65;font-weight:500;white-space:pre-line}
+        #class2-premium-learning-gate .premium-gate-message{margin:10px auto 0;max-width:590px;color:#475467;font-size:20px;line-height:1.65;font-weight:500;white-space:pre-line}
         #class2-premium-learning-gate .premium-gate-actions{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:9px;padding:14px 16px 16px;border-top:1px solid #ede9fe;background:#fff}
-        #class2-premium-learning-gate .premium-gate-btn{min-height:46px;border-radius:14px;padding:8px 12px;font-size:13px;line-height:1.25;font-weight:950}
+        #class2-premium-learning-gate .premium-gate-btn{min-height:46px;border-radius:14px;padding:8px 12px;font-size:20px;line-height:1.25;font-weight:950}
         #class2-premium-learning-gate .premium-gate-vip{border:0;color:#fff;background:linear-gradient(90deg,#ec4899,#8b5cf6);box-shadow:0 6px 16px rgba(139,92,246,.2)}
         #class2-premium-learning-gate .premium-gate-contact{border:1px solid #67e8f9;color:#0369a1;background:linear-gradient(90deg,#eff6ff,#ecfdf5)}
         #class2-premium-learning-gate .premium-gate-later{border:1px solid #e2e8f0;color:#64748b;background:#f8fafc}
-        @media(max-width:680px){#class2-premium-learning-gate .premium-gate-actions{grid-template-columns:1fr}#class2-premium-learning-gate .premium-gate-card{width:min(94vw,430px)}#class2-premium-learning-gate .premium-gate-message{max-width:100%;font-size:14.5px}}
+        @media(max-width:680px){#class2-premium-learning-gate .premium-gate-actions{grid-template-columns:1fr}#class2-premium-learning-gate .premium-gate-card{width:min(94vw,430px)}#class2-premium-learning-gate .premium-gate-message{max-width:100%;font-size:20px}}
       `;
       document.head.appendChild(style);
     }
@@ -1857,7 +1857,7 @@
         padding:.68rem .95rem;border:1.5px solid #c4b5fd;border-radius:16px;
         background:linear-gradient(90deg,#fff1f7 0%,#faf5ff 52%,#eff8ff 100%);
         color:#6d28d9;box-shadow:0 5px 14px rgba(124,58,237,.09);
-        font-size:17px;font-weight:950;line-height:1.4;text-align:center;
+        font-size:20px;font-weight:950;line-height:1.4;text-align:center;
       }
       .home-vip-feature-action{
         flex:0 0 auto;min-width:222px;min-height:49px;
@@ -1865,15 +1865,15 @@
         display:inline-flex;align-items:center;justify-content:center;text-align:center;
         color:#fff;background:linear-gradient(90deg,#2563eb,#06b981);
         box-shadow:0 6px 16px rgba(37,99,235,.17);
-        font-size:16px;font-weight:950;line-height:1.25;cursor:pointer;
+        font-size:20px;font-weight:950;line-height:1.25;cursor:pointer;
         transition:filter .16s ease,box-shadow .16s ease;
       }
       .home-vip-feature-action:hover{filter:brightness(1.07);box-shadow:0 7px 18px rgba(16,185,129,.20)}
       .home-vip-feature-action:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
       @media(max-width:680px){
         .home-vip-notice.home-vip-feature-notice{flex-direction:column;gap:.44rem}
-        .home-vip-feature-message{font-size:16px;padding:.64rem .72rem}
-        .home-vip-feature-action{width:100%;min-width:0;min-height:44px;font-size:16px}
+        .home-vip-feature-message{font-size:20px;padding:.64rem .72rem}
+        .home-vip-feature-action{width:100%;min-width:0;min-height:44px;font-size:20px}
       }
     `;
     document.head.appendChild(style);
@@ -2089,7 +2089,7 @@
           border-radius:999px;
           background:linear-gradient(90deg,#ec4899 0%,#8b5cf6 55%,#3b82f6 100%);
           color:#fff;
-          font-size:12px;
+          font-size:20px;
           line-height:1;
           font-weight:900;
           box-shadow:0 3px 9px rgba(99,102,241,.18);
@@ -2098,7 +2098,7 @@
         .home-feature-access-note{
           margin:5px 0 0!important;
           color:#7c3aed!important;
-          font-size:15px!important;
+          font-size:20px!important;
           line-height:1.35;
           font-weight:900!important;
         }
@@ -2122,7 +2122,7 @@
           color:#6b21a8;
           box-shadow:0 2px 6px rgba(76,29,149,.04);
           font:inherit;
-          font-size:14px;
+          font-size:20px;
           line-height:1.2;
           font-weight:850;
           white-space:nowrap;
@@ -2172,7 +2172,7 @@
         }
         .ai-lab-group-head h2{
           margin:0;
-          font-size:18px;
+          font-size:20px;
           line-height:1.2;
           font-weight:950;
           color:currentColor;
@@ -2184,7 +2184,7 @@
           border-radius:999px;
           background:rgba(255,255,255,.82);
           color:currentColor;
-          font-size:13px;
+          font-size:20px;
           line-height:1;
           font-weight:900;
           display:inline-flex;
@@ -2214,8 +2214,8 @@
           .ai-lab-filter-btn{flex:0 0 auto;min-height:40px;}
           .ai-lab-groups{gap:14px;}
           .ai-lab-group-head{min-height:38px;padding:6px 10px;border-radius:12px;}
-          .ai-lab-group-head h2{font-size:16px;}
-          .ai-lab-group-head span{font-size:12px;min-height:23px;padding:2px 8px;}
+          .ai-lab-group-head h2{font-size:20px;}
+          .ai-lab-group-head span{font-size:20px;min-height:23px;padding:2px 8px;}
         }
         @media (max-width:560px){
           .games-catalog-grid{grid-template-columns:1fr!important;}
@@ -2474,18 +2474,20 @@
       const hasPendingVip = pendingApiIds.has(subject.apiId);
       const showVipRequest = !isAdmin && !isVip;
       const badgeTone = accessType === "vip" ? "vip" : accessType === "trial" ? "trial" : accessType === "admin" ? "admin" : "regular";
+      // Admin da co ten tai khoan va tab Quan ly: khong lap nhan Admin tren ba the mon.
+      const statusBadgeHtml = isAdmin ? "" : `<span class="subject-access-badge ${badgeTone}">${escapeHtml(accessLabel)}</span>`;
 
       return `
       <div class="subject-column">
         <button class="content-card subject-card class2-subject-card" data-tone="${subject.tone}" data-subject="${subject.id}" type="button">
-          <span class="subject-access-badge ${badgeTone}">${escapeHtml(accessLabel)}</span>
           <div class="card-top">
             <span class="card-icon" aria-hidden="true">${subject.icon}</span>
             <div class="card-copy">
               <h2 class="card-title">${escapeHtml(subject.fullLabel)}</h2>
-              <p class="card-desc">${escapeHtml(subject.description)}</p>
             </div>
           </div>
+          <p class="card-desc">${escapeHtml(subject.description)}</p>
+          ${statusBadgeHtml}
         </button>
 
         <button class="subject-profile-card" data-tone="${subject.tone}" data-profile-subject="${subject.id}" type="button" aria-label="Mở Hồ sơ học tập ${escapeHtml(subject.fullLabel)}">
@@ -2502,20 +2504,32 @@
 
     el.content.innerHTML = `
       <style>
-        .class2-subject-card{position:relative;min-height:128px!important;padding:.95rem 1rem!important;}
-        .class2-subject-card .card-top{padding-right:84px;}
+        /* Trang chu: icon + ten mon mot hang; mo ta su dung tron chieu ngang the. */
+        .class2-subject-card{
+          position:relative;min-height:170px!important;padding:1rem 1.05rem!important;
+          display:flex;flex-direction:column;justify-content:flex-start;gap:.7rem;overflow:visible;
+        }
+        .class2-subject-card .card-top{align-items:center;padding-right:0;gap:.75rem;flex:0 0 auto;}
+        .class2-subject-card .card-copy{flex:1;min-width:0;}
+        .class2-subject-card .card-title{margin:0;min-height:0;line-height:1.22;overflow-wrap:normal;}
+        .class2-subject-card > .card-desc{
+          width:100%;min-height:0;margin:0;line-height:1.34;overflow-wrap:normal;
+        }
         .subject-access-badge{
-          position:absolute;top:11px;right:11px;z-index:2;min-height:28px;padding:3px 10px;border:1px solid;border-radius:999px;
-          display:inline-flex;align-items:center;justify-content:center;background:#fff;font-size:15px;line-height:1;font-weight:950;white-space:nowrap;
+          position:static;align-self:flex-end;margin-top:auto;min-height:32px;padding:4px 11px;
+          border:1px solid;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+          background:#fff;font-size:20px;line-height:1.16;font-weight:950;white-space:normal;text-align:center;
           box-shadow:0 3px 8px rgba(76,29,149,.07);
         }
         .subject-access-badge.vip{color:#6d28d9;border-color:#c4b5fd;background:#f5f3ff;}
         .subject-access-badge.trial{color:#0369a1;border-color:#7dd3fc;background:#eff8ff;}
         .subject-access-badge.regular{color:#047857;border-color:#86efac;background:#f0fdf4;}
-        .subject-access-badge.admin{color:#be185d;border-color:#f9a8d4;background:#fff1f7;}
+        .subject-column .subject-profile-card{height:auto;min-height:100px;padding:.78rem .85rem;gap:.7rem;}
+        .subject-column .subject-profile-title{line-height:1.24;}
+        .subject-column .subject-profile-note{line-height:1.28;white-space:normal;overflow:visible;text-overflow:clip;}
         .subject-vip-request-button{
           width:100%;min-height:42px;border:1.5px solid transparent;border-radius:14px;padding:.55rem .75rem;color:#fff;
-          background:linear-gradient(90deg,#ec4899,#a855f7,#7c3aed);font-size:16px;font-weight:950;line-height:1.2;
+          background:linear-gradient(90deg,#ec4899,#a855f7,#7c3aed);font-size:20px;font-weight:950;line-height:1.2;
           box-shadow:0 5px 13px rgba(139,92,246,.16);
         }
         /* Ba nut VIP cung palette voi o mon hoc phia tren; khong doi xu ly click/quyen hoc. */
@@ -2530,10 +2544,11 @@
         }
         .subject-vip-request-button.has-pending{background:linear-gradient(90deg,#94a3b8,#64748b);}
         @media(max-width:767px){
-          .class2-subject-card{min-height:118px!important;padding:.82rem .85rem!important;}
-          .class2-subject-card .card-top{padding-right:72px;}
-          .subject-access-badge{top:9px;right:9px;min-height:26px;padding:3px 8px;font-size:14px;}
-          .subject-vip-request-button{min-height:40px;font-size:15px;}
+          .class2-subject-card{min-height:155px!important;padding:.88rem .95rem!important;}
+          .class2-subject-card .card-top{padding-right:0;}
+          .subject-access-badge{min-height:32px;padding:4px 10px;font-size:20px;}
+          .subject-column .subject-profile-card{min-height:94px;}
+          .subject-vip-request-button{min-height:48px;font-size:20px;}
         }
       </style>
       <div class="section-heading">
@@ -2616,9 +2631,15 @@
   }
 
   function renderEpsilonTab() {
+    // Keep existing class URLs from class2-data.js; preconfigure future L4-L9 links.
+    // These destinations will only work once their websites are deployed.
+    const getGradeUrl = (grade) => {
+      const configuredUrl = String(EE_CLASS_SITES[grade] || "").trim();
+      return configuredUrl || (grade >= 4 && grade <= 9 ? `https://epsilon-class-${grade}.pages.dev/` : "");
+    };
     const grades = Array.from({ length: 9 }, (_, i) => i + 1);
     const cards = grades.map((grade, index) => {
-      const url = EE_CLASS_SITES[grade] || "";
+      const url = getGradeUrl(grade);
       const available = Boolean(url);
       return `
         <button class="content-card" data-tone="${PREVIEW_TONES[index % PREVIEW_TONES.length]}" data-grade="${grade}" type="button">
@@ -2644,7 +2665,7 @@
     el.content.querySelectorAll("[data-grade]").forEach((card) => {
       card.addEventListener("click", () => {
         const grade = Number(card.dataset.grade);
-        const url = EE_CLASS_SITES[grade] || "";
+        const url = getGradeUrl(grade);
         if (!url) {
           showToast(`Website Lớp ${grade} hiện chưa được triển khai.`);
           return;
@@ -2666,7 +2687,8 @@
     const activeView = ["intro", "vip", "contact"].includes(state.contactTab) ? state.contactTab : "intro";
     const gradeLinks = Array.from({ length: 9 }, (_, index) => {
       const grade = index + 1;
-      const url = String(EE_CLASS_SITES[grade] || "").trim();
+      const url = String(EE_CLASS_SITES[grade] || "").trim()
+        || (grade >= 4 && grade <= 9 ? `https://epsilon-class-${grade}.pages.dev/` : "");
       if (!url) {
         return `<span class="contact-grade-link is-unavailable" aria-label="Lớp ${grade} đang cập nhật">Lớp ${grade}</span>`;
       }
@@ -2992,15 +3014,8 @@
     } else if (state.auth.user) {
       avatar.textContent = state.auth.user.avatarEmoji || "🐰";
       label.textContent = state.auth.user.name || "Tài khoản";
-      el.accountButton.title = `${state.auth.user.name} · ${state.auth.user.userId}${state.auth.user.role === "admin" ? " · Admin" : ""}`;
-      el.accountButton.setAttribute("aria-label", `Tài khoản ${state.auth.user.name}${state.auth.user.role === "admin" ? ", Admin" : ""}`);
-      if (state.auth.user.role === "admin") {
-        const roleBadge = document.createElement("span");
-        roleBadge.className = "user-btn-role-badge";
-        roleBadge.textContent = "Admin";
-        el.accountButton.replaceChildren(avatar, label, roleBadge);
-        return;
-      }
+      el.accountButton.title = `${state.auth.user.name} · ${state.auth.user.userId}`;
+      el.accountButton.setAttribute("aria-label", `Tài khoản ${state.auth.user.name}`);
       const noticeCount = Number((state.auth.notices || []).length || 0);
       if (noticeCount > 0) {
         const noticeBadge = document.createElement("span");
@@ -3194,7 +3209,7 @@
         <div class="account-page-hero">
           <div class="account-page-avatar" aria-hidden="true">${escapeHtml(user.avatarEmoji || "🐰")}</div>
           <div class="account-hero-copy">
-            <div class="account-hero-name-row"><strong>${escapeHtml(user.name || "Tài khoản Lớp 2")}</strong>${isAdmin ? `<span class="account-role-chip is-admin">Admin</span>` : ""}</div>
+            <div class="account-hero-name-row"><strong>${escapeHtml(user.name || "Tài khoản Lớp 2")}</strong></div>
             <div class="account-id-row"><span>ID đăng nhập: <b>${escapeHtml(user.userId || "")}</b></span><button id="account-copy-id" class="mini-action" type="button">Sao chép ID</button></div>
             ${createdText ? `<small>Tạo tài khoản: ${escapeHtml(createdText)}</small>` : ""}
           </div>
@@ -3317,24 +3332,24 @@
     el.content.innerHTML = `
       <style>
         .vip-request-heading h1{font-size:clamp(24px,2.2vw,30px)!important;}
-        .vip-request-heading p{font-size:16px!important;line-height:1.45!important;font-weight:800!important;}
-        .account-request-page .access-request-note{font-size:16px!important;line-height:1.55!important;font-weight:850!important;}
-        .account-request-page .subject-choice strong{font-size:17px!important;line-height:1.3!important;font-weight:900!important;}
-        .account-request-page .subject-choice small{font-size:16px!important;line-height:1.4!important;font-weight:800!important;}
+        .vip-request-heading p{font-size:20px!important;line-height:1.45!important;font-weight:800!important;}
+        .account-request-page .access-request-note{font-size:20px!important;line-height:1.55!important;font-weight:850!important;}
+        .account-request-page .subject-choice strong{font-size:20px!important;line-height:1.3!important;font-weight:900!important;}
+        .account-request-page .subject-choice small{font-size:20px!important;line-height:1.4!important;font-weight:800!important;}
         .access-request-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.05rem}
-        .access-request-summary-card{min-height:48px;display:flex;align-items:center;justify-content:center;padding:.65rem .8rem;border:1px solid;border-radius:14px;font-size:16px!important;line-height:1.35!important;font-weight:900!important;text-align:center}
+        .access-request-summary-card{min-height:48px;display:flex;align-items:center;justify-content:center;padding:.65rem .8rem;border:1px solid;border-radius:14px;font-size:20px!important;line-height:1.35!important;font-weight:900!important;text-align:center}
         .access-request-summary-card.selection{border-color:#d8b4fe;background:linear-gradient(90deg,#faf5ff,#fdf2f8);color:#6d28d9}
         .access-request-summary-card.price{border-color:#67e8f9;background:linear-gradient(90deg,#eff6ff,#ecfdf5);color:#0369a1}
         .vip-request-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:.1rem}
-        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:16px!important;font-weight:950;line-height:1.25}
+        .vip-request-actions button{width:100%;min-width:0;min-height:52px;margin:0!important;border-radius:14px;padding:.7rem .8rem;font-family:inherit;font-size:20px!important;font-weight:950;line-height:1.25}
         .vip-request-info{border:0;color:#fff;background:linear-gradient(90deg,#38bdf8,#3b82f6);box-shadow:0 6px 16px rgba(59,130,246,.20)}
         .vip-request-contact{border:0;color:#fff;background:linear-gradient(90deg,#34d399,#10b981);box-shadow:0 6px 16px rgba(16,185,129,.20)}
         .vip-request-submit{border:0!important;color:#fff!important;background:linear-gradient(90deg,#a855f7,#7c3aed)!important;box-shadow:0 6px 16px rgba(124,58,237,.22)}
         @media(max-width:720px){
           .access-request-summary-grid{grid-template-columns:1fr}
           .vip-request-actions{grid-template-columns:1fr}
-          .account-request-page .subject-choice strong{font-size:16px!important}
-          .account-request-page .subject-choice small{font-size:16px!important}
+          .account-request-page .subject-choice strong{font-size:20px!important}
+          .account-request-page .subject-choice small{font-size:20px!important}
         }
       </style>
       <div class="section-heading vip-request-heading">
