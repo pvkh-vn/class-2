@@ -13,9 +13,6 @@
       "id": 6,
       "name": "Kỹ sư ghép câu",
       "desc": "Luyện dấu câu, tạo câu và sắp xếp đoạn ngắn hợp lí.",
-      "l_title": "6. Kỹ sư ghép câu",
-      "l_content": "✏️ Dấu chấm kết thúc câu kể; dấu hỏi kết thúc câu hỏi; dấu chấm than bộc lộ cảm xúc/lời yêu cầu. Dấu phẩy ngăn cách những từ cùng vai trò trong lời liệt kê.\nVí dụ: “Em có sách, vở và bút.”; “Bạn tên gì?”; “Ôi, đẹp quá!”.\nCách học: đọc đúng giọng → chọn dấu → sắp xếp các ý theo trình tự.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con đọc câu bằng giọng tự nhiên, tìm chỗ cần ngắt, rồi dùng dấu câu phù hợp.",
       "qs": [
         {
           "id": 101001,
@@ -3218,9 +3215,6 @@
       "id": 7,
       "name": "Thế giới câu hay",
       "desc": "Nhận diện và tạo câu giới thiệu, câu nêu hoạt động, câu nêu đặc điểm.",
-      "l_title": "7. Thế giới câu hay",
-      "l_content": "💬 Câu giới thiệu giúp người đọc biết “Ai/cái gì là gì?”. Câu nêu hoạt động trả lời “Ai/cái gì làm gì?”. Câu nêu đặc điểm trả lời “Ai/cái gì thế nào?”.\nVí dụ: “Lan là học sinh lớp 2.”; “Lan tưới cây.”; “Lan rất chăm chỉ.”\nCách học: quan sát sự việc → tìm câu đúng mục đích → nói một câu tương tự.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con tự hỏi: Câu này đang giới thiệu, kể việc làm hay nói đặc điểm?",
       "qs": [
         {
           "id": 101151,
@@ -6570,9 +6564,6 @@
       "id": 8,
       "name": "Đại sứ giao tiếp",
       "desc": "Luyện lời nói/lời đáp phù hợp, tin nhắn, thư ngắn/bưu thiếp và đọc bảng biểu đơn giản.",
-      "l_title": "8. Đại sứ giao tiếp",
-      "l_content": "🤝 Giao tiếp lịch sự là chào hỏi, cảm ơn, xin lỗi, mời, đề nghị và chúc mừng đúng lúc. 📩 Tin nhắn cần rõ người nhận, việc cần báo và thời gian. ✉️ Thư/bưu thiếp có lời gửi, nội dung và tên người viết.\nCách học: đọc tình huống → chọn lời nói phù hợp → thử nói bằng giọng của con.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con hình dung người nhận sẽ cảm thấy thế nào khi đọc/nghe lời em. Chọn lời rõ, chân thành và lịch sự.",
       "qs": [
         {
           "id": 101301,
@@ -11383,9 +11374,6 @@
       "id": 9,
       "name": "Nhà thông thái nhỏ",
       "desc": "Đọc hiểu thơ, truyện/văn xuôi, văn bản thông tin và suy luận/phản hồi phù hợp lớp 2.",
-      "l_title": "9. Nhà thông thái nhỏ",
-      "l_content": "📖 Khi đọc thơ, truyện và văn bản thông tin: tìm nhân vật, sự việc, chi tiết, trình tự; sau đó mới suy luận.\nVí dụ: “Nam che ô cho bạn.” → chi tiết là che ô; điều suy ra là Nam biết quan tâm, chia sẻ.\nCách học: đọc trọn bài → chỉ ra bằng chứng → trả lời → nêu lí do.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con tìm một từ hoặc một câu trong đoạn đọc làm bằng chứng cho đáp án.",
       "qs": [
         {
           "id": 101501,
@@ -15146,9 +15134,6 @@
       "id": 10,
       "name": "Trí tuệ Trạng Nguyên",
       "desc": "Phần mở rộng tăng hứng thú với câu đố và suy luận bằng lời theo các nhóm con vật, cây cối, đồ dùng, phương tiện và hiện tượng tự nhiên; không dùng riêng để kết luận mức đạt chuẩn SGK.",
-      "l_title": "10. Trí tuệ Trạng Nguyên",
-      "l_content": "🧩 Trò chơi ngôn ngữ: quan sát, đối chiếu hai manh mối, loại các đáp án không khớp, rồi giải thích vì sao.\nVí dụ: “Có vòi dài” + “dùng vòi lấy nước” → con voi.\nCách học: đọc hai dấu hiệu → so sánh từng phương án → chọn phương án đáp ứng CẢ HAI.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con kiểm tra cả hai manh mối. Nếu một vật chỉ hợp một dấu hiệu thì chưa đủ chắc chắn.",
       "qs": [
         {
           "id": 101651,
@@ -20759,9 +20744,6 @@
       "id": 11,
       "name": "Đố vui bé ngoan",
       "desc": "300 câu đố thơ lục bát qua 5 thế giới; chủ đề thứ 6 trộn ngẫu nhiên toàn bộ 300 câu.",
-      "l_title": "11. Đố vui bé ngoan – 300 câu đố thơ lục bát",
-      "l_content": "Cô Thỏ Ngọc mời con khám phá 5 thế giới câu đố bằng thơ!\nCách chơi: đọc hoặc nghe bài thơ → tìm hai hoặc ba manh mối → suy nghĩ → chọn đáp án → đọc lời giải.\nCâu đố tổng hợp trộn ngẫu nhiên 300 câu của năm chủ đề, không tạo câu đố trùng mới.\nCó thể xem gợi ý khi chưa chắc chắn. Con hãy tự giải thích bằng lời vì sao con chọn đáp án nhé!",
-      "l_audio": "Cô Thỏ Ngọc chào con! Chúng mình sẽ khám phá những câu đố thơ lục bát. Con lắng nghe vần điệu, tìm manh mối, suy nghĩ và chọn đáp án nhé. Chúc con học vui!",
       "qs": [
         {
           "id": 102001,
@@ -28291,9 +28273,6 @@
       "id": 12,
       "name": "Truyện dân gian & cổ tích",
       "desc": "Thư viện 240 truyện: 120 truyện Việt Nam và 120 truyện thế giới, chia theo chủ đề/series. Cô Thỏ Ngọc kể chuyện và mỗi truyện có 3 câu nghe hiểu.",
-      "l_title": "12. Truyện dân gian & cổ tích",
-      "l_content": "Bé chọn kho Việt Nam hoặc Thế giới, chọn tiếp chủ đề hoặc series, nghe Cô Thỏ Ngọc kể rồi trả lời 3 câu nghe hiểu.",
-      "l_audio": "Bé cùng Cô Thỏ Ngọc bước vào thư viện truyện dân gian và cổ tích nhé! Hãy chọn một kho truyện rồi chọn chủ đề bé thích.",
       "data_files": {
         "vietnam": "truyen_dan_gian_co_tich_viet_nam_120.json",
         "world": "truyen_dan_gian_co_tich_the_gioi_120.json"

@@ -13,9 +13,6 @@
       "id": 1,
       "name": "Ngôi nhà chữ Việt",
       "desc": "Bảng chữ cái Việt Nam và quy ước viết hoa đầu câu, tên người, địa danh.",
-      "l_title": "1. Ngôi nhà chữ Việt",
-      "l_content": "🔤 Bảng chữ cái có 29 chữ. Chữ hoa và chữ thường là hai cách viết của cùng một chữ cái. 📝 Đầu câu, đầu dòng thơ và tên riêng cần viết hoa đúng.\nVí dụ: “Lan học bài.”; “Bạn Nguyễn Hà An đến từ Hà Nội.”\nCách học: Quan sát → đọc mẫu → tìm dấu hiệu → tự chọn → giải thích.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con quan sát chữ trước, đọc tên chữ sau. Chỉ có 29 chữ cái trong bảng chữ cái; ch, tr, ngh là các chữ ghép ghi âm, không phải chữ cái mới.",
       "qs": [
         {
           "id": 100001,
@@ -4226,9 +4223,6 @@
       "id": 2,
       "name": "Hiệp sĩ âm đầu",
       "desc": "Luyện âm đầu dễ lẫn và các quy tắc c/k, g/gh, ng/ngh trong từ, câu tự nhiên.",
-      "l_title": "2. Hiệp sĩ âm đầu",
-      "l_content": "Ôn tập phân biệt ch/tr, s/x, l/n, r/d/gi và quy tắc c/k, g/gh, ng/ngh. Bé đọc từ trong câu, xác định nghĩa rồi chọn cách viết chính tả đúng.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con đọc cả câu và hình dung sự vật. Với e, ê, i, nhớ các cách viết k, gh, ngh.",
       "qs": [
         {
           "id": 100201,
@@ -8439,9 +8433,6 @@
       "id": 3,
       "name": "Vương quốc vần & dấu",
       "desc": "Luyện phần vần, âm cuối dễ lẫn, nguyên âm đôi/vần phức hợp và dấu hỏi/ngã.",
-      "l_title": "3. Vương quốc vần & dấu",
-      "l_content": "Luyện chính tả vần và âm cuối c/t, n/ng, ch/nh; viết đúng iê/yê, uô, ươ và phân biệt dấu hỏi/ngã qua lời nói, câu văn gần gũi.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con tách tiếng thành âm đầu, vần, thanh. Hãy kiểm tra nghĩa của cả từ trước khi chọn.",
       "qs": [
         {
           "id": 100401,
@@ -13702,9 +13693,6 @@
       "id": 4,
       "name": "Kho báu từ vựng",
       "desc": "Mở rộng vốn từ và hiểu nghĩa từ theo các chủ điểm gần gũi của Tiếng Việt 2.",
-      "l_title": "4. Kho báu từ vựng",
-      "l_content": "🏡 Từ ngữ gắn với gia đình, trường học, thiên nhiên và quê hương. Cùng một từ chỉ có thể hiểu đúng khi đặt trong câu.\nVí dụ: “bà” – người thân; “chăm sóc” – việc làm; “ấm áp” – tình cảm.\nCách học: đọc tình huống → tìm từ phù hợp → dùng từ trong câu của con.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con xác định bối cảnh: ai đang làm gì, ở đâu, với ai. Một từ hay phải hợp nghĩa cả câu.",
       "qs": [
         {
           "id": 100651,
@@ -17915,9 +17903,6 @@
       "id": 5,
       "name": "Khu vườn từ loại",
       "desc": "Nhận diện và sử dụng từ chỉ sự vật, hoạt động/trạng thái và đặc điểm theo ngôn ngữ lớp 2.",
-      "l_title": "5. Khu vườn từ loại",
-      "l_content": "🌱 Từ chỉ sự vật trả lời “Ai? Cái gì? Con gì?”. 🏃 Từ chỉ hoạt động trả lời “Làm gì?”. 🌈 Từ chỉ đặc điểm trả lời “Thế nào?”.\nVí dụ: “Con mèo 🐈 chạy nhanh.” → con mèo: sự vật; chạy: hoạt động; nhanh: đặc điểm.\nCách học: xem cảnh → hỏi đúng câu hỏi → chọn từ → tự đặt câu.",
-      "l_audio": "Cô Thỏ Ngọc cùng con học thật chắc, quan sát ví dụ và thử tự trả lời. Con tìm vai trò của từ trong câu: sự vật là ai/cái gì, hoạt động là làm gì, đặc điểm là thế nào.",
       "qs": [
         {
           "id": 100851,
