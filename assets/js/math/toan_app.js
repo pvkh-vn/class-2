@@ -301,8 +301,8 @@ function showPremiumAccessModal(featureName = 'Tính năng này') {
                 <div class="px-5 pt-5 pb-4 bg-gradient-to-b from-pink-50 to-white">
                     <div id="premium-modal-icon" class="text-5xl leading-none mb-3">🐰</div>
                     <h3 id="premium-modal-title" class="text-xl md:text-2xl font-black text-purple-600 mb-3">Nội dung Premium</h3>
-                    <div id="premium-modal-message" class="text-[14px] leading-[1.55] font-bold text-slate-600"></div>
-                    <div class="mt-4 rounded-2xl border border-pink-200 bg-pink-50/80 px-3 py-3 text-xs md:text-sm leading-relaxed font-extrabold text-pink-500">
+                    <div id="premium-modal-message" class="text-xl leading-[1.55] font-bold text-slate-600"></div>
+                    <div class="mt-4 rounded-2xl border border-pink-200 bg-pink-50/80 px-3 py-3 text-xl md:text-xl leading-relaxed font-extrabold text-pink-500">
                         🌸 Các chuyên đề cơ bản vẫn học miễn phí bình thường nhé!
                     </div>
                 </div>
@@ -330,11 +330,11 @@ function showPremiumAccessModal(featureName = 'Tính năng này') {
     const actions = document.getElementById('premium-modal-actions');
     actions.innerHTML = guest
         ? `<div class="grid grid-cols-2 gap-2">
-               <button onclick="closePremiumAccessModal();openAuthFromGuest('login')" class="py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-sm shadow-sm pastel-btn">Sign in</button>
-               <button onclick="closePremiumAccessModal();openAuthFromGuest('register')" class="py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-black text-sm shadow-sm pastel-btn">Sign up</button>
+               <button onclick="closePremiumAccessModal();openAuthFromGuest('login')" class="py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 text-white font-black text-xl shadow-sm pastel-btn">Sign in</button>
+               <button onclick="closePremiumAccessModal();openAuthFromGuest('register')" class="py-3 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-black text-xl shadow-sm pastel-btn">Sign up</button>
            </div>
-           <button onclick="closePremiumAccessModal()" class="mt-2.5 w-full py-2 text-sm md:text-base font-black text-slate-400 hover:text-slate-600">Để sau nhé</button>`
-        : `<button onclick="closePremiumAccessModal()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-sm shadow-sm pastel-btn">Đã hiểu</button>`;
+           <button onclick="closePremiumAccessModal()" class="mt-2.5 w-full py-2 text-xl md:text-xl font-black text-slate-400 hover:text-slate-600">Để sau nhé</button>`
+        : `<button onclick="closePremiumAccessModal()" class="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-xl shadow-sm pastel-btn">Đã hiểu</button>`;
     modal.classList.remove('hidden');
 }
 function closePremiumAccessModal() {
@@ -364,7 +364,7 @@ function ensureAppDialog() {
             <div class="px-5 pt-5 pb-4 bg-gradient-to-b from-pink-50 via-purple-50/40 to-white">
                 <div id="app-dialog-icon" class="text-5xl leading-none mb-2">🐰</div>
                 <h3 id="app-dialog-title" class="text-xl font-black text-purple-600 mb-2">Cô Thỏ Ngọc nhắn bé</h3>
-                <div id="app-dialog-message" class="text-sm leading-6 font-bold text-slate-600 whitespace-pre-line"></div>
+                <div id="app-dialog-message" class="text-xl leading-6 font-bold text-slate-600 whitespace-pre-line"></div>
             </div>
             <div id="app-dialog-actions" class="px-4 py-3.5 border-t border-pink-100 bg-white"></div>
         </div>`;
@@ -381,7 +381,7 @@ function showAppNotice(message, options = {}) {
     document.getElementById('app-dialog-icon').textContent = options.icon || (String(message).includes('🎉') ? '🎉' : '🐰');
     document.getElementById('app-dialog-title').textContent = options.title || (String(message).includes('🎉') ? 'Giỏi lắm!' : 'Cô Thỏ Ngọc nhắn bé');
     document.getElementById('app-dialog-message').textContent = String(message ?? '');
-    document.getElementById('app-dialog-actions').innerHTML = `<button id="app-dialog-ok" class="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-sm shadow-sm pastel-btn">${options.okText || 'Đã hiểu'}</button>`;
+    document.getElementById('app-dialog-actions').innerHTML = `<button id="app-dialog-ok" class="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-xl shadow-sm pastel-btn">${options.okText || 'Đã hiểu'}</button>`;
     document.getElementById('app-dialog-ok').onclick = () => { closeAppDialog(); if (typeof options.onClose === 'function') options.onClose(); };
     modal.classList.remove('hidden');
 }
@@ -393,8 +393,8 @@ function showAppConfirm(message, onConfirm, options = {}) {
     document.getElementById('app-dialog-message').textContent = String(message ?? '');
     document.getElementById('app-dialog-actions').innerHTML = `
         <div class="grid grid-cols-2 gap-2">
-            <button id="app-dialog-cancel" class="py-3 rounded-2xl border-2 border-pink-200 bg-pink-50 text-pink-600 font-black text-sm pastel-btn">${options.cancelText || 'Làm tiếp'}</button>
-            <button id="app-dialog-confirm" class="py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-sm shadow-sm pastel-btn">${options.confirmText || 'Đồng ý'}</button>
+            <button id="app-dialog-cancel" class="py-3 rounded-2xl border-2 border-pink-200 bg-pink-50 text-pink-600 font-black text-xl pastel-btn">${options.cancelText || 'Làm tiếp'}</button>
+            <button id="app-dialog-confirm" class="py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-xl shadow-sm pastel-btn">${options.confirmText || 'Đồng ý'}</button>
         </div>`;
     document.getElementById('app-dialog-cancel').onclick = closeAppDialog;
     document.getElementById('app-dialog-confirm').onclick = () => { closeAppDialog(); if (typeof onConfirm === 'function') onConfirm(); };
@@ -784,11 +784,11 @@ async function renderDashboardGrid() {
             <div onclick="openTopic(${t.id}, '${t.title}', '${t.icon}')" class="math-topic-card math-tone-${t.color} pastel-card p-3 flex flex-col justify-start cursor-pointer transition-all group min-h-[110px] md:min-h-[116px]">
                 <div class="math-topic-head flex items-center gap-3">
                     ${iconHtml}
-                    <h3 class="math-topic-title math-tone-text math-tone-${t.color} font-extrabold text-[17px] md:text-[19px] leading-snug overflow-hidden" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${t.title}</h3>
+                    <h3 class="math-topic-title math-tone-text math-tone-${t.color} font-extrabold text-xl md:text-xl leading-snug overflow-hidden" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${t.title}</h3>
                 </div>
                 <div class="math-topic-foot flex justify-between items-end gap-2 mt-1.5 pt-1.5 border-t border-pink-100 font-bold text-gray-600">
-                    <span class="flex-1 text-[15px] md:text-[16px] leading-snug overflow-hidden" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${t.desc}</span>
-                    <span class="math-topic-count math-tone-${t.color} shrink-0 px-2.5 py-1 rounded-full text-xs md:text-sm font-extrabold">${countLabel}</span>
+                    <span class="flex-1 text-xl md:text-xl leading-snug overflow-hidden" style="display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${t.desc}</span>
+                    <span class="math-topic-count math-tone-${t.color} shrink-0 px-2.5 py-1 rounded-full text-xl md:text-xl font-extrabold">${countLabel}</span>
                 </div>
             </div>`;
     });
@@ -903,15 +903,15 @@ async function renderExamHubGrid() {
         <div class="bg-pink-50/70 p-5 rounded-3xl border-2 border-pink-200 flex flex-col justify-between items-center text-center group min-h-[250px] pastel-card">
             <div>
                 <div class="text-4xl mb-1.5 group-hover:scale-110 transition-transform">🔢</div>
-                <h3 class="font-extrabold text-pink-600 text-lg mb-1">Học kỳ 1</h3>
-                <p class="text-xs text-gray-500 font-bold mb-2">Kiểm tra kiến thức HK1</p>
-                <span class="inline-block bg-pink-100 text-pink-700 px-3 py-0.5 rounded-full text-sm md:text-base font-black mb-3">${countHK1} đề thi chuẩn</span>
+                <h3 class="font-extrabold text-pink-600 text-xl mb-1">Học kỳ 1</h3>
+                <p class="text-xl text-gray-500 font-bold mb-2">Kiểm tra kiến thức HK1</p>
+                <span class="inline-block bg-pink-100 text-pink-700 px-3 py-0.5 rounded-full text-xl md:text-xl font-black mb-3">${countHK1} đề thi chuẩn</span>
             </div>
             <div class="w-full space-y-2">
-                <button onclick="startRandomExam('hocky1')" class="w-full py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-extrabold rounded-xl text-xs pastel-btn shadow-sm">
+                <button onclick="startRandomExam('hocky1')" class="w-full py-2.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-extrabold rounded-xl text-xl pastel-btn shadow-sm">
                     🚀 Vào thi thử
                 </button>
-                <button onclick="openHistoryModal('LichSuBaiThi_HK1')" class="w-full py-2 bg-white text-pink-700 border border-pink-300 font-extrabold rounded-xl text-xs pastel-btn hover:bg-pink-50">
+                <button onclick="openHistoryModal('LichSuBaiThi_HK1')" class="w-full py-2 bg-white text-pink-700 border border-pink-300 font-extrabold rounded-xl text-xl pastel-btn hover:bg-pink-50">
                     📊 Xem lịch sử thi
                 </button>
             </div>
@@ -920,15 +920,15 @@ async function renderExamHubGrid() {
         <div class="bg-purple-50/70 p-5 rounded-3xl border-2 border-purple-200 flex flex-col justify-between items-center text-center group min-h-[250px] pastel-card">
             <div>
                 <div class="text-4xl mb-1.5 group-hover:scale-110 transition-transform">⭐</div>
-                <h3 class="font-extrabold text-purple-600 text-lg mb-1">Học kỳ 2</h3>
-                <p class="text-xs text-gray-500 font-bold mb-2">Kiểm tra kiến thức HK2</p>
-                <span class="inline-block bg-purple-100 text-purple-700 px-3 py-0.5 rounded-full text-sm md:text-base font-black mb-3">${countHK2} đề thi chuẩn</span>
+                <h3 class="font-extrabold text-purple-600 text-xl mb-1">Học kỳ 2</h3>
+                <p class="text-xl text-gray-500 font-bold mb-2">Kiểm tra kiến thức HK2</p>
+                <span class="inline-block bg-purple-100 text-purple-700 px-3 py-0.5 rounded-full text-xl md:text-xl font-black mb-3">${countHK2} đề thi chuẩn</span>
             </div>
             <div class="w-full space-y-2">
-                <button onclick="startRandomExam('hocky2')" class="w-full py-2.5 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xs pastel-btn shadow-sm">
+                <button onclick="startRandomExam('hocky2')" class="w-full py-2.5 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-extrabold rounded-xl text-xl pastel-btn shadow-sm">
                     🚀 Vào thi thử
                 </button>
-                <button onclick="openHistoryModal('LichSuBaiThi_HK2')" class="w-full py-2 bg-white text-purple-700 border border-purple-300 font-extrabold rounded-xl text-xs pastel-btn hover:bg-purple-50">
+                <button onclick="openHistoryModal('LichSuBaiThi_HK2')" class="w-full py-2 bg-white text-purple-700 border border-purple-300 font-extrabold rounded-xl text-xl pastel-btn hover:bg-purple-50">
                     📊 Xem lịch sử thi
                 </button>
             </div>
@@ -937,15 +937,15 @@ async function renderExamHubGrid() {
         <div class="bg-amber-50/70 p-5 rounded-3xl border-2 border-amber-200 flex flex-col justify-between items-center text-center group min-h-[250px] pastel-card">
             <div>
                 <div class="text-4xl mb-1.5 group-hover:scale-110 transition-transform">🏆</div>
-                <h3 class="font-extrabold text-amber-600 text-lg mb-1">Học sinh giỏi</h3>
-                <p class="text-xs text-gray-500 font-bold mb-2">Thử thách nâng cao IQ</p>
-                <span class="inline-block bg-amber-100 text-amber-700 px-3 py-0.5 rounded-full text-sm md:text-base font-black mb-3">${countHSG} đề thi tuyển chọn</span>
+                <h3 class="font-extrabold text-amber-600 text-xl mb-1">Học sinh giỏi</h3>
+                <p class="text-xl text-gray-500 font-bold mb-2">Thử thách nâng cao IQ</p>
+                <span class="inline-block bg-amber-100 text-amber-700 px-3 py-0.5 rounded-full text-xl md:text-xl font-black mb-3">${countHSG} đề thi tuyển chọn</span>
             </div>
             <div class="w-full space-y-2">
-                <button onclick="startRandomExam('hsg')" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-extrabold rounded-xl text-xs pastel-btn shadow-sm">
+                <button onclick="startRandomExam('hsg')" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-extrabold rounded-xl text-xl pastel-btn shadow-sm">
                     🚀 Vào thi thử
                 </button>
-                <button onclick="openHistoryModal('LichSuBaiThi_HSG')" class="w-full py-2 bg-white text-amber-700 border border-amber-300 font-extrabold rounded-xl text-xs pastel-btn hover:bg-amber-50">
+                <button onclick="openHistoryModal('LichSuBaiThi_HSG')" class="w-full py-2 bg-white text-amber-700 border border-amber-300 font-extrabold rounded-xl text-xl pastel-btn hover:bg-amber-50">
                     📊 Xem lịch sử thi
                 </button>
             </div>
@@ -1029,8 +1029,8 @@ function openMiniGameHub() {
     const grid = document.getElementById('minigame-grid'); if (!grid) return;
     grid.innerHTML = MINIGAME_LIST.map((g, idx) => { const p = MINIGAME_PALETTES[idx % MINIGAME_PALETTES.length]; return `
         <div onclick="openGamePlay('${g.id}')" class="${p[0]} ${p[1]} border-2 rounded-[26px] p-3.5 md:p-4 min-h-[132px] flex flex-col items-center justify-between text-center cursor-pointer relative shadow-sm pastel-btn group">
-            ${!g.ready ? '<span class="absolute top-2 right-2 bg-slate-100 text-slate-500 text-[10px] font-black px-2 py-0.5 rounded-full border border-slate-200">Sắp ra mắt</span>' : '<span class="absolute top-2 right-2 bg-emerald-100 text-emerald-700 text-[10px] font-black px-2 py-0.5 rounded-full border border-emerald-200">Chơi ngay</span>'}
-            <div class="text-4xl group-hover:scale-110 transition-transform mt-1">${g.icon}</div><div class="w-full"><h3 class="font-extrabold ${p[2]} text-base leading-tight">${g.title}</h3><p class="text-sm text-gray-700 font-bold mt-1 leading-snug">${g.desc}</p></div>
+            ${!g.ready ? '<span class="absolute top-2 right-2 bg-slate-100 text-slate-500 text-xl font-black px-2 py-0.5 rounded-full border border-slate-200">Sắp ra mắt</span>' : '<span class="absolute top-2 right-2 bg-emerald-100 text-emerald-700 text-xl font-black px-2 py-0.5 rounded-full border border-emerald-200">Chơi ngay</span>'}
+            <div class="text-4xl group-hover:scale-110 transition-transform mt-1">${g.icon}</div><div class="w-full"><h3 class="font-extrabold ${p[2]} text-xl leading-tight">${g.title}</h3><p class="text-xl text-gray-700 font-bold mt-1 leading-snug">${g.desc}</p></div>
         </div>`; }).join('');
     switchAppView('view-minigame-hub');
 }
@@ -1403,10 +1403,10 @@ function renderExploreComparisonBranches(topicNum, topicName, pool) {
         return `
             <button onclick="selectExploreComparisonBranch('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[118px] flex flex-col justify-between">
                 <div class="flex items-start justify-between gap-3">
-                    <span class="text-lg md:text-xl font-black leading-snug"><span class="mr-2">${item.icon}</span>${escapeHtml(item.label)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black leading-snug"><span class="mr-2">${item.icon}</span>${escapeHtml(item.label)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(item.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(item.desc)}</span>
             </button>`;
     }).join('');
 
@@ -1436,10 +1436,10 @@ function renderTopic2NeighborLevels_(pool) {
         return `
             <button onclick="selectTopic2NeighborLevel_(${level})" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[126px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-start justify-between gap-3">
-                    <span class="text-base md:text-lg font-black leading-snug"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.title)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black leading-snug"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.title)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
             </button>`;
     }).join('');
 
@@ -1494,10 +1494,10 @@ function renderTopic2CompareLevels_(pool) {
         return `
             <button onclick="selectTopic2CompareLevel_(${level})" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[126px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-start justify-between gap-3">
-                    <span class="text-base md:text-lg font-black leading-snug"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.title)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black leading-snug"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.title)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
             </button>`;
     }).join('');
 
@@ -1630,9 +1630,9 @@ function renderExploreSubtopics(topicNum, topicName, topicObj) {
             <button onclick="selectSubtopic(${idx})" class="${cardSizeClass} ${style.card} ${introCard ? 'math-muldiv-intro-entry' : ''} border-2 rounded-2xl font-bold text-left transition-all flex flex-col justify-between shadow-sm pastel-btn">
                 <div class="flex items-start justify-between gap-3 w-full">
                     <span class="math-subtopic-card-title leading-snug"><strong class="${style.num} mr-1.5">${escapeHtml(displayCode)}</strong> ${introCard ? '🍬 ' : ''}${escapeHtml(displayTitle)}</span>
-                    <span class="text-xs font-extrabold ${style.badge} px-2.5 py-0.5 rounded-full border shrink-0 shadow-inner">${introCard ? 'Học tương tác' : `${count} câu`}</span>
+                    <span class="text-xl font-extrabold ${style.badge} px-2.5 py-0.5 rounded-full border shrink-0 shadow-inner">${introCard ? 'Học tương tác' : `${count} câu`}</span>
                 </div>
-                ${desc ? `<span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(desc)}</span>` : ''}
+                ${desc ? `<span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(desc)}</span>` : ''}
             </button>`;
     });
     container.innerHTML = subHtml;
@@ -1671,10 +1671,10 @@ function renderExploreNumberScopes(topicNum, topicName, pool) {
         return `
             <button onclick="selectExploreNumberScope('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-center justify-between gap-3">
-                    <span class="text-lg md:text-xl font-black"><span class="mr-2">${item.icon}</span>${escapeHtml(item.label)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${escapeHtml(item.label)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(item.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(item.desc)}</span>
             </button>`;
     }).join('');
 
@@ -1735,10 +1735,10 @@ function renderExploreNumberActivities(scopeLabel, pool) {
         const palette = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         return `<button onclick="selectExploreNumberActivity('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[126px] flex flex-col justify-between">
             <div class="flex items-start justify-between gap-3">
-                <span class="text-lg md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
-                ${item.count ? `<span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${item.count}</span>` : ''}
+                <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
+                ${item.count ? `<span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${item.count}</span>` : ''}
             </div>
-            <span class="mt-2 text-sm md:text-base font-bold text-slate-500 leading-snug">${item.desc}</span>
+            <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${item.desc}</span>
         </button>`;
     }).join('');
 
@@ -1784,25 +1784,25 @@ function renderNumberPlaceValueLecture_(scope, scopeLabel) {
 
     const exampleCards = is1000 ? `
         <div class="math-branch-example-grid grid grid-cols-4 gap-2.5 mt-4">
-            ${[['365','300 + 60 + 5','pink'],['420','400 + 20 + 0','purple'],['708','700 + 0 + 8','amber'],['900','900 + 0 + 0','emerald']].map(([n,split,c]) => `<div class="math-tone-card math-tone-${c} rounded-2xl border-2 p-3 text-center"><div class="math-tone-text math-tone-${c} text-2xl md:text-3xl font-black">${n}</div><div class="mt-1 text-base md:text-lg font-black text-slate-700">= ${split}</div></div>`).join('')}
+            ${[['365','300 + 60 + 5','pink'],['420','400 + 20 + 0','purple'],['708','700 + 0 + 8','amber'],['900','900 + 0 + 0','emerald']].map(([n,split,c]) => `<div class="math-tone-card math-tone-${c} rounded-2xl border-2 p-3 text-center"><div class="math-tone-text math-tone-${c} text-2xl md:text-3xl font-black">${n}</div><div class="mt-1 text-xl md:text-xl font-black text-slate-700">= ${split}</div></div>`).join('')}
         </div>` : `
         <div class="math-branch-example-grid grid grid-cols-4 gap-2.5 mt-4">
-            ${[['10','10 + 0','pink'],['80','80 + 0','purple'],['36','30 + 6','amber'],['92','90 + 2','emerald']].map(([n,split,c]) => `<div class="math-tone-card math-tone-${c} rounded-2xl border-2 p-3 text-center"><div class="math-tone-text math-tone-${c} text-3xl md:text-4xl font-black">${n}</div><div class="mt-1 text-base md:text-lg font-black text-slate-700">= ${split}</div></div>`).join('')}
+            ${[['10','10 + 0','pink'],['80','80 + 0','purple'],['36','30 + 6','amber'],['92','90 + 2','emerald']].map(([n,split,c]) => `<div class="math-tone-card math-tone-${c} rounded-2xl border-2 p-3 text-center"><div class="math-tone-text math-tone-${c} text-3xl md:text-4xl font-black">${n}</div><div class="mt-1 text-xl md:text-xl font-black text-slate-700">= ${split}</div></div>`).join('')}
         </div>`;
 
     const placeGrid = is1000 ? `
         <div class="math-branch-place-grid grid grid-cols-3 gap-2 max-w-xl mx-auto mt-4">
-            <div class="rounded-2xl border-2 border-amber-200 bg-amber-50 p-3 text-center"><div class="text-xs md:text-sm font-black text-amber-700">HÀNG TRĂM</div><div class="text-4xl md:text-5xl font-black text-amber-600 mt-1">3</div><div class="text-xs md:text-sm font-bold text-slate-500">3 trăm = 300</div></div>
-            <div class="rounded-2xl border-2 border-pink-200 bg-pink-50 p-3 text-center"><div class="text-xs md:text-sm font-black text-pink-700">HÀNG CHỤC</div><div class="text-4xl md:text-5xl font-black text-pink-600 mt-1">6</div><div class="text-xs md:text-sm font-bold text-slate-500">6 chục = 60</div></div>
-            <div class="rounded-2xl border-2 border-purple-200 bg-purple-50 p-3 text-center"><div class="text-xs md:text-sm font-black text-purple-700">HÀNG ĐƠN VỊ</div><div class="text-4xl md:text-5xl font-black text-purple-600 mt-1">5</div><div class="text-xs md:text-sm font-bold text-slate-500">5 đơn vị = 5</div></div>
+            <div class="rounded-2xl border-2 border-amber-200 bg-amber-50 p-3 text-center"><div class="text-xl md:text-xl font-black text-amber-700">HÀNG TRĂM</div><div class="text-4xl md:text-5xl font-black text-amber-600 mt-1">3</div><div class="text-xl md:text-xl font-bold text-slate-500">3 trăm = 300</div></div>
+            <div class="rounded-2xl border-2 border-pink-200 bg-pink-50 p-3 text-center"><div class="text-xl md:text-xl font-black text-pink-700">HÀNG CHỤC</div><div class="text-4xl md:text-5xl font-black text-pink-600 mt-1">6</div><div class="text-xl md:text-xl font-bold text-slate-500">6 chục = 60</div></div>
+            <div class="rounded-2xl border-2 border-purple-200 bg-purple-50 p-3 text-center"><div class="text-xl md:text-xl font-black text-purple-700">HÀNG ĐƠN VỊ</div><div class="text-4xl md:text-5xl font-black text-purple-600 mt-1">5</div><div class="text-xl md:text-xl font-bold text-slate-500">5 đơn vị = 5</div></div>
         </div>` : `
         <div class="math-branch-place-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 mt-4">
             ${[{n:'10',t:'1',o:'0'},{n:'80',t:'8',o:'0'},{n:'36',t:'3',o:'6'},{n:'92',t:'9',o:'2'}].map((x,i) => `
                 <div class="rounded-2xl border-2 ${i%2===0?'border-pink-200 bg-pink-50/60':'border-purple-200 bg-purple-50/60'} p-3">
                     <div class="text-center text-2xl md:text-3xl font-black text-slate-700 mb-2">Số ${x.n}</div>
                     <div class="grid grid-cols-2 gap-1.5">
-                        <div class="rounded-xl border border-pink-200 bg-white/80 p-2 text-center"><div class="text-sm md:text-base font-black text-pink-700">HÀNG CHỤC</div><div class="text-3xl md:text-4xl font-black text-pink-600">${x.t}</div><div class="text-sm md:text-base font-bold text-slate-500">${x.t} chục = ${Number(x.t)*10}</div></div>
-                        <div class="rounded-xl border border-purple-200 bg-white/80 p-2 text-center"><div class="text-sm md:text-base font-black text-purple-700">HÀNG ĐƠN VỊ</div><div class="text-3xl md:text-4xl font-black text-purple-600">${x.o}</div><div class="text-sm md:text-base font-bold text-slate-500">${x.o} đơn vị = ${x.o}</div></div>
+                        <div class="rounded-xl border border-pink-200 bg-white/80 p-2 text-center"><div class="text-xl md:text-xl font-black text-pink-700">HÀNG CHỤC</div><div class="text-3xl md:text-4xl font-black text-pink-600">${x.t}</div><div class="text-xl md:text-xl font-bold text-slate-500">${x.t} chục = ${Number(x.t)*10}</div></div>
+                        <div class="rounded-xl border border-purple-200 bg-white/80 p-2 text-center"><div class="text-xl md:text-xl font-black text-purple-700">HÀNG ĐƠN VỊ</div><div class="text-3xl md:text-4xl font-black text-purple-600">${x.o}</div><div class="text-xl md:text-xl font-bold text-slate-500">${x.o} đơn vị = ${x.o}</div></div>
                     </div>
                 </div>`).join('')}
         </div>`;
@@ -1820,18 +1820,18 @@ function renderNumberPlaceValueLecture_(scope, scopeLabel) {
             <div class="hidden md:block"></div>
             <div class="text-center"><div class="text-4xl mb-1">🧮</div><h2 class="text-2xl md:text-3xl font-black text-purple-700">Bài giảng · ${scopeLabel}</h2></div>
             <div class="flex justify-center md:justify-end">
-                <button onclick="speakVietnamese(${JSON.stringify(speech)})" class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white text-sm md:text-base font-black shadow-md pastel-btn whitespace-nowrap">🔊 Nghe Cô Thỏ Ngọc đọc</button>
+                <button onclick="speakVietnamese(${JSON.stringify(speech)})" class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xl md:text-xl font-black shadow-md pastel-btn whitespace-nowrap">🔊 Nghe Cô Thỏ Ngọc đọc</button>
             </div>
         </div>
         <div class="math-branch-teacher-card mt-4 rounded-2xl border-2 border-pink-200 bg-gradient-to-r from-pink-50/80 to-purple-50/80 p-4 md:p-5">
-            <div class="flex items-start gap-3 max-w-4xl mx-auto"><div class="text-3xl shrink-0">🐰</div><div><div class="text-base md:text-lg font-black text-pink-600 mb-1">Cô Thỏ Ngọc giảng bài</div><p class="text-base md:text-lg font-bold leading-relaxed text-slate-600">${visibleLesson}</p></div></div>
+            <div class="flex items-start gap-3 max-w-4xl mx-auto"><div class="text-3xl shrink-0">🐰</div><div><div class="text-xl md:text-xl font-black text-pink-600 mb-1">Cô Thỏ Ngọc giảng bài</div><p class="text-xl md:text-xl font-bold leading-relaxed text-slate-600">${visibleLesson}</p></div></div>
         </div>
         <div class="math-branch-observe-card mt-4 rounded-3xl border-2 border-pink-200 bg-white/80 p-4 md:p-5">
-            <div class="text-center text-lg md:text-xl font-black text-slate-700">Quan sát vị trí các chữ số</div>
+            <div class="text-center text-xl md:text-xl font-black text-slate-700">Quan sát vị trí các chữ số</div>
             ${placeGrid}
-            <div class="math-branch-split-card mt-4 rounded-2xl bg-gradient-to-r from-pink-50 to-purple-50 border-2 border-purple-200 p-4 text-center"><div class="text-base md:text-lg font-black text-slate-600">Tách số theo giá trị hàng</div><div class="mt-1 text-3xl md:text-4xl font-black text-purple-700">${is1000 ? '365 = 300 + 60 + 5' : '36 = 30 + 6'}</div></div>
+            <div class="math-branch-split-card mt-4 rounded-2xl bg-gradient-to-r from-pink-50 to-purple-50 border-2 border-purple-200 p-4 text-center"><div class="text-xl md:text-xl font-black text-slate-600">Tách số theo giá trị hàng</div><div class="mt-1 text-3xl md:text-4xl font-black text-purple-700">${is1000 ? '365 = 300 + 60 + 5' : '36 = 30 + 6'}</div></div>
             ${exampleCards}
-            <div class="math-branch-tip-card mt-4 rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-3 text-center text-base md:text-lg font-black text-emerald-700">💡 ${is1000 ? 'Chữ số 0 vẫn giữ chỗ cho hàng của nó.' : 'Số tròn chục có hàng đơn vị bằng 0.'}</div>
+            <div class="math-branch-tip-card mt-4 rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-3 text-center text-xl md:text-xl font-black text-emerald-700">💡 ${is1000 ? 'Chữ số 0 vẫn giữ chỗ cho hàng của nó.' : 'Số tròn chục có hàng đơn vị bằng 0.'}</div>
         </div>
     </div>`;
 
@@ -1864,10 +1864,10 @@ function renderExploreLevelsForTopic(topicNum, topicName, pool) {
         html += `
             <button onclick="selectExploreLevel(${level})" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-center justify-between gap-3">
-                    <span class="text-lg md:text-xl font-black"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.label)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.label)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
             </button>`;
     });
     container.innerHTML = html;
@@ -1892,10 +1892,10 @@ function renderExploreLevelsForGroup(groupKey, groupLabel, pool) {
         html += `
             <button onclick="selectExploreLevel(${level})" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between ${count ? '' : 'opacity-50 cursor-not-allowed'}" ${count ? '' : 'disabled'}>
                 <div class="flex items-center justify-between gap-3">
-                    <span class="text-lg md:text-xl font-black"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.label)}</span>
-                    <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
+                    <span class="text-xl md:text-xl font-black"><span class="mr-2">${meta.icon}</span>${escapeHtml(meta.label)}</span>
+                    <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${count} câu</span>
                 </div>
-                <span class="mt-2 text-xs md:text-sm font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
+                <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${escapeHtml(meta.desc)}</span>
             </button>`;
     });
     container.innerHTML = html;
@@ -1961,10 +1961,10 @@ function renderCarryLearningModes_(subCode, subLabel, pool) {
         const palette = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         return `<button onclick="startCarryLearningMode_('${item.key}')" class="p-4 ${palette.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between">
             <div class="flex items-start justify-between gap-3">
-                <span class="text-lg md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
-                <span class="text-xs font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${sourcePool.length} câu</span>
+                <span class="text-xl md:text-xl font-black"><span class="mr-2">${item.icon}</span>${item.title}</span>
+                <span class="text-xl font-extrabold ${palette.badge} px-2.5 py-0.5 rounded-full border shrink-0">${sourcePool.length} câu</span>
             </div>
-            <span class="mt-2 text-sm md:text-base font-bold text-slate-500 leading-snug">${item.desc}</span>
+            <span class="mt-2 text-xl md:text-xl font-bold text-slate-500 leading-snug">${item.desc}</span>
         </button>`;
     }).join('');
 
@@ -2297,11 +2297,11 @@ function ensureMathLabStyles_() {
         .ml-prompt{font-weight:1000;color:#0f172a;font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.42}.ml-chip{padding:7px 11px;border-radius:999px;background:#f5f3ff;border:1.5px solid #ddd6fe;color:#6d28d9;font-weight:900}
         .ml-choice{width:100%;min-height:58px;border:2px solid #e2e8f0;border-radius:18px;background:#fff;padding:10px 12px;font-weight:900;color:#334155;text-align:left;transition:.15s ease}.ml-choice:hover{border-color:#c084fc;background:#faf5ff}.ml-choice.is-selected{border-color:#a855f7;background:#f3e8ff;color:#6b21a8;box-shadow:0 0 0 3px rgba(168,85,247,.08)}.ml-choice.is-correct{border-color:#34d399;background:#ecfdf5;color:#047857}.ml-choice.is-wrong{border-color:#fb7185;background:#fff1f2;color:#be123c}
         .ml-base10{display:flex;align-items:flex-end;justify-content:center;gap:9px;flex-wrap:wrap;min-height:96px;padding:12px;border-radius:20px;background:#f8fafc;border:1.5px dashed #cbd5e1}.ml-hundred{width:64px;height:64px;border-radius:8px;border:2px solid #38bdf8;background-color:#e0f2fe;background-image:linear-gradient(#bae6fd 1px,transparent 1px),linear-gradient(90deg,#bae6fd 1px,transparent 1px);background-size:6.4px 6.4px}.ml-ten{width:12px;height:64px;border-radius:5px;border:2px solid #a78bfa;background:repeating-linear-gradient(to bottom,#ede9fe 0 5px,#c4b5fd 5px 6px)}.ml-one{width:15px;height:15px;border-radius:4px;border:2px solid #f59e0b;background:#fef3c7}.ml-block-group{display:flex;align-items:flex-end;gap:4px;flex-wrap:wrap;justify-content:center}
-        .ml-counter{display:flex;align-items:center;justify-content:center;gap:9px;padding:9px;border-radius:18px;background:#f8fafc;border:1.5px solid #e2e8f0}.ml-counter button{width:36px;height:36px;border-radius:12px;background:#fff;border:2px solid #ddd6fe;color:#7c3aed;font-size:1.15rem;font-weight:1000}.ml-counter strong{min-width:30px;text-align:center;font-size:1.2rem;color:#312e81}
+        .ml-counter{display:flex;align-items:center;justify-content:center;gap:9px;padding:9px;border-radius:18px;background:#f8fafc;border:1.5px solid #e2e8f0}.ml-counter button{width:36px;height:36px;border-radius:12px;background:#fff;border:2px solid #ddd6fe;color:#7c3aed;font-size:20px;font-weight:1000}.ml-counter strong{min-width:30px;text-align:center;font-size:20px;color:#312e81}
         .ml-number-line{position:relative;padding:20px 8px 8px}.ml-number-line input[type=range]{width:100%;accent-color:#a855f7}.ml-number-line-labels{display:flex;justify-content:space-between;font-weight:900;color:#64748b;font-size:.8rem}.ml-number-line-value{text-align:center;font-size:1.25rem;font-weight:1000;color:#7e22ce;margin-bottom:4px}
         .ml-dot{width:10px;height:10px;border-radius:50%;background:#a78bfa;display:inline-block;margin:2px}.ml-dotbox{max-width:520px;margin:auto;text-align:center;padding:14px;border-radius:20px;background:#faf5ff;border:1.5px dashed #d8b4fe}.ml-group{display:inline-flex;gap:3px;flex-wrap:wrap;justify-content:center;align-items:center;min-width:62px;min-height:54px;padding:8px;margin:4px;border-radius:16px;background:white;border:1.5px solid #ddd6fe}.ml-array{display:grid;gap:7px;justify-content:center;margin:auto;padding:16px;border-radius:20px;background:#f8fafc;border:1.5px dashed #cbd5e1}.ml-array i{width:15px;height:15px;border-radius:50%;background:#8b5cf6}.ml-sharebox{display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start;justify-content:center;min-width:92px;min-height:80px;padding:10px;border-radius:18px;background:#fff;border:2px solid #c4b5fd}
-        .ml-clock{width:150px;height:150px;border-radius:50%;border:7px solid #ddd6fe;background:white;margin:auto;position:relative;box-shadow:inset 0 0 0 2px #f5f3ff}.ml-clock::after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:#7c3aed;left:50%;top:50%;transform:translate(-50%,-50%)}.ml-hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;border-radius:999px}.ml-hour{width:5px;height:39px;background:#7c3aed}.ml-minute{width:3px;height:55px;background:#ec4899}.ml-clock-num{position:absolute;font-size:11px;font-weight:900;color:#64748b;transform:translate(-50%,-50%)}
-        .ml-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;max-width:520px;margin:auto}.ml-cal-head{font-size:10px;font-weight:1000;color:#64748b;text-align:center}.ml-cal-day{min-height:42px;border:1.5px solid #e2e8f0;border-radius:11px;background:#fff;font-weight:900;color:#475569}.ml-cal-day.selected{border-color:#a855f7;background:#f3e8ff;color:#7e22ce}.ml-cal-blank{min-height:42px}
+        .ml-clock{width:150px;height:150px;border-radius:50%;border:7px solid #ddd6fe;background:white;margin:auto;position:relative;box-shadow:inset 0 0 0 2px #f5f3ff}.ml-clock::after{content:'';position:absolute;width:10px;height:10px;border-radius:50%;background:#7c3aed;left:50%;top:50%;transform:translate(-50%,-50%)}.ml-hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;border-radius:999px}.ml-hour{width:5px;height:39px;background:#7c3aed}.ml-minute{width:3px;height:55px;background:#ec4899}.ml-clock-num{position:absolute;font-size:20px;font-weight:900;color:#64748b;transform:translate(-50%,-50%)}
+        .ml-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;max-width:520px;margin:auto}.ml-cal-head{font-size:20px;font-weight:1000;color:#64748b;text-align:center}.ml-cal-day{min-height:42px;border:1.5px solid #e2e8f0;border-radius:11px;background:#fff;font-weight:900;color:#475569}.ml-cal-day.selected{border-color:#a855f7;background:#f3e8ff;color:#7e22ce}.ml-cal-blank{min-height:42px}
         .ml-feedback{border-radius:18px;padding:12px 14px;font-weight:900;line-height:1.45}.ml-feedback.ok{background:#ecfdf5;border:1.5px solid #6ee7b7;color:#047857}.ml-feedback.no{background:#fff1f2;border:1.5px solid #fda4af;color:#be123c}.ml-hint{background:#fffbeb;border:1.5px solid #fde68a;color:#92400e;border-radius:16px;padding:10px 12px;font-weight:800}.ml-step-dot{width:9px;height:9px;border-radius:999px;background:#e2e8f0}.ml-step-dot.done{background:#34d399}.ml-step-dot.current{width:22px;background:#a855f7}
         @media(max-width:640px){.ml-hero{padding:16px}.ml-hundred{width:54px;height:54px;background-size:5.4px 5.4px}.ml-ten{height:54px}.ml-track-card,.ml-journey-card{border-radius:20px}}
     `; document.head.appendChild(style);
@@ -2345,28 +2345,28 @@ function mathLabJourneyProgress_(j){const p=mathLabProgress_(),acts=j?.activitie
 function mathLabTotalDone_(data){const p=mathLabProgress_(),acts=(data?.journeys||[]).flatMap(j=>j.activities||[]);return{done:acts.filter(a=>p[a.id]?.done).length,total:acts.length}}
 function resetMathLabActivityState_(){Object.assign(mathLabState,{selectedIndex:null,selectedMulti:[],build:{hundreds:0,tens:0,ones:0},rangeValue:null,orderPicked:[],tradeDone:false,grouped:false,feedback:null,hintLevel:0,groups:1,perGroup:1,rows:1,cols:1,shareRounds:0,measureValue:null,moneyCounts:{},clockHour:12,clockMinute:0,selectedDay:null,tallyCounts:[]})}
 async function openMathLab(){setAppShellRootMode_(false);stopSpeaking();ensureMathLabStyles_();activeTopicId=12;activeExamContext=null;activeRoadmapContext=null;pendingTopicQuiz=null;setMainTabActive_('discover');mathLabState.view='home';mathLabState.trackCode=null;mathLabState.journeyIndex=null;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',null);showLoadingOverlay('Đang mở Math Lab...');try{await loadMathLabData_('12.1');hideLoadingOverlay();renderMathLabHome_()}catch(err){hideLoadingOverlay();showAppNotice(err.message||'Không tải được Math Lab')}}
-function renderMathLabHome_(){ensureMathLabStyles_();const c=document.getElementById('view-dashboard-grid');if(!c)return;c.className='w-full grid grid-cols-1 md:grid-cols-2 gap-3';const total=MATH_LAB_TRACKS_CONFIG.reduce((n,t)=>n+t.journeys,0);const tracks=MATH_LAB_TRACKS_CONFIG.map(t=>{const d=mathLabCaches[t.code],p=d?mathLabTotalDone_(d):{done:0,total:t.journeys*4};const pct=p.total?Math.round(p.done*100/p.total):0;return `<button onclick="openMathLabTrack('${t.code}')" class="ml-track-card p-4 text-left min-h-[142px]"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3 min-w-0"><div class="w-11 h-11 rounded-2xl bg-fuchsia-50 border border-fuchsia-100 flex items-center justify-center text-2xl shrink-0">${t.icon}</div><div class="min-w-0"><div class="text-[11px] font-black text-fuchsia-500">${t.code}</div><h3 class="text-base md:text-lg font-black text-slate-800 leading-tight mt-0.5">${escapeHtml(t.title)}</h3></div></div><span class="ml-chip text-[11px] shrink-0">${t.journeys} hành trình</span></div><p class="text-sm font-bold text-slate-500 mt-3 leading-relaxed">${escapeHtml(t.desc)}</p>${d?`<div class="mt-3"><div class="flex justify-between text-[11px] font-black text-slate-400 mb-1"><span>${p.done}/${p.total} trải nghiệm</span><span>${pct}%</span></div><div class="ml-progress"><i style="width:${pct}%"></i></div></div>`:''}</button>`}).join('');c.innerHTML=`<section class="ml-hero md:col-span-2"><div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"><div><div class="ml-kicker">Math Lab • Grade 2</div><h2 class="text-2xl md:text-4xl font-black text-slate-900 mt-1">Toán tư duy Mỹ</h2><p class="text-sm md:text-base font-bold text-slate-600 mt-2 max-w-3xl leading-relaxed">Cùng kiến thức Toán 2 Việt Nam, nhưng con học bằng khám phá, thao tác, mô hình, giải thích và nhiều cách giải.</p><p class="font-black text-fuchsia-600 mt-3">Khám phá • Mô hình • Nhiều cách giải</p></div><div class="rounded-2xl bg-white/80 border border-violet-200 px-5 py-3 text-center font-black text-violet-700 min-w-[210px]"><div class="text-2xl">${total}</div><div class="text-xs mt-1">hành trình khám phá</div><div class="text-[11px] text-slate-400 mt-1">9 Learning Labs</div></div></div></section>${tracks}`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',null);switchAppView('view-dashboard-grid')}
+function renderMathLabHome_(){ensureMathLabStyles_();const c=document.getElementById('view-dashboard-grid');if(!c)return;c.className='w-full grid grid-cols-1 md:grid-cols-2 gap-3';const total=MATH_LAB_TRACKS_CONFIG.reduce((n,t)=>n+t.journeys,0);const tracks=MATH_LAB_TRACKS_CONFIG.map(t=>{const d=mathLabCaches[t.code],p=d?mathLabTotalDone_(d):{done:0,total:t.journeys*4};const pct=p.total?Math.round(p.done*100/p.total):0;return `<button onclick="openMathLabTrack('${t.code}')" class="ml-track-card p-4 text-left min-h-[142px]"><div class="flex items-start justify-between gap-3"><div class="flex items-start gap-3 min-w-0"><div class="w-11 h-11 rounded-2xl bg-fuchsia-50 border border-fuchsia-100 flex items-center justify-center text-2xl shrink-0">${t.icon}</div><div class="min-w-0"><div class="text-xl font-black text-fuchsia-500">${t.code}</div><h3 class="text-xl md:text-xl font-black text-slate-800 leading-tight mt-0.5">${escapeHtml(t.title)}</h3></div></div><span class="ml-chip text-xl shrink-0">${t.journeys} hành trình</span></div><p class="text-xl font-bold text-slate-500 mt-3 leading-relaxed">${escapeHtml(t.desc)}</p>${d?`<div class="mt-3"><div class="flex justify-between text-xl font-black text-slate-400 mb-1"><span>${p.done}/${p.total} trải nghiệm</span><span>${pct}%</span></div><div class="ml-progress"><i style="width:${pct}%"></i></div></div>`:''}</button>`}).join('');c.innerHTML=`<section class="ml-hero md:col-span-2"><div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"><div><div class="ml-kicker">Math Lab • Grade 2</div><h2 class="text-2xl md:text-4xl font-black text-slate-900 mt-1">Toán tư duy Mỹ</h2><p class="text-xl md:text-xl font-bold text-slate-600 mt-2 max-w-3xl leading-relaxed">Cùng kiến thức Toán 2 Việt Nam, nhưng con học bằng khám phá, thao tác, mô hình, giải thích và nhiều cách giải.</p><p class="font-black text-fuchsia-600 mt-3">Khám phá • Mô hình • Nhiều cách giải</p></div><div class="rounded-2xl bg-white/80 border border-violet-200 px-5 py-3 text-center font-black text-violet-700 min-w-[210px]"><div class="text-2xl">${total}</div><div class="text-xl mt-1">hành trình khám phá</div><div class="text-xl text-slate-400 mt-1">9 Learning Labs</div></div></div></section>${tracks}`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',null);switchAppView('view-dashboard-grid')}
 async function openMathLabTrack(code){stopSpeaking();showLoadingOverlay('Đang chuẩn bị '+code+'...');try{const d=await loadMathLabData_(code);hideLoadingOverlay();mathLabState.view='track';mathLabState.trackCode=code;mathLabState.journeyIndex=null;renderMathLabTrack_(d)}catch(err){hideLoadingOverlay();showAppNotice(err.message||'Không tải được Learning Lab')}}
-function renderMathLabTrack_(data){const c=document.getElementById('view-dashboard-grid');if(!c)return;const cfg=mathLabTrackConfig_(data?.display_code||mathLabState.trackCode);mathLabState.view='track';mathLabState.trackCode=cfg.code;mathLabState.journeyIndex=null;mathLabCache=data;const total=mathLabTotalDone_(data),pct=total.total?Math.round(total.done*100/total.total):0;c.className='w-full grid grid-cols-1 md:grid-cols-2 gap-3';const cards=(data.journeys||[]).map((j,i)=>{const p=mathLabJourneyProgress_(j),status=p.pct===100?'Hoàn thành':p.done?'Đang khám phá':'Bắt đầu';return `<button onclick="openMathLabJourney(${i})" class="ml-journey-card p-4 text-left min-h-[154px]"><div class="flex items-start justify-between gap-3"><div class="flex gap-3 min-w-0"><div class="w-11 h-11 rounded-2xl bg-violet-50 border border-violet-100 flex items-center justify-center text-2xl shrink-0">${j.icon||'✨'}</div><div><div class="text-[11px] font-black text-fuchsia-500">${escapeHtml(j.id)}</div><h3 class="font-black text-slate-800 text-base md:text-lg leading-tight mt-0.5">${escapeHtml(j.title)}</h3></div></div><span class="ml-chip text-[11px]">${status}</span></div><p class="text-sm font-bold text-slate-500 mt-2 leading-relaxed line-clamp-2">${escapeHtml(j.goal||'')}</p><div class="mt-3"><div class="flex justify-between text-[11px] font-black text-slate-400 mb-1"><span>${p.done}/${p.total} trải nghiệm</span><span>${p.pct}%</span></div><div class="ml-progress"><i style="width:${p.pct}%"></i></div></div></button>`}).join('');c.innerHTML=`<section class="ml-hero md:col-span-2"><div class="flex items-start justify-between gap-4 flex-wrap"><div><div class="ml-kicker">${cfg.code} • Math Lab</div><h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-1">${escapeHtml(cfg.title)}</h2><p class="text-sm md:text-base font-bold text-slate-600 mt-2 max-w-3xl">${escapeHtml(data.subtitle||'')}</p></div><div class="min-w-[190px]"><div class="flex justify-between text-xs font-black text-slate-500 mb-1"><span>Tiến trình</span><span>${pct}%</span></div><div class="ml-progress"><i style="width:${pct}%"></i></div><div class="text-[11px] font-bold text-slate-400 mt-1 text-right">${total.done}/${total.total} trải nghiệm</div></div></div></section>${cards}`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(data));switchAppView('view-dashboard-grid')}
+function renderMathLabTrack_(data){const c=document.getElementById('view-dashboard-grid');if(!c)return;const cfg=mathLabTrackConfig_(data?.display_code||mathLabState.trackCode);mathLabState.view='track';mathLabState.trackCode=cfg.code;mathLabState.journeyIndex=null;mathLabCache=data;const total=mathLabTotalDone_(data),pct=total.total?Math.round(total.done*100/total.total):0;c.className='w-full grid grid-cols-1 md:grid-cols-2 gap-3';const cards=(data.journeys||[]).map((j,i)=>{const p=mathLabJourneyProgress_(j),status=p.pct===100?'Hoàn thành':p.done?'Đang khám phá':'Bắt đầu';return `<button onclick="openMathLabJourney(${i})" class="ml-journey-card p-4 text-left min-h-[154px]"><div class="flex items-start justify-between gap-3"><div class="flex gap-3 min-w-0"><div class="w-11 h-11 rounded-2xl bg-violet-50 border border-violet-100 flex items-center justify-center text-2xl shrink-0">${j.icon||'✨'}</div><div><div class="text-xl font-black text-fuchsia-500">${escapeHtml(j.id)}</div><h3 class="font-black text-slate-800 text-xl md:text-xl leading-tight mt-0.5">${escapeHtml(j.title)}</h3></div></div><span class="ml-chip text-xl">${status}</span></div><p class="text-xl font-bold text-slate-500 mt-2 leading-relaxed line-clamp-2">${escapeHtml(j.goal||'')}</p><div class="mt-3"><div class="flex justify-between text-xl font-black text-slate-400 mb-1"><span>${p.done}/${p.total} trải nghiệm</span><span>${p.pct}%</span></div><div class="ml-progress"><i style="width:${p.pct}%"></i></div></div></button>`}).join('');c.innerHTML=`<section class="ml-hero md:col-span-2"><div class="flex items-start justify-between gap-4 flex-wrap"><div><div class="ml-kicker">${cfg.code} • Math Lab</div><h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-1">${escapeHtml(cfg.title)}</h2><p class="text-xl md:text-xl font-bold text-slate-600 mt-2 max-w-3xl">${escapeHtml(data.subtitle||'')}</p></div><div class="min-w-[190px]"><div class="flex justify-between text-xl font-black text-slate-500 mb-1"><span>Tiến trình</span><span>${pct}%</span></div><div class="ml-progress"><i style="width:${pct}%"></i></div><div class="text-xl font-bold text-slate-400 mt-1 text-right">${total.done}/${total.total} trải nghiệm</div></div></div></section>${cards}`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(data));switchAppView('view-dashboard-grid')}
 function openMathLabJourney(i){if(!mathLabCache?.journeys?.[i])return;stopSpeaking();mathLabState.view='activity';mathLabState.journeyIndex=Number(i);const j=mathLabCache.journeys[i],p=mathLabProgress_();let first=(j.activities||[]).findIndex(a=>!p[a.id]?.done);if(first<0)first=0;mathLabState.activityIndex=first;resetMathLabActivityState_();renderMathLabActivity_()}
-function mathLabBase10Html_(m){if(!m||typeof m!=='object')return'';const h=Math.max(0,Number(m.hundreds||0)),t=Math.max(0,Number(m.tens||0)),o=Math.max(0,Number(m.ones||0));return `<div class="ml-base10"><div class="ml-block-group">${Array.from({length:Math.min(h,10)},()=>'<span class="ml-hundred"></span>').join('')}${Array.from({length:Math.min(t,20)},()=>'<span class="ml-ten"></span>').join('')}${Array.from({length:Math.min(o,30)},()=>'<span class="ml-one"></span>').join('')}</div><div class="w-full text-center text-xs font-black text-slate-500 mt-1">${h?`${h} trăm · `:''}${t?`${t} chục · `:''}${o} đơn vị</div></div>`}
+function mathLabBase10Html_(m){if(!m||typeof m!=='object')return'';const h=Math.max(0,Number(m.hundreds||0)),t=Math.max(0,Number(m.tens||0)),o=Math.max(0,Number(m.ones||0));return `<div class="ml-base10"><div class="ml-block-group">${Array.from({length:Math.min(h,10)},()=>'<span class="ml-hundred"></span>').join('')}${Array.from({length:Math.min(t,20)},()=>'<span class="ml-ten"></span>').join('')}${Array.from({length:Math.min(o,30)},()=>'<span class="ml-one"></span>').join('')}</div><div class="w-full text-center text-xl font-black text-slate-500 mt-1">${h?`${h} trăm · `:''}${t?`${t} chục · `:''}${o} đơn vị</div></div>`}
 function mathLabChoiceHtml_(x){if(x&&typeof x==='object'&&!Array.isArray(x))return mathLabBase10Html_(x);return `<span>${escapeHtml(String(x))}</span>`}
-function mathLabStimulusHtml_(a){if(a.stimulus&&typeof a.stimulus==='object')return mathLabBase10Html_(a.stimulus);if(typeof a.stimulus==='string'||typeof a.stimulus==='number')return `<div class="text-center text-3xl md:text-4xl font-black text-violet-700 py-3 whitespace-pre-line">${escapeHtml(String(a.stimulus))}</div>`;if(a.collection?.clusters)return `<div class="ml-dotbox">${a.collection.clusters.map(n=>`<div class="ml-group">${Array.from({length:n},()=>'<i class="ml-dot"></i>').join('')}</div>`).join('')}</div>`;if(Number.isFinite(a.number))return `<div class="text-center text-4xl font-black text-violet-700 py-2">${a.number}</div>`;if(Number.isFinite(a.left)&&Number.isFinite(a.right))return `<div class="flex justify-center gap-4 py-3"><span class="ml-chip text-lg">${a.left}</span><span class="text-2xl font-black text-slate-300">?</span><span class="ml-chip text-lg">${a.right}</span></div>`;return''}
+function mathLabStimulusHtml_(a){if(a.stimulus&&typeof a.stimulus==='object')return mathLabBase10Html_(a.stimulus);if(typeof a.stimulus==='string'||typeof a.stimulus==='number')return `<div class="text-center text-3xl md:text-4xl font-black text-violet-700 py-3 whitespace-pre-line">${escapeHtml(String(a.stimulus))}</div>`;if(a.collection?.clusters)return `<div class="ml-dotbox">${a.collection.clusters.map(n=>`<div class="ml-group">${Array.from({length:n},()=>'<i class="ml-dot"></i>').join('')}</div>`).join('')}</div>`;if(Number.isFinite(a.number))return `<div class="text-center text-4xl font-black text-violet-700 py-2">${a.number}</div>`;if(Number.isFinite(a.left)&&Number.isFinite(a.right))return `<div class="flex justify-center gap-4 py-3"><span class="ml-chip text-xl">${a.left}</span><span class="text-2xl font-black text-slate-300">?</span><span class="ml-chip text-xl">${a.right}</span></div>`;return''}
 function mathLabCounter_(label,value,key,max=20){const lock=mathLabState.feedback?.correct?'disabled':'';return `<div class="ml-counter"><span class="font-black text-slate-500 min-w-[72px]">${escapeHtml(label)}</span><button ${lock} onclick="mathLabChangeGeneric('${key}',-1,${max})">−</button><strong>${value}</strong><button ${lock} onclick="mathLabChangeGeneric('${key}',1,${max})">+</button></div>`}
 function mathLabInteractionHtml_(a){const lock=!!mathLabState.feedback?.correct;if(a.type==='open_number_line'||a.type==='measure_slider'){if(mathLabState.rangeValue===null)mathLabState.rangeValue=Math.round((Number(a.min)+Number(a.max))/2);return `<div class="ml-number-line"><div class="ml-number-line-value">${a.type==='measure_slider'?'Giá trị con chọn':'Vị trí con chọn'}: ${mathLabState.rangeValue}${a.unit?' '+escapeHtml(a.unit):''}</div><input ${lock?'disabled':''} type="range" min="${a.min}" max="${a.max}" step="1" value="${mathLabState.rangeValue}" oninput="mathLabSetRange(this.value)"><div class="ml-number-line-labels"><span>${a.min}</span><span>${Math.round((a.min+a.max)/2)}</span><span>${a.max}</span></div></div>`}
-if(a.type==='base10_build'){const keys=a.allowed||['hundreds','tens','ones'],labs={hundreds:'Trăm',tens:'Chục',ones:'Đơn vị'};return `<div class="space-y-3">${mathLabBase10Html_(mathLabState.build)}<div class="grid grid-cols-1 sm:grid-cols-${Math.min(3,keys.length)} gap-2">${keys.map(k=>`<div class="ml-counter"><span class="font-black text-slate-500 min-w-[52px]">${labs[k]}</span><button ${lock?'disabled':''} onclick="mathLabChangeBuild('${k}',-1)">−</button><strong>${mathLabState.build[k]||0}</strong><button ${lock?'disabled':''} onclick="mathLabChangeBuild('${k}',1)">+</button></div>`).join('')}</div><div class="text-center text-sm font-black text-violet-700">Giá trị đang xây: ${(mathLabState.build.hundreds||0)*100+(mathLabState.build.tens||0)*10+(mathLabState.build.ones||0)}</div></div>`}
+if(a.type==='base10_build'){const keys=a.allowed||['hundreds','tens','ones'],labs={hundreds:'Trăm',tens:'Chục',ones:'Đơn vị'};return `<div class="space-y-3">${mathLabBase10Html_(mathLabState.build)}<div class="grid grid-cols-1 sm:grid-cols-${Math.min(3,keys.length)} gap-2">${keys.map(k=>`<div class="ml-counter"><span class="font-black text-slate-500 min-w-[52px]">${labs[k]}</span><button ${lock?'disabled':''} onclick="mathLabChangeBuild('${k}',-1)">−</button><strong>${mathLabState.build[k]||0}</strong><button ${lock?'disabled':''} onclick="mathLabChangeBuild('${k}',1)">+</button></div>`).join('')}</div><div class="text-center text-xl font-black text-violet-700">Giá trị đang xây: ${(mathLabState.build.hundreds||0)*100+(mathLabState.build.tens||0)*10+(mathLabState.build.ones||0)}</div></div>`}
 if(a.type==='bundle_trade'){const isH=Number.isFinite(a.tens_available),before=isH?{hundreds:0,tens:a.tens_available,ones:0}:{hundreds:0,tens:0,ones:a.ones_available};let after=before;if(mathLabState.tradeDone)after=isH?{hundreds:1,tens:a.tens_available-a.target_bundle_tens,ones:0}:{hundreds:0,tens:1,ones:a.ones_available-a.target_bundle};return `<div class="space-y-3">${mathLabBase10Html_(after)}<div class="text-center"><button ${lock?'disabled':''} onclick="mathLabDoTrade()" class="px-5 py-3 rounded-2xl bg-violet-600 text-white font-black pastel-btn">${mathLabState.tradeDone?'↩️ Đổi lại để quan sát':(isH?'🧺 Gom 10 chục → 1 trăm':'🧺 Bó 10 đơn vị → 1 chục')}</button></div></div>`}
 if(a.type==='estimate_then_count'){const dots=Array.from({length:Number(a.actual||0)},()=>'<i class="ml-dot"></i>').join('');return `<div class="space-y-3"><div class="ml-dotbox">${dots}</div>${mathLabState.grouped?`<div class="text-center font-black text-violet-700">${a.expected_groups} nhóm 10 + ${a.remainder} vật lẻ = ${a.actual}</div>`:''}<div class="text-center"><button ${lock?'disabled':''} onclick="mathLabGroupEstimate()" class="px-5 py-3 rounded-2xl bg-violet-600 text-white font-black pastel-btn">🧺 Nhóm thành từng chục</button></div></div>`}
-if(a.type==='order_numbers'){const picked=mathLabState.orderPicked||[];return `<div class="space-y-3"><div class="flex flex-wrap justify-center gap-2 min-h-[48px]">${picked.length?picked.map((x,i)=>`<span class="ml-chip text-lg">${i?'<b class="mr-2">→</b>':''}${x.value}</span>`).join(''):'<span class="text-sm font-bold text-slate-400">Chạm các số theo thứ tự</span>'}</div><div class="flex flex-wrap justify-center gap-2">${(a.numbers||[]).map((n,i)=>picked.some(x=>x.index===i)?'':`<button ${lock?'disabled':''} onclick="mathLabPickOrder(${i})" class="ml-choice !w-auto min-w-[88px] text-center text-xl">${n}</button>`).join('')}</div>${picked.length?'<div class="text-center"><button onclick="mathLabResetOrder()" class="text-xs font-black text-slate-500 underline">Làm lại thứ tự</button></div>':''}</div>`}
+if(a.type==='order_numbers'){const picked=mathLabState.orderPicked||[];return `<div class="space-y-3"><div class="flex flex-wrap justify-center gap-2 min-h-[48px]">${picked.length?picked.map((x,i)=>`<span class="ml-chip text-xl">${i?'<b class="mr-2">→</b>':''}${x.value}</span>`).join(''):'<span class="text-xl font-bold text-slate-400">Chạm các số theo thứ tự</span>'}</div><div class="flex flex-wrap justify-center gap-2">${(a.numbers||[]).map((n,i)=>picked.some(x=>x.index===i)?'':`<button ${lock?'disabled':''} onclick="mathLabPickOrder(${i})" class="ml-choice !w-auto min-w-[88px] text-center text-xl">${n}</button>`).join('')}</div>${picked.length?'<div class="text-center"><button onclick="mathLabResetOrder()" class="text-xl font-black text-slate-500 underline">Làm lại thứ tự</button></div>':''}</div>`}
 if(a.type==='group_build'){const g=mathLabState.groups,p=mathLabState.perGroup;return `<div class="space-y-3"><div class="ml-dotbox">${Array.from({length:g},()=>`<div class="ml-group">${Array.from({length:p},()=>'<i class="ml-dot"></i>').join('')}</div>`).join('')}</div><div class="grid sm:grid-cols-2 gap-2">${mathLabCounter_('Số nhóm',g,'groups',10)}${mathLabCounter_('Mỗi nhóm',p,'perGroup',10)}</div><div class="text-center font-black text-violet-700">${g} nhóm × ${p} = ${g*p} vật</div></div>`}
 if(a.type==='array_build'){const r=mathLabState.rows,col=mathLabState.cols;return `<div class="space-y-3"><div class="ml-array" style="grid-template-columns:repeat(${col},15px)">${Array.from({length:r*col},()=>'<i></i>').join('')}</div><div class="grid sm:grid-cols-2 gap-2">${mathLabCounter_('Số hàng',r,'rows',10)}${mathLabCounter_('Mỗi hàng',col,'cols',10)}</div><div class="text-center font-black text-violet-700">${r} × ${col} = ${r*col} chấm</div></div>`}
-if(a.type==='equal_share'){const rounds=mathLabState.shareRounds,g=Number(a.groups||1),used=rounds*g;return `<div class="space-y-3"><div class="flex flex-wrap justify-center gap-3">${Array.from({length:g},(_,i)=>`<div class="ml-sharebox"><div class="w-full text-center text-xs font-black text-slate-400">Nhóm ${i+1}</div>${Array.from({length:rounds},()=>'<i class="ml-dot"></i>').join('')}</div>`).join('')}</div><div class="text-center font-black text-violet-700">Đã chia ${used}/${a.total} vật • mỗi nhóm ${rounds}</div><div class="flex justify-center gap-2"><button ${lock||rounds<=0?'disabled':''} onclick="mathLabShareRound(-1)" class="px-4 py-2 rounded-xl border-2 border-violet-200 font-black">− 1 vòng</button><button ${lock||used+g>a.total?'disabled':''} onclick="mathLabShareRound(1)" class="px-4 py-2 rounded-xl bg-violet-600 text-white font-black">+ 1 vòng chia</button></div></div>`}
+if(a.type==='equal_share'){const rounds=mathLabState.shareRounds,g=Number(a.groups||1),used=rounds*g;return `<div class="space-y-3"><div class="flex flex-wrap justify-center gap-3">${Array.from({length:g},(_,i)=>`<div class="ml-sharebox"><div class="w-full text-center text-xl font-black text-slate-400">Nhóm ${i+1}</div>${Array.from({length:rounds},()=>'<i class="ml-dot"></i>').join('')}</div>`).join('')}</div><div class="text-center font-black text-violet-700">Đã chia ${used}/${a.total} vật • mỗi nhóm ${rounds}</div><div class="flex justify-center gap-2"><button ${lock||rounds<=0?'disabled':''} onclick="mathLabShareRound(-1)" class="px-4 py-2 rounded-xl border-2 border-violet-200 font-black">− 1 vòng</button><button ${lock||used+g>a.total?'disabled':''} onclick="mathLabShareRound(1)" class="px-4 py-2 rounded-xl bg-violet-600 text-white font-black">+ 1 vòng chia</button></div></div>`}
 if(a.type==='money_build'){const den=a.denominations||[],sum=den.reduce((s,d)=>s+d*Number(mathLabState.moneyCounts[d]||0),0);return `<div class="space-y-3"><div class="text-center text-2xl font-black text-violet-700">${sum.toLocaleString('vi-VN')} đồng</div><div class="grid sm:grid-cols-${Math.min(3,den.length)} gap-2">${den.map(d=>`<div class="ml-counter"><span class="font-black text-slate-500">${d.toLocaleString('vi-VN')}đ</span><button ${lock?'disabled':''} onclick="mathLabChangeMoney(${d},-1)">−</button><strong>${mathLabState.moneyCounts[d]||0}</strong><button ${lock?'disabled':''} onclick="mathLabChangeMoney(${d},1)">+</button></div>`).join('')}</div></div>`}
 if(a.type==='clock_set'){const h=mathLabState.clockHour,m=mathLabState.clockMinute,ha=(h%12)*30+m*.5,ma=m*6;const nums=Array.from({length:12},(_,i)=>{const n=i+1,ang=n*30*Math.PI/180,x=50+41*Math.sin(ang),y=50-41*Math.cos(ang);return `<span class="ml-clock-num" style="left:${x}%;top:${y}%">${n}</span>`}).join('');return `<div class="space-y-3"><div class="ml-clock">${nums}<i class="ml-hand ml-hour" style="transform:translateX(-50%) rotate(${ha}deg)"></i><i class="ml-hand ml-minute" style="transform:translateX(-50%) rotate(${ma}deg)"></i></div><div class="text-center text-xl font-black text-violet-700">${h}:${String(m).padStart(2,'0')}</div><div class="grid sm:grid-cols-2 gap-2">${mathLabCounter_('Giờ',h,'clockHour',12)}${mathLabCounter_('Phút',m,'clockMinute',59)}</div></div>`}
 if(a.type==='calendar_pick'){const heads=['T2','T3','T4','T5','T6','T7','CN'],offset=Math.max(0,Number(a.start_weekday||1)-1),blanks=Array.from({length:offset},()=>'<div class="ml-cal-blank"></div>').join('');return `<div class="ml-calendar">${heads.map(x=>`<div class="ml-cal-head">${x}</div>`).join('')}${blanks}${Array.from({length:Number(a.days||30)},(_,i)=>{const d=i+1;return `<button ${lock?'disabled':''} onclick="mathLabPickDay(${d})" class="ml-cal-day ${mathLabState.selectedDay===d?'selected':''}">${d}</button>`}).join('')}</div>`}
-if(a.type==='data_tally'){if(!mathLabState.tallyCounts.length)mathLabState.tallyCounts=(a.categories||[]).map(()=>0);return `<div class="space-y-2">${(a.categories||[]).map((cat,i)=>`<div class="grid grid-cols-[1fr_auto] gap-3 items-center rounded-2xl bg-slate-50 border border-slate-200 p-3"><div><div class="font-black text-slate-700">${escapeHtml(cat)}</div><div class="text-lg tracking-widest text-violet-600">${'|'.repeat(mathLabState.tallyCounts[i]||0)||'–'}</div></div><div class="ml-counter"><button ${lock?'disabled':''} onclick="mathLabChangeTally(${i},-1)">−</button><strong>${mathLabState.tallyCounts[i]||0}</strong><button ${lock?'disabled':''} onclick="mathLabChangeTally(${i},1)">+</button></div></div>`).join('')}</div>`}
-if(Array.isArray(a.choices)){const multi=Array.isArray(a.answer_indices),cols=a.choices.length===2?'sm:grid-cols-2':a.choices.length===3?'sm:grid-cols-3':'sm:grid-cols-4';return `<div class="grid grid-cols-1 ${cols} gap-2">${a.choices.map((x,i)=>{const sel=multi?mathLabState.selectedMulti.includes(i):mathLabState.selectedIndex===i;let cls=sel?' is-selected':'';if(mathLabState.feedback?.correct&&sel)cls+=' is-correct';if(mathLabState.feedback&&!mathLabState.feedback.correct&&sel)cls+=' is-wrong';return `<button ${lock?'disabled':''} onclick="mathLabSelectChoice(${i},${multi?'true':'false'})" class="ml-choice${cls}">${mathLabChoiceHtml_(x)}</button>`}).join('')}</div>`}return `<div class="text-center text-sm font-bold text-slate-500">Hoạt động đang được chuẩn bị.</div>`}
-function renderMathLabActivity_(){const data=mathLabCache,j=data?.journeys?.[mathLabState.journeyIndex],a=j?.activities?.[mathLabState.activityIndex];if(!j||!a)return renderMathLabTrack_(data);const c=document.getElementById('view-dashboard-grid');if(!c)return;c.className='w-full flex justify-center';const p=mathLabJourneyProgress_(j),dots=j.activities.map((x,i)=>`<i class="ml-step-dot ${mathLabProgress_()[x.id]?.done?'done':''} ${i===mathLabState.activityIndex?'current':''}"></i>`).join(''),hint=mathLabState.hintLevel>0?a.hints?.[mathLabState.hintLevel-1]:null,fb=mathLabState.feedback,badge=a.transfer?'<span class="ml-chip text-[11px]">Transfer</span>':'<span class="ml-chip text-[11px]">Khám phá</span>';c.innerHTML=`<section class="w-full max-w-4xl ml-journey-card p-4 md:p-6"><div class="flex flex-wrap items-start justify-between gap-3 border-b border-violet-100 pb-4"><div><div class="text-[11px] font-black text-fuchsia-500">${escapeHtml(j.id)} • ${escapeHtml(j.concept||'')}</div><h2 class="text-xl md:text-2xl font-black text-slate-900 mt-1">${j.icon||'✨'} ${escapeHtml(j.title)}</h2><div class="flex gap-1.5 items-center mt-2">${dots}</div></div><div class="text-right">${badge}<div class="text-xs font-black text-slate-400 mt-2">Trải nghiệm ${mathLabState.activityIndex+1}/${j.activities.length}</div><div class="text-[11px] font-bold text-slate-400">${p.done}/${p.total} đã hoàn thành</div></div></div><div class="mt-4 ml-teacher"><div class="flex items-start gap-2"><span class="text-xl">🐰</span><div class="flex-1">${escapeHtml(a.teacher||'')}</div><button onclick="mathLabSpeakCurrent()" class="shrink-0 w-9 h-9 rounded-xl bg-white border border-violet-200 text-violet-600">🔊</button></div></div><div class="mt-5 ml-prompt">${escapeHtml(a.prompt||'')}</div><div class="mt-4">${mathLabStimulusHtml_(a)}</div><div class="mt-4">${mathLabInteractionHtml_(a)}</div>${hint?`<div class="ml-hint mt-4">💡 ${escapeHtml(hint)}</div>`:''}${fb?`<div class="ml-feedback ${fb.correct?'ok':'no'} mt-4">${fb.correct?'🌟':'🌱'} ${escapeHtml(fb.message)}</div>`:''}<div class="mt-5 flex flex-wrap items-center justify-between gap-2"><div class="flex gap-2"><button onclick="mathLabBackActivity()" class="px-4 py-2.5 rounded-xl bg-white border-2 border-slate-200 text-slate-600 font-black pastel-btn">← ${mathLabState.activityIndex>0?'Trước':'Các hành trình'}</button><button onclick="mathLabShowHint()" class="px-4 py-2.5 rounded-xl bg-amber-50 border-2 border-amber-200 text-amber-700 font-black pastel-btn">💡 Gợi ý</button></div><div>${fb?.correct?`<button onclick="mathLabContinue()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-black pastel-btn">${mathLabState.activityIndex>=j.activities.length-1?'Hoàn thành Journey →':'Tiếp tục →'}</button>`:`<button onclick="mathLabCheckActivity()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-black pastel-btn">Kiểm tra cách nghĩ</button>`}</div></div></section>`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(data),`${j.id} ${j.title}`);switchAppView('view-dashboard-grid')}
+if(a.type==='data_tally'){if(!mathLabState.tallyCounts.length)mathLabState.tallyCounts=(a.categories||[]).map(()=>0);return `<div class="space-y-2">${(a.categories||[]).map((cat,i)=>`<div class="grid grid-cols-[1fr_auto] gap-3 items-center rounded-2xl bg-slate-50 border border-slate-200 p-3"><div><div class="font-black text-slate-700">${escapeHtml(cat)}</div><div class="text-xl tracking-widest text-violet-600">${'|'.repeat(mathLabState.tallyCounts[i]||0)||'–'}</div></div><div class="ml-counter"><button ${lock?'disabled':''} onclick="mathLabChangeTally(${i},-1)">−</button><strong>${mathLabState.tallyCounts[i]||0}</strong><button ${lock?'disabled':''} onclick="mathLabChangeTally(${i},1)">+</button></div></div>`).join('')}</div>`}
+if(Array.isArray(a.choices)){const multi=Array.isArray(a.answer_indices),cols=a.choices.length===2?'sm:grid-cols-2':a.choices.length===3?'sm:grid-cols-3':'sm:grid-cols-4';return `<div class="grid grid-cols-1 ${cols} gap-2">${a.choices.map((x,i)=>{const sel=multi?mathLabState.selectedMulti.includes(i):mathLabState.selectedIndex===i;let cls=sel?' is-selected':'';if(mathLabState.feedback?.correct&&sel)cls+=' is-correct';if(mathLabState.feedback&&!mathLabState.feedback.correct&&sel)cls+=' is-wrong';return `<button ${lock?'disabled':''} onclick="mathLabSelectChoice(${i},${multi?'true':'false'})" class="ml-choice${cls}">${mathLabChoiceHtml_(x)}</button>`}).join('')}</div>`}return `<div class="text-center text-xl font-bold text-slate-500">Hoạt động đang được chuẩn bị.</div>`}
+function renderMathLabActivity_(){const data=mathLabCache,j=data?.journeys?.[mathLabState.journeyIndex],a=j?.activities?.[mathLabState.activityIndex];if(!j||!a)return renderMathLabTrack_(data);const c=document.getElementById('view-dashboard-grid');if(!c)return;c.className='w-full flex justify-center';const p=mathLabJourneyProgress_(j),dots=j.activities.map((x,i)=>`<i class="ml-step-dot ${mathLabProgress_()[x.id]?.done?'done':''} ${i===mathLabState.activityIndex?'current':''}"></i>`).join(''),hint=mathLabState.hintLevel>0?a.hints?.[mathLabState.hintLevel-1]:null,fb=mathLabState.feedback,badge=a.transfer?'<span class="ml-chip text-xl">Transfer</span>':'<span class="ml-chip text-xl">Khám phá</span>';c.innerHTML=`<section class="w-full max-w-4xl ml-journey-card p-4 md:p-6"><div class="flex flex-wrap items-start justify-between gap-3 border-b border-violet-100 pb-4"><div><div class="text-xl font-black text-fuchsia-500">${escapeHtml(j.id)} • ${escapeHtml(j.concept||'')}</div><h2 class="text-xl md:text-2xl font-black text-slate-900 mt-1">${j.icon||'✨'} ${escapeHtml(j.title)}</h2><div class="flex gap-1.5 items-center mt-2">${dots}</div></div><div class="text-right">${badge}<div class="text-xl font-black text-slate-400 mt-2">Trải nghiệm ${mathLabState.activityIndex+1}/${j.activities.length}</div><div class="text-xl font-bold text-slate-400">${p.done}/${p.total} đã hoàn thành</div></div></div><div class="mt-4 ml-teacher"><div class="flex items-start gap-2"><span class="text-xl">🐰</span><div class="flex-1">${escapeHtml(a.teacher||'')}</div><button onclick="mathLabSpeakCurrent()" class="shrink-0 w-9 h-9 rounded-xl bg-white border border-violet-200 text-violet-600">🔊</button></div></div><div class="mt-5 ml-prompt">${escapeHtml(a.prompt||'')}</div><div class="mt-4">${mathLabStimulusHtml_(a)}</div><div class="mt-4">${mathLabInteractionHtml_(a)}</div>${hint?`<div class="ml-hint mt-4">💡 ${escapeHtml(hint)}</div>`:''}${fb?`<div class="ml-feedback ${fb.correct?'ok':'no'} mt-4">${fb.correct?'🌟':'🌱'} ${escapeHtml(fb.message)}</div>`:''}<div class="mt-5 flex flex-wrap items-center justify-between gap-2"><div class="flex gap-2"><button onclick="mathLabBackActivity()" class="px-4 py-2.5 rounded-xl bg-white border-2 border-slate-200 text-slate-600 font-black pastel-btn">← ${mathLabState.activityIndex>0?'Trước':'Các hành trình'}</button><button onclick="mathLabShowHint()" class="px-4 py-2.5 rounded-xl bg-amber-50 border-2 border-amber-200 text-amber-700 font-black pastel-btn">💡 Gợi ý</button></div><div>${fb?.correct?`<button onclick="mathLabContinue()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-black pastel-btn">${mathLabState.activityIndex>=j.activities.length-1?'Hoàn thành Journey →':'Tiếp tục →'}</button>`:`<button onclick="mathLabCheckActivity()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-black pastel-btn">Kiểm tra cách nghĩ</button>`}</div></div></section>`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(data),`${j.id} ${j.title}`);switchAppView('view-dashboard-grid')}
 function mathLabSelectChoice(i,multi){if(mathLabState.feedback?.correct)return;if(multi){const s=new Set(mathLabState.selectedMulti||[]);s.has(i)?s.delete(i):s.add(i);mathLabState.selectedMulti=[...s]}else mathLabState.selectedIndex=Number(i);mathLabState.feedback=null;renderMathLabActivity_()}
 function mathLabSetRange(v){mathLabState.rangeValue=Number(v);mathLabState.feedback=null;renderMathLabActivity_()}
 function mathLabChangeBuild(k,d){if(mathLabState.feedback?.correct)return;mathLabState.build[k]=Math.max(0,Math.min(20,(mathLabState.build[k]||0)+Number(d)));mathLabState.feedback=null;renderMathLabActivity_()}
@@ -2385,7 +2385,7 @@ function mathLabShowHint(){const a=mathLabCache?.journeys?.[mathLabState.journey
 function mathLabSpeakCurrent(){const a=mathLabCache?.journeys?.[mathLabState.journeyIndex]?.activities?.[mathLabState.activityIndex];if(a)speakVietnamese([a.teacher_audio||a.teacher,a.instruction_audio||a.prompt].filter(Boolean).join('. '),.92)}
 function mathLabBackActivity(){stopSpeaking();if(mathLabState.activityIndex>0){mathLabState.activityIndex--;resetMathLabActivityState_();return renderMathLabActivity_()}return renderMathLabTrack_(mathLabCache)}
 function mathLabContinue(){const j=mathLabCache?.journeys?.[mathLabState.journeyIndex];if(!j)return;if(mathLabState.activityIndex<j.activities.length-1){mathLabState.activityIndex++;resetMathLabActivityState_();return renderMathLabActivity_()}return renderMathLabJourneyComplete_()}
-function renderMathLabJourneyComplete_(){const j=mathLabCache?.journeys?.[mathLabState.journeyIndex];if(!j)return renderMathLabTrack_(mathLabCache);const c=document.getElementById('view-dashboard-grid');c.className='w-full flex justify-center';const ev=(j.evidence||[]).map(x=>`<li class="flex gap-2"><span>✓</span><span>${escapeHtml(x)}</span></li>`).join('');c.innerHTML=`<section class="w-full max-w-3xl ml-hero text-center"><div class="text-5xl mb-2">🌟</div><div class="ml-kicker">Journey complete</div><h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-1">${escapeHtml(j.title)}</h2><p class="font-bold text-slate-600 mt-3">Con vừa hoàn thành một hành trình khám phá, không phải chỉ một bộ câu hỏi.</p><div class="mt-5 text-left bg-white/80 border border-violet-100 rounded-2xl p-4"><div class="text-sm font-black text-violet-700 mb-2">Con đã luyện cách:</div><ul class="space-y-2 text-sm font-bold text-slate-600">${ev}</ul></div><div class="mt-5 flex flex-wrap justify-center gap-2"><button onclick="renderMathLabTrack_(mathLabCache)" class="px-5 py-3 rounded-xl bg-white border-2 border-violet-200 text-violet-700 font-black pastel-btn">← Chọn Journey khác</button><button onclick="openMathLabJourney(${mathLabState.journeyIndex})" class="px-5 py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-black pastel-btn">Khám phá lại</button></div></section>`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(mathLabCache),`${j.id} ${j.title}`);switchAppView('view-dashboard-grid')}
+function renderMathLabJourneyComplete_(){const j=mathLabCache?.journeys?.[mathLabState.journeyIndex];if(!j)return renderMathLabTrack_(mathLabCache);const c=document.getElementById('view-dashboard-grid');c.className='w-full flex justify-center';const ev=(j.evidence||[]).map(x=>`<li class="flex gap-2"><span>✓</span><span>${escapeHtml(x)}</span></li>`).join('');c.innerHTML=`<section class="w-full max-w-3xl ml-hero text-center"><div class="text-5xl mb-2">🌟</div><div class="ml-kicker">Journey complete</div><h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-1">${escapeHtml(j.title)}</h2><p class="font-bold text-slate-600 mt-3">Con vừa hoàn thành một hành trình khám phá, không phải chỉ một bộ câu hỏi.</p><div class="mt-5 text-left bg-white/80 border border-violet-100 rounded-2xl p-4"><div class="text-xl font-black text-violet-700 mb-2">Con đã luyện cách:</div><ul class="space-y-2 text-xl font-bold text-slate-600">${ev}</ul></div><div class="mt-5 flex flex-wrap justify-center gap-2"><button onclick="renderMathLabTrack_(mathLabCache)" class="px-5 py-3 rounded-xl bg-white border-2 border-violet-200 text-violet-700 font-black pastel-btn">← Chọn Journey khác</button><button onclick="openMathLabJourney(${mathLabState.journeyIndex})" class="px-5 py-3 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 text-white font-black pastel-btn">Khám phá lại</button></div></section>`;updateNavTabs('12. Math Lab – Toán tư duy Mỹ','✨',mathLabTrackShortTitle_(mathLabCache),`${j.id} ${j.title}`);switchAppView('view-dashboard-grid')}
 
 
 // ==========================================
@@ -2446,10 +2446,10 @@ function renderPoetryCategories(data) {
         const p = SUBTOPIC_PALETTES[idx % SUBTOPIC_PALETTES.length];
         return `<button onclick="renderPoetryCategory(${idx})" class="p-4 ${p.card} border-2 rounded-2xl text-left shadow-sm pastel-btn min-h-[112px] flex flex-col justify-between">
             <div class="flex items-start justify-between gap-3">
-                <span class="text-base md:text-lg font-black leading-snug"><span class="mr-2 text-xl">${c.icon}</span>${escapeHtml(poetrySentenceCase_(c.name))}</span>
-                <span class="text-xs font-extrabold ${p.badge} px-2.5 py-0.5 rounded-full border shrink-0">${c.poems.length} bài</span>
+                <span class="text-xl md:text-xl font-black leading-snug"><span class="mr-2 text-xl">${c.icon}</span>${escapeHtml(poetrySentenceCase_(c.name))}</span>
+                <span class="text-xl font-extrabold ${p.badge} px-2.5 py-0.5 rounded-full border shrink-0">${c.poems.length} bài</span>
             </div>
-            <span class="mt-2 text-xs md:text-sm font-bold text-slate-500">Đọc vui – nghe thơ – nhớ Toán thật tự nhiên.</span>
+            <span class="mt-2 text-xl md:text-xl font-bold text-slate-500">Đọc vui – nghe thơ – nhớ Toán thật tự nhiên.</span>
         </button>`;
     }).join('');
     updateNavTabs('12. Vườn thơ toán học', '', null);
@@ -2497,7 +2497,7 @@ async function renderPoetryCategory(categoryIndex) {
     container.className = 'w-full grid grid-cols-1 sm:grid-cols-2 gap-2.5';
     container.innerHTML = cat.poems.map((p, idx) => `
         <button onclick="openMathPoem(${categoryIndex}, ${idx})" class="pastel-card px-4 py-3 text-left hover:border-rose-400 transition-all pastel-btn flex items-center min-h-[58px]">
-            <div class="text-base md:text-lg font-black text-purple-700 leading-snug">Bài ${Number(p.no || idx + 1)}. ${escapeHtml(poetrySentenceCase_(p.title))}</div>
+            <div class="text-xl md:text-xl font-black text-purple-700 leading-snug">Bài ${Number(p.no || idx + 1)}. ${escapeHtml(poetrySentenceCase_(p.title))}</div>
         </button>`).join('');
     updateNavTabs('12. Vườn thơ toán học', '', poetrySentenceCase_(cat.name));
     switchAppView('view-dashboard-grid');
@@ -2515,7 +2515,7 @@ async function openMathPoem(categoryIndex, poemIndex) {
     poetryGardenState = { category: categoryIndex, poemIndex };
     const container = document.getElementById('view-dashboard-grid');
     container.className = 'w-full flex justify-center';
-    const lines = (poem.lines || []).map((line, i) => `<div class="text-lg md:text-2xl font-extrabold text-slate-700 leading-[1.65] ${i % 2 ? 'md:translate-x-2' : 'md:-translate-x-2'}">${escapeHtml(line)}</div>`).join('');
+    const lines = (poem.lines || []).map((line, i) => `<div class="text-xl md:text-2xl font-extrabold text-slate-700 leading-[1.65] ${i % 2 ? 'md:translate-x-2' : 'md:-translate-x-2'}">${escapeHtml(line)}</div>`).join('');
     const leaves = ['🍂','🍁','🍃','🍂','🍁','🍃','🍂','🍁'].map((x,i) => `<span class="poetry-leaf" style="left:${8+i*12}%;font-size:${1.0+(i%3)*0.28}rem;animation-duration:${8+(i%4)*2}s;animation-delay:-${i*1.15}s">${x}</span>`).join('');
     const decoByCat = [
         ['🔢','⭐','➕','🌼'],
@@ -2537,7 +2537,7 @@ async function openMathPoem(categoryIndex, poemIndex) {
             <div class="poetry-content">
                 <div class="px-5 md:px-8 py-5 text-center border-b border-pink-100 bg-white/65 backdrop-blur-[2px]">
                     <div class="text-4xl mb-2">${cat.icon}</div>
-                    <div class="text-xs md:text-sm font-black text-rose-500 uppercase tracking-wide">Vườn thơ toán học</div>
+                    <div class="text-xl md:text-xl font-black text-rose-500 uppercase tracking-wide">Vườn thơ toán học</div>
                     <h2 class="text-2xl md:text-3xl font-black text-purple-700 mt-1">Bài ${Number(poem.no || poemIndex + 1)}. ${escapeHtml(poetrySentenceCase_(poem.title))}</h2>
                 </div>
                 <div class="px-5 md:px-10 py-7 md:py-9 text-center bg-white/62 backdrop-blur-[1.5px] mx-3 md:mx-6 my-4 rounded-[28px] border border-white/80 shadow-sm">${lines}</div>
@@ -2546,7 +2546,7 @@ async function openMathPoem(categoryIndex, poemIndex) {
                         <button onclick="openMathPoem(${categoryIndex}, ${poemIndex - 1})" ${poemIndex <= 0 ? 'disabled' : ''} class="h-10 px-4 py-0 rounded-xl bg-white border-2 border-purple-200 text-purple-700 font-black pastel-btn disabled:opacity-35 disabled:cursor-not-allowed flex items-center justify-center">← Bài trước</button>
                     </div>
                     <div class="flex flex-col items-center justify-center gap-2">
-                        <div class="px-4 py-1.5 rounded-full bg-white border-2 border-pink-200 text-pink-600 font-black text-sm md:text-base shadow-sm">${poemIndex + 1}/${cat.poems.length}</div>
+                        <div class="px-4 py-1.5 rounded-full bg-white border-2 border-pink-200 text-pink-600 font-black text-xl md:text-xl shadow-sm">${poemIndex + 1}/${cat.poems.length}</div>
                         <button onclick="speakMathPoem(${categoryIndex}, ${poemIndex})" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black pastel-btn whitespace-nowrap">🔊 Nghe Cô Thỏ Ngọc đọc</button>
                     </div>
                     <div class="flex justify-end">
@@ -2631,9 +2631,9 @@ function renderRoadmapSVG() {
         if (isDone) {
             badgeHtml = `<text x="${coord.x}" y="${coord.y + 40}" text-anchor="middle" font-size="16" fill="#f59e0b">⭐⭐⭐</text>`;
         } else if (isCurrent) {
-            badgeHtml = `<text x="${coord.x}" y="${coord.y + 40}" text-anchor="middle" font-size="12" font-weight="900" fill="#ec4899">Đang học</text>`;
+            badgeHtml = `<text x="${coord.x}" y="${coord.y + 40}" text-anchor="middle" font-size="20" font-weight="900" fill="#ec4899">Đang học</text>`;
         } else {
-            badgeHtml = `<text x="${coord.x}" y="${coord.y + 38}" text-anchor="middle" font-size="14" fill="#94a3b8">🔒 Khóa</text>`;
+            badgeHtml = `<text x="${coord.x}" y="${coord.y + 38}" text-anchor="middle" font-size="20" fill="#94a3b8">🔒 Khóa</text>`;
         }
 
         const cursorCls = isLocked ? "cursor-not-allowed opacity-60" : "cursor-pointer hover:scale-105 transition-transform";
@@ -2644,7 +2644,7 @@ function renderRoadmapSVG() {
                 <circle cx="${coord.x}" cy="${coord.y}" r="40" fill="#ffffff" stroke="${strokeColor}" stroke-width="4" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.08))"/>
                 <circle cx="${coord.x}" cy="${coord.y}" r="34" fill="${nodeColor}" opacity="${isLocked ? '0.25' : '0.15'}"/>
                 <text x="${coord.x}" y="${coord.y - 4}" text-anchor="middle" font-size="24">${item.icon || '🔢'}</text>
-                <text x="${coord.x}" y="${coord.y + 18}" text-anchor="middle" font-size="13" font-weight="800" fill="${isLocked ? '#64748b' : '#1e293b'}">Tuần ${w}</text>
+                <text x="${coord.x}" y="${coord.y + 18}" text-anchor="middle" font-size="20" font-weight="800" fill="${isLocked ? '#64748b' : '#1e293b'}">Tuần ${w}</text>
                 ${badgeHtml}
             </g>
         `;
@@ -2883,10 +2883,10 @@ function getCarryConceptMeta_(q) {
 function renderMakeTenTable_(anchor) {
     const rows = [[9,1],[8,2],[7,3],[6,4],[5,5]];
     return `<div class="math-carry-ten-table w-full rounded-2xl border-2 border-amber-200 bg-amber-50/70 px-2.5 py-2 shadow-sm">
-        <div class="text-center text-base md:text-lg font-black text-amber-700 mb-1.5">BẢNG VỀ 10</div>
+        <div class="text-center text-xl md:text-xl font-black text-amber-700 mb-1.5">BẢNG VỀ 10</div>
         <div class="space-y-0.5">${rows.map(([a,b]) => {
             const active = Number(anchor) === a;
-            return `<div class="rounded-xl border px-2 py-1 min-h-[35px] text-center text-lg md:text-xl font-black transition-all flex items-center justify-center ${active ? 'border-emerald-400 bg-emerald-100 text-emerald-800 shadow-sm scale-[1.02]' : 'border-amber-100 bg-white/80 text-slate-700'}">
+            return `<div class="rounded-xl border px-2 py-1 min-h-[35px] text-center text-xl md:text-xl font-black transition-all flex items-center justify-center ${active ? 'border-emerald-400 bg-emerald-100 text-emerald-800 shadow-sm scale-[1.02]' : 'border-amber-100 bg-white/80 text-slate-700'}">
                 <span class="${active ? 'text-rose-600' : ''}">${a}</span>&nbsp;+&nbsp;${b}&nbsp;=&nbsp;<span class="${active ? 'text-emerald-700' : ''}">10</span>
             </div>`;
         }).join('')}</div>
@@ -2996,7 +2996,7 @@ function buildCarryLearningPresentation_(q) {
             visual: `<div class="relative w-full max-w-xl rounded-3xl border-2 border-pink-200 bg-gradient-to-br from-white via-pink-50/55 to-purple-50/55 shadow-sm px-4 py-3 text-center">
                 ${speaker}
                 <div class="mx-auto grid grid-cols-[50px_72px_72px] md:grid-cols-[54px_82px_82px] justify-center text-center font-black">
-                    <div></div><div class="text-xs md:text-sm text-pink-600 pb-1">CHỤC</div><div class="text-xs md:text-sm text-purple-600 pb-1">ĐƠN VỊ</div>
+                    <div></div><div class="text-xl md:text-xl text-pink-600 pb-1">CHỤC</div><div class="text-xl md:text-xl text-purple-600 pb-1">ĐƠN VỊ</div>
                     <div></div><div class="border border-pink-200 bg-pink-50 py-1.5 text-2xl md:text-3xl">${aT}</div><div class="border border-purple-200 bg-purple-50 py-1.5 text-2xl md:text-3xl">${aO}</div>
                     <div class="flex items-center justify-center text-2xl md:text-3xl text-pink-500">${symbol}</div><div class="border border-pink-200 bg-white py-1.5 text-2xl md:text-3xl">${bT}</div><div class="border border-purple-200 bg-white py-1.5 text-2xl md:text-3xl">${bO}</div>
                     <div class="math-carry-separator-line" aria-hidden="true"></div>
@@ -3016,14 +3016,14 @@ function buildCarryLearningPresentation_(q) {
         const mainCard = `<div class="relative min-h-[225px] rounded-2xl border-2 border-pink-200 bg-gradient-to-br from-white via-pink-50/55 to-purple-50/55 px-4 py-2.5 text-center shadow-sm flex flex-col justify-start">
             ${speaker}
             <div class="text-3xl md:text-4xl font-black text-slate-800">${a} <span class="text-pink-500">${symbol}</span> ${b} <span class="text-purple-400">= ?</span></div>
-            <div class="mt-2 rounded-xl border border-purple-200 bg-purple-50/75 px-3 py-2 text-base md:text-lg font-black text-slate-700">${hintText}</div>
+            <div class="mt-2 rounded-xl border border-purple-200 bg-purple-50/75 px-3 py-2 text-xl md:text-xl font-black text-slate-700">${hintText}</div>
             <div data-carry-concept-feedback class="hidden mt-2 space-y-1.5">
-                <div class="rounded-xl border border-sky-200 bg-sky-50 px-3 py-1.5 text-base md:text-lg font-extrabold text-slate-700">
+                <div class="rounded-xl border border-sky-200 bg-sky-50 px-3 py-1.5 text-xl md:text-xl font-extrabold text-slate-700">
                     ${op === '+'
                         ? `Tách ${splitNumber} = ${toTen} + ${remainder} → ${anchor} + ${toTen} = <span class="text-emerald-600">10</span>.`
                         : `Tách ${b} = ${toTen} + ${remainder} → ${a} − ${toTen} = <span class="text-emerald-600">10</span>.`}
                 </div>
-                <div class="rounded-xl border-2 border-emerald-300 bg-emerald-50 px-3 py-1.5 text-lg md:text-xl font-black text-emerald-700">
+                <div class="rounded-xl border-2 border-emerald-300 bg-emerald-50 px-3 py-1.5 text-xl md:text-xl font-black text-emerald-700">
                     10 ${op === '+' ? '+' : '−'} ${remainder} = ${answer} ✅
                 </div>
             </div>
@@ -3049,22 +3049,22 @@ function buildCarryLearningPresentation_(q) {
         <div class="math-carry-main-grid h-full grid grid-cols-1 md:grid-cols-[230px_1fr] gap-2 items-center">
             <div class="flex flex-col items-center justify-center">
                 <div class="mx-auto grid grid-cols-[44px_70px_70px] md:grid-cols-[48px_76px_76px] justify-center text-center font-black">
-                    <div></div><div class="text-xs text-pink-600 pb-0.5">CHỤC</div><div class="text-xs text-purple-600 pb-0.5">ĐƠN VỊ</div>
+                    <div></div><div class="text-xl text-pink-600 pb-0.5">CHỤC</div><div class="text-xl text-purple-600 pb-0.5">ĐƠN VỊ</div>
                     <div></div><div class="border border-pink-200 bg-pink-50 py-0.5 text-2xl md:text-3xl">${aT}</div><div class="border border-purple-200 bg-purple-50 py-0.5 text-2xl md:text-3xl">${aO}</div>
                     <div class="flex items-center justify-center text-2xl md:text-3xl text-pink-500">${symbol}</div><div class="border border-pink-200 bg-white py-0.5 text-2xl md:text-3xl">${bT}</div><div class="border border-purple-200 bg-white py-0.5 text-2xl md:text-3xl">${bO}</div>
-                    <div></div><div class="pt-1 flex items-center justify-center"><span data-carry-one class="inline-flex min-w-[32px] h-6 items-center justify-center rounded-lg border border-blue-300 bg-blue-50 text-base font-black text-blue-600 opacity-100">1</span></div><div></div>
+                    <div></div><div class="pt-1 flex items-center justify-center"><span data-carry-one class="inline-flex min-w-[32px] h-6 items-center justify-center rounded-lg border border-blue-300 bg-blue-50 text-xl font-black text-blue-600 opacity-100">1</span></div><div></div>
                     <div class="math-carry-separator-line" aria-hidden="true"></div>
                     <div></div><div data-carry-answer-tens class="math-carry-result-cell bg-pink-50/50 text-2xl md:text-3xl text-slate-300">?</div><div data-carry-answer-ones class="math-carry-result-cell bg-purple-50/50 text-2xl md:text-3xl text-slate-300">?</div>
                 </div>
             </div>
             <div class="math-carry-guide-panel flex flex-col justify-center pr-1 md:pr-3">
                 <div class="math-carry-guide-tools">${carrySpeaker}</div>
-                <div class="rounded-xl border border-purple-200 bg-purple-50/75 px-3 py-1.5 text-base md:text-lg font-black text-slate-700">${hintText}</div>
-                ${borrowHintText ? `<div class="mt-1 rounded-xl border border-blue-200 bg-blue-50/80 px-3 py-1.5 text-base md:text-lg font-black text-slate-700">${borrowHintText}</div>` : ''}
+                <div class="rounded-xl border border-purple-200 bg-purple-50/75 px-3 py-1.5 text-xl md:text-xl font-black text-slate-700">${hintText}</div>
+                ${borrowHintText ? `<div class="mt-1 rounded-xl border border-blue-200 bg-blue-50/80 px-3 py-1.5 text-xl md:text-xl font-black text-slate-700">${borrowHintText}</div>` : ''}
                 <div data-carry-concept-feedback class="invisible mt-1.5 space-y-1">
-                    <div class="rounded-xl border border-sky-200 bg-sky-50 px-3 py-1 text-sm md:text-base font-extrabold text-slate-700">${onesLine}</div>
-                    <div class="rounded-xl border border-pink-200 bg-pink-50 px-3 py-1 text-sm md:text-base font-extrabold text-slate-700">${tensLine}</div>
-                    <div class="rounded-xl border-2 border-emerald-300 bg-emerald-50 px-3 py-1 text-base md:text-lg font-black text-emerald-700">${a} ${symbol} ${b} = ${answer} ✅</div>
+                    <div class="rounded-xl border border-sky-200 bg-sky-50 px-3 py-1 text-xl md:text-xl font-extrabold text-slate-700">${onesLine}</div>
+                    <div class="rounded-xl border border-pink-200 bg-pink-50 px-3 py-1 text-xl md:text-xl font-extrabold text-slate-700">${tensLine}</div>
+                    <div class="rounded-xl border-2 border-emerald-300 bg-emerald-50 px-3 py-1 text-xl md:text-xl font-black text-emerald-700">${a} ${symbol} ${b} = ${answer} ✅</div>
                 </div>
             </div>
         </div>
@@ -3135,16 +3135,16 @@ function buildMulDivTableVisual_(q, math) {
         visual: `
             <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-stretch">
                 <div class="rounded-3xl border-2 border-amber-200 bg-gradient-to-br from-white via-amber-50/70 to-pink-50/70 shadow-sm px-3 py-3 md:px-4 md:py-4 flex flex-col justify-center">
-                    <div class="text-center text-sm md:text-base font-black text-amber-700 mb-2">👀 NHÌN BẰNG MẮT</div>
+                    <div class="text-center text-xl md:text-xl font-black text-amber-700 mb-2">👀 NHÌN BẰNG MẮT</div>
                     <div class="space-y-1.5 md:space-y-2">${rowHtml}</div>
-                    <div class="mt-2 text-center text-sm md:text-base font-black text-slate-600">
+                    <div class="mt-2 text-center text-xl md:text-xl font-black text-slate-600">
                         ${isMultiply ? `${groups} hàng · mỗi hàng ${perGroup} hình` : `${left} hình · chia đều thành ${groups} hàng`}
                     </div>
                 </div>
 
                 <div class="rounded-3xl border-2 border-pink-200 bg-gradient-to-br from-white via-pink-50/60 to-purple-50/60 shadow-sm px-4 py-3 md:px-5 md:py-4 flex flex-col justify-center text-center relative">
                     ${canToggleHint ? `<div class="flex items-center justify-between gap-2 mb-2">
-                        <label class="inline-flex items-center gap-2 cursor-pointer select-none rounded-xl border border-purple-200 bg-purple-50/85 hover:bg-purple-100 px-3 py-1.5 text-sm font-black text-purple-700">
+                        <label class="inline-flex items-center gap-2 cursor-pointer select-none rounded-xl border border-purple-200 bg-purple-50/85 hover:bg-purple-100 px-3 py-1.5 text-xl font-black text-purple-700">
                             <input type="checkbox" data-muldiv-hint-toggle ${mulDivHintEnabled_ ? 'checked' : ''} style="width:18px;height:18px;accent-color:#8b5cf6;flex:none;cursor:pointer">
                             <span>💡 Gợi ý</span>
                         </label>
@@ -3158,10 +3158,10 @@ function buildMulDivTableVisual_(q, math) {
                         ${left} <span class="text-pink-500">${mainOp}</span> ${right} <span class="text-purple-400">= ?</span>
                     </div>
                     <div data-muldiv-hint class="${hintVisible ? '' : 'hidden '}mt-3 rounded-2xl border border-purple-200 bg-white/80 px-3 py-3">
-                        <div class="text-xs md:text-sm font-black tracking-wide text-purple-500">${conceptTitle}</div>
-                        <div class="mt-1.5 text-base md:text-lg font-black leading-snug">${conceptLine}</div>
+                        <div class="text-xl md:text-xl font-black tracking-wide text-purple-500">${conceptTitle}</div>
+                        <div class="mt-1.5 text-xl md:text-xl font-black leading-snug">${conceptLine}</div>
                     </div>
-                    <div data-muldiv-feedback class="hidden mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 px-3 py-2.5 text-base md:text-lg font-black text-emerald-700">
+                    <div data-muldiv-feedback class="hidden mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 px-3 py-2.5 text-xl md:text-xl font-black text-emerald-700">
                         ${feedback}
                     </div>
                 </div>
@@ -3188,9 +3188,9 @@ function buildGeometryPresentation_(q) {
 
     const wrap = (title, inner, note='') => `
         <div class="w-full min-h-[270px] flex flex-col items-center justify-center rounded-3xl border-2 border-amber-200 bg-gradient-to-br from-white via-amber-50/70 to-orange-50/60 p-3 md:p-4 overflow-hidden shadow-sm">
-            <div class="text-sm md:text-base font-black text-amber-700 mb-2">${title}</div>
+            <div class="text-xl md:text-xl font-black text-amber-700 mb-2">${title}</div>
             <div class="w-full flex-1 flex items-center justify-center min-h-0">${inner}</div>
-            ${note ? `<div class="mt-2 text-xs md:text-sm font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}
+            ${note ? `<div class="mt-2 text-xl md:text-xl font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}
         </div>`;
 
     let visual = '';
@@ -3236,7 +3236,7 @@ function buildGeometryPresentation_(q) {
             <svg viewBox="0 0 520 300" class="w-full max-w-[560px] h-auto" role="img" aria-label="Các mảnh tam giác để quan sát và đếm">
                 <rect x="20" y="18" width="480" height="264" rx="28" fill="#fff" stroke="#fed7aa" stroke-width="3"/>
                 ${tris}
-                <text x="260" y="278" text-anchor="middle" font-size="18" font-weight="900" fill="#7c3aed">Chỉ từng hình một để tránh đếm trùng</text>
+                <text x="260" y="278" text-anchor="middle" font-size="20" font-weight="900" fill="#7c3aed">Chỉ từng hình một để tránh đếm trùng</text>
             </svg>`, 'Con có thể dùng ngón tay chỉ lần lượt từng hình.');
     } else if (sub === '4.4') {
         const ans = String(q?.answer || '').toLowerCase();
@@ -3249,7 +3249,7 @@ function buildGeometryPresentation_(q) {
         visual = wrap('🧊 NHẬN DIỆN KHỐI HÌNH', `
             <div class="w-full flex flex-col items-center justify-center">
                 <svg viewBox="0 0 520 245" class="w-full max-w-[540px] h-auto" role="img" aria-label="Minh họa khối hình">${shape}</svg>
-                <div class="-mt-2 rounded-2xl border-2 border-amber-200 bg-white px-4 py-2 text-lg md:text-xl font-black text-amber-800 text-center">${esc(quoted)}</div>
+                <div class="-mt-2 rounded-2xl border-2 border-amber-200 bg-white px-4 py-2 text-xl md:text-xl font-black text-amber-800 text-center">${esc(quoted)}</div>
             </div>`, 'Quan sát mặt, cạnh và dạng tròn của vật thể.');
     } else {
         const avd = q.visual_data || {};
@@ -3269,14 +3269,14 @@ function buildGeometryPresentation_(q) {
                 : s.includes('chữ nhật')
                     ? `<svg viewBox="0 0 140 95" class="w-[120px] h-[82px]"><rect x="8" y="10" width="124" height="74" rx="4" fill="#fff7ed" stroke="#f97316" stroke-width="5"/><line x1="8" y1="10" x2="132" y2="84" stroke="#fdba74" stroke-width="3" stroke-dasharray="5 4"/></svg>`
                     : `<svg viewBox="0 0 110 110" class="w-[92px] h-[92px]"><rect x="10" y="10" width="90" height="90" rx="4" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="5"/><line x1="10" y1="10" x2="100" y2="100" stroke="#c4b5fd" stroke-width="3"/></svg>`;
-            return `<div class="flex flex-col items-center justify-center">${body}${label?`<div class="mt-1 text-xs md:text-sm font-black text-violet-700">${esc(label)}</div>`:''}</div>`;
+            return `<div class="flex flex-col items-center justify-center">${body}${label?`<div class="mt-1 text-xl md:text-xl font-black text-violet-700">${esc(label)}</div>`:''}</div>`;
         };
         const targetsHtml = Array.from({length:Math.min(targetCount,5)},(_,i)=>targetShapeHtml(kind, targetCount>1?`Hình ${i+1}`:'')).join('');
         let center = '';
         let note = '';
 
         if (task === 'target_name') {
-            center = `<div class="flex flex-col items-center gap-3">${targetShapeHtml('Hình vuông','Hai tam giác ghép khít')}<div class="text-sm md:text-base font-black text-slate-600">Nhìn đường bao ngoài, không nhìn đường chéo bên trong.</div></div>`;
+            center = `<div class="flex flex-col items-center gap-3">${targetShapeHtml('Hình vuông','Hai tam giác ghép khít')}<div class="text-xl md:text-xl font-black text-slate-600">Nhìn đường bao ngoài, không nhìn đường chéo bên trong.</div></div>`;
             note = 'Hai mảnh tam giác là hai nửa của cùng một hình vuông.';
         } else if (task === 'vertices') {
             center = targetShapeHtml(kind, kind);
@@ -3287,12 +3287,12 @@ function buildGeometryPresentation_(q) {
             note = 'So sánh trực tiếp số mảnh của hai hình.';
         } else {
             const rule = (task==='remaining'||task==='difference')
-                ? `<div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-1.5 text-sm font-black text-rose-700">Dùng ${usedCount} / ${pieceCount} mảnh</div>`
-                : `<div class="rounded-xl border border-violet-200 bg-violet-50 px-3 py-1.5 text-sm font-black text-violet-700">${piecesPerTarget} tam giác → 1 hình vuông</div>`;
+                ? `<div class="rounded-xl border border-rose-200 bg-rose-50 px-3 py-1.5 text-xl font-black text-rose-700">Dùng ${usedCount} / ${pieceCount} mảnh</div>`
+                : `<div class="rounded-xl border border-violet-200 bg-violet-50 px-3 py-1.5 text-xl font-black text-violet-700">${piecesPerTarget} tam giác → 1 hình vuông</div>`;
             const resultHtml = ['remaining','difference'].includes(task)
-                ? `<div class="flex flex-wrap items-center justify-center gap-1.5 min-h-[84px]">${Array.from({length:Math.min(usedCount,10)},(_,i)=>triangle(i+2)).join('')}</div><div class="mt-2 text-sm font-black text-violet-700">${usedCount} mảnh đã dùng</div>`
+                ? `<div class="flex flex-wrap items-center justify-center gap-1.5 min-h-[84px]">${Array.from({length:Math.min(usedCount,10)},(_,i)=>triangle(i+2)).join('')}</div><div class="mt-2 text-xl font-black text-violet-700">${usedCount} mảnh đã dùng</div>`
                 : `<div class="flex flex-wrap items-center justify-center gap-2 min-h-[84px]">${targetsHtml || targetShapeHtml(kind)}</div>`;
-            center = `<div class="w-full grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3"><div class="rounded-2xl border-2 border-pink-200 bg-white p-3"><div class="text-xs font-black text-pink-600 mb-2">Khay mảnh ghép</div><div class="flex flex-wrap justify-center gap-2 min-h-[84px] items-center">${piecesHtml}</div><div class="mt-2 text-sm font-black text-slate-600">${pieceCount} mảnh tam giác</div></div><div class="flex flex-col items-center gap-2">${rule}<span class="text-3xl text-slate-300">→</span></div><div class="rounded-2xl border-2 border-violet-200 bg-white p-3"><div class="text-xs font-black text-violet-600 mb-2">Kết quả thao tác</div>${resultHtml}${leftover?`<div class="mt-2 text-sm font-black text-amber-700">Còn ${leftover} mảnh</div>`:''}</div></div>`;
+            center = `<div class="w-full grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-3"><div class="rounded-2xl border-2 border-pink-200 bg-white p-3"><div class="text-xl font-black text-pink-600 mb-2">Khay mảnh ghép</div><div class="flex flex-wrap justify-center gap-2 min-h-[84px] items-center">${piecesHtml}</div><div class="mt-2 text-xl font-black text-slate-600">${pieceCount} mảnh tam giác</div></div><div class="flex flex-col items-center gap-2">${rule}<span class="text-3xl text-slate-300">→</span></div><div class="rounded-2xl border-2 border-violet-200 bg-white p-3"><div class="text-xl font-black text-violet-600 mb-2">Kết quả thao tác</div>${resultHtml}${leftover?`<div class="mt-2 text-xl font-black text-amber-700">Còn ${leftover} mảnh</div>`:''}</div></div>`;
             if (task === 'reverse_total') note = `Đã ghép ${targetCount} hình và còn ${leftover} mảnh chưa dùng.`;
             else if (task === 'pieces_needed' || task === 'reassemble') note = `Mỗi hình cần ${piecesPerTarget} mảnh tam giác.`;
             else if (task === 'pair_count' || task === 'max_complete' || task === 'choose_plan' || task === 'add_to_even') note = `Ghép các mảnh theo từng cặp ${piecesPerTarget} mảnh.`;
@@ -3329,7 +3329,7 @@ function buildMeasureTimePresentation_(q) {
             <path d="M18 44 Q43 65 68 44" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><path d="M78 44 Q103 65 128 44" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
             <circle cx="42" cy="42" r="10" fill="#fb7185"/><path d="M42 31q5-8 10-2" fill="none" stroke="#15803d" stroke-width="2"/>
             <path d="M151 25 h34 l7 11 v31 h-48 v-31z" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/><rect x="157" y="15" width="22" height="12" rx="5" fill="#38bdf8"/><path d="M147 49q21-12 42 0v16h-42z" fill="#67e8f9"/>
-            <text x="168" y="57" text-anchor="middle" font-size="12" font-weight="900" fill="#0369a1">1 l</text>
+            <text x="168" y="57" text-anchor="middle" font-size="20" font-weight="900" fill="#0369a1">1 l</text>
         </svg>`;
         if (sub === '5.3') return `<svg viewBox="0 0 220 82" class="w-full max-w-[220px] h-[72px] md:h-[82px]" aria-hidden="true">
             <rect x="47" y="10" width="126" height="64" rx="12" fill="#fff" stroke="#34d399" stroke-width="3"/><rect x="47" y="10" width="126" height="20" rx="10" fill="#10b981"/>
@@ -3340,12 +3340,12 @@ function buildMeasureTimePresentation_(q) {
         if (sub === '5.4') return `<svg viewBox="0 0 220 82" class="w-full max-w-[220px] h-[72px] md:h-[82px]" aria-hidden="true">
             <circle cx="77" cy="42" r="31" fill="#fff" stroke="#a78bfa" stroke-width="5"/><line x1="77" y1="42" x2="77" y2="21" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"/><line x1="77" y1="42" x2="96" y2="51" stroke="#ec4899" stroke-width="4" stroke-linecap="round"/><circle cx="77" cy="42" r="5" fill="#0f766e"/>
             <path d="M53 14l-12-9 5 18M101 14l12-9-5 18" fill="#f9a8d4" stroke="#db2777" stroke-width="2"/><path d="M53 69l-8 9M101 69l8 9" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
-            <rect x="128" y="30" width="65" height="35" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><path d="M128 37h65" stroke="#f59e0b" stroke-width="2"/><text x="160" y="57" text-anchor="middle" font-size="16" font-weight="900" fill="#92400e">GIỜ HỌC</text>
+            <rect x="128" y="30" width="65" height="35" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><path d="M128 37h65" stroke="#f59e0b" stroke-width="2"/><text x="160" y="57" text-anchor="middle" font-size="20" font-weight="900" fill="#92400e">GIỜ HỌC</text>
         </svg>`;
         if (sub === '5.5') return `<svg viewBox="0 0 220 82" class="w-full max-w-[220px] h-[72px] md:h-[82px]" aria-hidden="true">
             <rect x="24" y="28" width="110" height="45" rx="8" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/><path d="M20 28h118l-10-18H30z" fill="#fb7185"/><path d="M30 10h18v18H30zm36 0h18v18H66zm36 0h18v18h-18z" fill="#fda4af"/>
             <rect x="42" y="44" width="32" height="29" rx="5" fill="#bfdbfe"/><circle cx="106" cy="52" r="12" fill="#fde047"/><circle cx="101" cy="49" r="3" fill="#334155"/><circle cx="111" cy="49" r="3" fill="#334155"/><path d="M101 57q5 5 10 0" fill="none" stroke="#334155" stroke-width="2"/>
-            <rect x="149" y="18" width="58" height="25" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/><text x="178" y="35" text-anchor="middle" font-size="13" font-weight="900" fill="#15803d">500đ</text><circle cx="163" cy="62" r="11" fill="#fde68a" stroke="#d97706" stroke-width="2"/><circle cx="191" cy="62" r="11" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+            <rect x="149" y="18" width="58" height="25" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/><text x="178" y="35" text-anchor="middle" font-size="20" font-weight="900" fill="#15803d">500đ</text><circle cx="163" cy="62" r="11" fill="#fde68a" stroke="#d97706" stroke-width="2"/><circle cx="191" cy="62" r="11" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
         </svg>`;
         return `<svg viewBox="0 0 220 82" class="w-full max-w-[220px] h-[72px] md:h-[82px]" aria-hidden="true">
             <defs><linearGradient id="t5sky" x1="0" x2="1"><stop stop-color="#fde68a"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs><rect x="8" y="12" width="204" height="58" rx="24" fill="url(#t5sky)" opacity=".45"/>
@@ -3357,7 +3357,7 @@ function buildMeasureTimePresentation_(q) {
         <div class="w-full h-full min-h-[260px] flex flex-col items-center justify-center rounded-3xl border-2 border-emerald-100 bg-gradient-to-br from-white via-emerald-50/55 to-cyan-50/55 p-3 md:p-4 overflow-hidden">
             <div class="w-full flex items-center justify-center mb-1 md:mb-2">${topic5Art}</div>
             <div class="w-full flex items-center justify-center min-h-0">${inner}</div>
-            ${note ? `<div class="mt-2 md:mt-3 text-xs md:text-sm font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}
+            ${note ? `<div class="mt-2 md:mt-3 text-xl md:text-xl font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}
         </div>`;
     const clockSvg = (hour, minute, label='') => {
         const h = Number(hour) || 0, m = Number(minute) || 0;
@@ -3368,7 +3368,7 @@ function buildMeasureTimePresentation_(q) {
         const hp=pt(hourAngle,46), mp=pt(minAngle,67);
         const ticks=Array.from({length:12},(_,i)=>{
             const a=(i*30-90)*Math.PI/180; const x=cx+Math.cos(a)*82, y=cy+Math.sin(a)*82;
-            return `<text x="${x.toFixed(1)}" y="${(y+5).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#475569">${i===0?12:i}</text>`;
+            return `<text x="${x.toFixed(1)}" y="${(y+5).toFixed(1)}" text-anchor="middle" font-size="20" font-weight="800" fill="#475569">${i===0?12:i}</text>`;
         }).join('');
         return `<svg viewBox="0 0 220 220" class="w-full max-w-[250px]" aria-label="Đồng hồ minh họa">
             <circle cx="110" cy="105" r="96" fill="#fff" stroke="#a7f3d0" stroke-width="6"/>
@@ -3377,23 +3377,23 @@ function buildMeasureTimePresentation_(q) {
             <line x1="110" y1="105" x2="${hp.x.toFixed(1)}" y2="${hp.y.toFixed(1)}" stroke="#7c3aed" stroke-width="8" stroke-linecap="round"/>
             <line x1="110" y1="105" x2="${mp.x.toFixed(1)}" y2="${mp.y.toFixed(1)}" stroke="#ec4899" stroke-width="5" stroke-linecap="round"/>
             <circle cx="110" cy="105" r="8" fill="#0f766e"/>
-            ${label ? `<text x="110" y="216" text-anchor="middle" font-size="14" font-weight="900" fill="#0f766e">${esc(label)}</text>` : ''}
+            ${label ? `<text x="110" y="216" text-anchor="middle" font-size="20" font-weight="900" fill="#0f766e">${esc(label)}</text>` : ''}
         </svg>`;
     };
-    const noteSvg = (value) => `<div class="min-w-[112px] rounded-2xl border-2 border-emerald-200 bg-white px-4 py-3 text-center shadow-sm"><div class="text-[11px] font-black uppercase tracking-wide text-emerald-600">TIỀN HỌC TẬP</div><div class="mt-1 text-xl md:text-2xl font-black text-slate-800">${Number(value).toLocaleString('vi-VN')}</div><div class="text-sm font-black text-slate-500">đồng</div></div>`;
+    const noteSvg = (value) => `<div class="min-w-[112px] rounded-2xl border-2 border-emerald-200 bg-white px-4 py-3 text-center shadow-sm"><div class="text-xl font-black uppercase tracking-wide text-emerald-600">TIỀN HỌC TẬP</div><div class="mt-1 text-xl md:text-2xl font-black text-slate-800">${Number(value).toLocaleString('vi-VN')}</div><div class="text-xl font-black text-slate-500">đồng</div></div>`;
 
     let visual='';
     const type=String(q.explore_type);
     if (type==='length_ruler') {
         const start=Number(vd.start||0), end=Number(vd.end||0), max=Math.max(Number(vd.max||10),end+1);
         const x0=36, width=430, step=width/max;
-        const ticks=Array.from({length:max+1},(_,i)=>`<g><line x1="${x0+i*step}" y1="130" x2="${x0+i*step}" y2="${i%5===0?102:112}" stroke="#64748b" stroke-width="2"/><text x="${x0+i*step}" y="151" text-anchor="middle" font-size="13" font-weight="800" fill="#475569">${i}</text></g>`).join('');
+        const ticks=Array.from({length:max+1},(_,i)=>`<g><line x1="${x0+i*step}" y1="130" x2="${x0+i*step}" y2="${i%5===0?102:112}" stroke="#64748b" stroke-width="2"/><text x="${x0+i*step}" y="151" text-anchor="middle" font-size="20" font-weight="800" fill="#475569">${i}</text></g>`).join('');
         const ox=x0+start*step, ow=(end-start)*step;
         visual=panel(`<svg viewBox="0 0 500 190" class="w-full max-w-[560px]">
             <rect x="24" y="92" width="455" height="68" rx="16" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
-            ${ticks}<text x="468" y="151" text-anchor="end" font-size="13" font-weight="900" fill="#92400e">cm</text>
+            ${ticks}<text x="468" y="151" text-anchor="end" font-size="20" font-weight="900" fill="#92400e">cm</text>
             <rect x="${ox}" y="48" width="${Math.max(34,ow)}" height="28" rx="14" fill="#f0abfc" stroke="#c026d3" stroke-width="3"/>
-            <text x="${ox+Math.max(34,ow)/2}" y="68" text-anchor="middle" font-size="18" font-weight="900" fill="#701a75">${esc(vd.emoji||'✏️')} ${esc(vd.object||'vật')}</text>
+            <text x="${ox+Math.max(34,ow)/2}" y="68" text-anchor="middle" font-size="20" font-weight="900" fill="#701a75">${esc(vd.emoji||'✏️')} ${esc(vd.object||'vật')}</text>
             <line x1="${ox}" y1="80" x2="${ox}" y2="128" stroke="#db2777" stroke-width="3" stroke-dasharray="5 4"/>
             <line x1="${ox+ow}" y1="80" x2="${ox+ow}" y2="128" stroke="#db2777" stroke-width="3" stroke-dasharray="5 4"/>
         </svg>`,'Đọc vạch đầu và vạch cuối rồi tìm độ dài.');
@@ -3408,7 +3408,7 @@ function buildMeasureTimePresentation_(q) {
         const val=Number(vd.value||0), from=esc(vd.from_unit), to=esc(vd.to_unit);
         const measureModel = val <= 8
             ? `<div class="flex items-end justify-center gap-1.5 flex-wrap">${Array.from({length:Math.max(1,val)},()=>`<div class="w-9 md:w-11 h-24 rounded-xl border-2 border-cyan-300 bg-cyan-100 flex items-center justify-center font-black text-cyan-800">1 ${from}</div>`).join('')}</div>`
-            : `<div class="w-full max-w-sm rounded-3xl border-2 border-cyan-200 bg-cyan-50 px-5 py-5 text-center"><div class="text-sm font-black text-cyan-600">SỐ ĐO BAN ĐẦU</div><div class="mt-1 text-4xl md:text-5xl font-black text-cyan-800">${val} ${from}</div></div>`;
+            : `<div class="w-full max-w-sm rounded-3xl border-2 border-cyan-200 bg-cyan-50 px-5 py-5 text-center"><div class="text-xl font-black text-cyan-600">SỐ ĐO BAN ĐẦU</div><div class="mt-1 text-4xl md:text-5xl font-black text-cyan-800">${val} ${from}</div></div>`;
         visual=panel(`${measureModel}<div class="mt-4 flex items-center gap-3 text-2xl md:text-3xl font-black"><span class="text-purple-700">${val} ${from}</span><span class="text-pink-500">→</span><span class="text-emerald-700">? ${to}</span></div>`,'Nhớ các mốc 1 dm = 10 cm, 1 m = 10 dm = 100 cm, 1 km = 1000 m.');
     } else if (type==='length_path') {
         const a=Number(vd.a||0), b=Number(vd.b||0), unit=esc(vd.unit||'m'), op=String(vd.op||'+');
@@ -3429,7 +3429,7 @@ function buildMeasureTimePresentation_(q) {
             <line x1="120" y1="105" x2="120" y2="155" stroke="#64748b" stroke-width="3"/><line x1="400" y1="105" x2="400" y2="155" stroke="#64748b" stroke-width="3"/>
             <path d="M45 155 Q120 205 195 155" fill="#dbeafe" stroke="#3b82f6" stroke-width="4"/><path d="M325 155 Q400 205 475 155" fill="#dcfce7" stroke="#22c55e" stroke-width="4"/>
             <text x="120" y="170" text-anchor="middle" font-size="46">${esc(vd.object_emoji||'📦')}</text>
-            ${ws.map((w,i)=>`<g><rect x="${350+i*55}" y="132" width="48" height="42" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/><text x="${374+i*55}" y="159" text-anchor="middle" font-size="16" font-weight="900" fill="#92400e">${w}kg</text></g>`).join('')}
+            ${ws.map((w,i)=>`<g><rect x="${350+i*55}" y="132" width="48" height="42" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/><text x="${374+i*55}" y="159" text-anchor="middle" font-size="20" font-weight="900" fill="#92400e">${w}kg</text></g>`).join('')}
             <circle cx="260" cy="105" r="11" fill="#f43f5e"/>
         </svg>`,'Cân thăng bằng: hai bên có khối lượng bằng nhau.');
     } else if (type==='weight_arithmetic') {
@@ -3457,13 +3457,13 @@ function buildMeasureTimePresentation_(q) {
         if(vd.to && type!=='calendar_week_jump') hi.add(Number(vd.to));
         const names=['T2','T3','T4','T5','T6','T7','CN'];
         const cells=[]; for(let i=0;i<start;i++)cells.push(''); for(let d=1;d<=days;d++)cells.push(d); while(cells.length%7)cells.push('');
-        const weekCue=type==='calendar_week_jump'?`<div class="mt-2 inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-3 py-1.5 text-sm font-black text-purple-700"><span>Ngày ${esc(vd.from)}</span><span>→ + 7 ngày →</span><span>?</span></div>`:'';
-        visual=panel(`<div class="w-full max-w-[500px]"><div class="rounded-t-2xl bg-emerald-600 px-4 py-2 text-center text-xl md:text-2xl font-black text-white">THÁNG ${month}</div><div class="grid grid-cols-7 border-x-2 border-b-2 border-emerald-200 rounded-b-2xl overflow-hidden">${names.map(n=>`<div class="bg-emerald-50 py-2 text-center text-xs md:text-sm font-black text-emerald-800">${n}</div>`).join('')}${cells.map(d=>`<div class="min-h-[38px] md:min-h-[44px] border-t border-r border-slate-100 flex items-center justify-center text-sm md:text-base font-black ${d&&hi.has(Number(d))?'bg-pink-100 text-pink-700 ring-2 ring-inset ring-pink-300':'bg-white text-slate-700'}">${d||''}</div>`).join('')}</div>${weekCue}</div>`,'Đọc theo cột thứ và hàng tuần.');
+        const weekCue=type==='calendar_week_jump'?`<div class="mt-2 inline-flex items-center gap-2 rounded-full border border-purple-200 bg-purple-50 px-3 py-1.5 text-xl font-black text-purple-700"><span>Ngày ${esc(vd.from)}</span><span>→ + 7 ngày →</span><span>?</span></div>`:'';
+        visual=panel(`<div class="w-full max-w-[500px]"><div class="rounded-t-2xl bg-emerald-600 px-4 py-2 text-center text-xl md:text-2xl font-black text-white">THÁNG ${month}</div><div class="grid grid-cols-7 border-x-2 border-b-2 border-emerald-200 rounded-b-2xl overflow-hidden">${names.map(n=>`<div class="bg-emerald-50 py-2 text-center text-xl md:text-xl font-black text-emerald-800">${n}</div>`).join('')}${cells.map(d=>`<div class="min-h-[38px] md:min-h-[44px] border-t border-r border-slate-100 flex items-center justify-center text-xl md:text-xl font-black ${d&&hi.has(Number(d))?'bg-pink-100 text-pink-700 ring-2 ring-inset ring-pink-300':'bg-white text-slate-700'}">${d||''}</div>`).join('')}</div>${weekCue}</div>`,'Đọc theo cột thứ và hàng tuần.');
     } else if (type==='clock_read') {
         visual=panel(clockSvg(vd.hour,vd.minute),'Kim ngắn chỉ giờ · kim dài chỉ phút.');
     } else if (type==='clock_compare') {
         const labelA=esc(vd.label_a||'Đồng hồ A'), labelB=esc(vd.label_b||'Đồng hồ B');
-        visual=panel(`<div class="grid grid-cols-2 gap-2 md:gap-4 w-full"><div class="text-center"><div class="text-sm font-black text-purple-600">${labelA}</div>${clockSvg(vd.a?.hour,vd.a?.minute)}</div><div class="text-center"><div class="text-sm font-black text-pink-600">${labelB}</div>${clockSvg(vd.b?.hour,vd.b?.minute)}</div></div>`,'So giờ trước; nếu cùng giờ thì so tiếp số phút.');
+        visual=panel(`<div class="grid grid-cols-2 gap-2 md:gap-4 w-full"><div class="text-center"><div class="text-xl font-black text-purple-600">${labelA}</div>${clockSvg(vd.a?.hour,vd.a?.minute)}</div><div class="text-center"><div class="text-xl font-black text-pink-600">${labelB}</div>${clockSvg(vd.b?.hour,vd.b?.minute)}</div></div>`,'So giờ trước; nếu cùng giờ thì so tiếp số phút.');
     } else if (type==='clock_duration') {
         visual=panel(`<div class="grid grid-cols-[1fr_auto_1fr] gap-1 md:gap-3 items-center w-full"><div>${clockSvg(vd.start?.hour,vd.start?.minute,'Bắt đầu')}</div><div class="text-3xl font-black text-pink-500">→</div><div>${clockSvg(vd.end?.hour,vd.end?.minute,'Kết thúc')}</div></div>`,'Tiến kim theo các mốc quen thuộc rồi cộng thời gian.');
     } else if (type==='money_note') {
@@ -3473,7 +3473,7 @@ function buildMeasureTimePresentation_(q) {
         const price=Number(vd.price||vd.target||0);
         const notes=type==='money_make' ? [100,200,500,1000] : (Array.isArray(vd.notes)?vd.notes:[]);
         const helperText=type==='money_make' ? 'Chọn cách ghép các mệnh giá để đủ đúng số tiền.' : 'Cộng tiền đang có rồi so với giá cần trả.';
-        visual=panel(`<div class="flex flex-col items-center"><div class="text-6xl">${esc(vd.emoji||'🛒')}</div><div class="mt-2 rounded-full bg-amber-50 border-2 border-amber-200 px-4 py-1.5 text-lg font-black text-amber-800">${vd.item?esc(vd.item)+' · ':''}${price.toLocaleString('vi-VN')} đồng</div><div class="mt-4 flex flex-wrap justify-center gap-2">${notes.map(noteSvg).join('')}</div></div>`,helperText);
+        visual=panel(`<div class="flex flex-col items-center"><div class="text-6xl">${esc(vd.emoji||'🛒')}</div><div class="mt-2 rounded-full bg-amber-50 border-2 border-amber-200 px-4 py-1.5 text-xl font-black text-amber-800">${vd.item?esc(vd.item)+' · ':''}${price.toLocaleString('vi-VN')} đồng</div><div class="mt-4 flex flex-wrap justify-center gap-2">${notes.map(noteSvg).join('')}</div></div>`,helperText);
     } else if (type==='clock_24h') {
         const h24=Number(vd.hour24||0), m=Number(vd.minute||0), h12=(h24%12)||12;
         visual=panel(`<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 items-center w-full"><div>${clockSvg(h12,m)}</div><div class="flex flex-col items-center gap-2"><div class="text-5xl">${esc(vd.period_icon||'🕒')}</div><div class="rounded-2xl border-2 border-emerald-200 bg-white px-4 py-3 text-2xl md:text-3xl font-black text-emerald-800">${String(h24).padStart(2,'0')}:${String(m).padStart(2,'0')}</div></div></div>`,'Hệ 24 giờ giúp phân biệt rõ sáng, chiều, tối và đêm.');
@@ -3483,9 +3483,9 @@ function buildMeasureTimePresentation_(q) {
     } else if (type==='time_reasoning') {
         const kind=String(vd.kind||'');
         if(kind==='day') {
-            visual=panel(`<div class="grid grid-cols-4 gap-2 md:gap-3 w-full max-w-md">${['🌅','☀️','🌇','🌙'].map((x,i)=>`<div class="rounded-2xl border-2 border-cyan-100 bg-white p-3 text-center"><div class="text-4xl">${x}</div><div class="mt-1 text-xs font-black text-slate-500">${['Sáng','Trưa','Chiều','Đêm'][i]}</div></div>`).join('')}</div>`,'Một ngày gồm các buổi nối tiếp nhau. Con nhớ lại mốc của một ngày.');
+            visual=panel(`<div class="grid grid-cols-4 gap-2 md:gap-3 w-full max-w-md">${['🌅','☀️','🌇','🌙'].map((x,i)=>`<div class="rounded-2xl border-2 border-cyan-100 bg-white p-3 text-center"><div class="text-4xl">${x}</div><div class="mt-1 text-xl font-black text-slate-500">${['Sáng','Trưa','Chiều','Đêm'][i]}</div></div>`).join('')}</div>`,'Một ngày gồm các buổi nối tiếp nhau. Con nhớ lại mốc của một ngày.');
         } else if(kind==='hour') {
-            visual=panel(`<svg viewBox="0 0 360 170" class="w-full max-w-[430px]"><circle cx="180" cy="82" r="64" fill="#fff" stroke="#c4b5fd" stroke-width="5"/>${Array.from({length:12},(_,i)=>{const a=(i*30-90)*Math.PI/180;const x1=180+Math.cos(a)*51,y1=82+Math.sin(a)*51,x2=180+Math.cos(a)*61,y2=82+Math.sin(a)*61;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>`}).join('')}<circle cx="180" cy="82" r="6" fill="#ec4899"/><text x="180" y="162" text-anchor="middle" font-size="16" font-weight="900" fill="#475569">Một vòng của kim phút</text></svg>`,'Hãy nhớ kim phút đi trọn một vòng thì kim giờ tiến thêm một số.');
+            visual=panel(`<svg viewBox="0 0 360 170" class="w-full max-w-[430px]"><circle cx="180" cy="82" r="64" fill="#fff" stroke="#c4b5fd" stroke-width="5"/>${Array.from({length:12},(_,i)=>{const a=(i*30-90)*Math.PI/180;const x1=180+Math.cos(a)*51,y1=82+Math.sin(a)*51,x2=180+Math.cos(a)*61,y2=82+Math.sin(a)*61;return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#7c3aed" stroke-width="4" stroke-linecap="round"/>`}).join('')}<circle cx="180" cy="82" r="6" fill="#ec4899"/><text x="180" y="162" text-anchor="middle" font-size="20" font-weight="900" fill="#475569">Một vòng của kim phút</text></svg>`,'Hãy nhớ kim phút đi trọn một vòng thì kim giờ tiến thêm một số.');
         } else {
             const h24=Number(vd.hour24 ?? vd.a ?? 0), m=Number(vd.minute||0), h12=(h24%12)||12;
             visual=panel(`<div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 items-center w-full"><div>${clockSvg(h12,m)}</div><div class="flex flex-col items-center gap-2"><div class="text-5xl">${esc(vd.period_icon||'🕒')}</div><div class="rounded-2xl border-2 border-emerald-200 bg-white px-4 py-3 text-2xl md:text-3xl font-black text-emerald-800">${String(h24).padStart(2,'0')}:${String(m).padStart(2,'0')}</div></div></div>`,'Nhìn thời điểm và xác định cách gọi phù hợp trong ngày.');
@@ -3502,8 +3502,8 @@ function buildPatternLogicPresentation_(q) {
     const vd = q.visual_data || {};
     const esc = (v) => escapeHtml(String(v ?? ''));
     const chip = (v, tone='cyan', blank=false) => `<div class="math-sequence-chip math-tone-${tone} min-w-[54px] h-[54px] md:min-w-[64px] md:h-[64px] px-2 rounded-2xl border-2 ${blank ? 'is-blank border-dashed' : ''} flex items-center justify-center text-xl md:text-2xl font-black shadow-sm">${blank ? '?' : esc(v)}</div>`;
-    const arrow = (label='', tone='slate') => `<div class="flex flex-col items-center justify-center shrink-0 px-0.5"><span class="math-tone-text math-tone-${tone} text-[10px] md:text-xs font-black min-h-[16px]">${label ? esc(label) : '&nbsp;'}</span><span class="math-tone-arrow math-tone-${tone} text-xl md:text-2xl font-black">→</span></div>`;
-    const panel = (inner, note='') => `<div class="w-full h-full min-h-[270px] flex flex-col items-center justify-center rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-white via-cyan-50/55 to-indigo-50/55 p-3 md:p-4 overflow-hidden">${inner}${note ? `<div class="mt-4 text-xs md:text-sm font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}</div>`;
+    const arrow = (label='', tone='slate') => `<div class="flex flex-col items-center justify-center shrink-0 px-0.5"><span class="math-tone-text math-tone-${tone} text-xl md:text-xl font-black min-h-[16px]">${label ? esc(label) : '&nbsp;'}</span><span class="math-tone-arrow math-tone-${tone} text-xl md:text-2xl font-black">→</span></div>`;
+    const panel = (inner, note='') => `<div class="w-full h-full min-h-[270px] flex flex-col items-center justify-center rounded-3xl border-2 border-cyan-100 bg-gradient-to-br from-white via-cyan-50/55 to-indigo-50/55 p-3 md:p-4 overflow-hidden">${inner}${note ? `<div class="mt-4 text-xl md:text-xl font-extrabold text-slate-500 text-center leading-snug">${esc(note)}</div>` : ''}</div>`;
 
     const shapeHtml = (key, blank=false) => {
         if (blank) return `<div class="w-16 h-16 md:w-[74px] md:h-[74px] rounded-2xl border-3 border-dashed border-fuchsia-300 bg-white flex items-center justify-center text-3xl font-black text-fuchsia-500 shadow-sm">?</div>`;
@@ -3524,7 +3524,7 @@ function buildPatternLogicPresentation_(q) {
     } else if (type==='pattern_cycle_steps') {
         const seq=Array.isArray(vd.sequence)?vd.sequence:[];
         const steps=Array.isArray(vd.steps)?vd.steps.map(Number):[0,0];
-        visual=panel(`<div class="flex items-center justify-center flex-wrap gap-y-3">${seq.map((v,i)=>{ const st=steps[i%2]||0; const lab=vd.show_steps ? `${st>=0?'+':'−'}${Math.abs(st)}` : ''; return `${chip(v,i%2?'indigo':'cyan',v===null)}${i<seq.length-1?arrow(lab,i%2?'indigo':'fuchsia'):''}`; }).join('')}</div><div class="mt-4 flex gap-2"><span class="rounded-full border border-fuchsia-200 bg-fuchsia-50 px-3 py-1 text-xs font-black text-fuchsia-700">Bước 1</span><span class="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-700">Bước 2</span></div>`, vd.show_steps ? 'Hai bước nhảy lặp lại theo đúng thứ tự.' : 'Tìm hai bước nhảy rồi kiểm tra xem chúng có lặp lại không.');
+        visual=panel(`<div class="flex items-center justify-center flex-wrap gap-y-3">${seq.map((v,i)=>{ const st=steps[i%2]||0; const lab=vd.show_steps ? `${st>=0?'+':'−'}${Math.abs(st)}` : ''; return `${chip(v,i%2?'indigo':'cyan',v===null)}${i<seq.length-1?arrow(lab,i%2?'indigo':'fuchsia'):''}`; }).join('')}</div><div class="mt-4 flex gap-2"><span class="rounded-full border border-fuchsia-200 bg-fuchsia-50 px-3 py-1 text-xl font-black text-fuchsia-700">Bước 1</span><span class="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xl font-black text-indigo-700">Bước 2</span></div>`, vd.show_steps ? 'Hai bước nhảy lặp lại theo đúng thứ tự.' : 'Tìm hai bước nhảy rồi kiểm tra xem chúng có lặp lại không.');
     } else if (type==='number_triangle_sum') {
         const val=(x)=>x===null||x===undefined?'?':x;
         const cls=(x)=>x===null||x===undefined?'fill:#fff;stroke:#e879f9;stroke-dasharray:7 5':'fill:#fff;stroke:#67e8f9';
@@ -3534,7 +3534,7 @@ function buildPatternLogicPresentation_(q) {
             <circle cx="76" cy="226" r="38" style="${cls(vd.left)}" stroke-width="5"/><text x="76" y="235" text-anchor="middle" font-size="26" font-weight="900" fill="#0e7490">${esc(val(vd.left))}</text>
             <circle cx="354" cy="226" r="38" style="${cls(vd.right)}" stroke-width="5"/><text x="354" y="235" text-anchor="middle" font-size="26" font-weight="900" fill="#0e7490">${esc(val(vd.right))}</text>
             <circle cx="215" cy="157" r="48" style="${cls(vd.center)}" stroke-width="6"/><text x="215" y="167" text-anchor="middle" font-size="30" font-weight="900" fill="#be185d">${esc(val(vd.center))}</text>
-            <text x="215" y="270" text-anchor="middle" font-size="15" font-weight="900" fill="#64748b">3 đỉnh cộng lại → số ở giữa</text>
+            <text x="215" y="270" text-anchor="middle" font-size="20" font-weight="900" fill="#64748b">3 đỉnh cộng lại → số ở giữa</text>
         </svg>`,'Có thể cộng hai số thuận tiện trước, rồi cộng số còn lại.');
     } else if (type==='shape_repeat_pattern') {
         const seq=Array.isArray(vd.sequence)?vd.sequence:[];
@@ -3683,12 +3683,12 @@ function buildTopic56SolutionData_(q) {
 function buildTopic56SolutionHtml_(q) {
     const data = buildTopic56SolutionData_(q);
     if (!data) return '';
-    const steps = data.steps.map((s,i)=>`<div class="flex items-start gap-2 text-sm md:text-base font-black text-slate-700 leading-relaxed"><span class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">${i+1}</span><span>${escapeHtml(s)}</span></div>`).join('');
+    const steps = data.steps.map((s,i)=>`<div class="flex items-start gap-2 text-xl md:text-xl font-black text-slate-700 leading-relaxed"><span class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">${i+1}</span><span>${escapeHtml(s)}</span></div>`).join('');
     return `<div data-topic56-solution class="hidden mt-3 w-full rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50/95 to-cyan-50/80 p-3 md:p-4 shadow-sm">
-        <div class="text-lg md:text-xl font-black text-emerald-700 mb-2">🌱 Cùng xem lời giải</div>
-        ${data.rule ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-sm md:text-base font-black text-violet-800 leading-snug"><span class="text-violet-500">Quy tắc:</span> ${escapeHtml(data.rule)}</div>` : ''}
+        <div class="text-xl md:text-xl font-black text-emerald-700 mb-2">🌱 Cùng xem lời giải</div>
+        ${data.rule ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-xl md:text-xl font-black text-violet-800 leading-snug"><span class="text-violet-500">Quy tắc:</span> ${escapeHtml(data.rule)}</div>` : ''}
         <div class="rounded-xl border border-emerald-100 bg-white/85 px-3 py-3 space-y-2">${steps}</div>
-        ${data.check ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-sm md:text-base font-black text-sky-800 text-center">✅ ${escapeHtml(data.check)}</div>` : ''}
+        ${data.check ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-xl md:text-xl font-black text-sky-800 text-center">✅ ${escapeHtml(data.check)}</div>` : ''}
     </div>`;
 }
 
@@ -3894,26 +3894,26 @@ function buildTopic811SolutionHtml_(q, placement = 'side') {
     if (!data) return '';
     const side = placement === 'side';
     const stepsHtml = data.steps.map((step, idx) => `
-        <div class="flex items-start gap-2 text-sm md:text-base font-black text-slate-700 leading-relaxed">
-            <span class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">${idx + 1}</span>
+        <div class="flex items-start gap-2 text-xl md:text-xl font-black text-slate-700 leading-relaxed">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl">${idx + 1}</span>
             <span>${escapeHtml(step)}</span>
         </div>`).join('');
     return `<div data-topic811-solution class="hidden ${side ? 'h-full' : 'mt-3'} w-full rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50/95 to-cyan-50/80 p-3 md:p-4 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <div class="text-lg md:text-xl font-black text-emerald-700">🌱 Cùng xem lời giải</div>
-            ${data.tip ? `<div class="rounded-xl border border-amber-200 bg-amber-50 px-2.5 py-1.5 text-xs md:text-sm font-black text-amber-800">💡 ${escapeHtml(data.tip)}</div>` : ''}
+            <div class="text-xl md:text-xl font-black text-emerald-700">🌱 Cùng xem lời giải</div>
+            ${data.tip ? `<div class="rounded-xl border border-amber-200 bg-amber-50 px-2.5 py-1.5 text-xl md:text-xl font-black text-amber-800">💡 ${escapeHtml(data.tip)}</div>` : ''}
         </div>
-        ${data.rule ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-sm md:text-base font-black text-violet-800 leading-snug"><span class="text-violet-500">Quy tắc:</span> ${escapeHtml(data.rule)}</div>` : ''}
+        ${data.rule ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-xl md:text-xl font-black text-violet-800 leading-snug"><span class="text-violet-500">Quy tắc:</span> ${escapeHtml(data.rule)}</div>` : ''}
         <div class="rounded-xl border border-emerald-100 bg-white/85 px-3 py-3 space-y-2">${stepsHtml}</div>
-        ${data.check ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-sm md:text-base font-black text-sky-800 text-center leading-snug">✅ ${escapeHtml(data.check)}</div>` : ''}
+        ${data.check ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-xl md:text-xl font-black text-sky-800 text-center leading-snug">✅ ${escapeHtml(data.check)}</div>` : ''}
     </div>`;
 }
 
 function topic811SolutionPlaceholderHtml_() {
     return `<div data-topic811-solution-placeholder class="h-full min-h-[180px] rounded-2xl border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/55 to-cyan-50/45 px-4 py-4 flex flex-col items-center justify-center text-center">
         <div class="text-3xl mb-2">🌱</div>
-        <div class="text-base md:text-lg font-black text-emerald-700">Lời giải sẽ hiện ở đây</div>
-        <div class="mt-1 text-xs md:text-sm font-bold text-slate-500">Bé tìm được đáp án đúng rồi mình cùng xem cách suy luận nhé!</div>
+        <div class="text-xl md:text-xl font-black text-emerald-700">Lời giải sẽ hiện ở đây</div>
+        <div class="mt-1 text-xl md:text-xl font-bold text-slate-500">Bé tìm được đáp án đúng rồi mình cùng xem cách suy luận nhé!</div>
     </div>`;
 }
 
@@ -4017,8 +4017,8 @@ function getUnknownNumberMeta_(q) {
 function buildUnknownSolutionHtml_(meta) {
     if (!meta) return '';
     const xRed = '<span class="text-rose-600">x</span>';
-    const line = (html, strong=false) => `<div class="${strong ? 'text-xl md:text-2xl text-rose-700' : 'text-lg md:text-xl text-slate-700'} font-black leading-snug">${html}</div>`;
-    const hint = (html) => `<div class="inline-flex items-center gap-2 rounded-xl border-2 border-amber-200 bg-amber-50 px-3 py-1.5 text-sm md:text-base font-black text-amber-800">💡 ${html}</div>`;
+    const line = (html, strong=false) => `<div class="${strong ? 'text-xl md:text-2xl text-rose-700' : 'text-xl md:text-xl text-slate-700'} font-black leading-snug">${html}</div>`;
+    const hint = (html) => `<div class="inline-flex items-center gap-2 rounded-xl border-2 border-amber-200 bg-amber-50 px-3 py-1.5 text-xl md:text-xl font-black text-amber-800">💡 ${html}</div>`;
     const lines = [];
     let hintHtml = '';
     let ruleText = '';
@@ -4077,12 +4077,12 @@ function buildUnknownSolutionHtml_(meta) {
 
     return `<div data-unknown-solution class="hidden w-full h-full rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50/90 to-cyan-50/80 p-3 md:p-4 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <div class="text-lg md:text-xl font-black text-emerald-700">🌱 Cùng xem lời giải</div>
+            <div class="text-xl md:text-xl font-black text-emerald-700">🌱 Cùng xem lời giải</div>
             ${hintHtml}
         </div>
-        ${ruleText ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-base md:text-lg font-black text-violet-800 text-left leading-snug"><span class="text-violet-500">Quy tắc:</span> ${ruleText}</div>` : ''}
+        ${ruleText ? `<div class="mb-3 rounded-xl border-2 border-violet-200 bg-white/90 px-3 py-2 text-xl md:text-xl font-black text-violet-800 text-left leading-snug"><span class="text-violet-500">Quy tắc:</span> ${ruleText}</div>` : ''}
         <div class="rounded-xl bg-white/80 border border-emerald-100 px-3 py-2.5 md:px-4 md:py-3 space-y-1 text-center">${lines.join('')}</div>
-        ${checkText ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-sm md:text-base font-black text-sky-800 text-center leading-snug">✅ ${checkText}</div>` : ''}
+        ${checkText ? `<div class="mt-3 rounded-xl border-2 border-sky-200 bg-sky-50 px-3 py-2 text-xl md:text-xl font-black text-sky-800 text-center leading-snug">✅ ${checkText}</div>` : ''}
     </div>`;
 }
 
@@ -4120,7 +4120,7 @@ function revealUnknownNumberFeedback_(q, fillAnswer = true) {
         document.querySelectorAll('[data-unknown-slot]').forEach((slot) => {
             slot.classList.remove('border-rose-300', 'bg-rose-50');
             slot.classList.add('border-rose-400', 'bg-white', 'ring-4', 'ring-rose-100');
-            slot.innerHTML = `<span class="absolute top-0.5 left-2 text-[10px] md:text-xs font-black uppercase tracking-wide text-rose-500">x</span><span class="text-rose-600">${answer}</span>`;
+            slot.innerHTML = `<span class="absolute top-0.5 left-2 text-xl md:text-xl font-black uppercase tracking-wide text-rose-500">x</span><span class="text-rose-600">${answer}</span>`;
         });
     }
     // Mục 7 là phần kiến thức khó: sau MỌI lần bé chọn đáp án đều mở lời giải
@@ -4156,7 +4156,7 @@ function getExploreMathPresentation(q) {
         return out;
     };
     const placePhrase = (count, place, tone) =>
-        `<span class="math-place-phrase math-tone-${tone} inline-flex items-center justify-center rounded-2xl border-2 px-3.5 py-2.5 md:px-4 md:py-3 text-lg md:text-xl font-black whitespace-nowrap shadow-sm">${digitWords[count] || String(count)} ${place}</span>`;
+        `<span class="math-place-phrase math-tone-${tone} inline-flex items-center justify-center rounded-2xl border-2 px-3.5 py-2.5 md:px-4 md:py-3 text-xl md:text-xl font-black whitespace-nowrap shadow-sm">${digitWords[count] || String(count)} ${place}</span>`;
     const vd = q.visual_data || {};
     let prompt = raw, promptHtml = '', visual = '';
 
@@ -4192,7 +4192,7 @@ function getExploreMathPresentation(q) {
                 prompt = raw;
                 const n = String(vd.number || '').padStart(3,'0').split('');
                 const places = ['trăm','chục','đơn vị'];
-                visual = card(`<div class="grid grid-cols-3 gap-2 max-w-md mx-auto">${places.map((pl,i)=>`<div class="rounded-2xl border-2 ${pl===vd.focus_place?'border-pink-400 bg-pink-100':'border-purple-200 bg-white'} p-3"><div class="text-xs md:text-sm font-black uppercase text-slate-500">${pl}</div><div class="text-4xl md:text-5xl font-black ${pl===vd.focus_place?'text-pink-600':'text-purple-700'}">${n[i]}</div></div>`).join('')}</div>`);
+                visual = card(`<div class="grid grid-cols-3 gap-2 max-w-md mx-auto">${places.map((pl,i)=>`<div class="rounded-2xl border-2 ${pl===vd.focus_place?'border-pink-400 bg-pink-100':'border-purple-200 bg-white'} p-3"><div class="text-xl md:text-xl font-black uppercase text-slate-500">${pl}</div><div class="text-4xl md:text-5xl font-black ${pl===vd.focus_place?'text-pink-600':'text-purple-700'}">${n[i]}</div></div>`).join('')}</div>`);
                 break;
             }
             case 'estimate_groups':
@@ -4200,7 +4200,7 @@ function getExploreMathPresentation(q) {
                 prompt = raw;
                 const emoji = vd.emoji || '🍎';
                 const g = Math.min(Number(vd.groups)||1, 8), per = Math.min(Number(vd.per_group)||5, 10);
-                visual = card(`<div class="text-lg md:text-xl font-black text-purple-600 mb-3">${g} nhóm · khoảng ${per} đồ vật mỗi nhóm</div><div class="flex flex-wrap justify-center gap-2.5">${Array.from({length:g},()=>`<div class="min-w-[72px] min-h-[64px] px-2 py-2 rounded-2xl bg-amber-50 border-2 border-amber-200 flex flex-wrap content-center justify-center gap-0.5 text-xl">${Array.from({length:per},()=>`<span>${emoji}</span>`).join('')}</div>`).join('')}</div>`);
+                visual = card(`<div class="text-xl md:text-xl font-black text-purple-600 mb-3">${g} nhóm · khoảng ${per} đồ vật mỗi nhóm</div><div class="flex flex-wrap justify-center gap-2.5">${Array.from({length:g},()=>`<div class="min-w-[72px] min-h-[64px] px-2 py-2 rounded-2xl bg-amber-50 border-2 border-amber-200 flex flex-wrap content-center justify-center gap-0.5 text-xl">${Array.from({length:per},()=>`<span>${emoji}</span>`).join('')}</div>`).join('')}</div>`);
                 break;
             }
             case 'find_number': {
@@ -4211,9 +4211,9 @@ function getExploreMathPresentation(q) {
                     <button onclick="speakCurrentQuestion()" class="absolute top-3 right-3 w-9 h-9 md:w-10 md:h-10 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe nội dung câu đố" aria-label="Nghe nội dung câu đố">
                         <i class="fa-solid fa-volume-high text-pink-600 text-sm md:text-base"></i>
                     </button>
-                    <div class="inline-flex items-center gap-2 rounded-full bg-amber-100 border-2 border-amber-200 px-3 py-1 text-xs md:text-sm font-black text-amber-700">🔎 THÁM TỬ SỐ</div>
-                    <div class="mt-3 px-7 md:px-10 text-lg md:text-xl lg:text-2xl font-black leading-snug text-slate-800">${escapeHtml(clue)}</div>
-                    <div class="mt-2 text-xs md:text-sm font-bold text-purple-500">Đọc thật kỹ từng điều kiện rồi chọn số đúng nhé!</div>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-amber-100 border-2 border-amber-200 px-3 py-1 text-xl md:text-xl font-black text-amber-700">🔎 THÁM TỬ SỐ</div>
+                    <div class="mt-3 px-7 md:px-10 text-xl md:text-xl lg:text-2xl font-black leading-snug text-slate-800">${escapeHtml(clue)}</div>
+                    <div class="mt-2 text-xl md:text-xl font-bold text-purple-500">Đọc thật kỹ từng điều kiện rồi chọn số đúng nhé!</div>
                 </div>`;
                 break;
             }
@@ -4229,7 +4229,7 @@ function getExploreMathPresentation(q) {
                 if (remain) rows.push(remain);
                 // Chỉ dựng phần minh hoạ bên trái. loadQuestion() sẽ ghép minh hoạ,
                 // câu hỏi và đáp án vào cùng một khung hai cột trên desktop.
-                visual = `<div class="w-full"><div class="text-base md:text-lg font-black text-purple-700 mb-3 text-center">Nhìn nhanh rồi ước lượng nhé!</div><div class="mx-auto space-y-1.5 md:space-y-2">${rows.map((count,ri)=>`<div class="flex justify-center gap-1.5 flex-wrap" aria-label="hàng ${ri+1}">${Array.from({length:count},()=>`<span class="text-xl md:text-2xl">${emoji}</span>`).join('')}</div>`).join('')}</div><div class="mt-3 text-xs md:text-sm font-bold leading-snug text-slate-500 text-center">Nhìn theo từng nhóm chục, chưa cần đếm từng ${label}.</div></div>`;
+                visual = `<div class="w-full"><div class="text-xl md:text-xl font-black text-purple-700 mb-3 text-center">Nhìn nhanh rồi ước lượng nhé!</div><div class="mx-auto space-y-1.5 md:space-y-2">${rows.map((count,ri)=>`<div class="flex justify-center gap-1.5 flex-wrap" aria-label="hàng ${ri+1}">${Array.from({length:count},()=>`<span class="text-xl md:text-2xl">${emoji}</span>`).join('')}</div>`).join('')}</div><div class="mt-3 text-xl md:text-xl font-bold leading-snug text-slate-500 text-center">Nhìn theo từng nhóm chục, chưa cần đếm từng ${label}.</div></div>`;
                 return { prompt, visual, layout: 'estimate_split' };
             }
             case 'round_estimate': {
@@ -4239,12 +4239,12 @@ function getExploreMathPresentation(q) {
                 const step = Number(vd.step || (unit === 'trăm' ? 100 : 10));
                 const low = Math.floor(n / step) * step;
                 const high = low + step;
-                visual = card(`<div class="text-sm md:text-base font-black text-slate-500 mb-2">Số cần ước lượng</div><div class="text-6xl md:text-7xl font-black text-purple-700">${n}</div><div class="mt-4 flex items-center justify-center gap-3"><span class="px-4 py-2 rounded-2xl bg-pink-50 border-2 border-pink-200 text-xl font-black text-pink-700">${low}</span><span class="text-xl font-black text-slate-400">← gần số tròn ${unit} nào? →</span><span class="px-4 py-2 rounded-2xl bg-emerald-50 border-2 border-emerald-200 text-xl font-black text-emerald-700">${high}</span></div>`);
+                visual = card(`<div class="text-xl md:text-xl font-black text-slate-500 mb-2">Số cần ước lượng</div><div class="text-6xl md:text-7xl font-black text-purple-700">${n}</div><div class="mt-4 flex items-center justify-center gap-3"><span class="px-4 py-2 rounded-2xl bg-pink-50 border-2 border-pink-200 text-xl font-black text-pink-700">${low}</span><span class="text-xl font-black text-slate-400">← gần số tròn ${unit} nào? →</span><span class="px-4 py-2 rounded-2xl bg-emerald-50 border-2 border-emerald-200 text-xl font-black text-emerald-700">${high}</span></div>`);
                 break;
             }
             case 'reverse_decompose': {
                 prompt = raw;
-                visual = card(`<div class="text-6xl md:text-7xl font-black text-purple-700">${vd.number}</div><div class="mt-2 text-sm md:text-base font-black text-pink-500">Con hãy tách số theo đúng giá trị hàng</div>`);
+                visual = card(`<div class="text-6xl md:text-7xl font-black text-purple-700">${vd.number}</div><div class="mt-2 text-xl md:text-xl font-black text-pink-500">Con hãy tách số theo đúng giá trị hàng</div>`);
                 break;
             }
             case 'constraint_number': {
@@ -4272,18 +4272,18 @@ function getExploreMathPresentation(q) {
                 prompt = `Bé ơi, hãy tìm số liền ${relation} của ${focus} nhé!`;
                 promptHtml = `Bé ơi, hãy tìm số liền <span class="text-rose-600 font-black">${relation}</span> của ${focus} nhé!`;
                 const vals=[]; for(let n=min;n<=max;n++) vals.push(n);
-                visual = card(`<div class="flex items-center justify-center overflow-hidden">${vals.map((x,i)=>`<span class="w-11 h-11 rounded-full flex items-center justify-center font-black text-base md:text-lg ${x===focus?'bg-pink-500 text-white ring-4 ring-pink-100':'bg-white border-2 border-purple-200 text-purple-700'}">${x}</span>${i<vals.length-1?'<i class="w-5 md:w-8 h-[3px] bg-purple-200"></i>':''}`).join('')}</div><div data-neighbor-rule-feedback class="hidden mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 px-4 py-2 text-xl md:text-2xl font-black text-emerald-700">${answer} = ${focus} ${sign} 1</div>`);
+                visual = card(`<div class="flex items-center justify-center overflow-hidden">${vals.map((x,i)=>`<span class="w-11 h-11 rounded-full flex items-center justify-center font-black text-xl md:text-xl ${x===focus?'bg-pink-500 text-white ring-4 ring-pink-100':'bg-white border-2 border-purple-200 text-purple-700'}">${x}</span>${i<vals.length-1?'<i class="w-5 md:w-8 h-[3px] bg-purple-200"></i>':''}`).join('')}</div><div data-neighbor-rule-feedback class="hidden mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 px-4 py-2 text-xl md:text-2xl font-black text-emerald-700">${answer} = ${focus} ${sign} 1</div>`);
                 break;
             }
             case 'compare_pair': {
                 prompt = 'Bé ơi, hãy chọn dấu đúng nhé!';
-                visual = card(`<div class="math-compare-expression"><span class="math-compare-number math-compare-left">${escapeHtml(vd.left)}</span><span class="math-compare-question-mark">?</span><span class="math-compare-number math-compare-right">${escapeHtml(vd.right)}</span></div><div class="mt-3 text-sm md:text-base font-black text-slate-500">${Number(vd.digits) === 3 ? 'So sánh hàng trăm → hàng chục → hàng đơn vị.' : 'So sánh hàng chục trước, rồi đến hàng đơn vị.'}</div>`);
+                visual = card(`<div class="math-compare-expression"><span class="math-compare-number math-compare-left">${escapeHtml(vd.left)}</span><span class="math-compare-question-mark">?</span><span class="math-compare-number math-compare-right">${escapeHtml(vd.right)}</span></div><div class="mt-3 text-xl md:text-xl font-black text-slate-500">${Number(vd.digits) === 3 ? 'So sánh hàng trăm → hàng chục → hàng đơn vị.' : 'So sánh hàng chục trước, rồi đến hàng đơn vị.'}</div>`);
                 break;
             }
             case 'compare_reasoning_sign': {
                 const descriptor = String(vd.descriptor || 'Số cần tìm').trim();
                 prompt = 'Bé ơi, hãy chọn dấu đúng nhé!';
-                visual = card(`<div class="math-compare-expression math-compare-expression--descriptor"><span class="math-compare-descriptor math-compare-left">${escapeHtml(descriptor)}</span><span class="math-compare-question-mark">?</span><span class="math-compare-number math-compare-right">${escapeHtml(vd.right)}</span></div><div class="mt-3 text-sm md:text-base font-black text-slate-500">Tìm giá trị vế chữ trước, rồi so sánh hai số.</div>`);
+                visual = card(`<div class="math-compare-expression math-compare-expression--descriptor"><span class="math-compare-descriptor math-compare-left">${escapeHtml(descriptor)}</span><span class="math-compare-question-mark">?</span><span class="math-compare-number math-compare-right">${escapeHtml(vd.right)}</span></div><div class="mt-3 text-xl md:text-xl font-black text-slate-500">Tìm giá trị vế chữ trước, rồi so sánh hai số.</div>`);
                 break;
             }
             case 'between_number': {
@@ -4296,23 +4296,23 @@ function getExploreMathPresentation(q) {
                 const seq = Array.isArray(vd.sequence) ? vd.sequence : [];
                 const isEmojiPattern = String(vd.kind || '') === 'emoji';
                 if (isEmojiPattern) {
-                    visual = card(`<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">${seq.map((x)=>`<span class="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500 text-2xl':'bg-white border-2 border-purple-200 text-3xl md:text-4xl'}">${x===null?'?':x}</span>`).join('')}</div><div class="mt-3 text-xs md:text-sm font-bold text-slate-500">Nhìn mẫu lặp lại rồi chọn emoji còn thiếu nhé!</div>`);
+                    visual = card(`<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">${seq.map((x)=>`<span class="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500 text-2xl':'bg-white border-2 border-purple-200 text-3xl md:text-4xl'}">${x===null?'?':x}</span>`).join('')}</div><div class="mt-3 text-xl md:text-xl font-bold text-slate-500">Nhìn mẫu lặp lại rồi chọn emoji còn thiếu nhé!</div>`);
                 } else {
                     const dir = String(vd.direction || 'asc') === 'desc' ? 'giảm' : 'tăng';
-                    visual = card(`<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">${seq.map((x,i)=>`<span class="min-w-[58px] h-14 px-3 rounded-2xl flex items-center justify-center font-black text-xl md:text-2xl ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500':'bg-white border-2 border-purple-200 text-purple-700'}">${x===null?'?':x}</span>${i<seq.length-1?'<span class="text-xl font-black text-purple-300">→</span>':''}`).join('')}</div><div class="mt-3 text-xs md:text-sm font-bold text-slate-500">Dãy số ${dir} theo một quy luật đều. Con hãy tìm số còn thiếu nhé!</div>`);
+                    visual = card(`<div class="flex flex-wrap items-center justify-center gap-2 md:gap-3">${seq.map((x,i)=>`<span class="min-w-[58px] h-14 px-3 rounded-2xl flex items-center justify-center font-black text-xl md:text-2xl ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500':'bg-white border-2 border-purple-200 text-purple-700'}">${x===null?'?':x}</span>${i<seq.length-1?'<span class="text-xl font-black text-purple-300">→</span>':''}`).join('')}</div><div class="mt-3 text-xl md:text-xl font-bold text-slate-500">Dãy số ${dir} theo một quy luật đều. Con hãy tìm số còn thiếu nhé!</div>`);
                 }
                 break;
             }
             case 'number_line_missing': {
                 prompt = raw;
                 const seq=Array.isArray(vd.sequence)?vd.sequence:[];
-                visual = card(`<div class="flex items-center justify-center overflow-hidden">${seq.map((x,i)=>`<span class="w-12 h-12 rounded-full flex items-center justify-center font-black text-lg ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500':'bg-white border-2 border-purple-200 text-purple-700'}">${x===null?'?':x}</span>${i<seq.length-1?'<i class="w-6 md:w-9 h-[3px] bg-purple-200"></i>':''}`).join('')}</div>`);
+                visual = card(`<div class="flex items-center justify-center overflow-hidden">${seq.map((x,i)=>`<span class="w-12 h-12 rounded-full flex items-center justify-center font-black text-xl ${x===null?'bg-pink-50 border-2 border-dashed border-pink-400 text-pink-500':'bg-white border-2 border-purple-200 text-purple-700'}">${x===null?'?':x}</span>${i<seq.length-1?'<i class="w-6 md:w-9 h-[3px] bg-purple-200"></i>':''}`).join('')}</div>`);
                 break;
             }
             case 'order_numbers': {
                 prompt = raw;
                 const vals=Array.isArray(vd.numbers)?vd.numbers:[];
-                visual = card(`<div class="flex flex-wrap justify-center gap-3">${seededShuffle(vals).map(n=>`<span class="px-5 py-3 rounded-2xl bg-white border-2 border-purple-200 text-3xl font-black text-purple-700">${n}</span>`).join('')}</div><div class="mt-3 text-sm md:text-base font-black text-slate-500">Con hãy so sánh từ hàng lớn nhất trước nhé!</div>`);
+                visual = card(`<div class="flex flex-wrap justify-center gap-3">${seededShuffle(vals).map(n=>`<span class="px-5 py-3 rounded-2xl bg-white border-2 border-purple-200 text-3xl font-black text-purple-700">${n}</span>`).join('')}</div><div class="mt-3 text-xl md:text-xl font-black text-slate-500">Con hãy so sánh từ hàng lớn nhất trước nhé!</div>`);
                 break;
             }
             case 'range_reasoning': {
@@ -4324,7 +4324,7 @@ function getExploreMathPresentation(q) {
             case 'place_value_compare': {
                 prompt = raw;
                 const vals=Array.isArray(vd.numbers)?vd.numbers:[];
-                visual = card(`<div class="flex flex-wrap justify-center gap-3">${vals.map(n=>`<span class="px-5 py-3 rounded-2xl bg-white border-2 border-purple-200 text-3xl font-black text-purple-700">${n}</span>`).join('')}</div><div class="mt-3 text-sm md:text-base font-black text-pink-500">Mẹo: so sánh hàng trăm → hàng chục → hàng đơn vị.</div>`);
+                visual = card(`<div class="flex flex-wrap justify-center gap-3">${vals.map(n=>`<span class="px-5 py-3 rounded-2xl bg-white border-2 border-purple-200 text-3xl font-black text-purple-700">${n}</span>`).join('')}</div><div class="mt-3 text-xl md:text-xl font-black text-pink-500">Mẹo: so sánh hàng trăm → hàng chục → hàng đơn vị.</div>`);
                 break;
             }
         }
@@ -4373,20 +4373,20 @@ function getExploreMathPresentation(q) {
                 <div class="math-operation-terms-equation">
                     <div class="flex flex-col items-center">
                         <span class="math-operation-terms-value text-4xl leading-none font-black ${termClass(meta.left)}">${escapeHtml(meta.left)}</span>
-                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-lg md:text-xl font-black text-pink-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[0])}</span>
+                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-pink-200 bg-pink-50 px-3 py-1.5 text-xl md:text-xl font-black text-pink-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[0])}</span>
                     </div>
                     <span class="math-operation-terms-symbol text-pink-500">${meta.op}</span>
                     <div class="flex flex-col items-center">
                         <span class="math-operation-terms-value text-4xl leading-none font-black ${termClass(meta.right)}">${escapeHtml(meta.right)}</span>
-                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-purple-200 bg-purple-50 px-3 py-1.5 text-lg md:text-xl font-black text-purple-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[1])}</span>
+                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-purple-200 bg-purple-50 px-3 py-1.5 text-xl md:text-xl font-black text-purple-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[1])}</span>
                     </div>
                     <span class="math-operation-terms-symbol text-purple-400">=</span>
                     <div class="flex flex-col items-center">
                         <span class="math-operation-terms-value text-4xl leading-none font-black ${termClass(meta.result)}">${escapeHtml(meta.result)}</span>
-                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-lg md:text-xl font-black text-emerald-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[2])}</span>
+                        <span data-operation-term-label class="hidden mt-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xl md:text-xl font-black text-emerald-700 whitespace-nowrap leading-none">${escapeHtml(meta.labels[2])}</span>
                     </div>
                 </div>
-                <div data-operation-terms-summary class="hidden mt-3 text-base md:text-lg font-extrabold text-slate-500 leading-snug">
+                <div data-operation-terms-summary class="hidden mt-3 text-xl md:text-xl font-extrabold text-slate-500 leading-snug">
                     ${meta.op === '+'
                         ? `${escapeHtml(meta.left)} và ${escapeHtml(meta.right)} là <span class="text-pink-600">số hạng</span>; ${escapeHtml(meta.result)} là <span class="text-emerald-600">tổng</span>.`
                         : `${escapeHtml(meta.left)} là <span class="text-pink-600">số bị trừ</span>; ${escapeHtml(meta.right)} là <span class="text-purple-600">số trừ</span>; ${escapeHtml(meta.result)} là <span class="text-emerald-600">hiệu</span>.`}
@@ -4463,8 +4463,8 @@ function renderOrderInteractiveQuestion_(q) {
         <div class="w-full max-w-4xl rounded-3xl border-2 border-pink-200 bg-gradient-to-br from-white via-pink-50/65 to-purple-50/65 shadow-sm px-4 py-4 md:px-6 md:py-5">
             <div class="flex items-start justify-between gap-3 mb-2">
                 <div class="text-left">
-                    <div class="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs md:text-sm font-black text-amber-700">🧩 SẮP XẾP DÃY SỐ</div>
-                    <h3 class="mt-2 text-lg md:text-xl font-black text-purple-800 leading-snug">Bé hãy chọn lần lượt để xếp ${dirLabel} nhé!</h3>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xl md:text-xl font-black text-amber-700">🧩 SẮP XẾP DÃY SỐ</div>
+                    <h3 class="mt-2 text-xl md:text-xl font-black text-purple-800 leading-snug">Bé hãy chọn lần lượt để xếp ${dirLabel} nhé!</h3>
                 </div>
                 <button onclick="speakCurrentQuestion()" class="shrink-0 w-9 h-9 md:w-10 md:h-10 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                     <i class="fa-solid fa-volume-high text-pink-600 text-sm md:text-base"></i>
@@ -4472,16 +4472,16 @@ function renderOrderInteractiveQuestion_(q) {
             </div>
 
             <div class="mt-3 rounded-2xl border-2 border-purple-100 bg-white/75 p-3 md:p-4">
-                <div class="text-xs md:text-sm font-black text-slate-500 mb-2">Dãy số bé đang xếp</div>
+                <div class="text-xl md:text-xl font-black text-slate-500 mb-2">Dãy số bé đang xếp</div>
                 <div id="order-selected-row" class="flex items-center justify-center gap-1.5 md:gap-2 min-h-[62px]"></div>
             </div>
 
-            <div class="mt-3 text-sm md:text-base font-extrabold text-slate-500">Chạm vào từng số. Số được chọn sẽ nhảy lên trên.</div>
+            <div class="mt-3 text-xl md:text-xl font-extrabold text-slate-500">Chạm vào từng số. Số được chọn sẽ nhảy lên trên.</div>
             <div id="order-available-row" class="grid grid-cols-5 gap-2 md:gap-3 mt-3"></div>
 
             <div class="mt-3 min-h-[34px] flex items-center justify-center gap-3">
-                <button onclick="resetOrderInteractiveCurrent_()" class="px-3 py-1.5 rounded-xl border border-purple-200 bg-white text-purple-700 text-xs md:text-sm font-black pastel-btn">↶ Làm lại</button>
-                <span id="order-feedback" class="text-sm md:text-base font-black"></span>
+                <button onclick="resetOrderInteractiveCurrent_()" class="px-3 py-1.5 rounded-xl border border-purple-200 bg-white text-purple-700 text-xl md:text-xl font-black pastel-btn">↶ Làm lại</button>
+                <span id="order-feedback" class="text-xl md:text-xl font-black"></span>
             </div>
         </div>`;
 }
@@ -4502,7 +4502,7 @@ function renderOrderInteractiveState_() {
     for (let i = 0; i < total; i++) {
         const value = state.selected[i];
         slots.push(`<span class="w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center border-2 ${value !== undefined ? 'border-fuchsia-300 bg-fuchsia-50 text-fuchsia-700' : 'border-dashed border-purple-200 bg-white text-purple-200'} text-xl md:text-2xl font-black shadow-xs">${value !== undefined ? value : '•'}</span>`);
-        if (i < total - 1) slots.push(`<span class="text-lg md:text-xl font-black text-purple-300">${symbol}</span>`);
+        if (i < total - 1) slots.push(`<span class="text-xl md:text-xl font-black text-purple-300">${symbol}</span>`);
     }
     selectedRow.innerHTML = slots.join('');
 
@@ -4513,7 +4513,7 @@ function renderOrderInteractiveState_() {
         </button>`).join('');
 
     if (feedback) {
-        feedback.className = `text-sm md:text-base font-black ${state.feedback?.type === 'ok' ? 'text-emerald-600' : state.feedback?.type === 'bad' ? 'text-rose-600' : 'text-slate-500'}`;
+        feedback.className = `text-xl md:text-xl font-black ${state.feedback?.type === 'ok' ? 'text-emerald-600' : state.feedback?.type === 'bad' ? 'text-rose-600' : 'text-slate-500'}`;
         feedback.textContent = state.feedback?.text || '';
     }
 }
@@ -4639,9 +4639,9 @@ function renderReviewTaskBody_(meta, st) {
     if (meta.type === 'number') {
         const unit = String(meta.unit || '').trim();
         return `<div class="flex flex-wrap gap-3 justify-center items-center py-4">
-            <label class="font-extrabold text-purple-800 text-base" for="review-value-input">Đáp án của con:</label>
+            <label class="font-extrabold text-purple-800 text-xl" for="review-value-input">Đáp án của con:</label>
             <input id="review-value-input" data-review-field="value" aria-label="Nhập đáp án" value="${escapeHtml(st.fields.value || '')}" inputmode="numeric" autocomplete="off" maxlength="6" class="w-32 h-14 rounded-2xl bg-white border-2 border-violet-300 focus:border-pink-500 focus:outline-none text-center font-black text-2xl text-purple-800 shadow-sm" />
-            ${unit ? `<strong class="text-lg text-purple-700">${escapeHtml(unit)}</strong>` : ''}
+            ${unit ? `<strong class="text-xl text-purple-700">${escapeHtml(unit)}</strong>` : ''}
         </div>`;
     }
     if (meta.type === 'column') {
@@ -4658,31 +4658,31 @@ function renderReviewTaskBody_(meta, st) {
                 <div class="border-t-4 border-purple-500 my-2"></div>
                 <div class="flex justify-end gap-1.5">${cells}</div>
             </div>
-            <p class="text-center text-xs sm:text-sm text-slate-500 font-bold mt-2">Viết từng chữ số kết quả đúng cột hàng.</p>
+            <p class="text-center text-xl sm:text-xl text-slate-500 font-bold mt-2">Viết từng chữ số kết quả đúng cột hàng.</p>
         </div>`;
     }
     if (meta.type === 'solution') {
         const opValue = String(st.fields.operator || '');
         const opItems = [['+','+'],['-','−'],['*','×'],['/',':']];
         return `<div class="rounded-2xl border border-pink-200 bg-white/85 px-3 sm:px-5 py-4 space-y-3">
-            <p class="font-extrabold text-purple-800 text-sm sm:text-base">✍️ Bài giải — con tự lập phép tính và viết kết quả:</p>
+            <p class="font-extrabold text-purple-800 text-xl sm:text-xl">✍️ Bài giải — con tự lập phép tính và viết kết quả:</p>
             <div class="flex items-center justify-center gap-1.5 sm:gap-3 flex-wrap">
                 ${reviewTaskInput_('a','Số thứ nhất',st.fields.a || '')}
                 <select data-review-field="operator" aria-label="Chọn phép tính" class="w-16 h-12 rounded-xl border-2 border-violet-200 bg-white text-center text-xl font-black text-purple-800 focus:border-pink-500">${[['','?'],...opItems].map(([key,label])=>`<option value="${key}" ${opValue===key?'selected':''}>${label}</option>`).join('')}</select>
                 ${reviewTaskInput_('b','Số thứ hai',st.fields.b || '')}
                 <span class="font-black text-xl text-purple-700">=</span>
                 ${reviewTaskInput_('result','Kết quả',st.fields.result || '')}
-                ${meta.unit ? `<span class="font-black text-base text-purple-700">${escapeHtml(meta.unit)}</span>` : ''}
+                ${meta.unit ? `<span class="font-black text-xl text-purple-700">${escapeHtml(meta.unit)}</span>` : ''}
             </div>
-            <p class="text-xs sm:text-sm text-slate-500 font-bold text-center">Đọc đề, chọn phép tính rồi nhập cả hai số và đáp số. Phép cộng/nhân có thể đổi thứ tự các số.</p>
+            <p class="text-xl sm:text-xl text-slate-500 font-bold text-center">Đọc đề, chọn phép tính rồi nhập cả hai số và đáp số. Phép cộng/nhân có thể đổi thứ tự các số.</p>
         </div>`;
     }
     if (meta.type === 'order') {
         return `<div class="py-3">
-            <p class="text-sm text-purple-800 font-extrabold mb-2">🧩 Chạm vào từng thẻ số theo thứ tự, hoặc kéo thả vào ô trống:</p>
+            <p class="text-xl text-purple-800 font-extrabold mb-2">🧩 Chạm vào từng thẻ số theo thứ tự, hoặc kéo thả vào ô trống:</p>
             <div id="review-order-target" class="rounded-2xl border-2 border-dashed border-purple-300 bg-white/80 min-h-[72px] p-3 flex flex-wrap items-center justify-center gap-2" aria-label="Vùng thả thẻ số"></div>
             <div id="review-order-pool" class="flex flex-wrap items-center justify-center gap-2 mt-3"></div>
-            <button type="button" id="review-order-undo" class="mt-3 text-sm font-black text-purple-700 border border-purple-200 rounded-xl bg-purple-50 px-3 py-2">↶ Bỏ số cuối</button>
+            <button type="button" id="review-order-undo" class="mt-3 text-xl font-black text-purple-700 border border-purple-200 rounded-xl bg-purple-50 px-3 py-2">↶ Bỏ số cuối</button>
         </div>`;
     }
     if (meta.type === 'ruler') {
@@ -4693,7 +4693,7 @@ function renderReviewTaskBody_(meta, st) {
             return `<line x1="${x}" x2="${x}" y1="${y+5}" y2="${y+21}" stroke="#a78bfa" stroke-width="2"/><text x="${x}" y="${y+43}" text-anchor="middle" fill="#6d28d9" font-size="${max>17?'13':'15'}" font-weight="700">${i}</text>`;
         }).join('');
         return `<div class="py-2">
-            <p class="text-sm text-purple-800 font-extrabold mb-2">📏 Kéo ngón tay/chuột trên thước để <strong>vẽ đoạn thẳng bằng tổng độ dài cần tìm</strong>.</p>
+            <p class="text-xl text-purple-800 font-extrabold mb-2">📏 Kéo ngón tay/chuột trên thước để <strong>vẽ đoạn thẳng bằng tổng độ dài cần tìm</strong>.</p>
             <svg id="review-ruler-svg" viewBox="0 0 780 172" width="100%" role="img" aria-label="Thước kẻ để vẽ đoạn thẳng" style="touch-action:none;max-width:780px;cursor:crosshair;background:#fff;border-radius:18px;border:2px solid #e9d5ff">
                 <rect x="${x0-16}" y="${y-8}" width="${x1-x0+32}" height="41" rx="9" fill="#f5f3ff" />
                 <line x1="${x0}" x2="${x1}" y1="${y}" y2="${y}" stroke="#a78bfa" stroke-width="3"/>
@@ -4701,8 +4701,8 @@ function renderReviewTaskBody_(meta, st) {
                 <line id="review-ruler-line" x1="${x0}" x2="${x0}" y1="48" y2="48" stroke="#e11d48" stroke-width="8" stroke-linecap="round"/>
                 <circle id="review-ruler-end" cx="${x0}" cy="48" r="11" fill="#e11d48" stroke="white" stroke-width="3" />
                 <circle cx="${x0}" cy="48" r="8" fill="#e11d48" />
-                <text x="${x0}" y="25" text-anchor="middle" font-size="16" font-weight="900" fill="#be123c">A</text>
-                <text id="review-ruler-letter" x="${x0}" y="25" text-anchor="middle" font-size="16" font-weight="900" fill="#be123c"></text>
+                <text x="${x0}" y="25" text-anchor="middle" font-size="20" font-weight="900" fill="#be123c">A</text>
+                <text id="review-ruler-letter" x="${x0}" y="25" text-anchor="middle" font-size="20" font-weight="900" fill="#be123c"></text>
             </svg>
             <p id="review-ruler-value" class="mt-2 font-black text-center text-purple-700" aria-live="polite">Con chưa vẽ đoạn thẳng.</p>
         </div>`;
@@ -4710,10 +4710,10 @@ function renderReviewTaskBody_(meta, st) {
     if (meta.type === 'connect_shape') {
         const points = meta.count===3 ? [[75,208],[218,48],[365,208]] : [[66,62],[345,62],[368,211],[52,211]];
         return `<div class="py-2">
-            <p class="text-sm text-purple-800 font-extrabold mb-2">📐 Chạm lần lượt các điểm <strong>${points.map((_,i)=>String.fromCharCode(65+i)).join(' → ')}</strong> để vẽ rồi khép kín hình.</p>
+            <p class="text-xl text-purple-800 font-extrabold mb-2">📐 Chạm lần lượt các điểm <strong>${points.map((_,i)=>String.fromCharCode(65+i)).join(' → ')}</strong> để vẽ rồi khép kín hình.</p>
             <svg id="review-shape-svg" viewBox="0 0 430 260" role="img" aria-label="Vùng nối các điểm tạo hình" style="width:100%;max-width:450px;background:#fff;border:2px solid #e9d5ff;border-radius:18px;touch-action:manipulation">
                 <path id="review-shape-path" fill="rgba(192,132,252,.15)" stroke="#e11d48" stroke-linejoin="round" stroke-width="6" />
-                ${points.map(([x,y],i)=>`<g data-review-vertex="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="25" fill="#fae8ff" stroke="#a855f7" stroke-width="2"/><circle cx="${x}" cy="${y}" r="8" fill="#a21caf"/><text x="${x}" y="${y-32}" text-anchor="middle" font-size="18" font-weight="900" fill="#6b21a8">${String.fromCharCode(65+i)}</text></g>`).join('')}
+                ${points.map(([x,y],i)=>`<g data-review-vertex="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="25" fill="#fae8ff" stroke="#a855f7" stroke-width="2"/><circle cx="${x}" cy="${y}" r="8" fill="#a21caf"/><text x="${x}" y="${y-32}" text-anchor="middle" font-size="20" font-weight="900" fill="#6b21a8">${String.fromCharCode(65+i)}</text></g>`).join('')}
             </svg>
             <p id="review-shape-progress" class="mt-2 font-black text-center text-purple-700" aria-live="polite">Con hãy bắt đầu từ điểm A.</p>
         </div>`;
@@ -4735,17 +4735,17 @@ function renderReviewInteractiveQuestion_(q, meta) {
     const card = questionBox.closest('.pastel-card'); if (card) card.style.minHeight = '';
     questionBox.innerHTML = `<div id="review-active-task" class="w-full max-w-4xl rounded-3xl border-2 border-purple-200 bg-gradient-to-br from-white via-pink-50/55 to-violet-50/75 p-3 sm:p-5 shadow-sm text-center">
         <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-            <span class="rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1.5 text-xs sm:text-sm font-black">${icon} ${name}</span>
-            <button type="button" id="review-speak-button" class="rounded-xl border border-pink-200 bg-pink-50 text-pink-700 px-3 py-2 font-extrabold text-xs sm:text-sm"><i class="fa-solid fa-volume-high text-pink-600"></i> Nghe câu hỏi</button>
+            <span class="rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-3 py-1.5 text-xl sm:text-xl font-black">${icon} ${name}</span>
+            <button type="button" id="review-speak-button" class="rounded-xl border border-pink-200 bg-pink-50 text-pink-700 px-3 py-2 font-extrabold text-xl sm:text-xl"><i class="fa-solid fa-volume-high text-pink-600"></i> Nghe câu hỏi</button>
         </div>
-        <h3 class="text-base sm:text-lg md:text-xl font-black text-slate-900 leading-snug">${escapeHtml(q.question_text)}</h3>
+        <h3 class="text-xl sm:text-xl md:text-xl font-black text-slate-900 leading-snug">${escapeHtml(q.question_text)}</h3>
         <div id="review-task-body" class="mt-4">${renderReviewTaskBody_(meta,st)}</div>
         <div class="flex flex-wrap gap-2 justify-center mt-3">
             <button type="button" id="review-check-button" class="rounded-2xl px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-black shadow-sm hover:shadow-md">✓ Kiểm tra</button>
             <button type="button" id="review-clear-button" class="rounded-2xl border border-purple-200 bg-white text-purple-700 px-4 py-3 font-extrabold">↶ Làm lại</button>
         </div>
-        <div id="review-feedback" role="status" aria-live="polite" class="min-h-[28px] text-sm sm:text-base font-extrabold mt-3"></div>
-        <div id="review-explanation" class="hidden mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 text-left text-sm sm:text-base font-bold text-emerald-900"></div>
+        <div id="review-feedback" role="status" aria-live="polite" class="min-h-[28px] text-xl sm:text-xl font-extrabold mt-3"></div>
+        <div id="review-explanation" class="hidden mt-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 text-left text-xl sm:text-xl font-bold text-emerald-900"></div>
     </div>`;
     initializeReviewTaskEvents_(q,meta,st);
     updateReviewInteractionUI_(q,meta,st);
@@ -4764,7 +4764,7 @@ function updateReviewInteractionUI_(q,meta,st) {
     const feedback = host.querySelector('#review-feedback');
     if (feedback) {
         feedback.textContent=finished ? '🎉 Chính xác! Bé đã tự làm được bài này!' : (st.feedback?.text || '');
-        feedback.className=`min-h-[28px] text-sm sm:text-base font-extrabold mt-3 ${finished?'text-emerald-700':st.feedback?.error?'text-rose-600':'text-purple-700'}`;
+        feedback.className=`min-h-[28px] text-xl sm:text-xl font-extrabold mt-3 ${finished?'text-emerald-700':st.feedback?.error?'text-rose-600':'text-purple-700'}`;
     }
     const explain=host.querySelector('#review-explanation');
     if (explain) {
@@ -5012,13 +5012,13 @@ function loadQuestion() {
     const useTwoColumns = isPoemLike;
     const passageHtml = pText ? `
         <div class="w-full max-w-3xl bg-pink-50/70 border-2 border-pink-200 rounded-2xl p-3 mb-1.5 text-left shadow-xs">
-            ${pTitle ? `<p class="font-black text-pink-700 text-sm md:text-base mb-1">${escapeHtml(pTitle)}</p>` : ''}
-            <p class="text-gray-800 text-base md:text-lg font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${escapeHtml(pText)}</p>
+            ${pTitle ? `<p class="font-black text-pink-700 text-xl md:text-xl mb-1">${escapeHtml(pTitle)}</p>` : ''}
+            <p class="text-gray-800 text-xl md:text-xl font-bold whitespace-pre-line leading-relaxed ${useTwoColumns ? 'md:columns-2 md:gap-6' : ''}">${escapeHtml(pText)}</p>
         </div>` : '';
 
     const practiceSpeakerBtnHtml = !isEvaluationMode && !isNumberCompose && !isFindNumber && !exploreMath?.inlineSpeaker ? `
         <div class="flex items-center justify-center mt-1 mb-1">
-            <button onclick="speakCurrentQuestion()" class="px-4 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-2xl text-xs md:text-sm font-extrabold flex items-center space-x-1.5 pastel-btn shadow-xs">
+            <button onclick="speakCurrentQuestion()" class="px-4 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-2xl text-xl md:text-xl font-extrabold flex items-center space-x-1.5 pastel-btn shadow-xs">
                 <i class="fa-solid fa-volume-high text-pink-600"></i>
                 <span>Nghe câu hỏi</span>
             </button>
@@ -5050,7 +5050,7 @@ function loadQuestion() {
                 <div class="text-3xl md:text-4xl mb-1.5 space-x-2">
                     <span>🎧</span><span>👂</span><span>🔢</span>
                 </div>
-                <p class="text-sm md:text-base lg:text-lg font-black text-rose-600 leading-snug">${escapeHtml(q.question_text)}</p>
+                <p class="text-xl md:text-xl lg:text-xl font-black text-rose-600 leading-snug">${escapeHtml(q.question_text)}</p>
                 ${practiceSpeakerBtnHtml}
             </div>
 
@@ -5058,7 +5058,7 @@ function loadQuestion() {
         `;
         q.options.forEach(opt => {
             html += `
-                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-w-[140px] px-6 py-3 bg-white hover:bg-emerald-50 border-2 border-emerald-400 rounded-full font-black text-emerald-700 text-base md:text-lg transition-all pastel-btn shadow-xs">
+                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-w-[140px] px-6 py-3 bg-white hover:bg-emerald-50 border-2 border-emerald-400 rounded-full font-black text-emerald-700 text-xl md:text-xl transition-all pastel-btn shadow-xs">
                     ${escapeHtml(opt)}
                 </button>`;
         });
@@ -5067,7 +5067,7 @@ function loadQuestion() {
             html += `
                 <div class="mt-4 inline-flex items-center space-x-1.5 bg-pink-50 border border-pink-200 rounded-full px-3.5 py-1.5">
                     <span>🐰</span>
-                    <span class="text-xs md:text-sm font-extrabold text-rose-600">${escapeHtml(q.mascot_text)}</span>
+                    <span class="text-xl md:text-xl font-extrabold text-rose-600">${escapeHtml(q.mascot_text)}</span>
                 </div>`;
         }
     } else if (exploreMath?.layout === 'geometry_split') {
@@ -5083,7 +5083,7 @@ function loadQuestion() {
                 </div>
                 <div class="min-w-0 flex flex-col justify-center rounded-3xl border-2 border-orange-100 bg-white/90 px-4 py-4 md:px-5 md:py-5">
                     <div class="flex items-start justify-between gap-3 mb-4">
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-black leading-snug text-slate-900 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
+                        <h3 class="text-xl md:text-xl lg:text-2xl font-black leading-snug text-slate-900 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
                         <button onclick="speakCurrentQuestion()" class="shrink-0 w-10 h-10 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                             <i class="fa-solid fa-volume-high text-pink-600"></i>
                         </button>
@@ -5092,7 +5092,7 @@ function loadQuestion() {
         q.options.forEach((opt, idx) => {
             const formattedOpt = capitalizeFirstLetter(opt);
             const letter = String.fromCharCode(65 + idx);
-            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[70px] w-full px-3 py-3 bg-white hover:bg-amber-50 border-2 border-amber-200 rounded-2xl font-black text-slate-800 text-left text-base md:text-lg transition-all flex items-center gap-2 shadow-xs pastel-btn"><strong class="text-rose-600">${letter}.</strong><span class="flex-1">${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-base md:text-lg"></span></button>`;
+            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[70px] w-full px-3 py-3 bg-white hover:bg-amber-50 border-2 border-amber-200 rounded-2xl font-black text-slate-800 text-left text-xl md:text-xl transition-all flex items-center gap-2 shadow-xs pastel-btn"><strong class="text-rose-600">${letter}.</strong><span class="flex-1">${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-base md:text-lg"></span></button>`;
         });
         html += `</div></div></div></div>`;
     } else if (exploreMath?.layout === 'measure_split') {
@@ -5108,7 +5108,7 @@ function loadQuestion() {
                 </div>
                 <div class="min-w-0 flex flex-col justify-center rounded-3xl border-2 border-purple-100 bg-white/85 px-4 py-4 md:px-5 md:py-5">
                     <div class="flex items-start justify-between gap-3 mb-4">
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-black leading-snug text-purple-800 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
+                        <h3 class="text-xl md:text-xl lg:text-2xl font-black leading-snug text-purple-800 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
                         <button onclick="speakCurrentQuestion()" class="shrink-0 w-10 h-10 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                             <i class="fa-solid fa-volume-high text-pink-600"></i>
                         </button>
@@ -5116,7 +5116,7 @@ function loadQuestion() {
                     <div class="grid grid-cols-2 gap-2.5 md:gap-3">`;
         q.options.forEach((opt) => {
             const formattedOpt = capitalizeFirstLetter(opt);
-            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[64px] w-full px-3 py-3 bg-white hover:bg-emerald-50 border-2 border-emerald-200 rounded-2xl font-black text-slate-800 text-center text-base md:text-lg transition-all flex items-center justify-center shadow-xs pastel-btn"><span>${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-base md:text-lg"></span></button>`;
+            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[64px] w-full px-3 py-3 bg-white hover:bg-emerald-50 border-2 border-emerald-200 rounded-2xl font-black text-slate-800 text-center text-xl md:text-xl transition-all flex items-center justify-center shadow-xs pastel-btn"><span>${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-base md:text-lg"></span></button>`;
         });
         html += `</div></div></div></div>`;
     } else if (exploreMath?.layout === 'unknown_number') {
@@ -5130,8 +5130,8 @@ function loadQuestion() {
                 <div class="min-w-0 order-2 md:order-1">
                     <div data-unknown-solution-placeholder class="h-full min-h-[150px] rounded-2xl border-2 border-emerald-100 bg-gradient-to-br from-emerald-50/55 to-cyan-50/45 px-4 py-4 flex flex-col items-center justify-center text-center">
                         <div class="text-3xl mb-2">🌱</div>
-                        <div class="text-base md:text-lg font-black text-emerald-700">Lời giải sẽ hiện ở đây</div>
-                        <div class="mt-1 text-xs md:text-sm font-bold text-slate-500">Bé chọn một đáp án để xem quy tắc và các bước giải.</div>
+                        <div class="text-xl md:text-xl font-black text-emerald-700">Lời giải sẽ hiện ở đây</div>
+                        <div class="mt-1 text-xl md:text-xl font-bold text-slate-500">Bé chọn một đáp án để xem quy tắc và các bước giải.</div>
                     </div>
                     ${exploreMath.solutionHtml || ''}
                 </div>
@@ -5170,7 +5170,7 @@ function loadQuestion() {
                 </div>
                 <div class="min-w-0 flex flex-col justify-center rounded-3xl border-2 border-indigo-100 bg-white/88 px-4 py-4 md:px-5 md:py-5">
                     <div class="flex items-start justify-between gap-3 mb-4">
-                        <h3 class="text-base md:text-lg lg:text-xl font-black leading-snug text-indigo-800 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
+                        <h3 class="text-xl md:text-xl lg:text-xl font-black leading-snug text-indigo-800 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
                         <button onclick="speakCurrentQuestion()" class="shrink-0 w-10 h-10 bg-cyan-50 hover:bg-cyan-100 text-cyan-700 border border-cyan-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                             <i class="fa-solid fa-volume-high text-cyan-600"></i>
                         </button>
@@ -5178,7 +5178,7 @@ function loadQuestion() {
                     <div class="grid grid-cols-2 gap-2.5 md:gap-3">`;
         q.options.forEach((opt) => {
             const formattedOpt = capitalizeFirstLetter(opt);
-            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[60px] w-full px-3 py-2.5 bg-white hover:bg-cyan-50 border-2 border-cyan-200 rounded-2xl font-black text-slate-800 text-center text-sm md:text-base transition-all flex items-center justify-center shadow-xs pastel-btn"><span>${escapeHtml(formattedOpt)}</span><span class="option-icon text-fuchsia-500 text-sm md:text-base"></span></button>`;
+            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[60px] w-full px-3 py-2.5 bg-white hover:bg-cyan-50 border-2 border-cyan-200 rounded-2xl font-black text-slate-800 text-center text-xl md:text-xl transition-all flex items-center justify-center shadow-xs pastel-btn"><span>${escapeHtml(formattedOpt)}</span><span class="option-icon text-fuchsia-500 text-sm md:text-base"></span></button>`;
         });
         html += `</div></div></div></div>`;
     } else if (isTopic911ReasoningLayout) {
@@ -5195,7 +5195,7 @@ function loadQuestion() {
                 </div>
                 <div class="min-w-0 order-1 md:order-2 rounded-2xl border-2 border-violet-100 bg-white/90 px-3 py-3 md:px-4 md:py-4 flex flex-col justify-center">
                     <div class="flex items-start justify-between gap-3">
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-black leading-snug text-slate-900 text-left">${highlightQuestionNumbers_(q.question_text)}</h3>
+                        <h3 class="text-xl md:text-xl lg:text-2xl font-black leading-snug text-slate-900 text-left">${highlightQuestionNumbers_(q.question_text)}</h3>
                         <button onclick="speakCurrentQuestion()" class="shrink-0 w-10 h-10 md:w-11 md:h-11 bg-pink-50 hover:bg-pink-100 text-pink-700 border-2 border-pink-200 rounded-xl flex items-center justify-center pastel-btn shadow-xs" title="Nghe câu hỏi" aria-label="Nghe câu hỏi">
                             <i class="fa-solid fa-volume-high text-pink-600"></i>
                         </button>
@@ -5204,8 +5204,8 @@ function loadQuestion() {
         q.options.forEach((opt, idx) => {
             const formattedOpt = capitalizeFirstLetter(opt);
             const letter = String.fromCharCode(65 + idx);
-            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[56px] md:min-h-[60px] w-full px-3 py-2.5 bg-pink-50/40 hover:bg-pink-100/70 border-2 border-pink-200 rounded-xl font-black text-slate-900 text-left text-sm md:text-base transition-all flex items-center gap-2 shadow-xs pastel-btn">
-                <strong class="shrink-0 text-rose-600 text-sm md:text-base">${letter}.</strong><span class="flex-1">${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-sm md:text-base"></span>
+            html += `<button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn min-h-[56px] md:min-h-[60px] w-full px-3 py-2.5 bg-pink-50/40 hover:bg-pink-100/70 border-2 border-pink-200 rounded-xl font-black text-slate-900 text-left text-xl md:text-xl transition-all flex items-center gap-2 shadow-xs pastel-btn">
+                <strong class="shrink-0 text-rose-600 text-xl md:text-xl">${letter}.</strong><span class="flex-1">${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-sm md:text-base"></span>
             </button>`;
         });
         html += `</div></div></div></div>`;
@@ -5221,8 +5221,8 @@ function loadQuestion() {
                 </div>
                 <div class="flex flex-col justify-center rounded-2xl border border-purple-100 bg-white/70 px-3 py-4 md:px-5 md:py-5">
                     <div class="flex items-start justify-between gap-3 mb-3">
-                        <h3 class="text-lg md:text-xl font-black leading-snug text-purple-700 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
-                        <button onclick="speakCurrentQuestion()" class="shrink-0 px-2.5 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl text-xs font-extrabold flex items-center gap-1 pastel-btn shadow-xs" title="Nghe câu hỏi">
+                        <h3 class="text-xl md:text-xl font-black leading-snug text-purple-700 text-left">${escapeHtml(exploreMath.prompt || q.question_text)}</h3>
+                        <button onclick="speakCurrentQuestion()" class="shrink-0 px-2.5 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl text-xl font-extrabold flex items-center gap-1 pastel-btn shadow-xs" title="Nghe câu hỏi">
                             <i class="fa-solid fa-volume-high text-pink-600"></i><span class="hidden lg:inline">Nghe</span>
                         </button>
                     </div>
@@ -5231,7 +5231,7 @@ function loadQuestion() {
         q.options.forEach((opt) => {
             const formattedOpt = capitalizeFirstLetter(opt);
             html += `
-                        <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-3 md:p-3.5 bg-white hover:bg-purple-50 border-2 border-purple-200 rounded-2xl font-black text-purple-800 text-center text-base md:text-lg transition-all flex items-center justify-center shadow-xs pastel-btn">
+                        <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-3 md:p-3.5 bg-white hover:bg-purple-50 border-2 border-purple-200 rounded-2xl font-black text-purple-800 text-center text-xl md:text-xl transition-all flex items-center justify-center shadow-xs pastel-btn">
                             <span>${escapeHtml(formattedOpt)}</span><span class="option-icon text-pink-500 text-base md:text-lg"></span>
                         </button>`;
         });
@@ -5244,7 +5244,7 @@ function loadQuestion() {
         ${findNumberSpeakerBtnHtml}
         ${exploreMath?.visual || ''}
         ${exploreMath?.hidePrompt ? '' : `<div class="flex flex-col items-center justify-center ${isLargeTopic8910 ? 'max-w-5xl' : 'max-w-3xl'} text-center px-2 mt-2 mb-0.5">
-            <h3 class="${isFindNumber ? 'text-base md:text-lg text-purple-700' : (exploreMath ? (isCompactTopic34 ? 'text-lg md:text-xl text-purple-700' : 'text-xl md:text-2xl lg:text-2xl text-purple-700') : (isLargeTopic8910 ? 'text-xl md:text-2xl lg:text-[28px] text-slate-900' : 'text-sm md:text-base lg:text-lg text-slate-900'))} font-black leading-snug">
+            <h3 class="${isFindNumber ? 'text-xl md:text-xl text-purple-700' : (exploreMath ? (isCompactTopic34 ? 'text-xl md:text-xl text-purple-700' : 'text-xl md:text-2xl lg:text-2xl text-purple-700') : (isLargeTopic8910 ? 'text-xl md:text-2xl lg:text-[28px] text-slate-900' : 'text-xl md:text-xl lg:text-xl text-slate-900'))} font-black leading-snug">
                 ${exploreMath?.promptHtml || (isLargeTopic8910 ? topic8910QuestionHtml : escapeHtml(exploreMath?.prompt || q.question_text))}
             </h3>
             ${practiceSpeakerBtnHtml}
@@ -5259,17 +5259,17 @@ function loadQuestion() {
 
         if (activeExamContext) {
             html += `
-                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs">
+                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-xl md:text-xl shadow-xs">
                     <div class="flex items-center space-x-2.5">
-                        <span class="opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-sm shrink-0">${letter}</span>
+                        <span class="opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-xl shrink-0">${letter}</span>
                         <span class="opt-text">${escapeHtml(formattedOpt)}</span>
                     </div>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         } else {
             html += `
-                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full ${isTopic3Vertical1000 ? 'math-1000-option' : ''} ${exploreMath ? (isNumberCompose ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isFindNumber ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isOperationTerms ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : (isCompareSignQuestion ? 'min-h-[58px] md:min-h-[64px] px-3 py-2.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-2xl md:text-3xl' : (isCarryLearning ? 'px-3 py-1.5 md:py-2 min-h-[42px] bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-base md:text-lg' : (isCompactTopic34 ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl' : 'p-3.5 md:p-4 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-lg md:text-xl')))))) : (isLargeTopic8910 ? 'p-3.5 md:p-4 min-h-[64px] bg-white hover:bg-pink-50 border-pink-200 font-black text-slate-900 text-center justify-center text-base md:text-lg lg:text-xl' : 'p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-pink-200 font-extrabold text-gray-800 text-left justify-between text-sm md:text-base')} border-2 rounded-2xl transition-all flex items-center shadow-xs pastel-btn">
-                    <span>${exploreMath ? '' : `<strong class="text-pink-600 mr-2 ${isLargeTopic8910 ? 'text-base md:text-lg' : 'text-base md:text-lg'}">${letter}.</strong>`} ${escapeHtml(formattedOpt)}</span>
+                <button data-opt="${escapeHtml(opt)}" onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn w-full ${isTopic3Vertical1000 ? 'math-1000-option' : ''} ${exploreMath ? (isNumberCompose ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl' : (isFindNumber ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl' : (isOperationTerms ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl' : (isCompareSignQuestion ? 'min-h-[58px] md:min-h-[64px] px-3 py-2.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-2xl md:text-3xl' : (isCarryLearning ? 'px-3 py-1.5 md:py-2 min-h-[42px] bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl' : (isCompactTopic34 ? 'p-3 md:p-3.5 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl' : 'p-3.5 md:p-4 bg-white hover:bg-purple-50 border-purple-200 font-black text-purple-800 text-center justify-center text-xl md:text-xl')))))) : (isLargeTopic8910 ? 'p-3.5 md:p-4 min-h-[64px] bg-white hover:bg-pink-50 border-pink-200 font-black text-slate-900 text-center justify-center text-xl md:text-xl lg:text-xl' : 'p-3 md:p-3.5 bg-pink-50/40 hover:bg-pink-100/70 border-pink-200 font-extrabold text-gray-800 text-left justify-between text-xl md:text-xl')} border-2 rounded-2xl transition-all flex items-center shadow-xs pastel-btn">
+                    <span>${exploreMath ? '' : `<strong class="text-pink-600 mr-2 ${isLargeTopic8910 ? 'text-xl md:text-xl' : 'text-xl md:text-xl'}">${letter}.</strong>`} ${escapeHtml(formattedOpt)}</span>
                     <span class="option-icon text-pink-500 text-base md:text-lg"></span>
                 </button>`;
         }
@@ -5334,12 +5334,12 @@ function restoreQuestionState(q) {
             const iconSpan = b.querySelector('.option-icon');
 
             if (completedAnswer !== undefined && bOpt === completedAnswer) {
-                b.className = "option-btn w-full p-2.5 md:p-3 bg-pink-50/30 border-2 border-pink-500 rounded-2xl font-extrabold text-gray-900 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs";
-                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-500 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs";
+                b.className = "option-btn w-full p-2.5 md:p-3 bg-pink-50/30 border-2 border-pink-500 rounded-2xl font-extrabold text-gray-900 text-left transition-all flex items-center justify-between text-xl md:text-xl shadow-xs";
+                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-500 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-xs";
                 if (iconSpan) iconSpan.innerHTML = '<i class="fa-regular fa-circle-check text-pink-600 text-lg"></i>';
             } else {
-                b.className = "option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs";
-                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-sm shrink-0";
+                b.className = "option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-xl md:text-xl shadow-xs";
+                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-xl shrink-0";
                 if (iconSpan) iconSpan.innerHTML = '';
             }
         });
@@ -5441,12 +5441,12 @@ function checkAnswer(selectedOpt) {
             const iconSpan = b.querySelector('.option-icon');
 
             if (bOpt === selectedOpt) {
-                b.className = "option-btn w-full p-2.5 md:p-3 bg-pink-50/30 border-2 border-pink-500 rounded-2xl font-extrabold text-gray-900 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs";
-                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-500 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs";
+                b.className = "option-btn w-full p-2.5 md:p-3 bg-pink-50/30 border-2 border-pink-500 rounded-2xl font-extrabold text-gray-900 text-left transition-all flex items-center justify-between text-xl md:text-xl shadow-xs";
+                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-500 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-xs";
                 if (iconSpan) iconSpan.innerHTML = '<i class="fa-regular fa-circle-check text-pink-600 text-lg"></i>';
             } else {
-                b.className = "option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-sm md:text-base shadow-xs";
-                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-sm shrink-0";
+                b.className = "option-btn w-full p-2.5 md:p-3 bg-white hover:bg-pink-50/50 border border-pink-200 rounded-2xl font-extrabold text-gray-800 text-left transition-all flex items-center justify-between text-xl md:text-xl shadow-xs";
+                if (badge) badge.className = "opt-badge w-7 h-7 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black text-xl shrink-0";
                 if (iconSpan) iconSpan.innerHTML = '';
             }
         });
@@ -5764,10 +5764,10 @@ function renderReportTopicsBreakdown() {
         html += `
             <div class="bg-pink-50/40 border border-pink-100 rounded-2xl p-3 flex flex-col justify-between space-y-2">
                 <div class="flex items-center justify-between gap-2">
-                    <span class="font-black text-slate-800 text-xs sm:text-sm">${SKILL_TAXONOMY[k].name}</span>
-                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold whitespace-nowrap ${badgeClass}">${badgeText}</span>
+                    <span class="font-black text-slate-800 text-xl sm:text-xl">${SKILL_TAXONOMY[k].name}</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xl font-extrabold whitespace-nowrap ${badgeClass}">${badgeText}</span>
                 </div>
-                <div class="flex items-center justify-between gap-2 text-xs font-bold text-slate-600">
+                <div class="flex items-center justify-between gap-2 text-xl font-bold text-slate-600">
                     ${scoreLine}
                     <span class="font-math font-black shrink-0">${pctText}</span>
                 </div>
@@ -5786,22 +5786,22 @@ function openReviewWrongModal() {
     if (!modal || !content) return;
 
     if (!quizWrongAnswers.length) {
-        content.innerHTML = `<div class="text-center py-8 text-emerald-600 font-extrabold text-base"><i class="fa-solid fa-circle-check text-3xl mb-2 block"></i>Tuyệt vời! Bé không làm sai câu nào trong bài thi này!</div>`;
+        content.innerHTML = `<div class="text-center py-8 text-emerald-600 font-extrabold text-xl"><i class="fa-solid fa-circle-check text-3xl mb-2 block"></i>Tuyệt vời! Bé không làm sai câu nào trong bài thi này!</div>`;
     } else {
         let html = '';
         quizWrongAnswers.forEach((item, idx) => {
             html += `
                 <div class="bg-rose-50/40 border border-rose-200 rounded-2xl p-3.5 space-y-2">
                     <div class="flex items-center justify-between">
-                        <span class="px-2.5 py-0.5 bg-rose-100 text-rose-800 font-black text-xs rounded-lg">CÂU ${item.question_number || (idx + 1)}</span>
-                        <span class="text-xs font-bold text-slate-500">${escapeHtml(beautifySubtopicName(item.sub_topic_label) || 'Chủ đề tổng hợp')}</span>
+                        <span class="px-2.5 py-0.5 bg-rose-100 text-rose-800 font-black text-xl rounded-lg">CÂU ${item.question_number || (idx + 1)}</span>
+                        <span class="text-xl font-bold text-slate-500">${escapeHtml(beautifySubtopicName(item.sub_topic_label) || 'Chủ đề tổng hợp')}</span>
                     </div>
-                    <p class="font-extrabold text-slate-800 text-sm">${escapeHtml(item.question_text)}</p>
-                    <div class="text-xs space-y-1 font-semibold">
+                    <p class="font-extrabold text-slate-800 text-xl">${escapeHtml(item.question_text)}</p>
+                    <div class="text-xl space-y-1 font-semibold">
                         <p class="text-rose-600"><i class="fa-solid fa-xmark mr-1"></i> Đáp án con chọn: <strong>${escapeHtml(item.dap_an_chon)}</strong></p>
                         <p class="text-emerald-700"><i class="fa-solid fa-check mr-1"></i> Đáp án đúng chuẩn: <strong>${escapeHtml(item.dap_an_dung)}</strong></p>
                     </div>
-                    <div class="p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl text-xs text-amber-900 font-semibold flex items-start gap-2">
+                    <div class="p-2.5 bg-amber-50/80 border border-amber-200 rounded-xl text-xl text-amber-900 font-semibold flex items-start gap-2">
                         <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5"></i>
                         <span><strong>Lời giải sư phạm:</strong> ${escapeHtml(item.explanation)}</span>
                     </div>
@@ -6075,7 +6075,7 @@ function renderHistoryReport(rows, sheetName) {
                     grid: { display: false },
                     ticks: {
                         color: '#000000',
-                        font: { family: 'Quicksand', weight: 'bold', size: 11 },
+                        font: { family: 'Quicksand', weight: 'bold', size: 20 },
                         maxRotation: 90,
                         minRotation: 90
                     }
@@ -6163,7 +6163,7 @@ function renderHistoryReport(rows, sheetName) {
                 },
                 y: {
                     grid: { display: false },
-                    ticks: { font: { family: 'Quicksand', weight: 'bold', size: 14 }, color: '#000000' }
+                    ticks: { font: { family: 'Quicksand', weight: 'bold', size: 20 }, color: '#000000' }
                 }
             },
             plugins: {
@@ -6930,7 +6930,7 @@ function renderBaiHocGridToan2_(data, semesterNumber) {
     container.style.borderColor = '';
     container.innerHTML = `<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2">${arr.map((bh,idx)=>{
         const alt = idx % 2 === 0;
-        return `<button onclick="selectBaiHocToan2_(${bh.bai})" class="text-left min-h-[82px] rounded-2xl border-2 ${alt ? 'border-pink-200 bg-gradient-to-br from-white to-pink-50' : 'border-purple-200 bg-gradient-to-br from-white to-purple-50'} px-3 py-2.5 hover:border-fuchsia-400 hover:shadow-md transition-shadow"><div class="font-black text-purple-700 text-base">Bài ${bh.bai}</div><div class="mt-1 text-[12px] md:text-[13px] leading-5 font-bold text-slate-700 line-clamp-2">${escapeHtml(bh.source_title||bh.title||'')}</div></button>`;
+        return `<button onclick="selectBaiHocToan2_(${bh.bai})" class="text-left min-h-[82px] rounded-2xl border-2 ${alt ? 'border-pink-200 bg-gradient-to-br from-white to-pink-50' : 'border-purple-200 bg-gradient-to-br from-white to-purple-50'} px-3 py-2.5 hover:border-fuchsia-400 hover:shadow-md transition-shadow"><div class="font-black text-purple-700 text-xl">Bài ${bh.bai}</div><div class="mt-1 text-xl md:text-xl leading-5 font-bold text-slate-700 line-clamp-2">${escapeHtml(bh.source_title||bh.title||'')}</div></button>`;
     }).join('')}</div>`;
 }
 
@@ -6964,7 +6964,7 @@ function renderBaiHocDetailToan2_() {
     if (title) title.textContent = lesson.source_title || lesson.title || `Bài ${lesson.bai}`;
 
     const pages = Array.isArray(lesson.pages) ? lesson.pages : [];
-    if (tabs) tabs.innerHTML = pages.map((pg, idx) => `<button onclick="openBaiHocPageToan2_(${idx})" class="h-10 rounded-xl border font-black text-[11px] md:text-xs ${idx===ctx.pageIndex?'bg-gradient-to-r from-pink-500 to-purple-500 text-white border-purple-400 shadow-md':'bg-pink-50/70 text-purple-700 border-pink-200 hover:bg-purple-50'}">${escapeHtml(pg.title || `Trang ${idx+1}`)}</button>`).join('');
+    if (tabs) tabs.innerHTML = pages.map((pg, idx) => `<button onclick="openBaiHocPageToan2_(${idx})" class="h-10 rounded-xl border font-black text-xl md:text-xl ${idx===ctx.pageIndex?'bg-gradient-to-r from-pink-500 to-purple-500 text-white border-purple-400 shadow-md':'bg-pink-50/70 text-purple-700 border-pink-200 hover:bg-purple-50'}">${escapeHtml(pg.title || `Trang ${idx+1}`)}</button>`).join('');
     if (body) {
         const pageBody = renderBaiHocPageBodyToan2_(pages[ctx.pageIndex] || {});
         body.innerHTML = `${pageBody}${renderBaiHocBottomNavToan2_(lesson, ctx.pageIndex, pages.length)}`;
@@ -6975,12 +6975,12 @@ function renderBaiHocBottomNavToan2_(lesson, pageIndex, pageCount) {
     const count = Math.max(1, Number(pageCount) || 3);
     const idx = Math.max(0, Math.min(count - 1, Number(pageIndex) || 0));
     const prev = idx > 0
-        ? `<button onclick="openBaiHocPageToan2_(${idx-1})" class="h-10 px-4 md:px-5 py-0 rounded-xl bg-white border border-purple-200 text-purple-700 font-black text-sm md:text-base shadow-sm hover:bg-purple-50 flex items-center justify-center">← Trang trước</button>`
+        ? `<button onclick="openBaiHocPageToan2_(${idx-1})" class="h-10 px-4 md:px-5 py-0 rounded-xl bg-white border border-purple-200 text-purple-700 font-black text-xl md:text-xl shadow-sm hover:bg-purple-50 flex items-center justify-center">← Trang trước</button>`
         : '<span></span>';
     const next = idx < count - 1
-        ? `<button onclick="openBaiHocPageToan2_(${idx+1})" class="h-10 px-5 md:px-6 py-0 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-sm md:text-base shadow-md hover:brightness-105 flex items-center justify-center">Trang tiếp →</button>`
-        : `<button onclick="openBaiHocPageToan2_(0)" class="h-10 px-4 md:px-5 py-0 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm md:text-base flex items-center justify-center">↺ Xem lại bài</button>`;
-    return `<div id="bai-hoc-bottom-nav" class="flex items-center justify-between gap-3 mt-3 pt-2 border-t border-pink-100">${prev}<div class="text-[11px] font-black text-slate-400">${idx+1}/${count}</div>${next}</div>`;
+        ? `<button onclick="openBaiHocPageToan2_(${idx+1})" class="h-10 px-5 md:px-6 py-0 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black text-xl md:text-xl shadow-md hover:brightness-105 flex items-center justify-center">Trang tiếp →</button>`
+        : `<button onclick="openBaiHocPageToan2_(0)" class="h-10 px-4 md:px-5 py-0 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl md:text-xl flex items-center justify-center">↺ Xem lại bài</button>`;
+    return `<div id="bai-hoc-bottom-nav" class="flex items-center justify-between gap-3 mt-3 pt-2 border-t border-pink-100">${prev}<div class="text-xl font-black text-slate-400">${idx+1}/${count}</div>${next}</div>`;
 }
 
 function openBaiHocPageToan2_(pageIndex) {
@@ -7004,9 +7004,9 @@ function renderLessonPedagogyPanelToan2_(page) {
     return `<div class="rounded-3xl border-2 border-fuchsia-200 bg-gradient-to-br from-fuchsia-50 via-white to-sky-50 p-4 md:p-5">
       <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-4 items-stretch">
         <div class="rounded-2xl bg-white border-2 border-pink-100 min-h-[126px] p-4 flex items-center justify-center text-center">
-          <div class="whitespace-pre-line text-lg md:text-xl font-black text-slate-700 leading-relaxed">${safe(scene)}</div>
+          <div class="whitespace-pre-line text-xl md:text-xl font-black text-slate-700 leading-relaxed">${safe(scene)}</div>
         </div>
-        <div class="grid grid-cols-1 gap-2">${steps.slice(0,3).map((x,i)=>`<div class="rounded-2xl border border-violet-100 bg-white px-3.5 py-3 flex gap-3 items-start"><span class="shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center font-black">${i+1}</span><div><div class="text-[11px] uppercase tracking-wide font-black text-violet-500">${['Nhìn','Hiểu','Làm'][i]||'Bước'}</div><div class="text-sm md:text-base font-extrabold text-slate-700 leading-snug">${safe(x)}</div></div></div>`).join('')}</div>
+        <div class="grid grid-cols-1 gap-2">${steps.slice(0,3).map((x,i)=>`<div class="rounded-2xl border border-violet-100 bg-white px-3.5 py-3 flex gap-3 items-start"><span class="shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white flex items-center justify-center font-black">${i+1}</span><div><div class="text-xl uppercase tracking-wide font-black text-violet-500">${['Nhìn','Hiểu','Làm'][i]||'Bước'}</div><div class="text-xl md:text-xl font-extrabold text-slate-700 leading-snug">${safe(x)}</div></div></div>`).join('')}</div>
       </div>
     </div>`;
 }
@@ -7026,34 +7026,34 @@ function renderBaiHocPageBodyToan2_(page) {
               <div class="flex items-center gap-2 font-black text-sky-700 mb-3"><span class="text-xl">🐰</span><span>Thỏ Ngọc đi trên tia số</span></div>
               <div class="relative px-2 pt-8 pb-3"><div class="absolute left-3 right-1 top-[52px] h-1 bg-sky-400 rounded-full"></div><div class="absolute right-0 top-[45px] text-sky-500 text-xl">▶</div>
               <div class="relative grid gap-1" style="grid-template-columns:repeat(${nums.length},minmax(0,1fr))">${nums.map(v=>`<button onclick="lessonNumberPick_(${v},${Number(n.focus||5)})" class="h-11 rounded-xl border-2 ${v===Number(n.focus||5)?'bg-pink-500 text-white border-pink-500 scale-110 shadow-md':'bg-white text-sky-700 border-sky-200'} font-black hover:bg-sky-100 transition-all">${v}</button>`).join('')}</div></div>
-              <div id="lesson-interactive-feedback" class="mt-3 min-h-[42px] rounded-xl bg-white border border-sky-100 px-3 py-2 text-center text-base md:text-lg font-bold text-slate-600">Bấm vào một số để xem quan hệ với số ${Number(n.focus||5)}.</div></div>`;
+              <div id="lesson-interactive-feedback" class="mt-3 min-h-[42px] rounded-xl bg-white border border-sky-100 px-3 py-2 text-center text-xl md:text-xl font-bold text-slate-600">Bấm vào một số để xem quan hệ với số ${Number(n.focus||5)}.</div></div>`;
         } else if (page.activity_type === 'operation_parts') {
             const add=page.addition||{}, sub=page.subtraction||{};
-            const eq=(o,op,theme)=>`<div class="math-tone-card math-tone-${theme} rounded-3xl border-2 p-4"><div class="flex justify-center items-end gap-2 md:gap-4 text-center">${[o.a,op,o.b,'=',o.result].map((v,i)=> i%2===0?`<button onclick="lessonPartPick_('${safe((o.labels||[])[i/2]||'')}')" class="math-tone-border math-tone-${theme} min-w-[62px] rounded-2xl bg-white border-2 px-3 py-3 text-xl md:text-2xl font-black text-slate-800 hover:shadow-md">${v}<span class="math-tone-text math-tone-${theme} block text-[10px] md:text-xs mt-1">${safe((o.labels||[])[i/2]||'')}</span></button>`:`<span class="math-tone-text math-tone-${theme} pb-5 text-xl font-black">${v}</span>`).join('')}</div></div>`;
-            visual=`<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${eq(add,'+','pink')}${eq(sub,'−','sky')}</div><div id="lesson-interactive-feedback" class="mt-3 rounded-xl bg-purple-50 border border-purple-100 px-3 py-2 text-center text-base md:text-lg font-bold text-purple-700">Bấm vào một số để gọi tên thành phần của phép tính.</div>`;
+            const eq=(o,op,theme)=>`<div class="math-tone-card math-tone-${theme} rounded-3xl border-2 p-4"><div class="flex justify-center items-end gap-2 md:gap-4 text-center">${[o.a,op,o.b,'=',o.result].map((v,i)=> i%2===0?`<button onclick="lessonPartPick_('${safe((o.labels||[])[i/2]||'')}')" class="math-tone-border math-tone-${theme} min-w-[62px] rounded-2xl bg-white border-2 px-3 py-3 text-xl md:text-2xl font-black text-slate-800 hover:shadow-md">${v}<span class="math-tone-text math-tone-${theme} block text-xl md:text-xl mt-1">${safe((o.labels||[])[i/2]||'')}</span></button>`:`<span class="math-tone-text math-tone-${theme} pb-5 text-xl font-black">${v}</span>`).join('')}</div></div>`;
+            visual=`<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${eq(add,'+','pink')}${eq(sub,'−','sky')}</div><div id="lesson-interactive-feedback" class="mt-3 rounded-xl bg-purple-50 border border-purple-100 px-3 py-2 text-center text-xl md:text-xl font-bold text-purple-700">Bấm vào một số để gọi tên thành phần của phép tính.</div>`;
         }
         return `<div class="space-y-4">
-          ${page.intro?`<div class="rounded-2xl border border-pink-200 bg-gradient-to-r from-pink-50 to-purple-50 p-4 text-base md:text-lg font-extrabold text-pink-700">${safe(page.intro)}</div>`:''}
-          ${page.teacher_script?`<div class="rounded-2xl border border-purple-200 bg-white p-3 flex items-center justify-between gap-3"><div class="flex items-center gap-2 min-w-0"><span class="text-2xl">🐰</span><div><div class="font-black text-purple-700">Cô Thỏ Ngọc giảng bài</div><div class="text-xs md:text-sm font-semibold text-slate-500">Phần nghe được giảng kỹ hơn phần chữ hiển thị.</div></div></div><button onclick="speakLessonTeacherToan2_()" class="shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md font-black" title="Nghe Cô Thỏ Ngọc giảng">🔊</button></div>`:''}
+          ${page.intro?`<div class="rounded-2xl border border-pink-200 bg-gradient-to-r from-pink-50 to-purple-50 p-4 text-xl md:text-xl font-extrabold text-pink-700">${safe(page.intro)}</div>`:''}
+          ${page.teacher_script?`<div class="rounded-2xl border border-purple-200 bg-white p-3 flex items-center justify-between gap-3"><div class="flex items-center gap-2 min-w-0"><span class="text-2xl">🐰</span><div><div class="font-black text-purple-700">Cô Thỏ Ngọc giảng bài</div><div class="text-xl md:text-xl font-semibold text-slate-500">Phần nghe được giảng kỹ hơn phần chữ hiển thị.</div></div></div><button onclick="speakLessonTeacherToan2_()" class="shrink-0 w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md font-black" title="Nghe Cô Thỏ Ngọc giảng">🔊</button></div>`:''}
           ${renderLessonPedagogyPanelToan2_(page)}
-          ${page.story?`<div class="rounded-2xl border border-amber-200 bg-amber-50/70 p-4"><div class="font-black text-amber-700 mb-1">🌟 Câu chuyện mở đầu</div><div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed">${safe(page.story)}</div></div>`:''}
+          ${page.story?`<div class="rounded-2xl border border-amber-200 bg-amber-50/70 p-4"><div class="font-black text-amber-700 mb-1">🌟 Câu chuyện mở đầu</div><div class="text-xl md:text-xl font-semibold text-slate-700 leading-relaxed">${safe(page.story)}</div></div>`:''}
           ${visual}
-          ${questions.length?`<div class="rounded-2xl border border-violet-200 bg-violet-50/50 p-4"><div class="font-black text-violet-700 mb-2">🤔 Con thử nghĩ xem</div><div class="grid grid-cols-1 md:grid-cols-3 gap-2">${questions.map((q,i)=>`<div class="rounded-xl bg-white border border-violet-100 p-3 text-base md:text-lg font-bold text-slate-700"><span class="text-violet-500">${i+1}.</span> ${safe(q)}</div>`).join('')}</div></div>`:''}
-          ${cards.length?`<div><div class="font-black text-emerald-700 mb-2">📚 Kiến thức mới</div><div class="grid grid-cols-1 md:grid-cols-${Math.min(cards.length,3)} gap-2">${cards.map(c=>`<div class="rounded-2xl border-2 border-emerald-200 bg-emerald-50/60 p-4"><div class="font-black text-emerald-700 mb-1">${safe(c.title)}</div><div class="text-base md:text-lg font-semibold text-slate-700">${safe(c.text)}</div></div>`).join('')}</div></div>`:''}
-          ${worked.length?`<div class="rounded-2xl border border-orange-200 bg-orange-50/60 p-4"><div class="font-black text-orange-700 mb-2">✏️ Cô làm mẫu</div><div class="space-y-2">${worked.map(x=>`<div class="rounded-xl bg-white border border-orange-100 px-3 py-2 text-base md:text-lg font-bold text-slate-700">${safe(x)}</div>`).join('')}</div></div>`:''}
-          ${(page.common_mistake||page.self_check)?`<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${page.common_mistake?`<div class="rounded-2xl border-2 border-rose-200 bg-rose-50/70 p-4"><div class="font-black text-rose-700 mb-1">⚠️ Bé hay nhầm ở đâu?</div><div class="text-sm md:text-base font-bold text-slate-700 leading-relaxed">${safe(page.common_mistake)}</div></div>`:''}${page.self_check?`<div class="rounded-2xl border-2 border-emerald-200 bg-emerald-50/70 p-4"><div class="font-black text-emerald-700 mb-1">✅ Tự kiểm trước khi sang trang</div><div class="text-sm md:text-base font-bold text-slate-700 leading-relaxed">${safe(page.self_check)}</div></div>`:''}</div>`:''}
+          ${questions.length?`<div class="rounded-2xl border border-violet-200 bg-violet-50/50 p-4"><div class="font-black text-violet-700 mb-2">🤔 Con thử nghĩ xem</div><div class="grid grid-cols-1 md:grid-cols-3 gap-2">${questions.map((q,i)=>`<div class="rounded-xl bg-white border border-violet-100 p-3 text-xl md:text-xl font-bold text-slate-700"><span class="text-violet-500">${i+1}.</span> ${safe(q)}</div>`).join('')}</div></div>`:''}
+          ${cards.length?`<div><div class="font-black text-emerald-700 mb-2">📚 Kiến thức mới</div><div class="grid grid-cols-1 md:grid-cols-${Math.min(cards.length,3)} gap-2">${cards.map(c=>`<div class="rounded-2xl border-2 border-emerald-200 bg-emerald-50/60 p-4"><div class="font-black text-emerald-700 mb-1">${safe(c.title)}</div><div class="text-xl md:text-xl font-semibold text-slate-700">${safe(c.text)}</div></div>`).join('')}</div></div>`:''}
+          ${worked.length?`<div class="rounded-2xl border border-orange-200 bg-orange-50/60 p-4"><div class="font-black text-orange-700 mb-2">✏️ Cô làm mẫu</div><div class="space-y-2">${worked.map(x=>`<div class="rounded-xl bg-white border border-orange-100 px-3 py-2 text-xl md:text-xl font-bold text-slate-700">${safe(x)}</div>`).join('')}</div></div>`:''}
+          ${(page.common_mistake||page.self_check)?`<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${page.common_mistake?`<div class="rounded-2xl border-2 border-rose-200 bg-rose-50/70 p-4"><div class="font-black text-rose-700 mb-1">⚠️ Bé hay nhầm ở đâu?</div><div class="text-xl md:text-xl font-bold text-slate-700 leading-relaxed">${safe(page.common_mistake)}</div></div>`:''}${page.self_check?`<div class="rounded-2xl border-2 border-emerald-200 bg-emerald-50/70 p-4"><div class="font-black text-emerald-700 mb-1">✅ Tự kiểm trước khi sang trang</div><div class="text-xl md:text-xl font-bold text-slate-700 leading-relaxed">${safe(page.self_check)}</div></div>`:''}</div>`:''}
         </div>`;
     }
     if (page.page_type === 'practice') {
         const items=page.items||[], extra=page.extra_examples||[];
         const strategy=Array.isArray(page.practice_strategy)?page.practice_strategy:[];
-        return `<div class="space-y-4"><div class="rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 p-3 text-center font-black text-purple-700">🎯 Làm từng thử thách rồi bấm “Xem đáp án” để tự kiểm tra</div>${strategy.length?`<div class="grid grid-cols-1 md:grid-cols-3 gap-2">${strategy.slice(0,3).map((x,i)=>`<div class="rounded-xl border border-purple-100 bg-white p-3"><div class="text-[11px] uppercase font-black text-purple-500">Bước ${i+1}</div><div class="text-sm md:text-base font-extrabold text-slate-700">${safe(x)}</div></div>`).join('')}</div>`:''}<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${items.map((it,i)=>`<div class="rounded-2xl border-2 border-purple-200 bg-white p-4"><div class="flex items-center gap-2 mb-2"><span class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center font-black">${i+1}</span><span class="font-black text-purple-700">Thử thách ${i+1}</span></div><div class="text-base md:text-lg font-semibold text-slate-700 leading-relaxed min-h-[48px]">${safe(it.prompt||'')}</div>${it.answer?`<button onclick="this.nextElementSibling.classList.toggle('hidden')" class="mt-3 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-sm md:text-base font-black">👀 Xem đáp án</button><div class="hidden mt-2 rounded-xl bg-emerald-50 border border-emerald-200 p-2 text-base md:text-lg font-black text-emerald-700">✓ ${safe(it.answer)}</div>`:''}</div>`).join('')}</div>${page.feedback_on_wrong?`<div class="rounded-2xl border border-amber-200 bg-amber-50/70 p-4"><div class="font-black text-amber-700 mb-1">🧭 Nếu con chưa đúng</div><div class="text-sm md:text-base font-bold text-slate-700">${safe(page.feedback_on_wrong)}</div></div>`:''}${extra.length?`<div class="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4"><div class="font-black text-emerald-700 mb-2">🌱 Mẹo của Cô Thỏ Ngọc</div><ul class="list-disc pl-5 space-y-1 text-base md:text-lg font-semibold text-slate-700">${extra.map(x=>`<li>${safe(x)}</li>`).join('')}</ul></div>`:''}</div>`;
+        return `<div class="space-y-4"><div class="rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 p-3 text-center font-black text-purple-700">🎯 Làm từng thử thách rồi bấm “Xem đáp án” để tự kiểm tra</div>${strategy.length?`<div class="grid grid-cols-1 md:grid-cols-3 gap-2">${strategy.slice(0,3).map((x,i)=>`<div class="rounded-xl border border-purple-100 bg-white p-3"><div class="text-xl uppercase font-black text-purple-500">Bước ${i+1}</div><div class="text-xl md:text-xl font-extrabold text-slate-700">${safe(x)}</div></div>`).join('')}</div>`:''}<div class="grid grid-cols-1 md:grid-cols-2 gap-3">${items.map((it,i)=>`<div class="rounded-2xl border-2 border-purple-200 bg-white p-4"><div class="flex items-center gap-2 mb-2"><span class="w-7 h-7 rounded-full bg-purple-500 text-white flex items-center justify-center font-black">${i+1}</span><span class="font-black text-purple-700">Thử thách ${i+1}</span></div><div class="text-xl md:text-xl font-semibold text-slate-700 leading-relaxed min-h-[48px]">${safe(it.prompt||'')}</div>${it.answer?`<button onclick="this.nextElementSibling.classList.toggle('hidden')" class="mt-3 px-3 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xl md:text-xl font-black">👀 Xem đáp án</button><div class="hidden mt-2 rounded-xl bg-emerald-50 border border-emerald-200 p-2 text-xl md:text-xl font-black text-emerald-700">✓ ${safe(it.answer)}</div>`:''}</div>`).join('')}</div>${page.feedback_on_wrong?`<div class="rounded-2xl border border-amber-200 bg-amber-50/70 p-4"><div class="font-black text-amber-700 mb-1">🧭 Nếu con chưa đúng</div><div class="text-xl md:text-xl font-bold text-slate-700">${safe(page.feedback_on_wrong)}</div></div>`:''}${extra.length?`<div class="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-4"><div class="font-black text-emerald-700 mb-2">🌱 Mẹo của Cô Thỏ Ngọc</div><ul class="list-disc pl-5 space-y-1 text-xl md:text-xl font-semibold text-slate-700">${extra.map(x=>`<li>${safe(x)}</li>`).join('')}</ul></div>`:''}</div>`;
     }
     if (page.page_type === 'summary') {
         const points=page.key_points||[], connections=page.connections||[];
-        return `<div class="space-y-4"><div class="rounded-3xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-4 md:p-5"><div class="text-center font-black text-emerald-700 text-lg mb-3">⭐ Ghi nhớ thật nhanh</div><div class="grid grid-cols-1 md:grid-cols-${Math.min(points.length,3)} gap-2">${points.map((x,i)=>`<div class="rounded-2xl bg-white border border-emerald-200 p-3 text-center"><div class="text-2xl mb-1">${['①','②','③'][i]||'✓'}</div><div class="text-base md:text-lg font-bold text-slate-700">${safe(x)}</div></div>`).join('')}</div></div>${connections.length?`<div class="rounded-2xl border border-sky-200 bg-sky-50/60 p-4"><div class="font-black text-sky-700 mb-2">🔗 Nhìn là nhớ</div>${connections.map(x=>`<div class="rounded-xl bg-white border border-sky-100 px-3 py-2 mb-2 last:mb-0 text-base md:text-lg font-bold text-slate-700">${safe(x)}</div>`).join('')}</div>`:''}${Array.isArray(page.quick_check)&&page.quick_check.length?`<div class="rounded-2xl border border-violet-200 bg-violet-50/60 p-4"><div class="font-black text-violet-700 mb-2">🧠 Con tự kiểm nhé</div><div class="grid grid-cols-1 md:grid-cols-2 gap-2">${page.quick_check.map(x=>`<div class="rounded-xl bg-white border border-violet-100 p-3 text-sm md:text-base font-bold text-slate-700">${safe(x)}</div>`).join('')}</div></div>`:''}${page.finish_prompt?`<div class="rounded-2xl border-2 border-pink-200 bg-gradient-to-r from-pink-50 to-purple-50 p-4 text-center"><div class="text-2xl mb-1">🐰</div><div class="font-black text-pink-700">${safe(page.finish_prompt)}</div></div>`:''}</div>`;
+        return `<div class="space-y-4"><div class="rounded-3xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-4 md:p-5"><div class="text-center font-black text-emerald-700 text-xl mb-3">⭐ Ghi nhớ thật nhanh</div><div class="grid grid-cols-1 md:grid-cols-${Math.min(points.length,3)} gap-2">${points.map((x,i)=>`<div class="rounded-2xl bg-white border border-emerald-200 p-3 text-center"><div class="text-2xl mb-1">${['①','②','③'][i]||'✓'}</div><div class="text-xl md:text-xl font-bold text-slate-700">${safe(x)}</div></div>`).join('')}</div></div>${connections.length?`<div class="rounded-2xl border border-sky-200 bg-sky-50/60 p-4"><div class="font-black text-sky-700 mb-2">🔗 Nhìn là nhớ</div>${connections.map(x=>`<div class="rounded-xl bg-white border border-sky-100 px-3 py-2 mb-2 last:mb-0 text-xl md:text-xl font-bold text-slate-700">${safe(x)}</div>`).join('')}</div>`:''}${Array.isArray(page.quick_check)&&page.quick_check.length?`<div class="rounded-2xl border border-violet-200 bg-violet-50/60 p-4"><div class="font-black text-violet-700 mb-2">🧠 Con tự kiểm nhé</div><div class="grid grid-cols-1 md:grid-cols-2 gap-2">${page.quick_check.map(x=>`<div class="rounded-xl bg-white border border-violet-100 p-3 text-xl md:text-xl font-bold text-slate-700">${safe(x)}</div>`).join('')}</div></div>`:''}${page.finish_prompt?`<div class="rounded-2xl border-2 border-pink-200 bg-gradient-to-r from-pink-50 to-purple-50 p-4 text-center"><div class="text-2xl mb-1">🐰</div><div class="font-black text-pink-700">${safe(page.finish_prompt)}</div></div>`:''}</div>`;
     }
-    return `<div class="text-sm font-bold text-slate-500">Chưa có nội dung cho trang này.</div>`;
+    return `<div class="text-xl font-bold text-slate-500">Chưa có nội dung cho trang này.</div>`;
 }
 
 function lessonNumberPick_(value, focus) {
@@ -7124,7 +7124,7 @@ function renderBaiTapGridToan2_(data, semesterNumber) {
         const bg = open ? c.bg : 'linear-gradient(145deg,#f8fafc 0%,#faf5ff 100%)';
         const border = open ? c.border : '#e2e8f0';
         const title = open ? c.title : '#94a3b8';
-        return `<button onclick="${open?`selectBaiTapToan2_(${bt.bai})`:`showLockedBaiTapToan2_(${bt.bai})`}" class="relative text-left min-h-[108px] md:min-h-[116px] rounded-2xl border-2 p-3 md:p-3.5 transition-all ${open?'hover:-translate-y-0.5 hover:shadow-lg':'opacity-65'} flex flex-col items-start justify-start" style="background:${bg};border-color:${border};box-shadow:${open?'0 4px 12px rgba(168,85,247,.08)':'none'}"><span class="absolute top-2.5 right-2.5 text-[12px]">${open?'':'🔒'}</span><div class="font-black text-base md:text-[17px] leading-tight pr-5" style="color:${title}">Bài ${bt.bai}</div><div class="text-[13px] md:text-[14px] font-extrabold ${open?'text-slate-700':'text-slate-400'} mt-2 pr-5 leading-snug text-left w-full">${escapeHtml(bt.title||'')}</div><div class="text-[11px] md:text-[12px] mt-auto pt-2 ${open?'text-emerald-600':'text-slate-400'} font-black">${open?'20 câu':'Cần ≥80% bài trước'}</div></button>`;
+        return `<button onclick="${open?`selectBaiTapToan2_(${bt.bai})`:`showLockedBaiTapToan2_(${bt.bai})`}" class="relative text-left min-h-[108px] md:min-h-[116px] rounded-2xl border-2 p-3 md:p-3.5 transition-all ${open?'hover:-translate-y-0.5 hover:shadow-lg':'opacity-65'} flex flex-col items-start justify-start" style="background:${bg};border-color:${border};box-shadow:${open?'0 4px 12px rgba(168,85,247,.08)':'none'}"><span class="absolute top-2.5 right-2.5 text-xl">${open?'':'🔒'}</span><div class="font-black text-xl md:text-xl leading-tight pr-5" style="color:${title}">Bài ${bt.bai}</div><div class="text-xl md:text-xl font-extrabold ${open?'text-slate-700':'text-slate-400'} mt-2 pr-5 leading-snug text-left w-full">${escapeHtml(bt.title||'')}</div><div class="text-xl md:text-xl mt-auto pt-2 ${open?'text-emerald-600':'text-slate-400'} font-black">${open?'20 câu':'Cần ≥80% bài trước'}</div></button>`;
     }).join('')}</div>`;
 }
 function showLockedBaiTapToan2_(bai) {
@@ -7246,10 +7246,10 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 </nav>
 <div class="flex items-center" id="header-info-zone">
 <div class="flex flex-col space-y-0.5 bg-pink-50/90 px-1.5 md:px-2.5 py-1 rounded-xl border border-pink-200 shadow-inner" id="header-star-box">
-<div class="flex items-center justify-between font-extrabold"><span class="px-1.5 py-0.5 bg-emerald-500 text-white rounded text-[10px] shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Đúng</span></span><span class="text-emerald-600 font-extrabold text-xs" id="star-green-count">0</span></div>
-<div class="flex items-center justify-between font-extrabold"><span class="px-1.5 py-0.5 bg-rose-500 text-white rounded text-[10px] shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Sai</span></span><span class="text-rose-600 font-extrabold text-xs" id="star-red-count">0</span></div>
+<div class="flex items-center justify-between font-extrabold"><span class="px-1.5 py-0.5 bg-emerald-500 text-white rounded text-xl shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Đúng</span></span><span class="text-emerald-600 font-extrabold text-xl" id="star-green-count">0</span></div>
+<div class="flex items-center justify-between font-extrabold"><span class="px-1.5 py-0.5 bg-rose-500 text-white rounded text-xl shadow-sm flex items-center justify-center"><i class="fa-solid fa-star md:mr-0.5"></i><span class="hidden md:inline"> Sai</span></span><span class="text-rose-600 font-extrabold text-xl" id="star-red-count">0</span></div>
 </div>
-<div class="text-xs font-bold text-gray-600 text-right" id="user-info-box"></div>
+<div class="text-xl font-bold text-gray-600 text-right" id="user-info-box"></div>
 </div>
 </header>
 <section aria-label="Không gian nhận diện và điều hướng" id="app-banner-slot">
@@ -7278,15 +7278,15 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <!-- TOP BAR CỦA ĐỀ THI (ẨN HOÀN TOÀN TRONG CHẾ ĐỘ LUYỆN TẬP) -->
 <div class="w-full bg-white rounded-2xl p-2.5 border-2 border-pink-200 flex flex-wrap items-center justify-between gap-2.5 shadow-xs" id="quiz-top-bar">
 <div class="flex items-center space-x-2" id="quiz-timer-container">
-<div class="w-8 h-8 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-500 font-bold text-sm">
+<div class="w-8 h-8 rounded-xl bg-pink-50 border border-pink-200 flex items-center justify-center text-pink-500 font-bold text-xl">
 <i class="fa-solid fa-stopwatch"></i>
 </div>
 <div>
-<span class="text-xs font-bold text-gray-400 uppercase tracking-wider block">Thời gian</span>
-<span class="text-base font-black text-rose-500 tracking-wider" id="quiz-timer-display">40:00</span>
+<span class="text-xl font-bold text-gray-400 uppercase tracking-wider block">Thời gian</span>
+<span class="text-xl font-black text-rose-500 tracking-wider" id="quiz-timer-display">40:00</span>
 </div>
 </div>
-<button class="ml-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-xs md:text-sm flex items-center space-x-1.5 transition-all shadow-sm pastel-btn" id="btn-submit-quiz" onclick="triggerSubmitQuizPrompt()">
+<button class="ml-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-xl md:text-xl flex items-center space-x-1.5 transition-all shadow-sm pastel-btn" id="btn-submit-quiz" onclick="triggerSubmitQuizPrompt()">
 <i class="fa-solid fa-circle-check"></i>
 <span>Nộp bài thi</span>
 </button>
@@ -7296,18 +7296,18 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <!-- HEADER TRONG CARD (CHỈ HIỆN KHI THI) -->
 <div class="hidden items-center justify-between flex-wrap gap-2 border-b border-pink-100 pb-2" id="quiz-card-header">
 <div class="flex items-center space-x-2">
-<span class="px-2.5 py-1 bg-pink-100 text-pink-800 text-sm font-black rounded-lg" id="q-badge-index">CÂU 1 / 13</span>
-<span class="px-2.5 py-1 bg-pink-50 text-pink-700 border border-pink-200 text-sm font-bold rounded-lg flex items-center space-x-1" id="q-badge-skill">
+<span class="px-2.5 py-1 bg-pink-100 text-pink-800 text-xl font-black rounded-lg" id="q-badge-index">CÂU 1 / 13</span>
+<span class="px-2.5 py-1 bg-pink-50 text-pink-700 border border-pink-200 text-xl font-bold rounded-lg flex items-center space-x-1" id="q-badge-skill">
 <i class="fa-solid fa-tag text-xs"></i>
 <span id="q-skill-text">Kiến thức cơ bản</span>
 </span>
-<span class="px-2 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-sm font-bold rounded-lg" id="q-badge-score">(0.5 điểm)</span>
+<span class="px-2 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-xl font-bold rounded-lg" id="q-badge-score">(0.5 điểm)</span>
 </div>
-<button class="hidden px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-sm font-extrabold items-center space-x-1.5 transition-shadow duration-200 hover:shadow-[0_0_10px_rgba(99,102,241,0.5)] shadow-xs" id="btn-roadmap-history" onclick="openHistoryModal('LichSuTienTrinhTuan')">
+<button class="hidden px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-xl text-xl font-extrabold items-center space-x-1.5 transition-shadow duration-200 hover:shadow-[0_0_10px_rgba(99,102,241,0.5)] shadow-xs" id="btn-roadmap-history" onclick="openHistoryModal('LichSuTienTrinhTuan')">
 <i class="fa-solid fa-chart-line"></i>
 <span>Lịch sử tiến trình tuần</span>
 </button>
-<button class="px-3 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl text-sm font-extrabold flex items-center space-x-1.5 transition-all pastel-btn shadow-xs" onclick="speakCurrentQuestion()">
+<button class="px-3 py-1.5 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 rounded-xl text-xl font-extrabold flex items-center space-x-1.5 transition-all pastel-btn shadow-xs" onclick="speakCurrentQuestion()">
 <i class="fa-solid fa-volume-high text-pink-600"></i>
 <span>Nghe câu hỏi</span>
 </button>
@@ -7318,24 +7318,24 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full pt-1" id="quiz-bottom-nav">
 <!-- 1. GIAO DIỆN LUYỆN TẬP -->
 <div class="flex items-center justify-center gap-3 w-full" id="nav-group-practice">
-<button class="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold rounded-2xl text-xs md:text-sm pastel-btn border border-gray-200 flex items-center justify-center space-x-1.5 shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="btn-prev-q-prac" onclick="prevQuestion()">
+<button class="px-5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold rounded-2xl text-xl md:text-xl pastel-btn border border-gray-200 flex items-center justify-center space-x-1.5 shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="btn-prev-q-prac" onclick="prevQuestion()">
 <i class="fa-solid fa-chevron-left"></i><span>Câu trước</span>
 </button>
-<div class="px-5 py-1.5 bg-pink-50 border border-pink-200 text-pink-700 font-black rounded-full text-xs md:text-sm flex items-center justify-center shadow-xs select-none" id="practice-step-indicator">
+<div class="px-5 py-1.5 bg-pink-50 border border-pink-200 text-pink-700 font-black rounded-full text-xl md:text-xl flex items-center justify-center shadow-xs select-none" id="practice-step-indicator">
 <span id="practice-step-text">1 / 59</span>
 </div>
-<button class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xs md:text-sm pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-prac" onclick="nextQuestion(event)">
+<button class="px-6 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-2xl text-xl md:text-xl pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-prac" onclick="nextQuestion(event)">
 <span id="btn-next-text-prac">Câu tiếp theo</span>
 <i class="fa-solid fa-chevron-right ml-1" id="btn-next-icon-prac"></i>
 </button>
 </div>
 <!-- 2. GIAO DIỆN ĐỀ THI -->
 <div class="hidden items-center justify-between w-full" id="nav-group-exam">
-<button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold rounded-xl text-xs md:text-sm pastel-btn border border-gray-200 flex items-center justify-center space-x-1.5 shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="btn-prev-q-exam" onclick="prevQuestion()">
+<button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-extrabold rounded-xl text-xl md:text-xl pastel-btn border border-gray-200 flex items-center justify-center space-x-1.5 shadow-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="btn-prev-q-exam" onclick="prevQuestion()">
 <i class="fa-solid fa-chevron-left"></i><span>Câu trước</span>
 </button>
 <div class="grid grid-cols-10 gap-1.5 max-w-xl mx-2" id="quiz-pallet-container"></div>
-<button class="px-5 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-xl text-xs md:text-sm pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-exam" onclick="nextQuestion()">
+<button class="px-5 py-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black rounded-xl text-xl md:text-xl pastel-btn shadow-md flex items-center justify-center space-x-1.5 transition-all" id="btn-next-q-exam" onclick="nextQuestion()">
 <span id="btn-next-text-exam">Câu tiếp theo</span>
 <i class="fa-solid fa-chevron-right ml-1" id="btn-next-icon-exam"></i>
 </button>
@@ -7348,13 +7348,13 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full max-w-5xl flex flex-col items-center">
 <div class="flex flex-col sm:flex-row items-center justify-between w-full px-2 mb-2 gap-2">
 <div>
-<h2 class="text-base md:text-lg font-extrabold text-indigo-600 flex items-center space-x-2">
+<h2 class="text-xl md:text-xl font-extrabold text-indigo-600 flex items-center space-x-2">
 <span>✏️</span><span>Bài tập</span>
 </h2>
-<p class="text-[11px] md:text-xs text-gray-500 font-bold">20 câu mỗi bài · đạt từ 80% để mở Bài tập tiếp theo · dùng khung 6 năng lực nhưng chỉ đánh giá nhóm có đủ dữ liệu.</p>
+<p class="text-xl md:text-xl text-gray-500 font-bold">20 câu mỗi bài · đạt từ 80% để mở Bài tập tiếp theo · dùng khung 6 năng lực nhưng chỉ đánh giá nhóm có đủ dữ liệu.</p>
 </div>
 <div class="flex items-center space-x-2 shrink-0">
-<button class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold rounded-xl border border-indigo-200 text-xs pastel-btn flex items-center space-x-1.5 shadow-sm" onclick="openHistoryModal('LichSuTienTrinhTuan')">
+<button class="px-3 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-extrabold rounded-xl border border-indigo-200 text-xl pastel-btn flex items-center space-x-1.5 shadow-sm" onclick="openHistoryModal('LichSuTienTrinhTuan')">
 <i class="fa-solid fa-chart-line text-indigo-600"></i>
 <span>📊 Lịch sử Bài tập</span>
 </button>
@@ -7369,10 +7369,10 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full max-w-5xl mx-auto space-y-3">
 <div class="flex items-start justify-between gap-3">
 <div class="min-w-0">
-<div class="text-xs md:text-sm font-black text-sky-600 mb-1" id="bai-hoc-detail-meta">Bài học</div>
-<h2 class="text-lg md:text-xl font-black text-slate-800 leading-snug" id="bai-hoc-detail-title"></h2>
+<div class="text-xl md:text-xl font-black text-sky-600 mb-1" id="bai-hoc-detail-meta">Bài học</div>
+<h2 class="text-xl md:text-xl font-black text-slate-800 leading-snug" id="bai-hoc-detail-title"></h2>
 </div>
-<button class="shrink-0 px-3 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200 rounded-xl text-xs font-extrabold" onclick="backToBaiHocHubToan2_()">← Danh sách bài</button>
+<button class="shrink-0 px-3 py-2 bg-sky-50 hover:bg-sky-100 text-sky-700 border border-sky-200 rounded-xl text-xl font-extrabold" onclick="backToBaiHocHubToan2_()">← Danh sách bài</button>
 </div>
 <div class="grid grid-cols-3 gap-2 mb-3" id="bai-hoc-detail-tabs"></div>
 <div class="w-full" id="bai-hoc-detail-body"></div>
@@ -7382,8 +7382,8 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full hidden math-screen-shell p-3 md:p-5 flex flex-col items-center" id="view-minigame-hub">
 <div class="w-full max-w-5xl">
 <div class="text-center mb-4">
-<h2 class="text-base md:text-lg font-extrabold text-teal-600 flex items-center justify-center space-x-2"><span>🎮</span><span>Trung tâm Mini Game Toán 2</span></h2>
-<p class="text-[11px] md:text-xs text-gray-500 font-bold">Học mà chơi - luyện tư duy Toán cùng Cô Thỏ Ngọc</p>
+<h2 class="text-xl md:text-xl font-extrabold text-teal-600 flex items-center justify-center space-x-2"><span>🎮</span><span>Trung tâm Mini Game Toán 2</span></h2>
+<p class="text-xl md:text-xl text-gray-500 font-bold">Học mà chơi - luyện tư duy Toán cùng Cô Thỏ Ngọc</p>
 </div>
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3" id="minigame-grid"></div>
 </div>
@@ -7392,8 +7392,8 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full hidden math-screen-shell p-3 md:p-5 flex flex-col items-center" id="view-game-play">
 <div class="w-full max-w-6xl">
 <div class="flex items-center justify-between mb-3 gap-2">
-<h2 class="text-base md:text-lg font-extrabold text-teal-600 flex items-center gap-2 min-w-0" id="game-play-title"></h2>
-<button class="px-3 py-1.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-extrabold rounded-xl text-xs md:text-sm shadow-sm pastel-btn shrink-0" onclick="openMiniGameHub()"><i class="fa-solid fa-arrow-left"></i> Chọn game khác</button>
+<h2 class="text-xl md:text-xl font-extrabold text-teal-600 flex items-center gap-2 min-w-0" id="game-play-title"></h2>
+<button class="px-3 py-1.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-extrabold rounded-xl text-xl md:text-xl shadow-sm pastel-btn shrink-0" onclick="openMiniGameHub()"><i class="fa-solid fa-arrow-left"></i> Chọn game khác</button>
 </div>
 <div class="w-full" id="game-play-container"></div>
 </div>
@@ -7402,10 +7402,10 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="w-full hidden math-screen-shell p-5 md:p-7 flex flex-col justify-between items-center min-h-[480px]" id="view-exam-hub">
 <div class="w-full max-w-5xl">
 <div class="text-center mb-5">
-<h2 class="font-extrabold text-amber-600 text-lg md:text-xl flex items-center justify-center space-x-2">
+<h2 class="font-extrabold text-amber-600 text-xl md:text-xl flex items-center justify-center space-x-2">
 <span>🏆</span><span>Đấu trường đề thi thử</span>
 </h2>
-<p class="text-xs md:text-sm text-gray-500 font-bold mt-1">Mỗi đề bám đúng phạm vi kỳ học · không ép đủ 6 năng lực vào một đề</p>
+<p class="text-xl md:text-xl text-gray-500 font-bold mt-1">Mỗi đề bám đúng phạm vi kỳ học · không ép đủ 6 năng lực vào một đề</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="exam-categories-grid"></div>
 </div>
@@ -7415,44 +7415,44 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="bg-gradient-to-tr from-rose-900 via-pink-950 to-rose-900 rounded-3xl p-4 sm:p-5 text-white shadow-xl relative overflow-hidden">
 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
 <div class="space-y-1 text-center md:text-left">
-<span class="px-3 py-0.5 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold tracking-wider text-pink-200 border border-white/15 inline-block" id="report-exam-badge">
+<span class="px-3 py-0.5 bg-white/10 backdrop-blur-md rounded-full text-xl font-bold tracking-wider text-pink-200 border border-white/15 inline-block" id="report-exam-badge">
                                     Kết quả bài thi
                                 </span>
-<h2 class="text-lg sm:text-xl font-black tracking-tight" id="report-student-display">Học sinh: --</h2>
-<p class="text-xs text-pink-200" id="report-meta-display">Mã ID: -- | Thời gian: --</p>
+<h2 class="text-xl sm:text-xl font-black tracking-tight" id="report-student-display">Học sinh: --</h2>
+<p class="text-xl text-pink-200" id="report-meta-display">Mã ID: -- | Thời gian: --</p>
 </div>
 <div class="flex items-center gap-3">
 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-2 text-center">
-<span class="text-[10px] uppercase tracking-wider text-pink-200 font-bold block mb-0.5">Tổng điểm</span>
+<span class="text-xl uppercase tracking-wider text-pink-200 font-bold block mb-0.5">Tổng điểm</span>
 <div class="text-2xl sm:text-3xl font-black font-math text-amber-300" id="report-total-score-val">0.0</div>
-<span class="text-[9px] text-pink-200">Thang điểm 10</span>
+<span class="text-xl text-pink-200">Thang điểm 10</span>
 </div>
 <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-4 py-2 text-center">
-<span class="text-[10px] uppercase tracking-wider text-pink-200 font-bold block mb-0.5">Độ chính xác</span>
+<span class="text-xl uppercase tracking-wider text-pink-200 font-bold block mb-0.5">Độ chính xác</span>
 <div class="text-2xl sm:text-3xl font-black font-math text-emerald-300" id="report-correct-ratio-val">0/13</div>
-<span class="text-[9px] text-pink-200">Câu đúng</span>
+<span class="text-xl text-pink-200">Câu đúng</span>
 </div>
 </div>
 </div>
 </div>
 <div class="bg-white rounded-3xl p-4 sm:p-5 border border-pink-100 soft-shadow-pink space-y-2.5">
-<h3 class="text-sm sm:text-base font-black text-slate-800 tracking-tight flex items-center space-x-2">
+<h3 class="text-xl sm:text-xl font-black text-slate-800 tracking-tight flex items-center space-x-2">
 <i class="fa-solid fa-chart-bar text-pink-600"></i>
 <span>Bóc tách điểm số &amp; năng lực thực sự được đo</span>
 </h3>
-<p class="text-[11px] sm:text-xs font-bold text-slate-500 leading-relaxed">Khung C1–C6 là khung toàn chương trình, không phải checklist của từng đề. Nhóm không có câu đo sẽ hiển thị <strong>Chưa đánh giá</strong>; nhóm có quá ít câu sẽ hiển thị <strong>Chưa đủ dữ liệu</strong> — tuyệt đối không quy thành 0%.</p>
+<p class="text-xl sm:text-xl font-bold text-slate-500 leading-relaxed">Khung C1–C6 là khung toàn chương trình, không phải checklist của từng đề. Nhóm không có câu đo sẽ hiển thị <strong>Chưa đánh giá</strong>; nhóm có quá ít câu sẽ hiển thị <strong>Chưa đủ dữ liệu</strong> — tuyệt đối không quy thành 0%.</p>
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="report-topics-list"></div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-0.5">
-<button class="py-2.5 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-black text-xs rounded-2xl shadow-xs transition-all flex items-center justify-center space-x-1.5 pastel-btn" onclick="openReviewWrongModal()">
+<button class="py-2.5 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-black text-xl rounded-2xl shadow-xs transition-all flex items-center justify-center space-x-1.5 pastel-btn" onclick="openReviewWrongModal()">
 <i class="fa-solid fa-circle-question text-rose-500"></i>
 <span>👉 Xem lại các câu làm sai</span>
 </button>
-<button class="py-2.5 px-3 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 font-black text-xs rounded-2xl shadow-xs transition-all flex items-center justify-center space-x-1.5 pastel-btn" id="report-history-btn" onclick="openHistoryModal('LichSuBaiThi_HK1')">
+<button class="py-2.5 px-3 bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-200 font-black text-xl rounded-2xl shadow-xs transition-all flex items-center justify-center space-x-1.5 pastel-btn" id="report-history-btn" onclick="openHistoryModal('LichSuBaiThi_HK1')">
 <i class="fa-solid fa-chart-line text-pink-600"></i>
 <span>📊 Lịch sử &amp; biểu đồ tiến trình</span>
 </button>
-<button class="py-2.5 px-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black text-xs rounded-2xl shadow-sm transition-all flex items-center justify-center space-x-1.5 pastel-btn" id="report-next-action-btn" onclick="handleNextExamFromReport()">
+<button class="py-2.5 px-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-black text-xl rounded-2xl shadow-sm transition-all flex items-center justify-center space-x-1.5 pastel-btn" id="report-next-action-btn" onclick="handleNextExamFromReport()">
 <span id="report-next-action-label">🚀 Làm đề thi tiếp theo</span>
 <i class="fa-solid fa-arrow-right"></i>
 </button>
@@ -7464,13 +7464,13 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <div class="p-3.5 border-b border-pink-100 flex items-center justify-between bg-rose-50/50">
 <div class="flex items-center space-x-2 text-rose-800">
 <i class="fa-solid fa-triangle-exclamation text-rose-600"></i>
-<h3 class="font-black text-sm">Chi tiết các câu trả lời chưa chính xác</h3>
+<h3 class="font-black text-xl">Chi tiết các câu trả lời chưa chính xác</h3>
 </div>
 <button class="w-7 h-7 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700" onclick="closeReviewWrongModal()"><i class="fa-solid fa-xmark"></i></button>
 </div>
-<div class="p-4 overflow-y-auto space-y-3 flex-grow text-xs sm:text-sm" id="review-wrong-content"></div>
+<div class="p-4 overflow-y-auto space-y-3 flex-grow text-xl sm:text-xl" id="review-wrong-content"></div>
 <div class="p-3 border-t border-slate-100 flex justify-end bg-slate-50">
-<button class="px-5 py-2 bg-slate-800 text-white font-bold rounded-xl text-xs pastel-btn" onclick="closeReviewWrongModal()">Đóng lại</button>
+<button class="px-5 py-2 bg-slate-800 text-white font-bold rounded-xl text-xl pastel-btn" onclick="closeReviewWrongModal()">Đóng lại</button>
 </div>
 </div>
 </div><div class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4" id="modal-history-progress">
@@ -7484,20 +7484,20 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <i class="fa-solid fa-award text-xl"></i>
 </div>
 <div>
-<h3 class="font-black text-base sm:text-lg text-pink-950" id="hist-modal-title">Kết quả tiến trình học tập</h3>
-<p class="text-xs font-bold text-pink-600 whitespace-nowrap">Phân tích theo dữ liệu thực đo · không được đo ≠ 0%</p>
+<h3 class="font-black text-xl sm:text-xl text-pink-950" id="hist-modal-title">Kết quả tiến trình học tập</h3>
+<p class="text-xl font-bold text-pink-600 whitespace-nowrap">Phân tích theo dữ liệu thực đo · không được đo ≠ 0%</p>
 </div>
 </div>
 <div class="bg-white/95 border-2 border-pink-200 px-4 py-2 rounded-2xl shadow-xs text-left shrink-0">
-<div class="text-sm font-black text-slate-900 leading-tight">
+<div class="text-xl font-black text-slate-900 leading-tight">
                                 Học sinh: <span class="text-pink-600" id="hist-info-name">--</span>
 </div>
-<div class="text-xs font-bold text-slate-600 mt-0.5">
+<div class="text-xl font-bold text-slate-600 mt-0.5">
                                 Mã ID: <span class="text-slate-900 font-extrabold" id="hist-info-code">--</span>
 </div>
 </div>
 <div class="flex items-center space-x-2 shrink-0">
-<div class="text-xs font-bold text-slate-700 bg-white/95 px-3 py-2 rounded-xl border border-pink-200 text-center shadow-xs flex flex-col items-center justify-center leading-tight">
+<div class="text-xl font-bold text-slate-700 bg-white/95 px-3 py-2 rounded-xl border border-pink-200 text-center shadow-xs flex flex-col items-center justify-center leading-tight">
 <span>Ngày báo cáo</span>
 <span class="font-bold text-rose-600" id="hist-report-date">03/09/2026</span>
 </div>
@@ -7508,7 +7508,7 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 </div>
 <div class="flex flex-col md:flex-row gap-4 w-full">
 <div class="w-full md:w-[60%] bg-pink-50/40 border border-pink-100 rounded-2xl p-4 flex flex-col justify-between shadow-xs">
-<h4 class="text-xs sm:text-sm font-black text-slate-800 mb-2 flex items-center space-x-1.5">
+<h4 class="text-xl sm:text-xl font-black text-slate-800 mb-2 flex items-center space-x-1.5">
 <i class="fa-solid fa-chart-line text-pink-600"></i>
 <span>Biến thiên tổng điểm các bài thi (/10)</span>
 </h4>
@@ -7518,11 +7518,11 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 </div>
 <div class="w-full md:w-[40%] bg-pink-50/40 border border-pink-100 rounded-2xl p-4 flex flex-col justify-between shadow-xs">
 <div class="mb-2">
-<h4 class="text-xs sm:text-sm font-black text-slate-800 flex items-center space-x-1.5">
+<h4 class="text-xl sm:text-xl font-black text-slate-800 flex items-center space-x-1.5">
 <i class="fa-solid fa-chart-bar text-rose-600"></i>
 <span>Năng lực trung bình theo dữ liệu đã đo (%)</span>
 </h4>
-<p class="text-[10px] text-slate-500 font-bold mt-1">Cột trống nghĩa là chưa có dữ liệu đánh giá hợp lệ, không phải 0%.</p>
+<p class="text-xl text-slate-500 font-bold mt-1">Cột trống nghĩa là chưa có dữ liệu đánh giá hợp lệ, không phải 0%.</p>
 </div>
 <div class="h-64 w-full relative">
 <canvas id="topicRadarChartCanvas"></canvas>
@@ -7539,39 +7539,39 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 <i class="fa-solid fa-award"></i>
 </div>
 <div>
-<h4 class="text-base font-black text-amber-950 leading-tight">Nhận xét sư phạm &amp; kế hoạch bồi dưỡng của giáo viên</h4>
-<p class="text-xs font-bold text-amber-700">Chỉ nhận xét nhóm có đủ dữ liệu · nhóm chưa được đo không bị quy thành 0%</p>
+<h4 class="text-xl font-black text-amber-950 leading-tight">Nhận xét sư phạm &amp; kế hoạch bồi dưỡng của giáo viên</h4>
+<p class="text-xl font-bold text-amber-700">Chỉ nhận xét nhóm có đủ dữ liệu · nhóm chưa được đo không bị quy thành 0%</p>
 </div>
 </div>
-<button class="no-print shrink-0 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 border border-amber-300 rounded-xl text-xs font-black flex items-center space-x-1.5 pastel-btn shadow-xs" onclick="speakPedagogicalEvaluation()">
+<button class="no-print shrink-0 px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 border border-amber-300 rounded-xl text-xl font-black flex items-center space-x-1.5 pastel-btn shadow-xs" onclick="speakPedagogicalEvaluation()">
 <i class="fa-solid fa-volume-high"></i><span>Nghe cô giáo đọc</span>
 </button>
 </div>
-<div class="space-y-2.5 text-xs sm:text-sm text-slate-800 leading-normal font-semibold" id="pedagogical-evaluation-box"></div>
+<div class="space-y-2.5 text-xl sm:text-xl text-slate-800 leading-normal font-semibold" id="pedagogical-evaluation-box"></div>
 </div>
 </div>
 <!-- TRANG 3: BẢNG THỐNG KÊ CHI TIẾT TỪNG BÀI THI -->
 <div class="space-y-3 page-break-3">
 <div>
-<h4 class="text-base font-black text-slate-900 flex items-center space-x-2">
+<h4 class="text-xl font-black text-slate-900 flex items-center space-x-2">
 <i class="fa-solid fa-table text-pink-600"></i>
 <span>Bảng thống kê điểm số chi tiết từng bài thi</span>
 </h4>
-<p class="text-[10px] sm:text-xs text-slate-500 font-bold mt-1">“Chưa ĐG” = chưa đánh giá; “Chưa đủ DL” = chưa đủ dữ liệu để kết luận năng lực.</p>
+<p class="text-xl sm:text-xl text-slate-500 font-bold mt-1">“Chưa ĐG” = chưa đánh giá; “Chưa đủ DL” = chưa đủ dữ liệu để kết luận năng lực.</p>
 </div>
 <div class="border border-pink-200 rounded-2xl overflow-hidden shadow-xs bg-white overflow-x-auto">
-<table class="w-full text-center text-xs border-collapse">
+<table class="w-full text-center text-xl border-collapse">
 <thead class="bg-pink-100/70 text-pink-950 font-black border-b border-pink-200">
 <tr class="divide-x divide-pink-200">
 <th class="py-2.5 px-2 whitespace-nowrap">Lần thi</th>
 <th class="py-2.5 px-2 whitespace-nowrap">Đề / Tuần</th>
 <th class="py-2.5 px-2 whitespace-nowrap text-rose-600">Tổng điểm</th>
-<th class="py-2 px-1 leading-tight">C1: Nhận biết<br/><span class="text-[10px] text-pink-700">(Số &amp; hình)</span></th>
-<th class="py-2 px-1 leading-tight">C2: Phép tính<br/><span class="text-[10px] text-pink-700">(Tính nhẩm)</span></th>
-<th class="py-2 px-1 leading-tight">C3: Đo lường<br/><span class="text-[10px] text-pink-700">(Thời gian)</span></th>
-<th class="py-2 px-1 leading-tight">C4: Quy luật<br/><span class="text-[10px] text-pink-700">(Tìm x)</span></th>
-<th class="py-2 px-1 leading-tight">C5: Giải toán<br/><span class="text-[10px] text-pink-700">(Lời văn)</span></th>
-<th class="py-2 px-1 leading-tight">C6: Tư duy<br/><span class="text-[10px] text-pink-700">(Logic IQ)</span></th>
+<th class="py-2 px-1 leading-tight">C1: Nhận biết<br/><span class="text-xl text-pink-700">(Số &amp; hình)</span></th>
+<th class="py-2 px-1 leading-tight">C2: Phép tính<br/><span class="text-xl text-pink-700">(Tính nhẩm)</span></th>
+<th class="py-2 px-1 leading-tight">C3: Đo lường<br/><span class="text-xl text-pink-700">(Thời gian)</span></th>
+<th class="py-2 px-1 leading-tight">C4: Quy luật<br/><span class="text-xl text-pink-700">(Tìm x)</span></th>
+<th class="py-2 px-1 leading-tight">C5: Giải toán<br/><span class="text-xl text-pink-700">(Lời văn)</span></th>
+<th class="py-2 px-1 leading-tight">C6: Tư duy<br/><span class="text-xl text-pink-700">(Logic IQ)</span></th>
 <th class="py-2.5 px-2 whitespace-nowrap">Ngày làm</th>
 <th class="py-2.5 px-2 whitespace-nowrap">Thời gian</th>
 </tr>
@@ -7582,11 +7582,11 @@ const MATH_RUNTIME_HTML_ = `<div class="w-full flex flex-col space-y-1.5 md:spac
 </div>
 </div>
 <div class="p-3.5 border-t border-pink-100 flex items-center justify-between bg-pink-50/40 no-print">
-<button class="px-5 py-2.5 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-700 hover:to-red-700 text-white font-extrabold text-xs md:text-sm rounded-xl transition-all shadow-md pastel-btn flex items-center space-x-1.5" onclick="exportReportToPDF()">
+<button class="px-5 py-2.5 bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-700 hover:to-red-700 text-white font-extrabold text-xl md:text-xl rounded-xl transition-all shadow-md pastel-btn flex items-center space-x-1.5" onclick="exportReportToPDF()">
 <i class="fa-solid fa-file-pdf"></i>
 <span>Xuất PDF</span>
 </button>
-<button class="px-8 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xs md:text-sm transition-all pastel-btn" onclick="closeHistoryModal()">
+<button class="px-8 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xl md:text-xl transition-all pastel-btn" onclick="closeHistoryModal()">
                     Đóng lại
                 </button>
 </div>
@@ -20315,7 +20315,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             background: linear-gradient(180deg,#fff,#fff8fc);
             color: #7e3bb8;
             font-weight: 900;
-            font-size: 13px;
+            font-size: 20px;
             line-height: 1.05;
             display: flex;
             align-items: center;
@@ -20331,7 +20331,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             background:linear-gradient(135deg,#ec4899 0%,#a855f7 55%,#7c3aed 100%);
             box-shadow:0 5px 14px rgba(168,85,247,.28);
         }
-        @media (min-width:768px){ #class2-math-runtime .main-module-tab{ min-height:50px; font-size:14px; } }
+        @media (min-width:768px){ #class2-math-runtime .main-module-tab{ min-height:50px; font-size:20px; } }
 
         #class2-math-runtime .semester-switch-btn{
             min-width: 88px;
@@ -20339,7 +20339,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             padding: 0 14px;
             border-radius: 12px;
             font-weight: 900;
-            font-size: 12px;
+            font-size: 20px;
             transform: none !important;
             transition: background .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease;
         }
@@ -20356,7 +20356,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             box-shadow:0 2px 6px rgba(126,34,206,.08) !important;
         }
         @media (max-width:900px){
-            #class2-math-runtime .semester-switch-btn{ min-width:78px; height:32px; padding:0 10px; font-size:11px; }
+            #class2-math-runtime .semester-switch-btn{ min-width:78px; height:32px; padding:0 10px; font-size:20px; }
         }
 
     
@@ -20395,7 +20395,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
         #class2-math-runtime #main-module-tabs>div{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px;}
         #class2-math-runtime .main-module-tab{
             position:relative; min-width:0; min-height:62px; padding:7px 5px; border-radius:16px;
-            border:1.5px solid; font-weight:900; font-size:13px; line-height:1.05;
+            border:1.5px solid; font-weight:900; font-size:20px; line-height:1.05;
             display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;
             box-shadow:0 3px 9px rgba(76,29,149,.08);transition:box-shadow .18s,border-color .18s,background .18s,color .18s;
             overflow:visible;
@@ -20433,12 +20433,12 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
         #class2-math-runtime #header-level2-tab>button{color:#be185d!important;border:1.5px solid #f9a8d4!important;}
         #class2-math-runtime #header-level3-tab>button{color:#7e22ce!important;border:1.5px solid #d8b4fe!important;}
         #class2-math-runtime #header-level4-tab>button{color:#b45309!important;border:1.5px solid #fde68a!important;}
-        #class2-math-runtime #header-level2-title, #class2-math-runtime #header-level3-title, #class2-math-runtime #header-level4-title{font-size:12px!important;font-weight:900!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-        #class2-math-runtime #header-level3-tab>span, #class2-math-runtime #header-level4-tab>span{color:#c084fc!important;font-size:13px!important;}
+        #class2-math-runtime #header-level2-title, #class2-math-runtime #header-level3-title, #class2-math-runtime #header-level4-title{font-size:20px!important;font-weight:900!important;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        #class2-math-runtime #header-level3-tab>span, #class2-math-runtime #header-level4-tab>span{color:#c084fc!important;font-size:20px!important;}
 
         #class2-math-runtime #app-footer{width:100%;max-width:82rem;height:76px;min-height:76px;flex:0 0 76px;margin:10px auto 0;padding:0 14px;border-radius:0;background-image:url("footer-bg.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#1827f2;border:0;box-shadow:none;}
-        #class2-math-runtime #app-footer .footer-title{font-size:17px;font-weight:900;line-height:1.35;text-shadow:0 1px 0 #fff;}
-        #class2-math-runtime #app-footer .footer-sub{font-size:13px;font-weight:800;line-height:1.35;color:#1827f2;text-shadow:0 1px 0 #fff;}
+        #class2-math-runtime #app-footer .footer-title{font-size:20px;font-weight:900;line-height:1.35;text-shadow:0 1px 0 #fff;}
+        #class2-math-runtime #app-footer .footer-sub{font-size:20px;font-weight:800;line-height:1.35;color:#1827f2;text-shadow:0 1px 0 #fff;}
 
         /* Bo khung lon, chi giu card noi dung thuc su */
         #class2-math-runtime #view-roadmap, #class2-math-runtime #view-bai-hoc-detail, #class2-math-runtime #view-minigame-hub, #class2-math-runtime #view-game-play, #class2-math-runtime #view-exam-hub{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;min-height:0!important;padding:8px 0!important;}
@@ -20450,8 +20450,8 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
         #class2-math-runtime #view-bai-hoc-detail .space-y-3>:not([hidden])~:not([hidden]), #class2-math-runtime #view-game-play .space-y-3>:not([hidden])~:not([hidden]){margin-top:8px!important;}
 
         /* Card Kham pha tang co chu nhu TV1 */
-        #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:1.2rem!important;}
-        #class2-math-runtime #view-dashboard-grid .pastel-card>div:last-child{font-size:13.2px!important;}
+        #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:20px!important;}
+        #class2-math-runtime #view-dashboard-grid .pastel-card>div:last-child{font-size:20px!important;}
 
         @media (max-width:767px){
             #class2-math-runtime .app-main-header{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;gap:7px!important;padding:7px 0!important;}
@@ -20459,7 +20459,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             #class2-math-runtime #header-info-zone{display:flex!important;grid-column:2;grid-row:1;justify-self:end!important;width:auto!important;min-width:0!important;gap:5px!important;}
             #class2-math-runtime #main-module-tabs{grid-column:1/3;grid-row:2;width:100%!important;}
             #class2-math-runtime #main-module-tabs>div{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
-            #class2-math-runtime .main-module-tab{min-height:52px;flex-direction:row;gap:6px;font-size:12px;padding:6px 8px;border-radius:15px;}
+            #class2-math-runtime .main-module-tab{min-height:52px;flex-direction:row;gap:6px;font-size:20px;padding:6px 8px;border-radius:15px;}
             #class2-math-runtime .main-module-tab>span:first-child{font-size:18px!important;}
             #class2-math-runtime .main-module-tab::after{bottom:-4px;height:2px;}
             #class2-math-runtime #header-star-box{transform:none!important;margin-left:0!important;padding:3px 5px!important;}
@@ -20481,14 +20481,14 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             #class2-math-runtime #app-context-banner{min-height:52px;padding:6px 8px;}
             #class2-math-runtime #header-learning-tabs{gap:4px;}
             #class2-math-runtime #header-level2-tab>button, #class2-math-runtime #header-level3-tab>button, #class2-math-runtime #header-level4-tab>button{height:34px!important;max-width:180px!important;padding:0 9px!important;border-radius:11px!important;}
-            #class2-math-runtime #header-level2-title, #class2-math-runtime #header-level3-title, #class2-math-runtime #header-level4-title{font-size:11px!important;}
+            #class2-math-runtime #header-level2-title, #class2-math-runtime #header-level3-title, #class2-math-runtime #header-level4-title{font-size:20px!important;}
             #class2-math-runtime #header-level2-icon{display:none!important;}
             #class2-math-runtime #app-footer{height:64px;min-height:64px;flex:0 0 64px;margin-top:8px;}
-            #class2-math-runtime #app-footer .footer-title{font-size:14px;}
-            #class2-math-runtime #app-footer .footer-sub{font-size:12px;}
+            #class2-math-runtime #app-footer .footer-title{font-size:20px;}
+            #class2-math-runtime #app-footer .footer-sub{font-size:20px;}
             #class2-math-runtime #view-roadmap, #class2-math-runtime #view-bai-hoc-detail, #class2-math-runtime #view-minigame-hub, #class2-math-runtime #view-game-play, #class2-math-runtime #view-exam-hub, #class2-math-runtime #view-quiz>.pastel-card{padding-top:6px!important;padding-bottom:6px!important;}
-            #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:1.05rem!important;}
-            #class2-math-runtime #view-dashboard-grid .pastel-card>div:last-child{font-size:13.2px!important;}
+            #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:20px!important;}
+            #class2-math-runtime #view-dashboard-grid .pastel-card>div:last-child{font-size:20px!important;}
         }
 
     
@@ -20509,18 +20509,18 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
         #class2-math-runtime #view-dashboard-grid .pastel-card:has(h3.text-yellow-700){ background:rgba(254,252,232,.90) !important; }
 
         @media (min-width:768px){
-            #class2-math-runtime .main-module-tab{font-size:16px !important;}
+            #class2-math-runtime .main-module-tab{font-size:20px !important;}
             #class2-math-runtime #header-level2-tab>button, #class2-math-runtime #header-level3-tab>button, #class2-math-runtime #header-level4-tab>button{
                 width:auto !important;min-width:0 !important;max-width:440px !important;
                 padding-left:18px !important;padding-right:18px !important;
             }
             #class2-math-runtime #header-level2-title, #class2-math-runtime #header-level3-title, #class2-math-runtime #header-level4-title{
-                font-size:14px !important;max-width:400px !important;overflow:hidden !important;
+                font-size:20px !important;max-width:400px !important;overflow:hidden !important;
                 text-overflow:ellipsis !important;white-space:nowrap !important;
             }
         }
         @media (max-width:767px){
-            #class2-math-runtime .main-module-tab{font-size:14px !important;}
+            #class2-math-runtime .main-module-tab{font-size:20px !important;}
         }
 
 
@@ -20550,7 +20550,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
                 font-size: 12px !important;
             }
             #class2-math-runtime #star-green-count, #class2-math-runtime #star-red-count{
-                font-size: 15px !important;
+                font-size: 20px !important;
                 line-height: 1 !important;
                 min-width: 15px;
                 text-align: center;
@@ -20573,7 +20573,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
                 font-size: 11px !important;
             }
             #class2-math-runtime #star-green-count, #class2-math-runtime #star-red-count{
-                font-size: 13px !important;
+                font-size: 20px !important;
                 line-height: 1 !important;
             }
         }
@@ -20611,7 +20611,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
 
             /* Chu 6 tab chinh lon hon tren mobile */
             #class2-math-runtime .main-module-tab{
-                font-size: 16px !important;
+                font-size: 20px !important;
                 font-weight: 900 !important;
             }
             #class2-math-runtime .main-module-tab > span:first-child{
@@ -20620,11 +20620,11 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
 
             /* Tieu de + mo ta cac muc hoc lon hon */
             #class2-math-runtime #view-dashboard-grid .pastel-card h3{
-                font-size: 1.2rem !important;
+                font-size: 20px !important;
                 line-height: 1.2 !important;
             }
             #class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child{
-                font-size: 15px !important;
+                font-size: 20px !important;
                 line-height: 1.4 !important;
             }
 
@@ -20646,14 +20646,14 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
             line-height: 1.22 !important;
         }
         #class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child{
-            font-size: 15px !important;
+            font-size: 20px !important;
             line-height: 1.45 !important;
         }
 
         @media (max-width: 767px){
             /* Ten 6 tab chinh mobile lon hon, desktop giu nguyen */
             #class2-math-runtime .main-module-tab{
-                font-size: 17px !important;
+                font-size: 20px !important;
                 font-weight: 900 !important;
             }
             #class2-math-runtime .main-module-tab > span:first-child{
@@ -20666,7 +20666,7 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
                 line-height: 1.22 !important;
             }
             #class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child{
-                font-size: 16px !important;
+                font-size: 20px !important;
                 line-height: 1.45 !important;
             }
         }
@@ -20675,20 +20675,20 @@ const MATH_MODULE_CSS_ = `/*! tailwindcss v4.1.10 | MIT License | https://tailwi
 
         /* MINI GAME TOAN 2 - tang co chu toan bo man choi 2026-09-30 */
         #class2-math-runtime #view-game-play > div > div:first-child h2{ font-size: 1.45rem !important; line-height: 1.25 !important; }
-        #class2-math-runtime #view-game-play > div > div:first-child button{ font-size: 0.95rem !important; }
-        #class2-math-runtime #game-play-container .text-\\[11px\\]{ font-size: 0.94rem !important; line-height: 1.45 !important; }
-        #class2-math-runtime #game-play-container .text-xs{ font-size: 0.96rem !important; line-height: 1.45 !important; }
-        #class2-math-runtime #game-play-container .text-sm{ font-size: 1.06rem !important; line-height: 1.45 !important; }
-        #class2-math-runtime #game-play-container .text-base{ font-size: 1.14rem !important; line-height: 1.45 !important; }
+        #class2-math-runtime #view-game-play > div > div:first-child button{ font-size: 20px !important; }
+        #class2-math-runtime #game-play-container .text-\\[11px\\]{ font-size: 20px !important; line-height: 1.45 !important; }
+        #class2-math-runtime #game-play-container .text-xs{ font-size: 20px !important; line-height: 1.45 !important; }
+        #class2-math-runtime #game-play-container .text-sm{ font-size: 20px !important; line-height: 1.45 !important; }
+        #class2-math-runtime #game-play-container .text-base{ font-size: 20px !important; line-height: 1.45 !important; }
         #class2-math-runtime #game-play-container .text-lg{ font-size: 1.32rem !important; line-height: 1.35 !important; }
         #class2-math-runtime #game-play-container .text-xl{ font-size: 1.5rem !important; line-height: 1.3 !important; }
         #class2-math-runtime #game-play-container button{ line-height: 1.25; }
         @media (max-width: 640px){
             #class2-math-runtime #view-game-play > div > div:first-child h2{ font-size: 1.25rem !important; }
-            #class2-math-runtime #game-play-container .text-\\[11px\\], #class2-math-runtime #game-play-container .text-xs{ font-size: 0.88rem !important; }
-            #class2-math-runtime #game-play-container .text-sm{ font-size: 0.98rem !important; }
-            #class2-math-runtime #game-play-container .text-base{ font-size: 1.06rem !important; }
-            #class2-math-runtime #game-play-container .text-lg{ font-size: 1.18rem !important; }
+            #class2-math-runtime #game-play-container .text-\\[11px\\], #class2-math-runtime #game-play-container .text-xs{ font-size: 20px !important; }
+            #class2-math-runtime #game-play-container .text-sm{ font-size: 20px !important; }
+            #class2-math-runtime #game-play-container .text-base{ font-size: 20px !important; }
+            #class2-math-runtime #game-play-container .text-lg{ font-size: 20px !important; }
             #class2-math-runtime #game-play-container .text-xl{ font-size: 1.34rem !important; }
         }
 
@@ -20772,7 +20772,7 @@ function showPremiumAccessModal(featureName = 'Nội dung này') {
     }
     const guest = !currentUser || currentUser.isGuest;
     const tier = String(class2ModuleAccessType_ || 'regular').toLowerCase();
-    modal.innerHTML = `<div class="w-full max-w-[350px] bg-[#fffdf4] rounded-[26px] border-2 border-amber-300 shadow-2xl overflow-hidden"><div class="px-5 pt-5 pb-4 text-center"><div class="mx-auto w-[70px] h-[70px] rounded-full bg-white border border-amber-300 flex items-center justify-center text-[38px] shadow-sm mb-3">🐰</div><h3 class="text-[17px] font-black text-orange-600 mb-2.5">${escapeHtml(featureName)}</h3><div class="text-[13px] leading-[1.7] font-extrabold text-slate-700">${guest ? `Đây là ${escapeHtml(featureName)} dành cho tài khoản Trial hoặc VIP của môn Toán.<br>Con đăng nhập bằng tài khoản Lớp 2 để tiếp tục nhé!<br>Nội dung Free trong Khám phá vẫn học bình thường.` : `Quyền Toán hiện tại của con là <span class="text-orange-600">${escapeHtml(tier === 'regular' ? 'Regular' : tier.toUpperCase())}</span>.<br>${escapeHtml(featureName)} dành cho tài khoản Trial hoặc VIP của môn Toán.<br>Nội dung Free trong Khám phá vẫn học bình thường.`}</div></div><div class="bg-white/80 border-t border-pink-100 px-3.5 py-3 space-y-2">${guest ? `<div class="grid grid-cols-2 gap-2"><button onclick="closePremiumAccessModal();openAuthFromGuest('login')" class="h-10 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-400 text-white font-black text-sm shadow-sm">Đăng nhập</button><button onclick="closePremiumAccessModal();openAuthFromGuest('register')" class="h-10 rounded-2xl bg-white border border-fuchsia-300 text-fuchsia-500 font-black text-sm">Đăng ký</button></div>` : ''}<button onclick="closePremiumAccessModal()" class="w-full h-10 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-500 text-sm font-black">Để sau nhé</button></div></div>`;
+    modal.innerHTML = `<div class="w-full max-w-[350px] bg-[#fffdf4] rounded-[26px] border-2 border-amber-300 shadow-2xl overflow-hidden"><div class="px-5 pt-5 pb-4 text-center"><div class="mx-auto w-[70px] h-[70px] rounded-full bg-white border border-amber-300 flex items-center justify-center text-[38px] shadow-sm mb-3">🐰</div><h3 class="text-xl font-black text-orange-600 mb-2.5">${escapeHtml(featureName)}</h3><div class="text-xl leading-[1.7] font-extrabold text-slate-700">${guest ? `Đây là ${escapeHtml(featureName)} dành cho tài khoản Trial hoặc VIP của môn Toán.<br>Con đăng nhập bằng tài khoản Lớp 2 để tiếp tục nhé!<br>Nội dung Free trong Khám phá vẫn học bình thường.` : `Quyền Toán hiện tại của con là <span class="text-orange-600">${escapeHtml(tier === 'regular' ? 'Regular' : tier.toUpperCase())}</span>.<br>${escapeHtml(featureName)} dành cho tài khoản Trial hoặc VIP của môn Toán.<br>Nội dung Free trong Khám phá vẫn học bình thường.`}</div></div><div class="bg-white/80 border-t border-pink-100 px-3.5 py-3 space-y-2">${guest ? `<div class="grid grid-cols-2 gap-2"><button onclick="closePremiumAccessModal();openAuthFromGuest('login')" class="h-10 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-400 text-white font-black text-xl shadow-sm">Đăng nhập</button><button onclick="closePremiumAccessModal();openAuthFromGuest('register')" class="h-10 rounded-2xl bg-white border border-fuchsia-300 text-fuchsia-500 font-black text-xl">Đăng ký</button></div>` : ''}<button onclick="closePremiumAccessModal()" class="w-full h-10 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-500 text-xl font-black">Để sau nhé</button></div></div>`;
     modal.classList.remove('hidden');
     return false;
 }
@@ -21145,7 +21145,7 @@ body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs::-webkit-scrollbar
 body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-sep{
     flex:0 0 auto;
     color:#c084fc;
-    font-size:16px;
+    font-size:20px;
     font-weight:900;
 }
 body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-tab{
@@ -21160,7 +21160,7 @@ body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-t
     overflow:hidden;
     text-overflow:ellipsis;
     white-space:nowrap;
-    font-size:16px;
+    font-size:20px;
     font-weight:900;
     line-height:1;
     box-shadow:0 2px 7px rgba(76,29,149,.08);
@@ -21191,10 +21191,10 @@ body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-l
 }
 /* Toán trong Lớp 2: tăng nhẹ chữ thống kê Đúng/Sai theo yêu cầu UI. */
 body:has(#class2-math-runtime) #score-box{
-    font-size:16px!important;
+    font-size:20px!important;
     font-weight:900!important;
 }
-body:has(#class2-math-runtime) #score-box strong{font-size:17px!important;}
+body:has(#class2-math-runtime) #score-box strong{font-size:20px!important;}
 
 /* Điều hướng câu hỏi: cùng cỡ rõ hơn trên toàn bộ các luồng dùng quiz engine. */
 body:has(#class2-math-runtime) #class2-math-runtime #btn-prev-q-prac,
@@ -21203,27 +21203,27 @@ body:has(#class2-math-runtime) #class2-math-runtime #btn-prev-q-exam,
 body:has(#class2-math-runtime) #class2-math-runtime #btn-next-q-exam,
 body:has(#class2-math-runtime) #class2-math-runtime #practice-step-indicator,
 body:has(#class2-math-runtime) #class2-math-runtime #practice-step-text{
-    font-size:16px!important;
+    font-size:20px!important;
     font-weight:900!important;
 }
 @media(max-width:767px){
-    body:has(#class2-math-runtime) #score-box{font-size:16px!important;}
-    body:has(#class2-math-runtime) #score-box strong{font-size:16px!important;}
+    body:has(#class2-math-runtime) #score-box{font-size:20px!important;}
+    body:has(#class2-math-runtime) #score-box strong{font-size:20px!important;}
     body:has(#class2-math-runtime) #class2-math-runtime #btn-prev-q-prac,
     body:has(#class2-math-runtime) #class2-math-runtime #btn-next-q-prac,
     body:has(#class2-math-runtime) #class2-math-runtime #btn-prev-q-exam,
     body:has(#class2-math-runtime) #class2-math-runtime #btn-next-q-exam,
     body:has(#class2-math-runtime) #class2-math-runtime #practice-step-indicator,
-    body:has(#class2-math-runtime) #class2-math-runtime #practice-step-text{font-size:16px!important;}
+    body:has(#class2-math-runtime) #class2-math-runtime #practice-step-text{font-size:20px!important;}
     body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs{max-width:calc(100% - .35rem)!important;gap:.22rem!important;}
     body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-tab{
         height:34px;
         max-width:44vw;
         padding:0 10px;
         border-radius:11px;
-        font-size:16px;
+        font-size:20px;
     }
-    body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-sep{font-size:16px;}
+    body:has(#class2-math-runtime) #sub-pill.math-sub-breadcrumbs .math-breadcrumb-sep{font-size:20px;}
 }
 `;
 const MATH_HUB_CARD_CSS_ = `
@@ -21251,10 +21251,10 @@ const MATH_HUB_CARD_CSS_ = `
 }
 /* Tiêu đề các ô mục con Khám phá: tăng 1px so với bản trước. */
 #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{
-    font-size:17px!important;
+    font-size:20px!important;
 }
 @media (min-width:768px){
-    #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{font-size:19px!important;}
+    #class2-math-runtime #view-dashboard-grid .math-subtopic-card-title{font-size:20px!important;}
 }
 #class2-math-runtime #view-dashboard-grid .math-topic-foot{
     margin-top:6px!important;
@@ -21272,9 +21272,9 @@ const MATH_HUB_CARD_CSS_ = `
 #class2-math-runtime #view-dashboard-grid .pastel-card:has(h3.text-rose-700){background:#ffe4e6!important;border-color:#fecdd3!important;}
 #class2-math-runtime #view-dashboard-grid .pastel-card:has(h3.text-yellow-700){background:#fef9c3!important;border-color:#fde68a!important;}
 #class2-math-runtime #view-dashboard-grid .pastel-card:has(h3.text-fuchsia-700){background:#fae8ff!important;border-color:#f0abfc!important;}
-#class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:18px!important;line-height:1.2!important;}
-#class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:first-child{font-size:16px!important;line-height:1.28!important;color:#334155!important;}
-#class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:last-child{font-size:16px!important;}
+#class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:20px!important;line-height:1.2!important;}
+#class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:first-child{font-size:20px!important;line-height:1.28!important;color:#334155!important;}
+#class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:last-child{font-size:20px!important;}
 /* Discover hub spacing: top gap equals the grid gap (gap-2 = .5rem). */
 #content-stage:has(#class2-math-runtime #view-dashboard-grid:not(.hidden)){padding-top:.5rem!important;}
 
@@ -21293,10 +21293,10 @@ const MATH_HUB_CARD_CSS_ = `
 #class2-math-runtime #bai-hoc-grid > button:nth-child(6n+4){background:#d1fae5!important;border-color:#a7f3d0!important;}
 #class2-math-runtime #bai-hoc-grid > button:nth-child(6n+5){background:#fef3c7!important;border-color:#fde68a!important;}
 #class2-math-runtime #bai-hoc-grid > button:nth-child(6n+6){background:#cffafe!important;border-color:#a5f3fc!important;}
-#class2-math-runtime #bai-hoc-grid > button > div:first-child{font-size:18px!important;line-height:1.25!important;color:#7e22ce!important;}
-#class2-math-runtime #bai-hoc-grid > button > div:nth-child(2){font-size:16px!important;line-height:1.38!important;color:#334155!important;margin-top:4px!important;}
+#class2-math-runtime #bai-hoc-grid > button > div:first-child{font-size:20px!important;line-height:1.25!important;color:#7e22ce!important;}
+#class2-math-runtime #bai-hoc-grid > button > div:nth-child(2){font-size:20px!important;line-height:1.38!important;color:#334155!important;margin-top:4px!important;}
 #class2-math-runtime #view-bai-hoc-hub h2{font-size:21px!important;}
-#class2-math-runtime #bai-hoc-hub-subtitle{font-size:16px!important;}
+#class2-math-runtime #bai-hoc-hub-subtitle{font-size:20px!important;}
 
 /* Exercises: same readable typography and varied pastel cards; lock opacity still communicates state. */
 #class2-math-runtime #roadmap-svg-container{
@@ -21318,14 +21318,14 @@ const MATH_HUB_CARD_CSS_ = `
 #class2-math-runtime #roadmap-svg-container button:nth-child(6n+4){background:#d1fae5!important;border-color:#a7f3d0!important;}
 #class2-math-runtime #roadmap-svg-container button:nth-child(6n+5){background:#fef3c7!important;border-color:#fde68a!important;}
 #class2-math-runtime #roadmap-svg-container button:nth-child(6n+6){background:#cffafe!important;border-color:#a5f3fc!important;}
-#class2-math-runtime #roadmap-svg-container button > div:first-child span:first-child{font-size:18px!important;line-height:1.25!important;color:#6d28d9!important;}
-#class2-math-runtime #roadmap-svg-container button > div:nth-child(2){font-size:16px!important;line-height:1.35!important;color:#334155!important;}
-#class2-math-runtime #roadmap-svg-container button > div:nth-child(3){font-size:16px!important;line-height:1.3!important;}
+#class2-math-runtime #roadmap-svg-container button > div:first-child span:first-child{font-size:20px!important;line-height:1.25!important;color:#6d28d9!important;}
+#class2-math-runtime #roadmap-svg-container button > div:nth-child(2){font-size:20px!important;line-height:1.35!important;color:#334155!important;}
+#class2-math-runtime #roadmap-svg-container button > div:nth-child(3){font-size:20px!important;line-height:1.3!important;}
 #class2-math-runtime #view-roadmap h2{font-size:20px!important;}
-#class2-math-runtime #view-roadmap h2 + p{font-size:16px!important;}
+#class2-math-runtime #view-roadmap h2 + p{font-size:20px!important;}
 
 /* Review/subtopic cards: keep controlled palette but make color and type easier to see. */
-#class2-math-runtime #lecture-subtopics-list > button{border-width:1px!important;font-size:16px!important;line-height:1.35!important;padding:10px 13px!important;}
+#class2-math-runtime #lecture-subtopics-list > button{border-width:1px!important;font-size:20px!important;line-height:1.35!important;padding:10px 13px!important;}
 #class2-math-runtime #lecture-subtopics-list > button:nth-child(6n+1){background:#fbcfe8!important;}
 #class2-math-runtime #lecture-subtopics-list > button:nth-child(6n+2){background:#d1fae5!important;}
 #class2-math-runtime #lecture-subtopics-list > button:nth-child(6n+3){background:#e9d5ff!important;}
@@ -21339,11 +21339,11 @@ const MATH_HUB_CARD_CSS_ = `
 #class2-math-runtime #exam-categories-grid > div:nth-child(2){background:#e9d5ff!important;border-color:#d8b4fe!important;}
 #class2-math-runtime #exam-categories-grid > div:nth-child(3){background:#fef3c7!important;border-color:#fde68a!important;}
 #class2-math-runtime #exam-categories-grid h3{font-size:21px!important;line-height:1.25!important;}
-#class2-math-runtime #exam-categories-grid p{font-size:17px!important;line-height:1.4!important;}
-#class2-math-runtime #exam-categories-grid span{font-size:16px!important;}
-#class2-math-runtime #exam-categories-grid button{font-size:16px!important;line-height:1.25!important;}
+#class2-math-runtime #exam-categories-grid p{font-size:20px!important;line-height:1.4!important;}
+#class2-math-runtime #exam-categories-grid span{font-size:20px!important;}
+#class2-math-runtime #exam-categories-grid button{font-size:20px!important;line-height:1.25!important;}
 #class2-math-runtime #view-exam-hub > div > .text-center h2{font-size:22px!important;line-height:1.25!important;}
-#class2-math-runtime #view-exam-hub > div > .text-center p{font-size:16px!important;line-height:1.4!important;}
+#class2-math-runtime #view-exam-hub > div > .text-center p{font-size:20px!important;line-height:1.4!important;}
 
 /* Mini games: use the full module width, reduce card height, keep larger readable type. */
 #class2-math-runtime #view-minigame-hub > div{width:100%!important;max-width:100%!important;}
@@ -21362,11 +21362,11 @@ const MATH_HUB_CARD_CSS_ = `
 #class2-math-runtime #minigame-grid > div:nth-child(6n+5){background:#fae8ff!important;border-color:#e879f9!important;}
 #class2-math-runtime #minigame-grid > div:nth-child(6n+6){background:#d1fae5!important;border-color:#6ee7b7!important;}
 #class2-math-runtime #minigame-grid > div > div.text-4xl{font-size:30px!important;line-height:1!important;margin-top:0!important;}
-#class2-math-runtime #minigame-grid h3{font-size:18px!important;line-height:1.25!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-#class2-math-runtime #minigame-grid p{font-size:16px!important;line-height:1.35!important;margin-top:4px!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-#class2-math-runtime #minigame-grid > div > span{font-size:16px!important;}
+#class2-math-runtime #minigame-grid h3{font-size:20px!important;line-height:1.25!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+#class2-math-runtime #minigame-grid p{font-size:20px!important;line-height:1.35!important;margin-top:4px!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+#class2-math-runtime #minigame-grid > div > span{font-size:20px!important;}
 #class2-math-runtime #view-minigame-hub h2{font-size:20px!important;}
-#class2-math-runtime #view-minigame-hub h2 + p{font-size:16px!important;}
+#class2-math-runtime #view-minigame-hub h2 + p{font-size:20px!important;}
 
 /* Math Lab learning cards follow the same stronger pastel visual language. */
 #class2-math-runtime .em-track-card,#class2-math-runtime .ns-journey-card{
@@ -21376,66 +21376,66 @@ const MATH_HUB_CARD_CSS_ = `
 }
 
 /* Lesson detail: larger typography and richer generated teaching models. */
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-lesson-meta{font-size:18px!important;line-height:1.3!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-tabs button{font-size:16px!important;height:44px!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content{font-size:16px!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .font-black.text-slate-800.text-sm{font-size:17px!important;line-height:1.4!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.md\:text-base{font-size:16.5px!important;line-height:1.55!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.font-semibold{font-size:16px!important;line-height:1.5!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.font-bold{font-size:16px!important;line-height:1.5!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content input{font-size:17px!important;min-height:44px!important;}
-#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content button{font-size:16px!important;min-height:42px;}
-#class2-math-runtime #bai-hoc-bottom-nav button{font-size:16px!important;min-height:44px;}
-#class2-math-runtime #bai-hoc-bottom-nav > div{font-size:16px!important;}
-#class2-math-runtime .math-lesson-visual-title{font-size:18px;line-height:1.35;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-lesson-meta{font-size:20px!important;line-height:1.3!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-tabs button{font-size:20px!important;height:44px!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content{font-size:20px!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .font-black.text-slate-800.text-sm{font-size:20px!important;line-height:1.4!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.md\:text-base{font-size:20px!important;line-height:1.55!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.font-semibold{font-size:20px!important;line-height:1.5!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content .text-sm.font-bold{font-size:20px!important;line-height:1.5!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content input{font-size:20px!important;min-height:44px!important;}
+#class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-content button{font-size:20px!important;min-height:42px;}
+#class2-math-runtime #bai-hoc-bottom-nav button{font-size:20px!important;min-height:44px;}
+#class2-math-runtime #bai-hoc-bottom-nav > div{font-size:20px!important;}
+#class2-math-runtime .math-lesson-visual-title{font-size:20px;line-height:1.35;}
 #class2-math-runtime .math-visual-card{background:#fff;border:1px solid #e9d5ff;border-radius:16px;padding:12px;text-align:center;}
-#class2-math-runtime .math-visual-caption{margin-top:8px;font-size:16px;line-height:1.45;font-weight:800;color:#475569;}
+#class2-math-runtime .math-visual-caption{margin-top:8px;font-size:20px;line-height:1.45;font-weight:800;color:#475569;}
 #class2-math-runtime .math-big-number{font-size:42px;line-height:1;font-weight:950;color:#7c3aed;margin-bottom:10px;}
 #class2-math-runtime .math-symbol{font-size:34px;line-height:1;font-weight:950;color:#7c3aed;text-align:center;}
-#class2-math-runtime .math-object-chip{border:1px solid #e2e8f0;background:#fff;border-radius:12px;padding:9px 8px;font-size:16px;font-weight:900;color:#475569;}
-#class2-math-runtime .math-position-chip{border:1px solid #a5f3fc;background:#ecfeff;border-radius:12px;padding:10px 8px;font-size:16px;font-weight:900;color:#0e7490;}
+#class2-math-runtime .math-object-chip{border:1px solid #e2e8f0;background:#fff;border-radius:12px;padding:9px 8px;font-size:20px;font-weight:900;color:#475569;}
+#class2-math-runtime .math-position-chip{border:1px solid #a5f3fc;background:#ecfeff;border-radius:12px;padding:10px 8px;font-size:20px;font-weight:900;color:#0e7490;}
 @media(max-width:767px){
-    #class2-math-runtime #view-bai-hoc-lesson #bai-hoc-lesson-meta{font-size:16px!important;}
-    #class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-tabs button{font-size:16px!important;height:42px!important;}
+    #class2-math-runtime #view-bai-hoc-lesson #bai-hoc-lesson-meta{font-size:20px!important;}
+    #class2-math-runtime #view-bai-hoc-lesson #bai-hoc-page-tabs button{font-size:20px!important;height:42px!important;}
     #class2-math-runtime .math-big-number{font-size:36px;}
     #class2-math-runtime .math-symbol{font-size:28px;}
-    #class2-math-runtime .math-visual-caption{font-size:16px;}
+    #class2-math-runtime .math-visual-caption{font-size:20px;}
 }
 
 @media(max-width:1023px){
     #class2-math-runtime #minigame-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
 }
 @media(max-width:767px){
-    #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:17px!important;}
-    #class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:first-child{font-size:16px!important;}
+    #class2-math-runtime #view-dashboard-grid .pastel-card h3{font-size:20px!important;}
+    #class2-math-runtime #view-dashboard-grid .pastel-card > div:last-child > span:first-child{font-size:20px!important;}
     #class2-math-runtime #bai-hoc-grid > button > div:first-child,
-    #class2-math-runtime #roadmap-svg-container button > div:first-child span:first-child{font-size:17px!important;}
+    #class2-math-runtime #roadmap-svg-container button > div:first-child span:first-child{font-size:20px!important;}
     #class2-math-runtime #bai-hoc-grid > button > div:nth-child(2),
-    #class2-math-runtime #roadmap-svg-container button > div:nth-child(2){font-size:16px!important;}
+    #class2-math-runtime #roadmap-svg-container button > div:nth-child(2){font-size:20px!important;}
     #class2-math-runtime #minigame-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;}
     #class2-math-runtime #minigame-grid > div{min-height:118px!important;padding:10px!important;}
-    #class2-math-runtime #minigame-grid h3{font-size:16.5px!important;}
-    #class2-math-runtime #minigame-grid p{font-size:16px!important;}
+    #class2-math-runtime #minigame-grid h3{font-size:20px!important;}
+    #class2-math-runtime #minigame-grid p{font-size:20px!important;}
 }
 
 
 /* Toán 2 lesson-detail aliases: same visual scale as Toán 1 lesson detail. */
-#class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-meta{font-size:18px!important;line-height:1.3!important;color:#7c3aed!important;}
+#class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-meta{font-size:20px!important;line-height:1.3!important;color:#7c3aed!important;}
 #class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-title{font-size:21px!important;line-height:1.3!important;color:#1e293b!important;}
 #class2-math-runtime #bai-hoc-detail-tabs{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;border:0!important;padding:0!important;margin:0 0 12px!important;}
-#class2-math-runtime #bai-hoc-detail-tabs button{font-size:16px!important;height:44px!important;min-height:44px!important;border-radius:12px!important;padding:0 12px!important;}
-#class2-math-runtime #bai-hoc-detail-body{font-size:16px!important;line-height:1.5!important;}
-#class2-math-runtime #bai-hoc-detail-body .text-sm.md\:text-base{font-size:16.5px!important;line-height:1.55!important;}
+#class2-math-runtime #bai-hoc-detail-tabs button{font-size:20px!important;height:44px!important;min-height:44px!important;border-radius:12px!important;padding:0 12px!important;}
+#class2-math-runtime #bai-hoc-detail-body{font-size:20px!important;line-height:1.5!important;}
+#class2-math-runtime #bai-hoc-detail-body .text-sm.md\:text-base{font-size:20px!important;line-height:1.55!important;}
 #class2-math-runtime #bai-hoc-detail-body .text-sm.font-semibold,
-#class2-math-runtime #bai-hoc-detail-body .text-sm.font-bold{font-size:16px!important;line-height:1.5!important;}
-#class2-math-runtime #bai-hoc-detail-body input{font-size:17px!important;min-height:44px!important;border-radius:12px!important;}
-#class2-math-runtime #bai-hoc-detail-body button{font-size:16px!important;min-height:42px;border-radius:12px;}
-#class2-math-runtime #bai-hoc-bottom-nav button{font-size:16px!important;min-height:44px!important;border-radius:12px!important;}
-#class2-math-runtime #bai-hoc-bottom-nav > div{font-size:16px!important;}
+#class2-math-runtime #bai-hoc-detail-body .text-sm.font-bold{font-size:20px!important;line-height:1.5!important;}
+#class2-math-runtime #bai-hoc-detail-body input{font-size:20px!important;min-height:44px!important;border-radius:12px!important;}
+#class2-math-runtime #bai-hoc-detail-body button{font-size:20px!important;min-height:42px;border-radius:12px;}
+#class2-math-runtime #bai-hoc-bottom-nav button{font-size:20px!important;min-height:44px!important;border-radius:12px!important;}
+#class2-math-runtime #bai-hoc-bottom-nav > div{font-size:20px!important;}
 @media(max-width:767px){
-  #class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-meta{font-size:16px!important;}
-  #class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-title{font-size:19px!important;}
-  #class2-math-runtime #bai-hoc-detail-tabs button{font-size:16px!important;height:42px!important;}
+  #class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-meta{font-size:20px!important;}
+  #class2-math-runtime #view-bai-hoc-detail #bai-hoc-detail-title{font-size:20px!important;}
+  #class2-math-runtime #bai-hoc-detail-tabs button{font-size:20px!important;height:42px!important;}
 }
 `;
 const MATH_CLASS2_FORM_COMPACT_CSS_ = `
@@ -21481,7 +21481,7 @@ const MATH_CLASS2_FORM_COMPACT_CSS_ = `
 }
 
 /* Học kỳ / tab phụ theo kích thước Toán 1. */
-#class2-math-runtime .semester-switch-btn{min-width:88px!important;height:34px!important;padding:0 14px!important;border-radius:12px!important;font-size:12px!important;font-weight:900!important;}
+#class2-math-runtime .semester-switch-btn{min-width:88px!important;height:34px!important;padding:0 14px!important;border-radius:12px!important;font-size:20px!important;font-weight:900!important;}
 #class2-math-runtime .semester-switch-btn.is-active{color:#fff!important;background:linear-gradient(135deg,#ec4899 0%,#a855f7 100%)!important;border:2px solid #c026d3!important;box-shadow:0 5px 12px rgba(168,85,247,.28)!important;}
 #class2-math-runtime .semester-switch-btn.is-inactive{color:#7e22ce!important;background:linear-gradient(135deg,#fff1f7 0%,#f5f3ff 100%)!important;border:1.5px solid #e9d5ff!important;box-shadow:0 2px 6px rgba(126,34,206,.08)!important;}
 
@@ -21493,7 +21493,7 @@ const MATH_CLASS2_FORM_COMPACT_CSS_ = `
   #class2-math-runtime #view-game-play,
   #class2-math-runtime #view-exam-hub,
   #class2-math-runtime #view-quiz > .pastel-card{padding-top:.25rem!important;padding-bottom:.25rem!important;}
-  #class2-math-runtime .semester-switch-btn{min-width:78px!important;height:32px!important;padding:0 10px!important;font-size:11px!important;}
+  #class2-math-runtime .semester-switch-btn{min-width:78px!important;height:32px!important;padding:0 10px!important;font-size:20px!important;}
 }
 `;
 
@@ -21609,7 +21609,7 @@ const MATH_BRANCH_DETAIL_CSS_ = `
     background:linear-gradient(90deg,#f472b6,#8b5cf6)!important;
     color:#fff!important;
     box-shadow:0 3px 9px rgba(124,58,237,.10)!important;
-    font-size:15px!important;
+    font-size:20px!important;
     font-weight:900!important;
 }
 #class2-math-runtime .math-branch-teacher-card{
@@ -21664,9 +21664,9 @@ const MATH_BRANCH_DETAIL_CSS_ = `
 }
 @media(max-width:767px){
     #class2-math-runtime #view-dashboard-grid > .math-branch-detail{padding:.25rem .2rem .45rem!important;}
-    #class2-math-runtime .math-branch-detail > .grid:first-child h2{font-size:19px!important;}
+    #class2-math-runtime .math-branch-detail > .grid:first-child h2{font-size:20px!important;}
     #class2-math-runtime .math-branch-detail > .grid:first-child .text-4xl{font-size:27px!important;}
-    #class2-math-runtime .math-branch-detail > .grid:first-child button{font-size:14px!important;min-height:40px!important;}
+    #class2-math-runtime .math-branch-detail > .grid:first-child button{font-size:20px!important;min-height:40px!important;}
 }
 `;
 
@@ -21989,7 +21989,7 @@ const MATH_TOAN1_INTERACTION_UI_CSS_ = `
   #class2-math-runtime #btn-prev-q-exam,
   #class2-math-runtime #btn-next-q-exam,
   #class2-math-runtime #practice-step-indicator,
-  #class2-math-runtime #practice-step-text{font-size:16px!important;}
+  #class2-math-runtime #practice-step-text{font-size:20px!important;}
 }
 `;
 
@@ -22042,17 +22042,17 @@ const MATH_ANSWER_AUDIO_UI_CSS_ = `
 
 /* Co chu dap an thong nhat trong toan module. Nhom dau > = < giu co lon rieng. */
 #class2-math-runtime .math-standard-answer{
-  font-size:18px!important;
+  font-size:20px!important;
   line-height:1.25!important;
   font-weight:900!important;
 }
 #class2-math-runtime .math-standard-answer > span:not(.option-icon),
 #class2-math-runtime .math-standard-answer .opt-text{
-  font-size:18px!important;
+  font-size:20px!important;
   line-height:1.25!important;
 }
 #class2-math-runtime .math-standard-answer strong{
-  font-size:17px!important;
+  font-size:20px!important;
   line-height:1.2!important;
 }
 /* Muc 7 - Tim so chua biet: so dap an lon hon mot nhip, 4 mau gan truc tiep khi render. */
@@ -22062,7 +22062,7 @@ const MATH_ANSWER_AUDIO_UI_CSS_ = `
   font-weight:950!important;
 }
 #class2-math-runtime .unknown-number-answer .unknown-answer-letter{
-  font-size:17px!important;
+  font-size:20px!important;
   line-height:1.15!important;
   font-weight:950!important;
   color:currentColor!important;
@@ -22070,10 +22070,10 @@ const MATH_ANSWER_AUDIO_UI_CSS_ = `
 @media(max-width:767px){
   #class2-math-runtime .math-standard-answer,
   #class2-math-runtime .math-standard-answer > span:not(.option-icon),
-  #class2-math-runtime .math-standard-answer .opt-text{font-size:17px!important;}
-  #class2-math-runtime .math-standard-answer strong{font-size:16px!important;}
-  #class2-math-runtime .unknown-number-answer .unknown-answer-value{font-size:19px!important;}
-  #class2-math-runtime .unknown-number-answer .unknown-answer-letter{font-size:16px!important;}
+  #class2-math-runtime .math-standard-answer .opt-text{font-size:20px!important;}
+  #class2-math-runtime .math-standard-answer strong{font-size:20px!important;}
+  #class2-math-runtime .unknown-number-answer .unknown-answer-value{font-size:20px!important;}
+  #class2-math-runtime .unknown-number-answer .unknown-answer-letter{font-size:20px!important;}
 }
 
 /* Khi da chon trong de thi: van giu mau nen goc, chi them vien/ring hong. */
@@ -22100,7 +22100,7 @@ const MATH_ANSWER_AUDIO_UI_CSS_ = `
   width:auto!important;min-width:118px!important;height:38px!important;min-height:38px!important;
   padding:0 14px!important;border:1px solid #c084fc!important;border-radius:13px!important;
   background:linear-gradient(135deg,#8b5cf6 0%,#d946ef 55%,#ec4899 100%)!important;
-  color:#fff!important;font-size:13px!important;font-weight:900!important;line-height:1!important;
+  color:#fff!important;font-size:20px!important;font-weight:900!important;line-height:1!important;
   display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
   white-space:nowrap!important;box-shadow:0 4px 11px rgba(168,85,247,.20)!important;
   transition:transform .15s ease,box-shadow .15s ease,filter .15s ease!important;
@@ -22112,7 +22112,7 @@ const MATH_ANSWER_AUDIO_UI_CSS_ = `
 }
 #class2-math-runtime .math-listen-button:disabled{opacity:.6!important;filter:saturate(.7);}
 @media(max-width:767px){
-  #class2-math-runtime .math-listen-button{min-width:108px!important;height:36px!important;min-height:36px!important;padding:0 11px!important;font-size:12px!important;}
+  #class2-math-runtime .math-listen-button{min-width:108px!important;height:36px!important;min-height:36px!important;padding:0 11px!important;font-size:20px!important;}
 }
 `;
 
@@ -22239,7 +22239,7 @@ const MATH_OPERATION_TERMS_UI_CSS_ = `
   #class2-math-runtime .math-operation-terms-value,
   #class2-math-runtime .math-operation-terms-symbol{font-size:34px!important;}
   #class2-math-runtime .math-operation-terms-equation [data-operation-term-label]{
-    font-size:14px!important;
+    font-size:20px!important;
     padding:.35rem .55rem!important;
   }
 }
@@ -22283,7 +22283,7 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
 }
 #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{
     min-width:0!important;
-    font-size:19.5px!important;
+    font-size:20px!important;
     font-weight:900!important;
     line-height:1.18!important;
 }
@@ -22294,7 +22294,7 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
 }
 #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-foot > span:first-child{
     min-width:0!important;
-    font-size:16px!important;
+    font-size:20px!important;
     line-height:1.3!important;
 }
 @media(max-width:520px){
@@ -22304,7 +22304,7 @@ const MATH_EXPLORE_TA2_SCALE_CSS_ = `
         min-width:52px!important;min-height:52px!important;
         flex-basis:52px!important;font-size:31px!important;border-radius:15px!important;
     }
-    #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{font-size:18px!important;}
+    #class2-math-runtime #view-dashboard-grid > .math-topic-card .math-topic-title{font-size:20px!important;}
 }
 
 `;
@@ -22558,10 +22558,10 @@ const MATH_1000_COLUMN_CSS_ = `
 #class2-math-runtime #question-box .math-1000-result-digit.is-revealed{color:#dc2626;}
 /* Hai bai 3.5/3.6: co chu dap an +1px (desktop 18->19, mobile 17->18). */
 #class2-math-runtime #question-box .option-btn.math-1000-option,
-#class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:19px!important;}
+#class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:20px!important;}
 @media(max-width:767px){
   #class2-math-runtime #question-box .option-btn.math-1000-option,
-  #class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:18px!important;}
+  #class2-math-runtime #question-box .option-btn.math-1000-option > span:not(.option-icon){font-size:20px!important;}
 }
 @media(max-width:420px){
   #class2-math-runtime #question-box .math-1000-vertical{grid-template-columns:28px repeat(3,44px);column-gap:6px;font-size:40px;row-gap:10px;}
@@ -22573,9 +22573,9 @@ const MATH_1000_COLUMN_CSS_ = `
 
 const MATH_MULDIV_INTRO_CSS_ = `
 #class2-math-runtime .math-muldiv-intro-entry{background:linear-gradient(140deg,#fff1f8 0%,#f4eaff 100%)!important;border-color:#e879f9!important;box-shadow:0 3px 14px rgba(190,24,93,.09)!important;}
-#class2-math-runtime .mdi-lesson{width:100%;padding:0 0 12px;font-size:18px;color:#334155;font-family:inherit;}
+#class2-math-runtime .mdi-lesson{width:100%;padding:0 0 12px;font-size:20px;color:#334155;font-family:inherit;}
 #class2-math-runtime .mdi-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px;}
-#class2-math-runtime .mdi-tab{min-height:56px;padding:9px 12px;line-height:1.35;border:1px solid #e9d5ff;border-radius:14px;background:#faf5ff;color:#6d28d9;font-size:18px;font-weight:850;text-align:center;transition:background .15s,border-color .15s;}
+#class2-math-runtime .mdi-tab{min-height:56px;padding:9px 12px;line-height:1.35;border:1px solid #e9d5ff;border-radius:14px;background:#faf5ff;color:#6d28d9;font-size:20px;font-weight:850;text-align:center;transition:background .15s,border-color .15s;}
 #class2-math-runtime .mdi-tab--selected{background:linear-gradient(110deg,#ec4899,#9333ea);border-color:#c026d3;color:#fff;box-shadow:0 4px 10px rgba(147,51,234,.16);}
 #class2-math-runtime .mdi-tab:focus-visible,#class2-math-runtime .mdi-lesson button:focus-visible{outline:3px solid #f59e0b;outline-offset:2px;}
 #class2-math-runtime .mdi-grid{display:grid;grid-template-columns:minmax(0,1.23fr) minmax(0,.85fr);gap:12px;align-items:stretch;}
@@ -22583,44 +22583,44 @@ const MATH_MULDIV_INTRO_CSS_ = `
 #class2-math-runtime .mdi-panel--visual{background:linear-gradient(180deg,#fff,#fdf4ff);}
 #class2-math-runtime .mdi-panel--info{display:flex;flex-direction:column;align-items:center;text-align:center;gap:13px;background:linear-gradient(160deg,#fff,#f5f3ff);}
 #class2-math-runtime .mdi-visual-title{font-weight:850;color:#be185d;font-size:20px;margin-bottom:3px;text-align:center;}
-#class2-math-runtime .mdi-muted{color:#64748b;font-size:18px;font-weight:600;text-align:center;line-height:1.5;margin:0 0 12px;}
+#class2-math-runtime .mdi-muted{color:#64748b;font-size:20px;font-weight:600;text-align:center;line-height:1.5;margin:0 0 12px;}
 #class2-math-runtime .mdi-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 13px;}
 #class2-math-runtime .mdi-stepper{padding:9px 10px;background:#fff;border:1px solid #ddd6fe;border-radius:13px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
-#class2-math-runtime .mdi-stepper>span{font-size:18px;font-weight:800;color:#475569;}
+#class2-math-runtime .mdi-stepper>span{font-size:20px;font-weight:800;color:#475569;}
 #class2-math-runtime .mdi-stepper-buttons{display:flex;align-items:center;gap:9px;}
 #class2-math-runtime .mdi-stepper-buttons button{width:44px;height:44px;min-width:44px;min-height:44px;border-radius:12px;border:1px solid #e9d5ff;background:#f5f3ff;color:#7e22ce;font-size:28px;font-weight:800;line-height:1;display:inline-flex;align-items:center;justify-content:center;}
 #class2-math-runtime .mdi-stepper-buttons button:disabled,#class2-math-runtime .mdi-action-main:disabled{opacity:.42;cursor:not-allowed;}
 #class2-math-runtime .mdi-stepper-buttons strong{min-width:18px;text-align:center;color:#be185d;font-size:20px;}
-#class2-math-runtime .mdi-selection-hint{padding:9px 11px;border:1px dashed #c4b5fd;border-radius:12px;background:#f5f3ff;color:#6d28d9;font-size:18px;font-weight:700;line-height:1.4;text-align:center;margin:-2px 0 12px;}
+#class2-math-runtime .mdi-selection-hint{padding:9px 11px;border:1px dashed #c4b5fd;border-radius:12px;background:#f5f3ff;color:#6d28d9;font-size:20px;font-weight:700;line-height:1.4;text-align:center;margin:-2px 0 12px;}
 #class2-math-runtime .mdi-group-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;min-height:116px;align-content:flex-start;margin:8px 0;}
 #class2-math-runtime .mdi-bowl{flex:1 1 112px;max-width:190px;min-width:94px;border-radius:14px;border:1px solid #93c5fd;background:#eff6ff;padding:10px 7px;text-align:center;}
-#class2-math-runtime .mdi-bowl-name{color:#9333ea;font-size:18px;font-weight:900;}
+#class2-math-runtime .mdi-bowl-name{color:#9333ea;font-size:20px;font-weight:900;}
 #class2-math-runtime .mdi-bowl-items{display:flex;justify-content:center;align-content:center;align-items:center;flex-wrap:wrap;gap:3px;min-height:45px;padding:4px 1px;}
-#class2-math-runtime .mdi-bowl-count{font-size:18px;color:#2563eb;font-weight:800;}
+#class2-math-runtime .mdi-bowl-count{font-size:20px;color:#2563eb;font-weight:800;}
 #class2-math-runtime .mdi-candy{font-size:24px;line-height:1.2;display:inline-flex;align-items:center;justify-content:center;}
 #class2-math-runtime .mdi-candy--tap{border:1px solid #f9a8d4;background:#fff;border-radius:9px;padding:3px;cursor:pointer;min-width:37px;min-height:37px;}
-#class2-math-runtime .mdi-counter{padding:11px 10px;text-align:center;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;font-size:18px;color:#9a3412;font-weight:650;}
-#class2-math-runtime .mdi-rule-label{display:block;color:#7e22ce;font-size:18px;font-weight:900;letter-spacing:.03em;}
+#class2-math-runtime .mdi-counter{padding:11px 10px;text-align:center;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;font-size:20px;color:#9a3412;font-weight:650;}
+#class2-math-runtime .mdi-rule-label{display:block;color:#7e22ce;font-size:20px;font-weight:900;letter-spacing:.03em;}
 #class2-math-runtime .mdi-equation{font-weight:900;line-height:1.25;word-break:break-word;}
 #class2-math-runtime .mdi-equation--add{font-size:clamp(20px,2.7vw,28px);color:#2563eb;}
 #class2-math-runtime .mdi-equation--mult{font-size:clamp(34px,3.8vw,47px);color:#4338ca;}
 #class2-math-runtime .mdi-equation--mult span{color:#9333ea;}
 #class2-math-runtime .mdi-equation em{color:#db2777;font-style:normal;}
-#class2-math-runtime .mdi-info-copy{font-size:18px;font-weight:650;color:#334155;line-height:1.55;margin:0;}
-#class2-math-runtime .mdi-note{width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:#fff1f2;border:1px solid #fecdd3;font-size:18px;font-weight:620;line-height:1.5;color:#9f1239;}
-#class2-math-runtime .mdi-concept-check{width:100%;padding:10px 12px;border-radius:12px;border:1px dashed #c4b5fd;background:#f5f3ff;color:#6d28d9;font-size:18px;font-weight:750;}
+#class2-math-runtime .mdi-info-copy{font-size:20px;font-weight:650;color:#334155;line-height:1.55;margin:0;}
+#class2-math-runtime .mdi-note{width:100%;text-align:left;padding:12px 14px;border-radius:14px;background:#fff1f2;border:1px solid #fecdd3;font-size:20px;font-weight:620;line-height:1.5;color:#9f1239;}
+#class2-math-runtime .mdi-concept-check{width:100%;padding:10px 12px;border-radius:12px;border:1px dashed #c4b5fd;background:#f5f3ff;color:#6d28d9;font-size:20px;font-weight:750;}
 #class2-math-runtime .mdi-check-equation{display:block;margin-top:4px;white-space:nowrap;text-align:center;}
-#class2-math-runtime .mdi-listen{border:1px solid #e879f9;background:linear-gradient(110deg,#a855f7,#ec4899);color:#fff!important;border-radius:11px;padding:9px 15px;font-size:18px;font-weight:850;display:inline-flex;align-items:center;gap:7px;}
+#class2-math-runtime .mdi-listen{border:1px solid #e879f9;background:linear-gradient(110deg,#a855f7,#ec4899);color:#fff!important;border-radius:11px;padding:9px 15px;font-size:20px;font-weight:850;display:inline-flex;align-items:center;gap:7px;}
 #class2-math-runtime .mdi-listen i{color:#fff;}
 #class2-math-runtime .mdi-tray{padding:10px;border-radius:14px;background:#fff7ed;border:1px solid #fed7aa;text-align:center;}
-#class2-math-runtime .mdi-tray-title{color:#9a3412;font-size:18px;font-weight:850;}
+#class2-math-runtime .mdi-tray-title{color:#9a3412;font-size:20px;font-weight:850;}
 #class2-math-runtime .mdi-tray-items{display:flex;justify-content:center;gap:5px;flex-wrap:wrap;align-items:center;min-height:46px;padding:4px;}
-#class2-math-runtime .mdi-done{color:#15803d;font-size:18px;font-weight:850;}
-#class2-math-runtime .mdi-empty{font-size:18px;color:#64748b;font-weight:700;}
-#class2-math-runtime .mdi-group-placeholder{width:100%;align-self:center;text-align:center;color:#64748b;font-size:18px;font-weight:750;border:1px dashed #c4b5fd;border-radius:14px;padding:25px 10px;}
+#class2-math-runtime .mdi-done{color:#15803d;font-size:20px;font-weight:850;}
+#class2-math-runtime .mdi-empty{font-size:20px;color:#64748b;font-weight:700;}
+#class2-math-runtime .mdi-group-placeholder{width:100%;align-self:center;text-align:center;color:#64748b;font-size:20px;font-weight:750;border:1px dashed #c4b5fd;border-radius:14px;padding:25px 10px;}
 #class2-math-runtime .mdi-action-row{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:12px;}
-#class2-math-runtime .mdi-action-main{background:linear-gradient(115deg,#ec4899,#9333ea);border:1px solid #db2777;border-radius:12px;color:#fff;padding:10px 17px;font-size:18px;font-weight:850;}
-#class2-math-runtime .mdi-action-secondary{background:#fff;border:1px solid #c4b5fd;border-radius:12px;color:#6d28d9;padding:10px 17px;font-size:18px;font-weight:850;}
+#class2-math-runtime .mdi-action-main{background:linear-gradient(115deg,#ec4899,#9333ea);border:1px solid #db2777;border-radius:12px;color:#fff;padding:10px 17px;font-size:20px;font-weight:850;}
+#class2-math-runtime .mdi-action-secondary{background:#fff;border:1px solid #c4b5fd;border-radius:12px;color:#6d28d9;padding:10px 17px;font-size:20px;font-weight:850;}
 /* Màu nhất quán trong cả ba hoạt động 4.1: tổng hồng, nhóm/đĩa tím, kẹo mỗi nhóm xanh. */
 #class2-math-runtime .mdi-stepper--total>span,
 #class2-math-runtime .mdi-stepper--total .mdi-stepper-buttons strong{color:#db2777;}
@@ -22634,18 +22634,33 @@ const MATH_MULDIV_INTRO_CSS_ = `
 #class2-math-runtime .mdi-lesson .mdi-qty--total{color:#db2777;}
 /* Tất cả nhóm/đĩa cùng nền xanh nhạt, tên nhóm màu tím. */
 #class2-math-runtime .mdi-footer{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:13px;padding:11px 14px;border:1px solid #e9d5ff;border-radius:15px;background:#faf5ff;}
-#class2-math-runtime .mdi-footer>span{font-size:18px;color:#64748b;font-weight:650;text-align:center;flex:1 1 190px;}
-#class2-math-runtime .mdi-back,#class2-math-runtime .mdi-next{padding:10px 13px;font-size:18px;font-weight:850;border-radius:10px;}
+#class2-math-runtime .mdi-footer>span{font-size:20px;color:#64748b;font-weight:650;text-align:center;flex:1 1 190px;}
+#class2-math-runtime .mdi-back,#class2-math-runtime .mdi-next{padding:10px 13px;font-size:20px;font-weight:850;border-radius:10px;}
 #class2-math-runtime .mdi-back{border:1px solid #ddd6fe;background:#fff;color:#6d28d9;}
 #class2-math-runtime .mdi-next{border:1px solid #db2777;background:linear-gradient(110deg,#ec4899,#db2777);color:#fff;}
 @media (max-width:1220px){#class2-math-runtime .mdi-stepper{flex-direction:column;justify-content:center;gap:6px;}#class2-math-runtime .mdi-stepper-buttons{justify-content:center;}}
 @media (max-width:780px){#class2-math-runtime .mdi-grid{grid-template-columns:1fr;}}
-@media (max-width:480px){#class2-math-runtime .mdi-controls{grid-template-columns:1fr;}#class2-math-runtime .mdi-tabs{gap:5px;}#class2-math-runtime .mdi-tab{padding:8px 5px;font-size:18px;min-height:56px;}#class2-math-runtime .mdi-panel{padding:12px;}#class2-math-runtime .mdi-stepper{padding:7px;}#class2-math-runtime .mdi-controls{gap:6px;}#class2-math-runtime .mdi-stepper-buttons{gap:5px;}#class2-math-runtime .mdi-bowl{flex-basis:100px;}#class2-math-runtime .mdi-candy{font-size:21px;}#class2-math-runtime .mdi-footer{justify-content:center;}#class2-math-runtime .mdi-rule-label{font-size:18px;}}
+@media (max-width:480px){#class2-math-runtime .mdi-controls{grid-template-columns:1fr;}#class2-math-runtime .mdi-tabs{gap:5px;}#class2-math-runtime .mdi-tab{padding:8px 5px;font-size:20px;min-height:56px;}#class2-math-runtime .mdi-panel{padding:12px;}#class2-math-runtime .mdi-stepper{padding:7px;}#class2-math-runtime .mdi-controls{gap:6px;}#class2-math-runtime .mdi-stepper-buttons{gap:5px;}#class2-math-runtime .mdi-bowl{flex-basis:100px;}#class2-math-runtime .mdi-candy{font-size:21px;}#class2-math-runtime .mdi-footer{justify-content:center;}#class2-math-runtime .mdi-rule-label{font-size:20px;}}
 `;
 
+const MATH_L2_FONT20_LAYOUT_CSS_ = `
+/* Class 2 type + button accessibility */
+#class2-math-runtime{font-size:20px;line-height:1.42}
+#class2-math-runtime button,#class2-math-runtime input,#class2-math-runtime select,#class2-math-runtime textarea{font-family:inherit;line-height:1.3}
+#class2-math-runtime small{font-size:inherit}
+#class2-math-runtime .option-btn,#class2-math-runtime .answer-btn,#class2-math-runtime .mini-action{height:auto;min-height:48px;white-space:normal;overflow-wrap:anywhere}
+#class2-math-runtime button .bi-label{line-height:1.25;white-space:normal}
+#class2-math-runtime .main-module-tab{height:auto;min-height:72px;padding:9px 10px;line-height:1.25;white-space:normal}
+#class2-math-runtime .semester-switch-btn{height:auto;min-height:80px;padding:10px 12px;white-space:normal}
+#class2-math-runtime .pastel-card{min-width:0;overflow-wrap:anywhere}
+@media(max-width:520px){
+  #class2-math-runtime .semester-switch-btn{min-height:86px}
+  #class2-math-runtime #view-exam-hub .grid-cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+`;
 function ensureMathStyles_() {
     if (document.getElementById(MATH_MODULE_STYLE_ID_)) return;
-    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_ + MATH_MULDIV_INTRO_CSS_ + MATH_1000_COLUMN_CSS_; document.head.appendChild(style);
+    const style=document.createElement('style'); style.id=MATH_MODULE_STYLE_ID_; style.textContent=MATH_MODULE_CSS_ + MATH_CLASS2_FORM_COMPACT_CSS_ + MATH_SHELL_BREADCRUMB_CSS_ + MATH_HUB_CARD_CSS_ + MATH_ONE_PX_BORDER_CSS_ + MATH_BRANCH_DETAIL_CSS_ + MATH_UI_FINAL_AUDIT_CSS_ + MATH_TOAN1_INTERACTION_UI_CSS_ + MATH_ANSWER_AUDIO_UI_CSS_ + MATH_CARRY_34_LAYOUT_CSS_ + MATH_OPERATION_TERMS_UI_CSS_ + MATH_EXPLORE_TA2_SCALE_CSS_ + MATH_FOLDER_TA2_HOVER_CSS_ + MATH_MULDIV_INTRO_CSS_ + MATH_1000_COLUMN_CSS_+MATH_L2_FONT20_LAYOUT_CSS_; document.head.appendChild(style);
 }
 
 function mathReadStandaloneBreadcrumb_() {
