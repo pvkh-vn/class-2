@@ -2120,15 +2120,16 @@
       }
     }
 
-    /* Home: fixed-size anchor across desktop, tablet and mobile.
-       Prevent navigation density and media queries from resizing its box. */
+    /* Home logo uses a fixed box at every breakpoint. Its wider
+       aspect ratio lets object-fit:contain fill the 74px height
+       without distorting or cropping the mascot/logo artwork. */
     .app-header .home-btn{
       box-sizing:border-box;
       display:block;
-      flex:0 0 96px;
-      inline-size:96px;
-      min-inline-size:96px;
-      max-inline-size:96px;
+      flex:0 0 112px;
+      inline-size:112px;
+      min-inline-size:112px;
+      max-inline-size:112px;
       block-size:74px;
       min-block-size:74px;
       max-block-size:74px;
@@ -2143,22 +2144,22 @@
     .app-header .home-btn img{
       display:block;
       box-sizing:border-box;
-      inline-size:96px;
-      min-inline-size:96px;
-      max-inline-size:96px;
+      inline-size:112px;
+      min-inline-size:112px;
+      max-inline-size:112px;
       block-size:74px;
       min-block-size:74px;
       max-block-size:74px;
       object-fit:contain;
     }
     @media(min-width:1176px){
-      .app-header{grid-template-columns:96px minmax(0,1fr) auto}
+      .app-header{grid-template-columns:112px minmax(0,1fr) auto}
     }
     @media(min-width:768px) and (max-width:1175px){
-      .app-header{grid-template-columns:96px minmax(0,1fr)}
+      .app-header{grid-template-columns:112px minmax(0,1fr)}
     }
     @media(max-width:767px){
-      .app-header .header-mobile-row{grid-template-columns:96px minmax(0,1fr)}
+      .app-header .header-mobile-row{grid-template-columns:112px minmax(0,1fr)}
     }
   </style>
 </head>
