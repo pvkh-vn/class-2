@@ -2024,6 +2024,102 @@
     @media(max-width:340px){
       .app-header .header-mobile-row{grid-template-columns:66px minmax(0,1fr)}
     }
+
+    /* Admin: shortcut on mobile Home row; keep original Admin tab on desktop. */
+    .app-header #mobile-admin-button{display:none!important}
+    @media(max-width:767px){
+      .app-header .primary-nav .nav-tab[data-id="admin"]{display:none!important}
+      .app-header .header-tools #install-button{order:1}
+      .app-header .header-tools #score-box{order:2}
+      .app-header .header-tools #mobile-admin-button:not(.hidden){
+        display:flex!important;
+        order:3;
+        /* Keep the four action buttons as one right-aligned group. */
+        margin-left:0;
+        flex:0 0 88px;
+        width:88px;
+        min-width:88px;
+        max-width:88px;
+        height:74px;
+        min-height:74px;
+        max-height:74px;
+        padding:3px 2px;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:2px;
+        font-size:20px;
+        line-height:1.05;
+        white-space:normal;
+      }
+      .app-header .header-tools #account-button{order:4}
+      .app-header #mobile-admin-button .tab-icon{font-size:21px;line-height:1}
+      .app-header #mobile-admin-button .mobile-admin-label{
+        font-size:20px;
+        line-height:1.05;
+        font-weight:950;
+        text-align:center;
+        white-space:nowrap;
+      }
+      .app-header #mobile-admin-button .nav-alert-badge{top:0;right:0}
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)){
+        /* Match Home's 74px height instead of stretching the top toolbar. */
+        height:74px;
+        min-height:74px;
+        max-height:74px;
+        flex-wrap:nowrap;
+        align-items:stretch;
+        justify-content:flex-end;
+        align-content:center;
+        gap:4px;
+      }
+      .app-header .header-mobile-row:has(#mobile-admin-button:not(.hidden)){
+        grid-template-rows:74px;
+      }
+    }
+    @media(max-width:360px){
+      .app-header .header-tools #mobile-admin-button:not(.hidden){
+        flex-basis:84px;
+        width:84px;
+        min-width:84px;
+        max-width:84px;
+      }
+    }
+    /* On roomy mobile screens, give the Home logo its native aspect ratio
+       at the full 74px height, rather than shrinking it inside a 96px slot. */
+    @media(min-width:420px) and (max-width:767px){
+      .app-header .header-mobile-row{grid-template-columns:112px minmax(0,1fr)}
+    }
+    /* Extremely narrow phones cannot fit 5 readable, 74px-tall controls
+       in one row. Keep the two action pairs compact instead of overlapping Home. */
+    @media(max-width:379px){
+      .app-header .header-mobile-row:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)){
+        grid-template-rows:auto;
+      }
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)){
+        display:grid;
+        grid-template-columns:84px minmax(72px,126px);
+        grid-template-rows:74px minmax(74px,auto);
+        justify-content:end;
+        align-items:stretch;
+        gap:4px;
+        height:auto;
+        min-height:74px;
+        max-height:none;
+      }
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)) #install-button{
+        grid-column:1;grid-row:1;justify-self:end;
+      }
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)) #score-box{
+        grid-column:2;grid-row:1;justify-self:start;
+      }
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)) #mobile-admin-button{
+        grid-column:1;grid-row:2;justify-self:end;
+      }
+      .app-header .header-tools:has(#mobile-admin-button:not(.hidden)):has(#install-button:not(.hidden)):has(#score-box:not(.hidden)) #account-button{
+        grid-column:2;grid-row:2;width:auto;max-width:100%;height:auto;min-height:74px;max-height:none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2035,6 +2131,10 @@
         </button>
 
         <div class="header-tools">
+          <button id="mobile-admin-button" class="nav-tab tone-indigo mobile-admin-btn hidden" type="button" aria-label="Quản lý" title="Quản lý">
+            <span class="tab-icon" aria-hidden="true">🛠️</span>
+            <span class="mobile-admin-label">Quản lý</span>
+          </button>
           <button id="install-button" class="tool-btn install-btn hidden" type="button" aria-label="Cài APP"><span class="install-btn-line">Cài</span><span class="install-btn-line">APP</span></button>
           <div id="score-box" class="score-box hidden" aria-label="Thống kê đúng sai">
             <span class="good" aria-label="Câu đúng"><span aria-hidden="true">★</span><span class="score-label"> Đúng</span></span><strong class="good">0</strong>
@@ -2138,6 +2238,6 @@
   <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
 
   <script src="assets/js/core/class2-data.js?v=class2-shell-1"></script>
-  <script src="assets/js/app.js?v=class2-shell-8-vip-preview"></script>
+  <script src="assets/js/app.js?v=class2-admin-mobile-20261021-r2"></script>
 </body>
 </html>
