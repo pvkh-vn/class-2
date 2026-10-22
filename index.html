@@ -899,19 +899,15 @@
       padding:0 1rem;
       pointer-events:none;
     }
-    .footer-logo{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transform:translateY(-6px);
-      width:100%;
-    }
-    .footer-logo img{
+    /* Logo footer Lop 2: cung kich thuoc va can giua nhu Lop 3. */
+    .footer-brand-logo{
       display:block;
-      width:clamp(180px, 22vw, 360px);
+      width:clamp(140px,24vw,300px);
       height:auto;
-      max-height:88px;
+      max-width:55%;
+      max-height:75%;
       object-fit:contain;
+      filter:drop-shadow(0 1px 1px rgba(255,255,255,.9));
     }
 
     .modal-backdrop{
@@ -1383,7 +1379,6 @@
       .subject-card .card-desc{font-size:20px}
       .app-footer{margin-top:-.6rem;padding-bottom:0}
       .content-stage:has(> .card-grid) + .app-footer{margin-top:0}
-      .footer-logo{transform:none}
       /* Anh footer mobile theo dung ti le anh goc 2048x292, khong cat hai dau. */
       .app-footer{
         aspect-ratio:2048 / 292;
@@ -1393,8 +1388,13 @@
         background-size:contain;
         background-position:center;
       }
-      .footer-logo{position:absolute;inset:0;width:100%;}
-      .footer-logo img{width:min(38vw,180px);max-height:85%;}
+      /* Giong Lop 3: logo mobile lon hon 25%, nang 8px. */
+      .footer-brand-logo{
+        width:clamp(175px,30vw,320px);
+        max-width:72%;
+        max-height:90%;
+        transform:translateY(-8px);
+      }
       .auth-logo{width:225px;max-width:74%}
     }
 
@@ -2211,9 +2211,7 @@
     <main id="content-stage" class="content-stage" tabindex="-1"></main>
 
     <footer class="app-footer" aria-label="Chân trang">
-      <div class="footer-logo">
-        <img src="EE logo-slogan.png" alt="Epsilon Edu - Tiến bộ từng ngày">
-      </div>
+      <img class="footer-brand-logo" src="EE logo-slogan.png" alt="Epsilon Edu - Tiến bộ từng ngày">
     </footer>
   </div>
 
