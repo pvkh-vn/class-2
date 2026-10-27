@@ -38,7 +38,7 @@
   const SUBJECT_MODULE_SCRIPTS = Object.freeze({
     math: "assets/js/math/toan_app.js?v=class2-math-vip-preview-2",
     vietnamese: "assets/js/vietnamese/tv_app.js?v=class2-tv-score-20261018",
-    english: "assets/js/english/ta_app.js?v=class2-ta-odd5-tts-20261018"
+    english: "assets/js/english/ta_app.js?v=class2-ta-direct-20261021-r1"
   });
   // Games/Tools ngoài Trang chủ: mỗi tool/game là một file JS độc lập và chỉ tải khi mở.
   const TOOL_CATALOG = Object.freeze([
