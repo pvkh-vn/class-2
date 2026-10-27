@@ -31,6 +31,39 @@ const WS_DIFFICULTIES = {
     hard:   { label: 'Khó',  words: 8, size: 11, color: 'rose',    dirs: WS_DIRS_FULL,     dirsLabel: 'ngang, dọc, chéo' }
 };
 
+// Level badge next to the Word Search title; no changes to gameplay or the banner.
+function wsSyncLevelBadge_(show) {
+    const title = document.getElementById('game-play-title');
+    if (!title) return;
+    const previous = title.querySelector('.ws-level-badge');
+    if (!show || !WS_DIFFICULTIES[wsCurrentDifficulty]) {
+        previous?.remove();
+        title.classList.remove('ws-title-with-level');
+        title.parentElement?.classList.remove('ws-title-header-with-level');
+        return;
+    }
+    const levels = {easy:1,medium:2,hard:3};
+    const palettes = {
+        easy:   ['#ecfdf5','#a7f3d0','#047857'],
+        medium: ['#fffbeb','#fcd34d','#b45309'],
+        hard:   ['#fff1f2','#fda4af','#be123c']
+    };
+    const [bg,border,color] = palettes[wsCurrentDifficulty];
+    const badge = previous || document.createElement('span');
+    badge.className = 'ws-level-badge';
+    badge.textContent = `Level ${levels[wsCurrentDifficulty]} · ${WS_DIFFICULTIES[wsCurrentDifficulty].label}`;
+    Object.assign(badge.style, {
+        display:'inline-flex',alignItems:'center',justifyContent:'center',
+        background:bg,border:`1px solid ${border}`,color,
+        borderRadius:'12px',padding:'5px 10px',fontSize:'20px',fontWeight:'650',
+        lineHeight:'1.25',whiteSpace:'nowrap',maxWidth:'100%'
+    });
+    if (!previous) title.appendChild(badge);
+    // Let title and return-to-hub button wrap safely on narrow screens.
+    title.classList.add('ws-title-with-level');
+    title.parentElement?.classList.add('ws-title-header-with-level');
+}
+
 async function startWordSearchGame() {
     showLoadingOverlay("Đang chuẩn bị ô chữ...");
     try {
@@ -45,6 +78,7 @@ async function startWordSearchGame() {
 }
 
 function wsRenderTopicScreen() {
+    wsSyncLevelBadge_(false);
     wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
     gameCtx.setHeaderLevel3ClickHandler(null);
@@ -62,6 +96,7 @@ function wsChooseTopic(topicId) {
 }
 
 function renderWordSearchDifficultyScreen() {
+    wsSyncLevelBadge_(false);
     wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
     gameCtx.setHeaderLevel3ClickHandler(null);
@@ -186,6 +221,12 @@ function wsUpdateTimerDisplay() {
 }
 
 function renderWordSearchUI(chosen) {
+    wsSyncLevelBadge_(true);
+    const isHard = wsCurrentDifficulty === 'hard';
+    const boardMaxWidth = isHard ? 448 : 400;
+    const boardMinWidth = isHard ? 384 : 330;
+    const listColumnWidth = isHard ? 248 : 260;
+    const columnGap = isHard ? 20 : 24;
     // Trong lúc đang chơi (đã có lưới), bấm vào tên game trên breadcrumb -> quay lại màn chọn độ khó.
     gameCtx.setHeaderLevel3ClickHandler(renderWordSearchDifficultyScreen);
     if (typeof updateNavTabs === 'function') {
@@ -204,12 +245,16 @@ function renderWordSearchUI(chosen) {
             <p class="text-xl text-indigo-400 font-bold mb-2">💡 Từ giấu theo ${(WS_DIFFICULTIES[wsCurrentDifficulty] || {}).dirsLabel || 'ngang, dọc'}, có thể đọc xuôi hoặc ngược</p>
             <!-- Word Search: match the Class 1 two-column layout without changing gameplay. -->
             <style>
+                #game-play-title.ws-title-with-level { flex-wrap:wrap; min-width:0; }
+                #game-play-title.ws-title-with-level .ws-level-badge { flex:0 0 auto; }
+                #game-play-title.ws-title-with-level { overflow-wrap:anywhere; }
+                @media (max-width:640px) { .ws-title-header-with-level { flex-wrap:wrap; row-gap:8px; } }
                 #ws-main-layout { display: flex; flex-direction: column; align-items: center; gap: 10px; }
                 #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; display: flex; justify-content: flex-start; }
                 #ws-main-layout #ws-wordlist { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; align-content: flex-start; gap: 8px; width: 100%; min-width: 0; }
                 #ws-wordlist > .ws-word-pill { display: inline-flex; flex: 0 0 auto; align-items: center; max-width: 100%; min-height: 36px; padding: 7px 12px; border-radius: 999px; line-height: 1.35; font-size:20px; }
                 @media (min-width: 768px) {
-                    #ws-main-layout { display: grid !important; grid-template-columns: minmax(0, 400px) minmax(0, 260px); column-gap: 24px; align-items: start; justify-content: center; max-width: 100%; }
+                    #ws-main-layout { display: grid !important; grid-template-columns: minmax(0, ${boardMaxWidth}px) minmax(0, ${listColumnWidth}px); column-gap: ${columnGap}px; align-items: start; justify-content: center; max-width: 100%; }
                     #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; justify-content: center; }
                     #ws-main-layout #ws-wordlist { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: stretch !important; align-content: flex-start !important; justify-content: flex-start !important; gap: 8px !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; }
                     #ws-wordlist > .ws-word-pill { display: flex !important; flex: 0 0 auto !important; width: 100% !important; height: auto !important; min-height: 38px; max-width: 100%; justify-content: flex-end !important; align-items: center !important; text-align: right !important; padding: 8px 12px; border-radius: 12px; overflow-wrap: anywhere; font-size:20px; }
@@ -217,7 +262,7 @@ function renderWordSearchUI(chosen) {
             </style>
             <div id="ws-main-layout" class="w-full max-w-[760px] mb-2">
                 <div class="ws-board-wrap overflow-x-auto">
-                    <div id="ws-grid" class="grid gap-1 mb-2 md:mb-0" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: 400px; min-width: 330px; width: 100%; touch-action: none; user-select: none;"></div>
+                    <div id="ws-grid" class="grid gap-1 mb-2 md:mb-0" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: ${boardMaxWidth}px; min-width: ${boardMinWidth}px; width: 100%; touch-action: none; user-select: none;"></div>
                 </div>
                 <div id="ws-wordlist" class="mb-2 md:mb-0"></div>
             </div>
@@ -403,5 +448,5 @@ function wsBindEvents(gridEl) {
 
 
 
-return Object.freeze({ handlers:Object.freeze({wsReleaseWindowListeners_: wsReleaseWindowListeners_, startWordSearchGame: startWordSearchGame, wsRenderTopicScreen: wsRenderTopicScreen, wsChooseTopic: wsChooseTopic, renderWordSearchDifficultyScreen: renderWordSearchDifficultyScreen, wsToggleRules: wsToggleRules, wsStartWithDifficulty: wsStartWithDifficulty, wsGenerateAndRender: wsGenerateAndRender, wsTryPlaceWord: wsTryPlaceWord, wsUpdateTimerDisplay: wsUpdateTimerDisplay, renderWordSearchUI: renderWordSearchUI, wsUseHint: wsUseHint, wsCellKey: wsCellKey, wsGetCellFromPoint: wsGetCellFromPoint, wsClearTempHighlight: wsClearTempHighlight, wsHighlightPath: wsHighlightPath, wsPathBetween: wsPathBetween, wsCheckMatch: wsCheckMatch, wsMarkFound: wsMarkFound, wsFinishGame: wsFinishGame, wsBindEvents: wsBindEvents}), stop(){ try { clearTimeout(wsTimerInterval); clearInterval(wsTimerInterval); } catch (_) {} try { wsReleaseWindowListeners_(); } catch (_) {} } });
+return Object.freeze({ handlers:Object.freeze({wsReleaseWindowListeners_: wsReleaseWindowListeners_, startWordSearchGame: startWordSearchGame, wsRenderTopicScreen: wsRenderTopicScreen, wsChooseTopic: wsChooseTopic, renderWordSearchDifficultyScreen: renderWordSearchDifficultyScreen, wsToggleRules: wsToggleRules, wsStartWithDifficulty: wsStartWithDifficulty, wsGenerateAndRender: wsGenerateAndRender, wsTryPlaceWord: wsTryPlaceWord, wsUpdateTimerDisplay: wsUpdateTimerDisplay, renderWordSearchUI: renderWordSearchUI, wsUseHint: wsUseHint, wsCellKey: wsCellKey, wsGetCellFromPoint: wsGetCellFromPoint, wsClearTempHighlight: wsClearTempHighlight, wsHighlightPath: wsHighlightPath, wsPathBetween: wsPathBetween, wsCheckMatch: wsCheckMatch, wsMarkFound: wsMarkFound, wsFinishGame: wsFinishGame, wsBindEvents: wsBindEvents}), stop(){ try { clearTimeout(wsTimerInterval); clearInterval(wsTimerInterval); } catch (_) {} try { wsReleaseWindowListeners_(); wsSyncLevelBadge_(false); } catch (_) {} } });
 }

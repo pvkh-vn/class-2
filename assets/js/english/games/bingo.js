@@ -102,7 +102,7 @@ function bgoRenderBoard() {
             <div class="text-center rounded-2xl border-2 border-violet-100 bg-gradient-to-r from-violet-50 to-pink-50 p-3 mb-3">
                 <div class="text-xl font-black text-gray-400 uppercase tracking-wide">Từ đang gọi</div>
                 <div class="text-3xl mt-1">🔊</div>
-                <button onclick="bgoReplayCall()" class="mt-1 px-4 py-2 rounded-full bg-white border border-violet-200 text-violet-700 font-black text-xl pastel-btn">Nghe lại</button>
+                <button type="button" onclick="bgoReplayCall()" aria-label="Listen to the current word" class="pastel-btn mt-1 inline-flex min-h-[46px] items-center justify-center gap-2 rounded-lg border border-teal-500 bg-gradient-to-r from-sky-600 to-teal-600 px-5 py-2 text-xl font-normal leading-snug text-white shadow-sm hover:from-teal-600 hover:to-cyan-600" style="font-size:20px;font-weight:400;border-radius:10px;min-height:46px;white-space:nowrap"><span aria-hidden="true">🔊</span><span>Listen</span></button>
                 <div class="text-xl font-bold text-gray-400 mt-1">Nghe kỹ rồi chọn đúng từ trên bảng</div>
             </div>
             <div class="w-full max-w-2xl mx-auto overflow-x-auto pb-2">
