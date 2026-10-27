@@ -1,3 +1,8 @@
+/* Epsilon Edu Class 2: isolated native ES module for feeling-detective. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, showLoadingOverlay, shuffleArray, speakEnglish, stopSpeaking, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
+let fdOptions_ = [];
 // ==========================================
 // GAME 10: FEELING DETECTIVE
 // Nguon du lieu: 10.4 Adjectives Grammar Point.
@@ -65,14 +70,14 @@ function fdEnsureStyles() {
 
 function fdRenderStart() {
     clearInterval(fdTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-purple-50 via-white to-cyan-50 border-2 border-purple-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1 fd-float">🕵️‍♀️🔎</div>
                 <h3 class="text-xl md:text-2xl font-black text-purple-600">Feeling Detective</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Quan sát biểu cảm, đọc câu và tìm đúng tính từ chỉ trạng thái để phá án nhé!</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-purple-200 rounded-full text-sm font-black text-purple-700">📚 Dữ liệu: 10.4 Adjectives · ${fdAllPool.length} câu</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Quan sát biểu cảm, đọc câu và tìm đúng tính từ chỉ trạng thái để phá án nhé!</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-purple-200 rounded-full text-xl font-black text-purple-700">📚 Dữ liệu: 10.4 Adjectives · ${fdAllPool.length} câu</div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
@@ -83,14 +88,14 @@ function fdRenderStart() {
                         'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700'
                     ][i];
                     return `<button onclick="fdStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} hồ sơ</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${fdEsc(lv.note)}</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} hồ sơ</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${fdEsc(lv.note)}</div>
                     </button>`;
                 }).join('')}
             </div>
 
-            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3 text-center text-sm md:text-base font-bold text-amber-800">
+            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3 text-center text-xl md:text-xl font-bold text-amber-800">
                 🔎 Mỗi câu đúng sẽ mở thêm một "hồ sơ bằng chứng". Hoàn thành tất cả để phá án!
             </div>
         </div>`;
@@ -112,7 +117,7 @@ function fdStartLevel(level) {
     fdSolvedCases = [];
     clearInterval(fdTimerInterval);
     fdTimerInterval = taEnglishGameInterval(fdUpdateTimer, 1000);
-    headerLevel3ClickHandler = fdRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(fdRenderStart);
     fdNextCase();
 }
 
@@ -157,14 +162,14 @@ function fdRenderCase() {
     const total = fdPool.length;
     const sentence = fdExtractSentence(fdCurrent.question_text);
     const options = fdGetOptions(fdCurrent, lv.options);
-    window.__fdOptions = options;
+    fdOptions_ = options;
 
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="fd-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-sm font-black text-purple-700">🗂️ Hồ sơ ${fdRound + 1}/${total}</span>
-                <span id="fd-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-sm font-black text-amber-700">⭐ ${fdScore}</span>
+                <span id="fd-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-purple-50 border border-purple-200 rounded-full text-xl font-black text-purple-700">🗂️ Hồ sơ ${fdRound + 1}/${total}</span>
+                <span id="fd-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xl font-black text-amber-700">⭐ ${fdScore}</span>
             </div>
 
             ${fdRenderEvidenceBoard()}
@@ -176,17 +181,17 @@ function fdRenderCase() {
                         <div class="absolute -right-2 -bottom-1 text-4xl fd-scan">🔎</div>
                     </div>
                     <div class="flex-1 w-full text-center md:text-left">
-                        <div class="text-xs md:text-sm font-black text-purple-500 uppercase tracking-wide mb-1">Manh mối hiện trường</div>
-                        <div class="text-lg md:text-2xl font-black text-slate-800 leading-relaxed">${fdEsc(sentence)}</div>
+                        <div class="text-xl md:text-xl font-black text-purple-500 uppercase tracking-wide mb-1">Manh mối hiện trường</div>
+                        <div class="text-xl md:text-2xl font-black text-slate-800 leading-relaxed">${fdEsc(sentence)}</div>
                         <div class="mt-3 flex justify-center md:justify-start gap-2 flex-wrap">
-                            <button onclick="fdSpeakSentence(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm">🔊 Nghe câu</button>
-                            <button onclick="fdShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-sm">💡 Soi manh mối (${fdHintsLeft})</button>
+                            <button onclick="fdSpeakSentence(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl">🔊 Nghe câu</button>
+                            <button onclick="fdShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-xl">💡 Soi manh mối (${fdHintsLeft})</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-3 text-center text-sm md:text-base font-black text-slate-600">Tính từ nào khớp với biểu cảm và câu trên?</div>
+            <div class="mt-3 text-center text-xl md:text-xl font-black text-slate-600">Tính từ nào khớp với biểu cảm và câu trên?</div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-3xl mx-auto mt-2.5">
                 ${options.map((opt, i) => {
                     const cls = [
@@ -195,15 +200,15 @@ function fdRenderCase() {
                         'bg-amber-50 border-amber-200 text-amber-700',
                         'bg-emerald-50 border-emerald-200 text-emerald-700'
                     ][i % 4];
-                    return `<button id="fd-answer-${i}" onclick="fdChoose(${i})" class="fd-answer pastel-btn min-h-[58px] rounded-2xl border-2 ${cls} px-4 py-3 text-lg md:text-xl font-black">${fdEsc(opt)}</button>`;
+                    return `<button id="fd-answer-${i}" onclick="fdChoose(${i})" class="fd-answer pastel-btn min-h-[58px] rounded-2xl border-2 ${cls} px-4 py-3 text-xl md:text-xl font-black">${fdEsc(opt)}</button>`;
                 }).join('')}
             </div>
 
             <div class="flex items-center justify-center gap-2 flex-wrap mt-3">
-                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-sm">🔥 Chuỗi đúng: ${fdStreak}</span>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">❌ Nhầm: ${fdWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-xl">🔥 Chuỗi đúng: ${fdStreak}</span>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">❌ Nhầm: ${fdWrong}</span>
             </div>
-            <p id="fd-status" class="min-h-[30px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="fd-status" class="min-h-[30px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     fdUpdateTimer();
 }
@@ -213,13 +218,13 @@ function fdRenderEvidenceBoard() {
     return `
         <div class="rounded-2xl bg-slate-50/80 border border-slate-200 p-3">
             <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-sm font-black text-slate-600">🧾 Bảng bằng chứng</span>
-                <span class="text-xs md:text-sm font-black text-emerald-600">${fdSolvedCases.length}/${total} đã xác minh</span>
+                <span class="text-xl font-black text-slate-600">🧾 Bảng bằng chứng</span>
+                <span class="text-xl md:text-xl font-black text-emerald-600">${fdSolvedCases.length}/${total} đã xác minh</span>
             </div>
             <div class="grid gap-1.5" style="grid-template-columns:repeat(${Math.min(total, 12)},minmax(0,1fr))">
                 ${Array.from({ length: total }, (_, i) => {
                     const solved = fdSolvedCases[i];
-                    return `<div class="aspect-square min-h-[34px] rounded-lg border ${solved ? 'bg-white border-emerald-200 fd-pop' : i === fdRound ? 'bg-purple-50 border-purple-300' : 'bg-white/70 border-slate-200'} flex items-center justify-center text-lg md:text-xl" title="${solved ? fdEsc(solved.answer) : `Hồ sơ ${i + 1}`}">${solved ? fdEsc(solved.emoji || '✅') : (i === fdRound ? '🔎' : '❔')}</div>`;
+                    return `<div class="aspect-square min-h-[34px] rounded-lg border ${solved ? 'bg-white border-emerald-200 fd-pop' : i === fdRound ? 'bg-purple-50 border-purple-300' : 'bg-white/70 border-slate-200'} flex items-center justify-center text-xl md:text-xl" title="${solved ? fdEsc(solved.answer) : `Hồ sơ ${i + 1}`}">${solved ? fdEsc(solved.emoji || '✅') : (i === fdRound ? '🔎' : '❔')}</div>`;
                 }).join('')}
             </div>
         </div>`;
@@ -236,7 +241,7 @@ function fdGetOptions(q, count) {
 
 function fdChoose(index) {
     if (fdLocked) return;
-    const options = window.__fdOptions || [];
+    const options = fdOptions_ || [];
     const choice = options[index];
     if (!choice || fdWrongChoices.has(index)) return;
     const answer = String(fdCurrent.answer || '').trim();
@@ -251,11 +256,11 @@ function fdChoose(index) {
         const points = 10 + bonus;
         fdScore += points;
         if (btn) {
-            btn.className = 'fd-answer min-h-[58px] rounded-2xl border-2 bg-emerald-100 border-emerald-400 text-emerald-800 px-4 py-3 text-lg md:text-xl font-black shadow-md';
+            btn.className = 'fd-answer min-h-[58px] rounded-2xl border-2 bg-emerald-100 border-emerald-400 text-emerald-800 px-4 py-3 text-xl md:text-xl font-black shadow-md';
             btn.innerHTML = `✅ ${fdEsc(choice)}`;
         }
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-emerald-600';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-emerald-600';
             status.textContent = `Phá án chính xác! +${points} điểm`;
         }
         fdSolvedCases[fdRound] = { emoji: fdCurrent.emoji || '✅', answer };
@@ -277,7 +282,7 @@ function fdChoose(index) {
             btn.innerHTML = `❌ ${fdEsc(choice)}`;
         }
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = 'Chưa đúng manh mối rồi. Soi lại biểu cảm nhé!';
         }
     }
@@ -290,7 +295,7 @@ function fdShowHint() {
     const status = document.getElementById('fd-status');
     if (fdHintsLeft <= 0) {
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-gray-500';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-gray-500';
             status.textContent = 'Bé đã dùng hết kính lúp gợi ý rồi nhé!';
         }
         return;
@@ -298,7 +303,7 @@ function fdShowHint() {
     fdHintsLeft--;
     const meaning = fdExtractVietnameseState(fdCurrent.question_text);
     if (status) {
-        status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-600';
+        status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-600';
         status.textContent = meaning ? `🔎 Manh mối: trạng thái này có nghĩa là “${meaning}”.` : fdCurrent.hint || 'Quan sát kỹ emoji và câu nhé!';
     }
     fdRenderHintButtonOnly();
@@ -353,19 +358,19 @@ function fdFinish() {
         <div class="pastel-card bg-white p-4 md:p-6 text-center">
             <div class="text-7xl mb-2">🏆🕵️‍♀️</div>
             <h3 class="text-2xl md:text-3xl font-black text-purple-600">Phá án thành công!</h3>
-            <p class="text-sm md:text-base font-bold text-gray-600 mt-1">Bé đã nhận diện xong các tính từ chỉ trạng thái.</p>
+            <p class="text-xl md:text-xl font-bold text-gray-600 mt-1">Bé đã nhận diện xong các tính từ chỉ trạng thái.</p>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
-                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${fdScore}</div><div class="text-xs md:text-sm font-bold text-amber-700">Điểm</div></div>
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xs md:text-sm font-bold text-emerald-700">Chính xác</div></div>
-                <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-200 p-3"><div class="text-2xl font-black text-fuchsia-600">${fdBestStreak}</div><div class="text-xs md:text-sm font-bold text-fuchsia-700">Chuỗi tốt nhất</div></div>
-                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mins}:${rem}</div><div class="text-xs md:text-sm font-bold text-cyan-700">Thời gian</div></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
+                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${fdScore}</div><div class="text-xl md:text-xl font-bold text-amber-700">Điểm</div></div>
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xl md:text-xl font-bold text-emerald-700">Chính xác</div></div>
+                <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-200 p-3"><div class="text-2xl font-black text-fuchsia-600">${fdBestStreak}</div><div class="text-xl md:text-xl font-bold text-fuchsia-700">Chuỗi tốt nhất</div></div>
+                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mins}:${rem}</div><div class="text-xl md:text-xl font-bold text-cyan-700">Thời gian</div></div>
             </div>
 
             <div class="mt-4 rounded-2xl bg-slate-50 border border-slate-200 p-3 max-w-3xl mx-auto">
-                <div class="text-sm font-black text-slate-600 mb-2">🧾 Một số bằng chứng đã xác minh</div>
+                <div class="text-xl font-black text-slate-600 mb-2">🧾 Một số bằng chứng đã xác minh</div>
                 <div class="flex items-center justify-center gap-2 flex-wrap">
-                    ${solvedSummary.map(x => `<span class="px-3 py-1.5 rounded-full bg-white border border-purple-100 text-purple-700 font-black text-sm">${fdEsc(x.emoji)} ${fdEsc(x.answer)}</span>`).join('')}
+                    ${solvedSummary.map(x => `<span class="px-3 py-1.5 rounded-full bg-white border border-purple-100 text-purple-700 font-black text-xl">${fdEsc(x.emoji)} ${fdEsc(x.answer)}</span>`).join('')}
                 </div>
             </div>
 
@@ -413,5 +418,6 @@ function fdEsc(value) {
         .replace(/'/g, '&#039;');
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["feeling-detective"]=function(){try{clearTimeout(fdTimerInterval);clearInterval(fdTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startFeelingDetectiveGame: startFeelingDetectiveGame, fdEnsureStyles: fdEnsureStyles, fdRenderStart: fdRenderStart, fdStartLevel: fdStartLevel, fdBuildBalancedPool: fdBuildBalancedPool, fdNextCase: fdNextCase, fdRenderCase: fdRenderCase, fdRenderEvidenceBoard: fdRenderEvidenceBoard, fdGetOptions: fdGetOptions, fdChoose: fdChoose, fdShowHint: fdShowHint, fdRenderHintButtonOnly: fdRenderHintButtonOnly, fdSpeakSentence: fdSpeakSentence, fdBurstClues: fdBurstClues, fdFinish: fdFinish, fdUpdateTimer: fdUpdateTimer, fdExtractSentence: fdExtractSentence, fdExtractVietnameseState: fdExtractVietnameseState, fdEsc: fdEsc}), stop(){ try { clearTimeout(fdTimerInterval); clearInterval(fdTimerInterval); } catch (_) {} } });
+}

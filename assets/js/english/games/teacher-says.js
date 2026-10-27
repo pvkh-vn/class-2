@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for teacher-says. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, showLoadingOverlay, shuffleArray, speakEnglish, stopSpeaking, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME 12: TEACHER SAYS
 // Data source: 7.3 Classroom Commands Builder.
@@ -64,14 +68,14 @@ function tsEnsureStyles() {
 function tsRenderStart() {
     clearInterval(tsTimerInterval);
     clearTimeout(tsAutoSpeakTimer);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-pink-50 via-white to-indigo-50 border-2 border-pink-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1 ts-teacher">👩‍🏫🤖</div>
                 <h3 class="text-xl md:text-2xl font-black text-indigo-600">Teacher Says</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Nghe lệnh thật nhanh. Chỉ làm theo khi cô nói <b>“Teacher says...”</b> nhé!</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-indigo-200 rounded-full text-sm font-black text-indigo-700">📚 Dữ liệu: 7.3 Classroom Commands · ${tsAllPool.length} câu</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Nghe lệnh thật nhanh. Chỉ làm theo khi cô nói <b>“Teacher says...”</b> nhé!</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-indigo-200 rounded-full text-xl font-black text-indigo-700">📚 Dữ liệu: 7.3 Classroom Commands · ${tsAllPool.length} câu</div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
@@ -82,14 +86,14 @@ function tsRenderStart() {
                         'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700'
                     ][i];
                     return `<button onclick="tsStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} lượt</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${lv.note}</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} lượt</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${lv.note}</div>
                     </button>`;
                 }).join('')}
             </div>
 
-            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2.5 max-w-3xl mx-auto text-sm md:text-base font-bold">
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-2.5 max-w-3xl mx-auto text-xl md:text-xl font-bold">
                 <div class="rounded-2xl bg-emerald-50 border border-emerald-200 px-4 py-3 text-emerald-800">✅ Có “Teacher says” → chọn đúng hành động.</div>
                 <div class="rounded-2xl bg-rose-50 border border-rose-200 px-4 py-3 text-rose-800">✋ Không có “Teacher says” → bấm <b>Đứng yên</b>.</div>
             </div>
@@ -111,7 +115,7 @@ function tsStartLevel(level) {
     clearInterval(tsTimerInterval);
     clearTimeout(tsAutoSpeakTimer);
     tsTimerInterval = taEnglishGameInterval(tsUpdateTimer, 1000);
-    headerLevel3ClickHandler = tsRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(tsRenderStart);
     tsNextRound();
 }
 
@@ -163,9 +167,9 @@ function tsRenderRound() {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="ts-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-sm font-black text-indigo-700">🎯 Lượt ${tsRound + 1}/${tsPool.length}</span>
-                <span id="ts-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-sm font-black text-amber-700">⭐ ${tsScore}</span>
+                <span id="ts-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-xl font-black text-indigo-700">🎯 Lượt ${tsRound + 1}/${tsPool.length}</span>
+                <span id="ts-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xl font-black text-amber-700">⭐ ${tsScore}</span>
             </div>
 
             <div class="rounded-3xl bg-gradient-to-b from-sky-50 via-white to-pink-50 border-2 border-indigo-100 p-4 md:p-5 relative overflow-hidden">
@@ -174,19 +178,19 @@ function tsRenderRound() {
                 <div class="flex flex-col md:flex-row items-center gap-4 max-w-3xl mx-auto">
                     <div class="shrink-0 text-center">
                         <div class="text-7xl ts-teacher">👩‍🏫</div>
-                        <div class="text-xs md:text-sm font-black text-pink-600 mt-1">Cô giáo Thỏ Ngọc</div>
+                        <div class="text-xl md:text-xl font-black text-pink-600 mt-1">Cô giáo Thỏ Ngọc</div>
                     </div>
                     <div class="flex-1 w-full">
                         <div id="ts-bubble" class="ts-pulse relative rounded-3xl bg-white border-2 border-indigo-200 shadow-sm px-4 py-4 text-center">
-                            <div class="text-xs md:text-sm font-black text-indigo-500 uppercase tracking-wider mb-1">Nghe thật kỹ</div>
+                            <div class="text-xl md:text-xl font-black text-indigo-500 uppercase tracking-wider mb-1">Nghe thật kỹ</div>
                             <div class="text-xl md:text-2xl font-black ${tsObey ? 'text-emerald-700' : 'text-slate-800'}">${tsEsc(prompt)}</div>
-                            <button onclick="tsSpeakPrompt()" class="pastel-btn mt-3 px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm">🔊 Nghe lại</button>
+                            <button onclick="tsSpeakPrompt()" class="pastel-btn mt-3 px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl">🔊 Nghe lại</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-4 text-center text-sm md:text-base font-black text-slate-600">Bé sẽ làm gì?</div>
-                <div class="grid grid-cols-2 md:grid-cols-${Math.min(4, tsChoices.length)} gap-2.5 mt-2.5 max-w-4xl mx-auto">
+                <div class="mt-4 text-center text-xl md:text-xl font-black text-slate-600">Bé sẽ làm gì?</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(4, tsChoices.length)} gap-2.5 mt-2.5 max-w-4xl mx-auto">
                     ${tsChoices.map((q, i) => {
                         const colors = [
                             'bg-cyan-50 border-cyan-200 text-cyan-700',
@@ -196,26 +200,26 @@ function tsRenderRound() {
                         ];
                         return `<button id="ts-choice-${i}" onclick="tsChooseAction(${i})" class="ts-choice pastel-btn rounded-2xl border-2 ${colors[i % colors.length]} px-3 py-3 min-h-[112px] flex flex-col items-center justify-center text-center">
                             <div class="text-4xl md:text-5xl mb-1">${tsEsc(q.emoji || '🎒')}</div>
-                            <div class="text-sm md:text-base font-black leading-snug">${tsEsc(String(q.answer || '').trim())}</div>
+                            <div class="text-xl md:text-xl font-black leading-snug">${tsEsc(String(q.answer || '').trim())}</div>
                         </button>`;
                     }).join('')}
                 </div>
 
-                <button id="ts-freeze-btn" onclick="tsChooseFreeze()" class="ts-choice pastel-btn mt-3 mx-auto w-full max-w-sm rounded-2xl border-2 border-rose-200 bg-rose-50 text-rose-700 px-4 py-3 flex items-center justify-center gap-2 text-base md:text-lg font-black">
+                <button id="ts-freeze-btn" onclick="tsChooseFreeze()" class="ts-choice pastel-btn mt-3 mx-auto w-full max-w-sm rounded-2xl border-2 border-rose-200 bg-rose-50 text-rose-700 px-4 py-3 flex items-center justify-center gap-2 text-xl md:text-xl font-black">
                     <span class="text-3xl">✋</span><span>Đứng yên — không làm theo</span>
                 </button>
 
                 <div class="mt-4 flex items-center justify-center gap-3">
                     <div id="ts-student" class="text-6xl">🐰</div>
-                    <div class="rounded-2xl bg-white/90 border border-pink-200 px-3 py-2 text-sm font-black text-pink-700">Bé đang chờ lệnh...</div>
+                    <div class="rounded-2xl bg-white/90 border border-pink-200 px-3 py-2 text-xl font-black text-pink-700">Bé đang chờ lệnh...</div>
                 </div>
             </div>
 
             <div class="flex items-center justify-center gap-2 flex-wrap mt-3">
-                <span class="px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-sm">🔥 Chuỗi: ${tsStreak}</span>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">❌ Nhầm: ${tsWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-xl">🔥 Chuỗi: ${tsStreak}</span>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">❌ Nhầm: ${tsWrong}</span>
             </div>
-            <p id="ts-status" class="min-h-[32px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="ts-status" class="min-h-[32px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     tsUpdateTimer();
 }
@@ -236,7 +240,7 @@ function tsChooseAction(index) {
             btn.classList.add('ts-shake', 'opacity-50');
         }
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = 'Ôi, cô chưa nói “Teacher says”! Bé phải đứng yên nhé.';
         }
         tsShakeStudent();
@@ -256,7 +260,7 @@ function tsChooseAction(index) {
             btn.classList.add('ts-shake', 'opacity-50');
         }
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = 'Chưa đúng hành động. Nghe lại lệnh và thử tiếp nhé!';
         }
         tsShakeStudent();
@@ -277,7 +281,7 @@ function tsChooseFreeze() {
             btn.disabled = true;
         }
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = 'Có “Teacher says” mà! Bé cần làm đúng hành động nhé.';
         }
         tsShakeStudent();
@@ -296,7 +300,7 @@ function tsCorrectRound(btn, message) {
     }
     const status = document.getElementById('ts-status');
     if (status) {
-        status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-emerald-600';
+        status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-emerald-600';
         status.textContent = `${message} +${points} điểm`;
     }
     const score = document.getElementById('ts-score');
@@ -366,14 +370,14 @@ function tsFinish() {
         <div class="pastel-card bg-white p-4 md:p-6 text-center">
             <div class="text-7xl mb-2">👩‍🏫🏆🐰</div>
             <h3 class="text-2xl md:text-3xl font-black text-indigo-600">Teacher Says hoàn thành!</h3>
-            <p class="text-sm md:text-base font-bold text-gray-600 mt-1">Bé đã phản xạ rất tốt với các câu mệnh lệnh trong lớp học.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
-                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${tsScore}</div><div class="text-xs md:text-sm font-bold text-amber-700">Điểm</div></div>
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xs md:text-sm font-bold text-emerald-700">Chính xác</div></div>
-                <div class="rounded-2xl bg-orange-50 border border-orange-200 p-3"><div class="text-2xl font-black text-orange-600">${tsBestStreak}</div><div class="text-xs md:text-sm font-bold text-orange-700">Chuỗi tốt nhất</div></div>
-                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mm}:${ss}</div><div class="text-xs md:text-sm font-bold text-cyan-700">Thời gian</div></div>
+            <p class="text-xl md:text-xl font-bold text-gray-600 mt-1">Bé đã phản xạ rất tốt với các câu mệnh lệnh trong lớp học.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
+                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${tsScore}</div><div class="text-xl md:text-xl font-bold text-amber-700">Điểm</div></div>
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xl md:text-xl font-bold text-emerald-700">Chính xác</div></div>
+                <div class="rounded-2xl bg-orange-50 border border-orange-200 p-3"><div class="text-2xl font-black text-orange-600">${tsBestStreak}</div><div class="text-xl md:text-xl font-bold text-orange-700">Chuỗi tốt nhất</div></div>
+                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mm}:${ss}</div><div class="text-xl md:text-xl font-bold text-cyan-700">Thời gian</div></div>
             </div>
-            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-pink-50 border border-pink-200 p-3 text-sm md:text-base font-bold text-pink-700">
+            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-pink-50 border border-pink-200 p-3 text-xl md:text-xl font-bold text-pink-700">
                 🎓 Luật vàng: chỉ làm theo khi nghe thấy “Teacher says...” ở đầu câu.
             </div>
             <div class="mt-5 flex items-center justify-center gap-2 flex-wrap">
@@ -403,5 +407,6 @@ function tsEsc(value) {
         .replace(/'/g, '&#039;');
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["teacher-says"]=function(){try{clearTimeout(tsTimerInterval);clearInterval(tsTimerInterval)}catch(_){};try{clearTimeout(tsAutoSpeakTimer);clearInterval(tsAutoSpeakTimer)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startTeacherSaysGame: startTeacherSaysGame, tsEnsureStyles: tsEnsureStyles, tsRenderStart: tsRenderStart, tsStartLevel: tsStartLevel, tsNextRound: tsNextRound, tsBuildChoices: tsBuildChoices, tsRenderRound: tsRenderRound, tsChooseAction: tsChooseAction, tsChooseFreeze: tsChooseFreeze, tsCorrectRound: tsCorrectRound, tsSpeakPrompt: tsSpeakPrompt, tsHopStudent: tsHopStudent, tsShakeStudent: tsShakeStudent, tsStars: tsStars, tsFinish: tsFinish, tsUpdateTimer: tsUpdateTimer, tsEsc: tsEsc}), stop(){ try { clearTimeout(tsAutoSpeakTimer); clearInterval(tsAutoSpeakTimer); } catch (_) {} try { clearTimeout(tsTimerInterval); clearInterval(tsTimerInterval); } catch (_) {} } });
+}

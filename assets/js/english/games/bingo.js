@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for bingo. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, MINIGAME_TOPIC_PALETTES, ensureMiniGameVocabReady, getMiniGamePaletteOrder, getMiniGameVocabPool, hideLoadingOverlay, playAudio, renderMiniGameTopicMenu, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME: VOCABULARY BINGO
 // Nguồn dữ liệu duy nhất: Chuyên mục 2.1 - Flashcards Library.
@@ -34,7 +38,7 @@ async function startBingoGame() {
 
 function bgoRenderTopicScreen() {
     clearInterval(bgoTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = renderMiniGameTopicMenu({
         gameKey: 'bingo',
         onChoose: 'bgoChooseTopic',
@@ -48,14 +52,14 @@ function bgoChooseTopic(topicId) {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-5 text-center">
             <div class="text-5xl mb-2">🔊</div>
-            <h3 class="font-black text-violet-600 text-lg mb-3">Chọn bảng Bingo</h3>
-            <div class="grid grid-cols-3 gap-2.5 max-w-lg mx-auto">
+            <h3 class="font-black text-violet-600 text-xl mb-3">Chọn bảng Bingo</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-lg mx-auto">
                 ${Object.entries(BGO_DIFFICULTIES).map(([key,d]) => `<button onclick="bgoStartWithDifficulty('${key}')" class="pastel-btn p-3 rounded-2xl border-2 border-violet-200 bg-violet-50 hover:bg-violet-100">
                     <div class="font-black text-violet-700">${d.label}</div>
-                    <div class="text-[11px] font-bold text-gray-500 mt-1">${d.note}</div>
+                    <div class="text-xl font-bold text-gray-500 mt-1">${d.note}</div>
                 </button>`).join('')}
             </div>
-            <button onclick="bgoRenderTopicScreen()" class="mt-4 text-xs font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
+            <button onclick="bgoRenderTopicScreen()" class="mt-4 text-xl font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
         </div>`;
 }
 
@@ -80,7 +84,7 @@ function bgoStartWithDifficulty(key) {
     bgoStartTime = Date.now();
     clearInterval(bgoTimerInterval);
     bgoTimerInterval = taEnglishGameInterval(bgoUpdateTimer, 1000);
-    headerLevel3ClickHandler = () => bgoChooseTopic(bgoTopicId);
+    gameCtx.setHeaderLevel3ClickHandler(() => bgoChooseTopic(bgoTopicId));
     bgoRenderBoard();
     taEnglishGameTimeout(bgoNextCall, 550);
 }
@@ -91,20 +95,22 @@ function bgoRenderBoard() {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3 md:p-4">
             <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
-                <span id="bgo-timer" class="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs font-black text-slate-600">⏱️ 00:00</span>
-                <span id="bgo-lines" class="px-2.5 py-1 bg-violet-50 border border-violet-200 rounded-full text-xs font-black text-violet-700">🎉 0/${diff.lines} Bingo</span>
-                <span id="bgo-wrong" class="px-2.5 py-1 bg-rose-50 border border-rose-200 rounded-full text-xs font-black text-rose-600">❌ 0</span>
+                <span id="bgo-timer" class="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span id="bgo-lines" class="px-2.5 py-1 bg-violet-50 border border-violet-200 rounded-full text-xl font-black text-violet-700">🎉 0/${diff.lines} Bingo</span>
+                <span id="bgo-wrong" class="px-2.5 py-1 bg-rose-50 border border-rose-200 rounded-full text-xl font-black text-rose-600">❌ 0</span>
             </div>
             <div class="text-center rounded-2xl border-2 border-violet-100 bg-gradient-to-r from-violet-50 to-pink-50 p-3 mb-3">
-                <div class="text-xs font-black text-gray-400 uppercase tracking-wide">Từ đang gọi</div>
+                <div class="text-xl font-black text-gray-400 uppercase tracking-wide">Từ đang gọi</div>
                 <div class="text-3xl mt-1">🔊</div>
-                <button onclick="bgoReplayCall()" class="mt-1 px-4 py-2 rounded-full bg-white border border-violet-200 text-violet-700 font-black text-sm pastel-btn">Nghe lại</button>
-                <div class="text-[11px] font-bold text-gray-400 mt-1">Nghe kỹ rồi chọn đúng từ trên bảng</div>
+                <button onclick="bgoReplayCall()" class="mt-1 px-4 py-2 rounded-full bg-white border border-violet-200 text-violet-700 font-black text-xl pastel-btn">Nghe lại</button>
+                <div class="text-xl font-bold text-gray-400 mt-1">Nghe kỹ rồi chọn đúng từ trên bảng</div>
             </div>
-            <div id="bgo-board" class="grid ${gridClass} gap-2 max-w-2xl mx-auto">
+            <div class="w-full max-w-2xl mx-auto overflow-x-auto pb-2">
+                <div id="bgo-board" class="grid ${gridClass} gap-2 mx-auto" style="min-width:${diff.size === 5 ? 620 : diff.size === 4 ? 510 : 0}px">
                 ${bgoBoard.map((item,i) => bgoCellHtml(item,i)).join('')}
+                </div>
             </div>
-            <p id="bgo-status" class="min-h-[24px] text-center text-sm font-black mt-3"></p>
+            <p id="bgo-status" class="min-h-[24px] text-center text-xl font-black mt-3"></p>
         </div>`;
     bgoUpdateTimer();
 }
@@ -113,9 +119,9 @@ function bgoCellHtml(item, index) {
     const marked = bgoMarked.has(index);
     const palette = getMiniGamePaletteOrder('bingo-board')[index % MINIGAME_TOPIC_PALETTES.length];
     const normalClass = `${palette.card}`;
-    return `<button id="bgo-cell-${index}" onclick="bgoChooseCell(${index})" class="min-h-[78px] sm:min-h-[88px] rounded-2xl border-2 p-2.5 shadow-sm pastel-btn flex flex-col items-center justify-center ${marked ? 'bg-emerald-50 border-emerald-300 text-emerald-700' : normalClass}" ${marked ? 'disabled' : ''}>
+    return `<button id="bgo-cell-${index}" onclick="bgoChooseCell(${index})" class="min-h-[98px] sm:min-h-[108px] rounded-2xl border-2 p-2.5 shadow-sm pastel-btn flex flex-col items-center justify-center ${marked ? 'bg-emerald-50 border-emerald-300 text-emerald-700' : normalClass}" ${marked ? 'disabled' : ''}>
         <span class="text-xl">${marked ? '✅' : (item.emoji || '✨')}</span>
-        <span class="text-sm sm:text-base font-black leading-tight break-words w-full mt-1">${bgoEscapeHtml(item.word)}</span>
+        <span class="text-xl sm:text-xl font-black leading-tight break-words w-full mt-1">${bgoEscapeHtml(item.word)}</span>
     </button>`;
 }
 
@@ -145,7 +151,7 @@ function bgoChooseCell(index) {
         bgoMarked.add(index);
         playAudio('correct');
         speakEnglish(bgoBoard[index].word);
-        if (status) { status.textContent = `✅ Chính xác! ${bgoBoard[index].word} = ${bgoBoard[index].vietnamese}`; status.className = 'min-h-[24px] text-center text-sm font-black mt-3 text-emerald-600'; }
+        if (status) { status.textContent = `✅ Chính xác! ${bgoBoard[index].word} = ${bgoBoard[index].vietnamese}`; status.className = 'min-h-[24px] text-center text-xl font-black mt-3 text-emerald-600'; }
         const old = document.getElementById(`bgo-cell-${index}`);
         if (old) { const wrap = document.createElement('div'); wrap.innerHTML = bgoCellHtml(bgoBoard[index], index).trim(); old.replaceWith(wrap.firstChild); }
         const lines = bgoCountLines();
@@ -159,7 +165,7 @@ function bgoChooseCell(index) {
         const wrongEl = document.getElementById('bgo-wrong'); if (wrongEl) wrongEl.textContent = `❌ ${bgoWrongCount}`;
         const cell = document.getElementById(`bgo-cell-${index}`);
         if (cell) { cell.classList.add('ring-2','ring-rose-300','bg-rose-50'); taEnglishGameTimeout(() => cell.classList.remove('ring-2','ring-rose-300','bg-rose-50'), 450); }
-        if (status) { status.textContent = 'Chưa đúng ô đang được gọi, con nghe lại nhé!'; status.className = 'min-h-[24px] text-center text-sm font-black mt-3 text-rose-500'; }
+        if (status) { status.textContent = 'Chưa đúng ô đang được gọi, con nghe lại nhé!'; status.className = 'min-h-[24px] text-center text-xl font-black mt-3 text-rose-500'; }
     }
 }
 
@@ -191,20 +197,21 @@ function bgoFinish() {
         <div class="pastel-card bg-white p-6 text-center">
             <div class="text-6xl mb-2">🎲🏆</div>
             <h3 class="text-xl font-black text-violet-600">BINGO!</h3>
-            <p class="text-sm font-bold text-gray-500 mt-1">Con đã hoàn thành ${diff.lines} hàng Bingo.</p>
-            <div class="grid grid-cols-3 gap-2 max-w-md mx-auto my-4">
-                <div class="rounded-2xl bg-violet-50 border border-violet-200 p-3"><div class="text-xl font-black text-violet-700">${bgoCountLines()}</div><div class="text-[10px] font-bold text-gray-500">Hàng Bingo</div></div>
-                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xl font-black text-rose-600">${bgoWrongCount}</div><div class="text-[10px] font-bold text-gray-500">Lần chọn sai</div></div>
-                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-xl font-black text-cyan-700">${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}</div><div class="text-[10px] font-bold text-gray-500">Thời gian</div></div>
+            <p class="text-xl font-bold text-gray-500 mt-1">Con đã hoàn thành ${diff.lines} hàng Bingo.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-md mx-auto my-4">
+                <div class="rounded-2xl bg-violet-50 border border-violet-200 p-3"><div class="text-xl font-black text-violet-700">${bgoCountLines()}</div><div class="text-xl font-bold text-gray-500">Hàng Bingo</div></div>
+                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xl font-black text-rose-600">${bgoWrongCount}</div><div class="text-xl font-bold text-gray-500">Lần chọn sai</div></div>
+                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-xl font-black text-cyan-700">${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}</div><div class="text-xl font-bold text-gray-500">Thời gian</div></div>
             </div>
             <div class="flex justify-center gap-2 flex-wrap">
-                <button onclick="bgoStartWithDifficulty('${bgoDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-black text-sm pastel-btn">🔄 Chơi lại ${diff.label}</button>
-                <button onclick="bgoRenderTopicScreen()" class="px-5 py-2.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 font-black text-sm pastel-btn">📚 Đổi nhóm từ</button>
+                <button onclick="bgoStartWithDifficulty('${bgoDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-black text-xl pastel-btn">🔄 Chơi lại ${diff.label}</button>
+                <button onclick="bgoRenderTopicScreen()" class="px-5 py-2.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 font-black text-xl pastel-btn">📚 Đổi nhóm từ</button>
             </div>
         </div>`;
 }
 
 function bgoEscapeHtml(v) { return String(v ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c])); }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["bingo"]=function(){try{clearTimeout(bgoTimerInterval);clearInterval(bgoTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startBingoGame: startBingoGame, bgoRenderTopicScreen: bgoRenderTopicScreen, bgoChooseTopic: bgoChooseTopic, bgoStartWithDifficulty: bgoStartWithDifficulty, bgoRenderBoard: bgoRenderBoard, bgoCellHtml: bgoCellHtml, bgoNextCall: bgoNextCall, bgoReplayCall: bgoReplayCall, bgoChooseCell: bgoChooseCell, bgoCountLines: bgoCountLines, bgoUpdateTimer: bgoUpdateTimer, bgoFinish: bgoFinish, bgoEscapeHtml: bgoEscapeHtml}), stop(){ try { clearTimeout(bgoTimerInterval); clearInterval(bgoTimerInterval); } catch (_) {} } });
+}

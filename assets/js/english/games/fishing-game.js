@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for fishing-game. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, escapeHtml, fetchAllQuestionsFlat, getMiniGameVocabPool, hideLoadingOverlay, playAudio, renderMiniGameTopicMenu, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME: FISHING GAME — tách riêng file để lazy-load (chỉ tải khi bé thật sự bấm vào game này)
 // ==========================================
@@ -45,7 +49,7 @@ function getFishingVocabPool(topicId = fgTopicId) {
 
 function fgRenderTopicScreen() {
     clearInterval(fgTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = renderMiniGameTopicMenu({
         gameKey: 'fishing-game',
         onChoose: 'fgChooseTopic',
@@ -61,31 +65,31 @@ function fgChooseTopic(topicId) {
 
 function renderFishingDifficultyScreen() {
     clearInterval(fgTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     const level3El = document.getElementById('header-level3-btn');
     if (level3El) { level3El.classList.remove('cursor-pointer', 'hover:bg-purple-100'); level3El.classList.add('cursor-default'); }
     const container = document.getElementById('game-play-container');
     container.innerHTML = `
         <div class="pastel-card bg-white p-5 flex flex-col items-center text-center">
             <div class="text-5xl mb-2">🎣</div>
-            <h3 class="font-extrabold text-sky-700 text-lg mb-1">Fishing Game</h3>
-            <p class="text-sm text-gray-500 font-bold mb-3">Chọn độ khó để bắt đầu nhé!</p>
-            <div class="grid grid-cols-3 gap-2.5 w-full max-w-sm mb-3">
+            <h3 class="font-extrabold text-sky-700 text-xl mb-1">Fishing Game</h3>
+            <p class="text-xl text-gray-500 font-bold mb-3">Chọn độ khó để bắt đầu nhé!</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full max-w-lg mb-3">
                 ${Object.entries(FG_DIFFICULTIES).map(([key, d]) => `
                     <button onclick="fgStartWithDifficulty('${key}')" class="pastel-btn flex flex-col items-center gap-1 p-3 rounded-2xl border-2 border-${d.color}-200 bg-${d.color}-50 hover:bg-${d.color}-100 text-${d.color}-700 shadow-sm">
-                        <span class="font-black text-base">${d.label}</span>
-                        <span class="text-xs font-bold opacity-80">${d.rounds} vòng</span>
-                        <span class="text-xs font-bold opacity-70">${d.fishCount} cá/vòng</span>
+                        <span class="font-black text-xl">${d.label}</span>
+                        <span class="text-xl font-bold opacity-80">${d.rounds} vòng</span>
+                        <span class="text-xl font-bold opacity-70">${d.fishCount} cá/vòng</span>
                     </button>
                 `).join('')}
             </div>
-            <button onclick="fgToggleRules()" class="text-sm font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-200 pastel-btn">📖 Xem luật chơi</button>
-            <div id="fg-rules-panel" class="hidden mt-3 w-full max-w-sm text-left bg-indigo-50/60 border border-indigo-200 rounded-2xl p-3.5 text-sm text-gray-600 font-bold leading-relaxed">
+            <button onclick="fgToggleRules()" class="text-xl font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-200 pastel-btn">📖 Xem luật chơi</button>
+            <div id="fg-rules-panel" class="hidden mt-3 w-full max-w-sm text-left bg-indigo-50/60 border border-indigo-200 rounded-2xl p-3.5 text-xl text-gray-600 font-bold leading-relaxed">
                 <p class="mb-1.5">🐟 Mỗi vòng, ao hiện ra vài con cá — mỗi con mang <b>1 từ tiếng Anh</b>. Phía trên có sẵn <b>1 nghĩa tiếng Việt</b>.</p>
                 <p class="mb-1.5">🎯 Con chạm/click đúng con cá mang từ tiếng Anh <b>khớp với nghĩa đó</b> để câu được cá!</p>
                 <p>❌ Câu nhầm cá khác thì con cá đó lặn xuống một chút rồi nổi lại — con cứ thử tiếp tới khi câu trúng cá đúng nhé!</p>
             </div>
-            <button onclick="fgRenderTopicScreen()" class="mt-3 text-sm font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
+            <button onclick="fgRenderTopicScreen()" class="mt-3 text-xl font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
         </div>`;
 }
 
@@ -126,28 +130,30 @@ function fgUpdateTimerDisplay() {
 
 function renderFishingPlayShell() {
     // Trong lúc đang chơi, bấm vào tên game trên breadcrumb -> quay lại màn chọn độ khó.
-    headerLevel3ClickHandler = renderFishingDifficultyScreen;
+    gameCtx.setHeaderLevel3ClickHandler(renderFishingDifficultyScreen);
     const level3El = document.getElementById('header-level3-btn');
     if (level3El) { level3El.classList.add('cursor-pointer', 'hover:bg-purple-100'); level3El.classList.remove('cursor-default'); }
 
     const container = document.getElementById('game-play-container');
     container.innerHTML = `
         <div class="pastel-card bg-white p-3 md:p-4 flex flex-col items-center">
-            <div class="flex items-center justify-between w-full max-w-[500px] mb-2 gap-1.5">
-                <span id="fg-timer" class="text-xs md:text-sm font-black text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">⏱️ 00:00</span>
-                <span id="fg-progress" class="text-xs md:text-sm font-black text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">Vòng 1/1</span>
-                <span id="fg-score" class="text-xs md:text-sm font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">✅ 0</span>
-                <button onclick="fgStartWithDifficulty(fgCurrentDifficulty)" class="text-xs md:text-sm font-black text-white bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 px-2.5 py-1 rounded-full shadow-sm pastel-btn">🔄 Chơi lại</button>
+            <div class="flex items-center justify-center flex-wrap w-full mb-2 gap-2" style="max-width:720px;">
+                <span id="fg-timer" class="text-xl md:text-xl font-black text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">⏱️ 00:00</span>
+                <span id="fg-progress" class="text-xl md:text-xl font-black text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200">Vòng 1/1</span>
+                <span id="fg-score" class="text-xl md:text-xl font-black text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">✅ 0</span>
+                <button onclick="fgStartWithDifficulty('${fgCurrentDifficulty}')" class="text-xl md:text-xl font-black text-white bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 px-2.5 py-1 rounded-full shadow-sm pastel-btn">🔄 Chơi lại</button>
             </div>
-            <div class="w-full max-w-[500px] bg-gradient-to-r from-pink-50 to-indigo-50 border-2 border-pink-200 rounded-2xl p-3 mb-3 text-center">
-                <p class="text-[11px] font-bold text-gray-400 mb-0.5">Nghĩa của từ là:</p>
-                <p id="fg-meaning" class="text-lg md:text-xl font-black text-pink-600"></p>
+            <div class="w-full bg-gradient-to-r from-pink-50 to-indigo-50 border-2 border-pink-200 rounded-2xl px-3 py-2 mb-2 text-center" style="max-width:720px;">
+                <p class="text-xl font-bold leading-snug">
+                    <span class="text-gray-500">Nghĩa của từ là:</span>
+                    <span id="fg-meaning" class="font-black text-pink-600"></span>
+                </p>
             </div>
-            <div id="fg-pond" class="relative overflow-hidden w-full max-w-[500px] min-h-[300px] border-2 border-sky-300 rounded-2xl mb-2" style="background: linear-gradient(to bottom, #bae6fd 0%, #7dd3fc 60%, #fde68a 100%);">
+            <div id="fg-pond" class="relative overflow-hidden w-full border-2 border-sky-300 rounded-2xl mb-2" style="max-width:720px; min-height:clamp(340px, 50vw, 400px); background: linear-gradient(to bottom, #bae6fd 0%, #7dd3fc 60%, #fde68a 100%);">
                 <div id="fg-pond-deco" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
-                <div id="fg-fish-layer" class="relative z-10 h-full min-h-[300px] px-6 py-5 flex flex-wrap gap-4 md:gap-5 items-center justify-center content-center"></div>
+                <div id="fg-fish-layer" class="relative z-10 h-full px-6 py-5 flex flex-wrap gap-3 md:gap-4 items-center justify-center content-center" style="min-height:clamp(340px, 50vw, 400px); max-width:580px; margin-inline:auto;"></div>
             </div>
-            <p id="fg-status" class="text-sm font-bold text-sky-500 text-center min-h-[18px]"></p>
+            <p id="fg-status" class="text-xl font-bold text-sky-500 text-center min-h-[18px]"></p>
         </div>`;
 
     fgRenderPondDecorations();
@@ -256,8 +262,8 @@ function fgRenderRound() {
     fishLayerEl.innerHTML = fgCurrentRound.fish.map((f, i) => `
         <button id="fg-fish-${i}" onclick="fgHandleFishClick(${i})"
             style="animation-delay: ${(i * 0.45).toFixed(2)}s"
-            class="fg-fish-btn fg-answer-swim-${i % 3} pastel-btn flex items-center gap-1 px-2 py-1.5 rounded-2xl border-2 font-black text-xs md:text-sm shadow-sm transition-colors duration-150 whitespace-nowrap ${FG_FISH_COLORS[i % FG_FISH_COLORS.length]}">
-            <span class="text-sm">🐟</span><span>${escapeHtml(f.w)}</span>
+            class="fg-fish-btn fg-answer-swim-${i % 3} pastel-btn flex items-center gap-1 px-2 py-1.5 rounded-2xl border-2 font-black text-xl md:text-xl shadow-sm transition-colors duration-150 whitespace-normal break-words max-w-full ${FG_FISH_COLORS[i % FG_FISH_COLORS.length]}">
+            <span class="text-xl">🐟</span><span>${escapeHtml(f.w)}</span>
         </button>
     `).join('');
 }
@@ -309,7 +315,7 @@ function fgInjectSwimStyleOnce() {
             15%  { opacity: 0.85; }
             100% { transform: translateY(-190px) scale(1.1); opacity: 0; }
         }
-        .fg-bubble { position: absolute; bottom: 4px; font-size: 13px; opacity: 0; animation: fgBubbleRise 4.5s linear infinite; }
+        .fg-bubble { position: absolute; bottom: 4px; font-size:20px; opacity: 0; animation: fgBubbleRise 4.5s linear infinite; }
 
         @keyframes fgRoamRight { 0% { left: -12%; transform: scaleX(-1); } 100% { left: 108%; transform: scaleX(-1); } }
         @keyframes fgRoamLeft  { 0% { left: 108%;  transform: scaleX(1);  } 100% { left: -12%; transform: scaleX(1); } }
@@ -332,7 +338,7 @@ function fgHandleFishClick(fishIndex) {
         btn.style.animation = 'none'; // dừng bơi hẳn khi đã bắt được, để hiệu ứng phóng to (scale-110) hiện rõ
         btn.classList.add('bg-emerald-300', 'border-emerald-500', 'text-emerald-900', 'scale-110');
         document.getElementById('fg-score').textContent = `✅ ${fgScore}`;
-        statusEl.className = 'text-sm font-black text-emerald-600 text-center min-h-[18px]';
+        statusEl.className = 'text-xl font-black text-emerald-600 text-center min-h-[18px]';
         statusEl.textContent = `🎉 Câu đúng rồi! "${fish.w}" nghĩa là "${fish.vi}"`;
         speakEnglish(fish.w);
         playAudio('correct');
@@ -343,7 +349,7 @@ function fgHandleFishClick(fishIndex) {
         fgWrongCount++;
         btn.style.animation = 'none'; // tạm dừng bơi trong lúc chớp đỏ/chìm xuống, để hiệu ứng hiện rõ
         btn.classList.add('bg-rose-300', 'border-rose-500', 'opacity-50', 'translate-y-2');
-        statusEl.className = 'text-sm font-bold text-rose-500 text-center min-h-[18px]';
+        statusEl.className = 'text-xl font-bold text-rose-500 text-center min-h-[18px]';
         statusEl.textContent = `Chưa đúng, con cá đó lặn mất rồi, thử con khác nhé!`;
         playAudio('wrong');
         taEnglishGameTimeout(() => {
@@ -367,27 +373,28 @@ function fgFinishGame() {
     container.innerHTML = `
         <div class="pastel-card bg-white p-6 flex flex-col items-center text-center">
             <div class="text-5xl mb-2">🎉</div>
-            <h3 class="font-extrabold text-emerald-600 text-lg mb-3">Xuất sắc! Bé đã câu xong ${diff.rounds} vòng!</h3>
-            <div class="grid grid-cols-3 gap-2.5 w-full max-w-sm mb-4">
+            <h3 class="font-extrabold text-emerald-600 text-xl mb-3">Xuất sắc! Bé đã câu xong ${diff.rounds} vòng!</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full max-w-lg mb-4">
                 <div class="bg-emerald-50 rounded-xl p-2.5 border border-emerald-200">
-                    <div class="text-[10px] font-bold text-emerald-500">Câu đúng</div>
-                    <div class="text-base font-black text-emerald-700">${fgScore}/${diff.rounds}</div>
+                    <div class="text-xl font-bold text-emerald-500">Câu đúng</div>
+                    <div class="text-xl font-black text-emerald-700">${fgScore}/${diff.rounds}</div>
                 </div>
                 <div class="bg-indigo-50 rounded-xl p-2.5 border border-indigo-200">
-                    <div class="text-[10px] font-bold text-indigo-500">Thời gian</div>
-                    <div class="text-base font-black text-indigo-700">${mm}:${ss}</div>
+                    <div class="text-xl font-bold text-indigo-500">Thời gian</div>
+                    <div class="text-xl font-black text-indigo-700">${mm}:${ss}</div>
                 </div>
                 <div class="bg-${diff.color}-50 rounded-xl p-2.5 border border-${diff.color}-200">
-                    <div class="text-[10px] font-bold text-${diff.color}-500">Độ khó</div>
-                    <div class="text-base font-black text-${diff.color}-700">${diff.label}</div>
+                    <div class="text-xl font-bold text-${diff.color}-500">Độ khó</div>
+                    <div class="text-xl font-black text-${diff.color}-700">${diff.label}</div>
                 </div>
             </div>
             <div class="flex gap-2.5 w-full max-w-sm">
-                <button onclick="fgStartWithDifficulty('${fgCurrentDifficulty}')" class="flex-1 py-2.5 bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-black rounded-2xl text-sm pastel-btn shadow-md">🔄 Chơi lại (${diff.label})</button>
-                <button onclick="renderFishingDifficultyScreen()" class="flex-1 py-2.5 bg-gray-100 text-gray-600 font-black rounded-2xl text-sm pastel-btn">Đổi độ khó</button>
+                <button onclick="fgStartWithDifficulty('${fgCurrentDifficulty}')" class="flex-1 py-2.5 bg-gradient-to-r from-sky-500 to-cyan-500 text-white font-black rounded-2xl text-xl pastel-btn shadow-md">🔄 Chơi lại (${diff.label})</button>
+                <button onclick="renderFishingDifficultyScreen()" class="flex-1 py-2.5 bg-gray-100 text-gray-600 font-black rounded-2xl text-xl pastel-btn">Đổi độ khó</button>
             </div>
         </div>`;
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["fishing-game"]=function(){};
+
+return Object.freeze({ handlers:Object.freeze({startFishingGame: startFishingGame, getFishingVocabPool: getFishingVocabPool, fgRenderTopicScreen: fgRenderTopicScreen, fgChooseTopic: fgChooseTopic, renderFishingDifficultyScreen: renderFishingDifficultyScreen, fgToggleRules: fgToggleRules, fgStartWithDifficulty: fgStartWithDifficulty, fgUpdateTimerDisplay: fgUpdateTimerDisplay, renderFishingPlayShell: renderFishingPlayShell, fgRenderPondDecorations: fgRenderPondDecorations, fgBuildRound: fgBuildRound, fgNextRound: fgNextRound, fgRenderRound: fgRenderRound, fgInjectSwimStyleOnce: fgInjectSwimStyleOnce, fgHandleFishClick: fgHandleFishClick, fgFinishGame: fgFinishGame}), stop(){ try { clearTimeout(fgTimerInterval); clearInterval(fgTimerInterval); } catch (_) {} } });
+}

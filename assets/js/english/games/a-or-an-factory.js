@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for a-or-an-factory. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, showLoadingOverlay, shuffleArray, speakEnglish, stopSpeaking, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME 11: A OR AN FACTORY
 // Data source: 10.1 Articles Grammar Point.
@@ -64,14 +68,14 @@ function aafEnsureStyles() {
 
 function aafRenderStart() {
     clearInterval(aafTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-amber-50 via-white to-cyan-50 border-2 border-amber-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1 aaf-bob">🏭📦</div>
                 <h3 class="text-xl md:text-2xl font-black text-amber-600">A or An Factory</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Đưa từng cụm từ vào đúng cổng <b>A</b> hoặc <b>AN</b> để nhà máy chạy trơn tru nhé!</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-amber-200 rounded-full text-sm font-black text-amber-700">📚 Dữ liệu: 10.1 Articles · ${aafAllPool.length} câu</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Đưa từng cụm từ vào đúng cổng <b>A</b> hoặc <b>AN</b> để nhà máy chạy trơn tru nhé!</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-amber-200 rounded-full text-xl font-black text-amber-700">📚 Dữ liệu: 10.1 Articles · ${aafAllPool.length} câu</div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
@@ -82,14 +86,14 @@ function aafRenderStart() {
                         'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-700'
                     ][i];
                     return `<button onclick="aafStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} kiện hàng</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${lv.note}</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} kiện hàng</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${lv.note}</div>
                     </button>`;
                 }).join('')}
             </div>
 
-            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-cyan-50 border border-cyan-200 px-4 py-3 text-center text-sm md:text-base font-bold text-cyan-800">
+            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-cyan-50 border border-cyan-200 px-4 py-3 text-center text-xl md:text-xl font-bold text-cyan-800">
                 🔊 Mẹo: chọn theo <b>âm đầu</b> của từ đứng ngay sau chỗ trống, không chỉ nhìn chữ cái.
             </div>
         </div>`;
@@ -110,7 +114,7 @@ function aafStartLevel(level) {
     aafWrongChoices = new Set();
     clearInterval(aafTimerInterval);
     aafTimerInterval = taEnglishGameInterval(aafUpdateTimer, 1000);
-    headerLevel3ClickHandler = aafRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(aafRenderStart);
     aafNextItem();
 }
 
@@ -143,17 +147,17 @@ function aafRenderRound() {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="aaf-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-sm font-black text-amber-700">📦 Kiện ${aafRound + 1}/${aafPool.length}</span>
-                <span id="aaf-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-black text-emerald-700">⭐ ${aafScore}</span>
+                <span id="aaf-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xl font-black text-amber-700">📦 Kiện ${aafRound + 1}/${aafPool.length}</span>
+                <span id="aaf-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xl font-black text-emerald-700">⭐ ${aafScore}</span>
             </div>
 
             <div class="rounded-3xl border-2 border-slate-200 bg-gradient-to-b from-sky-50 to-slate-50 p-3 md:p-4 relative overflow-hidden">
                 <div class="absolute top-3 left-4 text-3xl opacity-70">⚙️</div>
                 <div class="absolute top-3 right-4 text-3xl opacity-70">⚙️</div>
                 <div class="text-center mb-3">
-                    <div class="text-xs md:text-sm font-black text-slate-500 uppercase tracking-wider">Băng chuyền phân loại mạo từ</div>
-                    <div class="text-lg md:text-xl font-black text-slate-800 mt-1">Chọn cổng đúng cho cụm từ này:</div>
+                    <div class="text-xl md:text-xl font-black text-slate-500 uppercase tracking-wider">Băng chuyền phân loại mạo từ</div>
+                    <div class="text-xl md:text-xl font-black text-slate-800 mt-1">Chọn cổng đúng cho cụm từ này:</div>
                 </div>
 
                 <div id="aaf-package" class="mx-auto w-fit min-w-[210px] max-w-full rounded-2xl bg-white border-2 border-amber-200 shadow-md px-5 py-4 text-center relative z-10 aaf-bob">
@@ -163,27 +167,27 @@ function aafRenderRound() {
 
                 <div class="aaf-belt h-10 rounded-xl border-2 border-slate-300 mt-3 shadow-inner" style="--aaf-belt-speed:${lv.belt}s"></div>
 
-                <div class="grid grid-cols-2 gap-3 md:gap-5 max-w-2xl mx-auto mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 max-w-2xl mx-auto mt-4">
                     <button id="aaf-gate-a" onclick="aafChoose('a')" class="aaf-choice pastel-btn rounded-3xl border-2 border-cyan-300 bg-gradient-to-b from-cyan-50 to-white p-4 md:p-5 text-center">
                         <div class="text-4xl mb-1">🚪</div>
                         <div class="text-4xl md:text-5xl font-black text-cyan-600">A</div>
-                        <div class="text-xs md:text-sm font-bold text-cyan-700 mt-1">Cổng phụ âm</div>
+                        <div class="text-xl md:text-xl font-bold text-cyan-700 mt-1">Cổng phụ âm</div>
                     </button>
                     <button id="aaf-gate-an" onclick="aafChoose('an')" class="aaf-choice pastel-btn rounded-3xl border-2 border-fuchsia-300 bg-gradient-to-b from-fuchsia-50 to-white p-4 md:p-5 text-center">
                         <div class="text-4xl mb-1">🚪</div>
                         <div class="text-4xl md:text-5xl font-black text-fuchsia-600">AN</div>
-                        <div class="text-xs md:text-sm font-bold text-fuchsia-700 mt-1">Cổng nguyên âm</div>
+                        <div class="text-xl md:text-xl font-bold text-fuchsia-700 mt-1">Cổng nguyên âm</div>
                     </button>
                 </div>
             </div>
 
             <div class="flex items-center justify-center gap-2 flex-wrap mt-3">
-                <button onclick="aafSpeak(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm">🔊 Nghe cụm từ</button>
-                <button id="aaf-hint-btn" onclick="aafShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-sm">💡 Gợi ý (${aafHintsLeft})</button>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">❌ Nhầm: ${aafWrong}</span>
-                <span class="px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-sm">🔥 Chuỗi: ${aafStreak}</span>
+                <button onclick="aafSpeak(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl">🔊 Nghe cụm từ</button>
+                <button id="aaf-hint-btn" onclick="aafShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-xl">💡 Gợi ý (${aafHintsLeft})</button>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">❌ Nhầm: ${aafWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 font-black text-xl">🔥 Chuỗi: ${aafStreak}</span>
             </div>
-            <p id="aaf-status" class="min-h-[32px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="aaf-status" class="min-h-[32px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     aafUpdateTimer();
 }
@@ -214,7 +218,7 @@ function aafChoose(choice) {
             pkg.style.opacity = '.25';
         }
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-emerald-600';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-emerald-600';
             status.textContent = `Đúng cổng rồi! +${points} điểm`;
         }
         aafSpeak(true);
@@ -237,7 +241,7 @@ function aafChoose(choice) {
             pkg.classList.add('aaf-shake');
         }
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = 'Sai cổng rồi. Nghe âm đầu và thử cổng còn lại nhé!';
         }
     }
@@ -250,14 +254,14 @@ function aafShowHint() {
     const status = document.getElementById('aaf-status');
     if (aafHintsLeft <= 0) {
         if (status) {
-            status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-gray-500';
+            status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-gray-500';
             status.textContent = 'Bé đã dùng hết gợi ý rồi nhé!';
         }
         return;
     }
     aafHintsLeft--;
     if (status) {
-        status.className = 'min-h-[32px] text-center text-sm md:text-base font-black mt-2 text-amber-600';
+        status.className = 'min-h-[32px] text-center text-xl md:text-xl font-black mt-2 text-amber-600';
         status.textContent = aafCurrent.hint || 'Hãy nghe âm đầu của từ ngay sau chỗ trống.';
     }
     const btn = document.getElementById('aaf-hint-btn');
@@ -302,12 +306,12 @@ function aafFinish() {
         <div class="pastel-card bg-white p-4 md:p-6 text-center">
             <div class="text-7xl mb-2">🏭🏆</div>
             <h3 class="text-2xl md:text-3xl font-black text-amber-600">Nhà máy hoàn thành đơn hàng!</h3>
-            <p class="text-sm md:text-base font-bold text-gray-600 mt-1">Bé đã phân loại xong các cụm từ với <b>a / an</b>.</p>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
-                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${aafScore}</div><div class="text-xs md:text-sm font-bold text-amber-700">Điểm</div></div>
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xs md:text-sm font-bold text-emerald-700">Chính xác</div></div>
-                <div class="rounded-2xl bg-orange-50 border border-orange-200 p-3"><div class="text-2xl font-black text-orange-600">${aafBestStreak}</div><div class="text-xs md:text-sm font-bold text-orange-700">Chuỗi tốt nhất</div></div>
-                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mm}:${ss}</div><div class="text-xs md:text-sm font-bold text-cyan-700">Thời gian</div></div>
+            <p class="text-xl md:text-xl font-bold text-gray-600 mt-1">Bé đã phân loại xong các cụm từ với <b>a / an</b>.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
+                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-2xl font-black text-amber-600">${aafScore}</div><div class="text-xl md:text-xl font-bold text-amber-700">Điểm</div></div>
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-2xl font-black text-emerald-600">${accuracy}%</div><div class="text-xl md:text-xl font-bold text-emerald-700">Chính xác</div></div>
+                <div class="rounded-2xl bg-orange-50 border border-orange-200 p-3"><div class="text-2xl font-black text-orange-600">${aafBestStreak}</div><div class="text-xl md:text-xl font-bold text-orange-700">Chuỗi tốt nhất</div></div>
+                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-2xl font-black text-cyan-600">${mm}:${ss}</div><div class="text-xl md:text-xl font-bold text-cyan-700">Thời gian</div></div>
             </div>
             <div class="mt-5 flex items-center justify-center gap-2 flex-wrap">
                 <button onclick="aafStartLevel('${aafDifficulty}')" class="pastel-btn px-5 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black">🔁 Chơi lại</button>
@@ -342,5 +346,6 @@ function aafEsc(value) {
         .replace(/'/g, '&#039;');
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["a-or-an-factory"]=function(){try{clearTimeout(aafTimerInterval);clearInterval(aafTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startAOrAnFactoryGame: startAOrAnFactoryGame, aafEnsureStyles: aafEnsureStyles, aafRenderStart: aafRenderStart, aafStartLevel: aafStartLevel, aafBuildBalancedPool: aafBuildBalancedPool, aafNextItem: aafNextItem, aafRenderRound: aafRenderRound, aafChoose: aafChoose, aafShowHint: aafShowHint, aafSpeak: aafSpeak, aafSparks: aafSparks, aafFinish: aafFinish, aafUpdateTimer: aafUpdateTimer, aafExtractPhrase: aafExtractPhrase, aafEsc: aafEsc}), stop(){ try { clearTimeout(aafTimerInterval); clearInterval(aafTimerInterval); } catch (_) {} } });
+}

@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for qa-bridge. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, playAudio, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME 7: Q&A BRIDGE
 // Nguon du lieu: 8.3 Conversation Finish + 9.1/9.2/9.3 Q&A Dialogues.
@@ -104,15 +108,15 @@ function qbrEnsureStyles() {
 
 function qbrRenderStart() {
     clearInterval(qbrTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     const sourceCounts = qbrCountBySection();
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-violet-50 via-fuchsia-50 to-cyan-50 border-2 border-violet-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1">🌉🐰</div>
                 <h3 class="text-xl md:text-2xl font-black text-violet-700">Q&A Bridge</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Ghép đúng câu hỏi - trả lời để đặt từng tấm cầu và đưa Thỏ Ngọc sang bờ bên kia.</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/85 border border-violet-200 rounded-full text-sm font-black text-violet-700">💬 Dữ liệu hội thoại: 8.3 + 9.1 + 9.2 + 9.3</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Ghép đúng câu hỏi - trả lời để đặt từng tấm cầu và đưa Thỏ Ngọc sang bờ bên kia.</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/85 border border-violet-200 rounded-full text-xl font-black text-violet-700">💬 Dữ liệu hội thoại: 8.3 + 9.1 + 9.2 + 9.3</div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
@@ -124,19 +128,19 @@ function qbrRenderStart() {
                     ][i];
                     const n = qbrAllPool.filter(q => lv.sections.includes(String(q.sub_topic))).length;
                     return `<button onclick="qbrStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} nhịp cầu</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${qbrEsc(lv.note)}</div>
-                        <div class="text-xs font-black opacity-60 mt-1">${n} câu trong kho</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} nhịp cầu</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${qbrEsc(lv.note)}</div>
+                        <div class="text-xl font-black opacity-60 mt-1">${n} câu trong kho</div>
                     </button>`;
                 }).join('')}
             </div>
 
-            <div class="mt-4 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-                <div class="rounded-xl bg-pink-50 border border-pink-100 px-2 py-2 text-xs font-bold text-pink-700">👋 9.1<br>${sourceCounts['9.1'] || 0} câu</div>
-                <div class="rounded-xl bg-amber-50 border border-amber-100 px-2 py-2 text-xs font-bold text-amber-700">👗 9.2<br>${sourceCounts['9.2'] || 0} câu</div>
-                <div class="rounded-xl bg-cyan-50 border border-cyan-100 px-2 py-2 text-xs font-bold text-cyan-700">📍 9.3<br>${sourceCounts['9.3'] || 0} câu</div>
-                <div class="rounded-xl bg-purple-50 border border-purple-100 px-2 py-2 text-xs font-bold text-purple-700">💬 8.3<br>${sourceCounts['8.3'] || 0} câu</div>
+            <div class="mt-4 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-center">
+                <div class="rounded-xl bg-pink-50 border border-pink-100 px-2 py-2 text-xl font-bold text-pink-700">👋 9.1<br>${sourceCounts['9.1'] || 0} câu</div>
+                <div class="rounded-xl bg-amber-50 border border-amber-100 px-2 py-2 text-xl font-bold text-amber-700">👗 9.2<br>${sourceCounts['9.2'] || 0} câu</div>
+                <div class="rounded-xl bg-cyan-50 border border-cyan-100 px-2 py-2 text-xl font-bold text-cyan-700">📍 9.3<br>${sourceCounts['9.3'] || 0} câu</div>
+                <div class="rounded-xl bg-purple-50 border border-purple-100 px-2 py-2 text-xl font-bold text-purple-700">💬 8.3<br>${sourceCounts['8.3'] || 0} câu</div>
             </div>
         </div>`;
 }
@@ -167,7 +171,7 @@ function qbrStartLevel(level) {
     qbrLocked = false;
     clearInterval(qbrTimerInterval);
     qbrTimerInterval = taEnglishGameInterval(qbrUpdateTimer, 1000);
-    headerLevel3ClickHandler = qbrRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(qbrRenderStart);
     qbrNextRound();
 }
 
@@ -192,25 +196,25 @@ function qbrRenderRound() {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="qbr-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-violet-50 border border-violet-200 rounded-full text-sm font-black text-violet-700">🌉 Nhịp ${qbrRound + 1}/${total}</span>
-                <span id="qbr-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-black text-emerald-700">⭐ ${qbrScore}</span>
+                <span id="qbr-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-violet-50 border border-violet-200 rounded-full text-xl font-black text-violet-700">🌉 Nhịp ${qbrRound + 1}/${total}</span>
+                <span id="qbr-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xl font-black text-emerald-700">⭐ ${qbrScore}</span>
             </div>
 
             <div class="rounded-2xl border-2 border-fuchsia-100 bg-gradient-to-r from-pink-50 via-white to-violet-50 p-3 md:p-4 mb-3">
                 <div class="flex items-center justify-center gap-3">
                     <span class="text-5xl md:text-6xl">${qbrEsc(qbrCurrent.emoji || '💬')}</span>
                     <div class="min-w-0 flex-1 max-w-2xl">
-                        <div class="text-xs uppercase tracking-wide text-gray-400 font-black">Mascot hỏi</div>
-                        <div class="text-lg md:text-xl text-slate-700 font-black leading-snug mt-0.5">${qbrEsc(parts.question)}</div>
-                        <div class="mt-2 rounded-xl bg-white/90 border border-pink-100 px-3 py-2 text-base md:text-lg font-bold text-pink-700">
+                        <div class="text-xl uppercase tracking-wide text-gray-400 font-black">Mascot hỏi</div>
+                        <div class="text-xl md:text-xl text-slate-700 font-black leading-snug mt-0.5">${qbrEsc(parts.question)}</div>
+                        <div class="mt-2 rounded-xl bg-white/90 border border-pink-100 px-3 py-2 text-xl md:text-xl font-bold text-pink-700">
                             🐰 ${qbrEsc(parts.answerStem || dialogue)}
                         </div>
                     </div>
                 </div>
                 <div class="mt-3 flex justify-center gap-2 flex-wrap">
-                    <button onclick="qbrSpeakQuestion()" class="px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm pastel-btn">🔊 Nghe câu hỏi</button>
-                    <button onclick="qbrShowHint()" class="px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-sm pastel-btn">💡 Gợi ý (${qbrHintsLeft})</button>
+                    <button onclick="qbrSpeakQuestion()" class="px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl pastel-btn">🔊 Nghe câu hỏi</button>
+                    <button onclick="qbrShowHint()" class="px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-xl pastel-btn">💡 Gợi ý (${qbrHintsLeft})</button>
                 </div>
             </div>
 
@@ -229,7 +233,7 @@ function qbrRenderRound() {
 
                     <div id="qbr-bunny" class="qbr-bunny absolute bottom-[50px] text-4xl md:text-5xl leading-none z-20" style="left:${bunnyLeft}%">🐰</div>
                     <div id="qbr-splash" class="hidden absolute bottom-[42px] text-4xl z-10" style="left:${bunnyLeft}%">💦</div>
-                    <div class="absolute left-1/2 -translate-x-1/2 top-1 text-xs md:text-sm font-black text-cyan-700 bg-white/75 border border-cyan-100 rounded-full px-3 py-1">Mỗi đáp án đúng = thêm 1 tấm cầu</div>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-1 text-xl md:text-xl font-black text-cyan-700 bg-white/75 border border-cyan-100 rounded-full px-3 py-1">Mỗi đáp án đúng = thêm 1 tấm cầu</div>
                 </div>
             </div>
 
@@ -241,15 +245,15 @@ function qbrRenderRound() {
                         'bg-amber-50 border-amber-200 text-amber-700',
                         'bg-emerald-50 border-emerald-200 text-emerald-700'
                     ];
-                    return `<button id="qbr-option-${i}" onclick="qbrChoose(${i})" class="pastel-btn min-h-[58px] rounded-2xl border-2 ${colors[i % colors.length]} px-4 py-3 text-base md:text-lg font-black leading-snug">${qbrEsc(opt)}</button>`;
+                    return `<button id="qbr-option-${i}" onclick="qbrChoose(${i})" class="pastel-btn min-h-[58px] rounded-2xl border-2 ${colors[i % colors.length]} px-4 py-3 text-xl md:text-xl font-black leading-snug">${qbrEsc(opt)}</button>`;
                 }).join('')}
             </div>
 
             <div class="mt-3 flex items-center justify-center gap-2 flex-wrap">
-                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-sm">🔥 Chuỗi đúng: ${qbrStreak}</span>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">💦 Trượt: ${qbrWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-xl">🔥 Chuỗi đúng: ${qbrStreak}</span>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">💦 Trượt: ${qbrWrong}</span>
             </div>
-            <p id="qbr-status" class="min-h-[30px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="qbr-status" class="min-h-[30px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     qbrUpdateTimer();
 }
@@ -294,7 +298,7 @@ function qbrChoose(index) {
         }
         if (status) {
             status.textContent = bonus ? `✅ Chính xác! +${10 + bonus} điểm · Cầu dài thêm một nhịp!` : '✅ Chính xác! Cầu dài thêm một nhịp!';
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-emerald-600';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-emerald-600';
         }
         playAudio('correct');
         qbrSpeakCompletedDialogue();
@@ -321,7 +325,7 @@ function qbrChoose(index) {
         }
         if (status) {
             status.textContent = '💦 Chưa khớp câu trả lời rồi. Thử lại nhé!';
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
         }
         playAudio('wrong');
     }
@@ -333,13 +337,13 @@ function qbrShowHint() {
     if (!status) return;
     if (qbrHintsLeft <= 0) {
         status.textContent = '💡 Hết lượt gợi ý rồi, con thử suy nghĩ thêm nhé!';
-        status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-600';
+        status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-600';
         return;
     }
     qbrHintsLeft--;
     const raw = String(qbrCurrent.hint || '').replace(/^Gợi ý:\s*/i, '').trim();
     status.textContent = `💡 ${raw || `Đáp án bắt đầu bằng “${String(qbrCurrent.answer).charAt(0)}”`}`;
-    status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-600';
+    status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-600';
     qbrScore = Math.max(0, qbrScore - 2);
     const score = document.getElementById('qbr-score');
     if (score) score.textContent = `⭐ ${qbrScore}`;
@@ -388,15 +392,15 @@ function qbrFinish() {
         <div class="pastel-card bg-white p-5 md:p-7 text-center overflow-hidden">
             <div class="text-7xl md:text-8xl mb-2">${medal}</div>
             <h3 class="text-2xl md:text-3xl font-black text-violet-700">Qua cầu thành công!</h3>
-            <p class="text-base md:text-lg text-gray-600 font-bold mt-1">Thỏ Ngọc đã sang bờ bên kia nhờ những câu trả lời chính xác của con.</p>
+            <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Thỏ Ngọc đã sang bờ bên kia nhờ những câu trả lời chính xác của con.</p>
 
-            <div class="max-w-2xl mx-auto mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xs font-bold text-gray-500">Điểm</div><div class="text-xl font-black text-emerald-700">${qbrScore}</div></div>
-                <div class="rounded-2xl bg-violet-50 border border-violet-200 p-3"><div class="text-xs font-bold text-gray-500">Nhịp cầu</div><div class="text-xl font-black text-violet-700">${total}/${total}</div></div>
-                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xs font-bold text-gray-500">Trượt</div><div class="text-xl font-black text-rose-600">${qbrWrong}</div></div>
-                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-xs font-bold text-gray-500">Chuỗi tốt nhất</div><div class="text-xl font-black text-amber-700">${qbrBestStreak}</div></div>
+            <div class="max-w-2xl mx-auto mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xl font-bold text-gray-500">Điểm</div><div class="text-xl font-black text-emerald-700">${qbrScore}</div></div>
+                <div class="rounded-2xl bg-violet-50 border border-violet-200 p-3"><div class="text-xl font-bold text-gray-500">Nhịp cầu</div><div class="text-xl font-black text-violet-700">${total}/${total}</div></div>
+                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xl font-bold text-gray-500">Trượt</div><div class="text-xl font-black text-rose-600">${qbrWrong}</div></div>
+                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-xl font-bold text-gray-500">Chuỗi tốt nhất</div><div class="text-xl font-black text-amber-700">${qbrBestStreak}</div></div>
             </div>
-            <div class="mt-3 text-sm font-bold text-gray-500">⏱️ ${qbrFormatTime(elapsed)}</div>
+            <div class="mt-3 text-xl font-bold text-gray-500">⏱️ ${qbrFormatTime(elapsed)}</div>
 
             <div class="relative max-w-3xl h-28 mx-auto mt-5 qbr-water rounded-3xl border-2 border-cyan-200 overflow-hidden">
                 <div class="absolute left-3 bottom-3 text-3xl">🌿</div>
@@ -407,9 +411,9 @@ function qbrFinish() {
             </div>
 
             <div class="mt-5 flex justify-center gap-2 flex-wrap">
-                <button onclick="qbrStartLevel('${qbrDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-black text-sm md:text-base pastel-btn shadow-md">🔁 Chơi lại</button>
-                <button onclick="qbrRenderStart()" class="px-5 py-2.5 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-700 font-black text-sm md:text-base pastel-btn">🎚️ Đổi mức</button>
-                <button onclick="openMiniGameHub()" class="px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-black text-sm md:text-base pastel-btn">🎮 Chọn game khác</button>
+                <button onclick="qbrStartLevel('${qbrDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-black text-xl md:text-xl pastel-btn shadow-md">🔁 Chơi lại</button>
+                <button onclick="qbrRenderStart()" class="px-5 py-2.5 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-700 font-black text-xl md:text-xl pastel-btn">🎚️ Đổi mức</button>
+                <button onclick="openMiniGameHub()" class="px-5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-black text-xl md:text-xl pastel-btn">🎮 Chọn game khác</button>
             </div>
         </div>`;
     playAudio('correct');
@@ -469,5 +473,6 @@ function qbrEsc(value) {
     }[ch]));
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["qa-bridge"]=function(){try{clearTimeout(qbrTimerInterval);clearInterval(qbrTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startQABridgeGame: startQABridgeGame, qbrEnsureStyles: qbrEnsureStyles, qbrRenderStart: qbrRenderStart, qbrCountBySection: qbrCountBySection, qbrStartLevel: qbrStartLevel, qbrNextRound: qbrNextRound, qbrRenderRound: qbrRenderRound, qbrBuildOptions: qbrBuildOptions, qbrChoose: qbrChoose, qbrShowHint: qbrShowHint, qbrRenderHintCountOnly: qbrRenderHintCountOnly, qbrSpeakQuestion: qbrSpeakQuestion, qbrSpeakCompletedDialogue: qbrSpeakCompletedDialogue, qbrFinish: qbrFinish, qbrUpdateTimer: qbrUpdateTimer, qbrExtractDialogue: qbrExtractDialogue, qbrSplitDialogue: qbrSplitDialogue, qbrFillBlank: qbrFillBlank, qbrFormatClock: qbrFormatClock, qbrFormatTime: qbrFormatTime, qbrEsc: qbrEsc}), stop(){ try { clearTimeout(qbrTimerInterval); clearInterval(qbrTimerInterval); } catch (_) {} } });
+}

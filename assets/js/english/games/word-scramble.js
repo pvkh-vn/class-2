@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for word-scramble. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameVocabReady, getMiniGameTopicGroups, getMiniGameVocabPool, hideLoadingOverlay, playAudio, renderMiniGameTopicMenu, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
 // ==========================================
 // GAME: WORD SCRAMBLE
 // Nguồn dữ liệu: duy nhất Chuyên mục 2.1 - Flashcards Library qua getMiniGameVocabPool().
@@ -36,7 +40,7 @@ async function startWordScrambleGame() {
 
 function wscRenderTopicScreen() {
     clearInterval(wscTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = renderMiniGameTopicMenu({
         gameKey: 'word-scramble',
         onChoose: 'wscChooseTopic',
@@ -54,17 +58,17 @@ function wscChooseTopic(topicId) {
     container.innerHTML = `
         <div class="pastel-card bg-white p-5 flex flex-col items-center text-center">
             <div class="text-5xl mb-2">🧩</div>
-            <h3 class="font-black text-indigo-700 text-lg mb-1">Chọn độ khó</h3>
-            <p class="text-xs text-gray-500 font-bold mb-4 max-w-md">${topicName}</p>
-            <div class="grid grid-cols-3 gap-2.5 w-full max-w-md">
+            <h3 class="font-black text-indigo-700 text-xl mb-1">Chọn độ khó</h3>
+            <p class="text-xl text-gray-500 font-bold mb-4 max-w-md">${topicName}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full max-w-lg">
                 ${Object.entries(WSC_DIFFICULTIES).map(([key, d]) => `
                     <button onclick="wscStartWithDifficulty('${key}')" class="pastel-btn p-3 rounded-2xl border-2 border-indigo-200 bg-indigo-50 hover:bg-indigo-100">
                         <div class="font-black text-indigo-700">${d.label}</div>
-                        <div class="text-[11px] text-gray-500 font-bold mt-1">${d.rounds} từ</div>
-                        <div class="text-[10px] text-gray-400 font-bold">${d.note}</div>
+                        <div class="text-xl text-gray-500 font-bold mt-1">${d.rounds} từ</div>
+                        <div class="text-xl text-gray-400 font-bold">${d.note}</div>
                     </button>`).join('')}
             </div>
-            <button onclick="wscRenderTopicScreen()" class="mt-4 text-xs font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
+            <button onclick="wscRenderTopicScreen()" class="mt-4 text-xl font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
         </div>`;
 }
 
@@ -99,7 +103,7 @@ function wscStartWithDifficulty(diffKey) {
     clearInterval(wscTimerInterval);
     wscTimerInterval = taEnglishGameInterval(wscUpdateTimer, 1000);
 
-    headerLevel3ClickHandler = () => wscChooseTopic(wscTopicId);
+    gameCtx.setHeaderLevel3ClickHandler(() => wscChooseTopic(wscTopicId));
     wscNextRound();
 }
 
@@ -137,34 +141,34 @@ function wscNextRound() {
 function wscRenderRound() {
     const diff = WSC_DIFFICULTIES[wscDifficulty];
     const container = document.getElementById('game-play-container');
-    const answerSlots = wscCurrent.word.split('').map(() => `<span class="w-8 h-10 md:w-10 md:h-11 rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/50 flex items-center justify-center font-black text-indigo-700"></span>`).join('');
+    const answerSlots = wscCurrent.word.split('').map(() => `<span class="w-11 h-12 rounded-xl border-2 border-dashed border-indigo-200 bg-indigo-50/50 flex items-center justify-center font-black text-indigo-700"></span>`).join('');
     container.innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5">
             <div class="flex items-center justify-between gap-2 mb-3 flex-wrap">
-                <span id="wsc-timer" class="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-xs font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-2.5 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-xs font-black text-indigo-700">Từ ${wscRoundIndex + 1}/${diff.rounds}</span>
-                <span id="wsc-score" class="px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-black text-emerald-700">⭐ ${wscScore}</span>
+                <span id="wsc-timer" class="px-2.5 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-2.5 py-1 bg-indigo-50 border border-indigo-200 rounded-full text-xl font-black text-indigo-700">Từ ${wscRoundIndex + 1}/${diff.rounds}</span>
+                <span id="wsc-score" class="px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xl font-black text-emerald-700">⭐ ${wscScore}</span>
             </div>
 
             <div class="text-center bg-gradient-to-r from-pink-50 to-purple-50 border-2 border-pink-100 rounded-2xl p-4 mb-4">
                 <div class="text-5xl mb-1">${wscCurrent.emoji || '✨'}</div>
-                <div class="text-[11px] uppercase tracking-wide font-black text-gray-400">Nghĩa tiếng Việt</div>
+                <div class="text-xl uppercase tracking-wide font-black text-gray-400">Nghĩa tiếng Việt</div>
                 <div class="text-xl md:text-2xl font-black text-pink-600 mt-1">${wscEscapeHtml(wscCurrent.vietnamese)}</div>
-                ${wscCurrent.sentence ? `<div class="text-xs text-gray-400 font-bold mt-1">Gợi ý ngữ cảnh: ${wscEscapeHtml(wscCurrent.sentence.replace(new RegExp(wscEscapeRegExp(wscCurrent.word), 'ig'), '_____'))}</div>` : ''}
+                ${wscCurrent.sentence ? `<div class="text-xl text-gray-400 font-bold mt-1">Gợi ý ngữ cảnh: ${wscEscapeHtml(wscCurrent.sentence.replace(new RegExp(wscEscapeRegExp(wscCurrent.word), 'ig'), '_____'))}</div>` : ''}
             </div>
 
             <div id="wsc-answer" class="flex flex-wrap items-center justify-center gap-1.5 min-h-[48px] mb-3">${answerSlots}</div>
             <div id="wsc-tiles" class="flex flex-wrap items-center justify-center gap-2 mb-4">
-                ${wscLetterTiles.map((t, i) => `<button id="wsc-tile-${i}" onclick="wscPickLetter(${i})" class="w-10 h-11 md:w-11 md:h-12 rounded-xl bg-gradient-to-b from-indigo-500 to-purple-500 text-white font-black text-lg shadow-md pastel-btn border border-indigo-300">${t.letter}</button>`).join('')}
+                ${wscLetterTiles.map((t, i) => `<button id="wsc-tile-${i}" onclick="wscPickLetter(${i})" class="w-11 h-12 rounded-xl bg-gradient-to-b from-indigo-500 to-purple-500 text-white font-black text-xl shadow-md pastel-btn border border-indigo-300">${t.letter}</button>`).join('')}
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-2">
-                <button onclick="wscBackspace()" class="px-3 py-2 rounded-xl bg-gray-100 border border-gray-200 text-gray-600 text-xs font-black pastel-btn">⌫ Xoá</button>
-                <button onclick="wscResetAnswer()" class="px-3 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-black pastel-btn">↺ Làm lại</button>
-                <button id="wsc-hint-btn" onclick="wscUseHint()" class="px-3 py-2 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-black pastel-btn">💡 Gợi ý (${wscHintsLeft})</button>
-                <button onclick="wscCheckAnswer()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-black shadow-md pastel-btn">✓ Kiểm tra</button>
+                <button onclick="wscBackspace()" class="px-3 py-2 rounded-xl bg-gray-100 border border-gray-200 text-gray-600 text-xl font-black pastel-btn">⌫ Xoá</button>
+                <button onclick="wscResetAnswer()" class="px-3 py-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xl font-black pastel-btn">↺ Làm lại</button>
+                <button id="wsc-hint-btn" onclick="wscUseHint()" class="px-3 py-2 rounded-xl bg-cyan-50 border border-cyan-200 text-cyan-700 text-xl font-black pastel-btn">💡 Gợi ý (${wscHintsLeft})</button>
+                <button onclick="wscCheckAnswer()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xl font-black shadow-md pastel-btn">✓ Kiểm tra</button>
             </div>
-            <p id="wsc-status" class="min-h-[22px] text-center text-sm font-black mt-3"></p>
+            <p id="wsc-status" class="min-h-[22px] text-center text-xl font-black mt-3"></p>
         </div>`;
     wscUpdateAnswerUI();
     wscUpdateTimer();
@@ -195,7 +199,7 @@ function wscUpdateAnswerUI() {
     if (!answer || !wscCurrent) return;
     const chosenLetters = wscChosenTileIndexes.map(i => wscLetterTiles[i].letter);
     answer.innerHTML = wscCurrent.word.split('').map((_, idx) => `
-        <span class="w-8 h-10 md:w-10 md:h-11 rounded-xl border-2 ${idx < chosenLetters.length ? 'border-indigo-300 bg-indigo-50' : 'border-dashed border-indigo-200 bg-white'} flex items-center justify-center font-black text-lg text-indigo-700">${chosenLetters[idx] || ''}</span>`).join('');
+        <span class="w-11 h-12 rounded-xl border-2 ${idx < chosenLetters.length ? 'border-indigo-300 bg-indigo-50' : 'border-dashed border-indigo-200 bg-white'} flex items-center justify-center font-black text-xl text-indigo-700">${chosenLetters[idx] || ''}</span>`).join('');
 
     wscLetterTiles.forEach((_, i) => {
         const btn = document.getElementById(`wsc-tile-${i}`);
@@ -234,14 +238,14 @@ function wscCheckAnswer() {
     const target = wscCurrent.word.toUpperCase();
     const status = document.getElementById('wsc-status');
     if (answer.length !== target.length) {
-        if (status) { status.textContent = 'Con hãy dùng đủ các chữ cái trước nhé!'; status.className = 'min-h-[22px] text-center text-sm font-black mt-3 text-amber-600'; }
+        if (status) { status.textContent = 'Con hãy dùng đủ các chữ cái trước nhé!'; status.className = 'min-h-[22px] text-center text-xl font-black mt-3 text-amber-600'; }
         return;
     }
 
     if (answer === target) {
         playAudio('correct');
         wscScore += 10;
-        if (status) { status.textContent = `🎉 Chính xác! ${wscCurrent.word} = ${wscCurrent.vietnamese}`; status.className = 'min-h-[22px] text-center text-sm font-black mt-3 text-emerald-600'; }
+        if (status) { status.textContent = `🎉 Chính xác! ${wscCurrent.word} = ${wscCurrent.vietnamese}`; status.className = 'min-h-[22px] text-center text-xl font-black mt-3 text-emerald-600'; }
         const scoreEl = document.getElementById('wsc-score');
         if (scoreEl) scoreEl.textContent = `⭐ ${wscScore}`;
         speakEnglish(wscCurrent.word);
@@ -251,7 +255,7 @@ function wscCheckAnswer() {
     } else {
         playAudio('wrong');
         wscWrongCount++;
-        if (status) { status.textContent = 'Chưa đúng rồi, con thử sắp xếp lại nhé!'; status.className = 'min-h-[22px] text-center text-sm font-black mt-3 text-rose-500'; }
+        if (status) { status.textContent = 'Chưa đúng rồi, con thử sắp xếp lại nhé!'; status.className = 'min-h-[22px] text-center text-xl font-black mt-3 text-rose-500'; }
     }
 }
 
@@ -278,14 +282,14 @@ function wscFinish() {
         <div class="pastel-card bg-white p-6 text-center">
             <div class="text-6xl mb-2">🏆</div>
             <h3 class="text-xl font-black text-indigo-700">Hoàn thành Word Scramble!</h3>
-            <div class="grid grid-cols-3 gap-2 max-w-md mx-auto my-4">
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xl font-black text-emerald-700">${wscScore}</div><div class="text-[10px] font-bold text-gray-500">Điểm</div></div>
-                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xl font-black text-rose-600">${wscWrongCount}</div><div class="text-[10px] font-bold text-gray-500">Lần sai</div></div>
-                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-xl font-black text-cyan-700">${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}</div><div class="text-[10px] font-bold text-gray-500">Thời gian</div></div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 max-w-md mx-auto my-4">
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xl font-black text-emerald-700">${wscScore}</div><div class="text-xl font-bold text-gray-500">Điểm</div></div>
+                <div class="rounded-2xl bg-rose-50 border border-rose-200 p-3"><div class="text-xl font-black text-rose-600">${wscWrongCount}</div><div class="text-xl font-bold text-gray-500">Lần sai</div></div>
+                <div class="rounded-2xl bg-cyan-50 border border-cyan-200 p-3"><div class="text-xl font-black text-cyan-700">${Math.floor(secs/60)}:${String(secs%60).padStart(2,'0')}</div><div class="text-xl font-bold text-gray-500">Thời gian</div></div>
             </div>
             <div class="flex justify-center gap-2 flex-wrap">
-                <button onclick="wscStartWithDifficulty('${wscDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-black text-sm pastel-btn">🔄 Chơi lại ${diff.label}</button>
-                <button onclick="wscRenderTopicScreen()" class="px-5 py-2.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 font-black text-sm pastel-btn">📚 Đổi nhóm từ</button>
+                <button onclick="wscStartWithDifficulty('${wscDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-black text-xl pastel-btn">🔄 Chơi lại ${diff.label}</button>
+                <button onclick="wscRenderTopicScreen()" class="px-5 py-2.5 rounded-xl bg-pink-50 border border-pink-200 text-pink-700 font-black text-xl pastel-btn">📚 Đổi nhóm từ</button>
             </div>
         </div>`;
 }
@@ -297,5 +301,6 @@ function wscEscapeRegExp(value) {
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["word-scramble"]=function(){try{clearTimeout(wscTimerInterval);clearInterval(wscTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startWordScrambleGame: startWordScrambleGame, wscRenderTopicScreen: wscRenderTopicScreen, wscChooseTopic: wscChooseTopic, wscStartWithDifficulty: wscStartWithDifficulty, wscPickNextItem: wscPickNextItem, wscScrambleWord: wscScrambleWord, wscNextRound: wscNextRound, wscRenderRound: wscRenderRound, wscPickLetter: wscPickLetter, wscBackspace: wscBackspace, wscResetAnswer: wscResetAnswer, wscCurrentAnswer: wscCurrentAnswer, wscUpdateAnswerUI: wscUpdateAnswerUI, wscUseHint: wscUseHint, wscCheckAnswer: wscCheckAnswer, wscDisableRoundButtons: wscDisableRoundButtons, wscUpdateTimer: wscUpdateTimer, wscFinish: wscFinish, wscEscapeHtml: wscEscapeHtml, wscEscapeRegExp: wscEscapeRegExp}), stop(){ try { clearTimeout(wscTimerInterval); clearInterval(wscTimerInterval); } catch (_) {} } });
+}

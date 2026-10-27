@@ -1,3 +1,7 @@
+/* Epsilon Edu Class 2: isolated native ES module for word-search. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, escapeHtml, fetchAllQuestionsFlat, getWordSearchVocabPool, hideLoadingOverlay, playAudio, renderMiniGameTopicMenu, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout, updateNavTabs } = gameCtx;
 // ==========================================
 // GAME: WORD SEARCH — tách riêng file để lazy-load (chỉ tải khi bé thật sự bấm vào game này)
 // ==========================================
@@ -43,7 +47,7 @@ async function startWordSearchGame() {
 function wsRenderTopicScreen() {
     wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = renderMiniGameTopicMenu({
         gameKey: 'word-search',
         onChoose: 'wsChooseTopic',
@@ -60,32 +64,32 @@ function wsChooseTopic(topicId) {
 function renderWordSearchDifficultyScreen() {
     wsReleaseWindowListeners_();
     clearInterval(wsTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     const level3El = document.getElementById('header-level3-btn');
     if (level3El) { level3El.classList.remove('cursor-pointer', 'hover:bg-purple-100'); level3El.classList.add('cursor-default'); }
     const container = document.getElementById('game-play-container');
     container.innerHTML = `
         <div class="pastel-card bg-white p-5 flex flex-col items-center text-center">
             <div class="text-5xl mb-2">🔍</div>
-            <h3 class="font-extrabold text-teal-700 text-lg mb-1">Word Search</h3>
-            <p class="text-sm text-gray-500 font-bold mb-3">Chọn độ khó để bắt đầu nhé!</p>
-            <div class="grid grid-cols-3 gap-2.5 w-full max-w-sm mb-3">
+            <h3 class="font-extrabold text-teal-700 text-xl mb-1">Word Search</h3>
+            <p class="text-xl text-gray-500 font-bold mb-3">Chọn độ khó để bắt đầu nhé!</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full max-w-lg mb-3">
                 ${Object.entries(WS_DIFFICULTIES).map(([key, d]) => `
                     <button onclick="wsStartWithDifficulty('${key}')" class="pastel-btn flex flex-col items-center gap-1 p-3 rounded-2xl border-2 border-${d.color}-200 bg-${d.color}-50 hover:bg-${d.color}-100 text-${d.color}-700 shadow-sm">
-                        <span class="font-black text-base">${d.label}</span>
-                        <span class="text-xs font-bold opacity-80">${d.words} từ</span>
-                        <span class="text-xs font-bold opacity-70">lưới ${d.size}x${d.size}</span>
-                        <span class="text-[10px] font-bold opacity-60">(${d.dirsLabel})</span>
+                        <span class="font-black text-xl">${d.label}</span>
+                        <span class="text-xl font-bold opacity-80">${d.words} từ</span>
+                        <span class="text-xl font-bold opacity-70">lưới ${d.size}x${d.size}</span>
+                        <span class="text-xl font-bold opacity-60">(${d.dirsLabel})</span>
                     </button>
                 `).join('')}
             </div>
-            <button onclick="wsToggleRules()" class="text-sm font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-200 pastel-btn">📖 Xem luật chơi</button>
-            <div id="ws-rules-panel" class="hidden mt-3 w-full max-w-sm text-left bg-indigo-50/60 border border-indigo-200 rounded-2xl p-3.5 text-sm text-gray-600 font-bold leading-relaxed">
+            <button onclick="wsToggleRules()" class="text-xl font-black text-indigo-600 bg-indigo-50 px-3 py-1.5 rounded-full border border-indigo-200 pastel-btn">📖 Xem luật chơi</button>
+            <div id="ws-rules-panel" class="hidden mt-3 w-full max-w-sm text-left bg-indigo-50/60 border border-indigo-200 rounded-2xl p-3.5 text-xl text-gray-600 font-bold leading-relaxed">
                 <p class="mb-1.5">🔤 Từ tiếng Anh được giấu trong lưới theo <b>hàng ngang</b> hoặc <b>hàng dọc</b> — riêng độ <b>Vừa/Khó</b> còn giấu thêm theo <b>đường chéo</b> nữa nhé!</p>
                 <p class="mb-1.5">↔️ Mỗi từ có thể đọc <b>xuôi</b> (trái→phải, trên→dưới) hoặc <b>ngược</b> (phải→trái, dưới→trên) — cứ thử cả 2 chiều nếu chưa thấy.</p>
                 <p>👆 Chạm vào chữ cái đầu tiên, rồi <b>kéo thẳng một đường</b> tới chữ cái cuối cùng của từ đó để chọn.</p>
             </div>
-            <button onclick="wsRenderTopicScreen()" class="mt-3 text-sm font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
+            <button onclick="wsRenderTopicScreen()" class="mt-3 text-xl font-black text-pink-600 bg-pink-50 border border-pink-200 px-4 py-2 rounded-xl pastel-btn">← Chọn lại nhóm từ</button>
         </div>`;
 }
 
@@ -183,7 +187,7 @@ function wsUpdateTimerDisplay() {
 
 function renderWordSearchUI(chosen) {
     // Trong lúc đang chơi (đã có lưới), bấm vào tên game trên breadcrumb -> quay lại màn chọn độ khó.
-    headerLevel3ClickHandler = renderWordSearchDifficultyScreen;
+    gameCtx.setHeaderLevel3ClickHandler(renderWordSearchDifficultyScreen);
     if (typeof updateNavTabs === 'function') {
         const level3El = document.getElementById('header-level3-btn');
         if (level3El) { level3El.classList.add('cursor-pointer', 'hover:bg-purple-100'); level3El.classList.remove('cursor-default'); }
@@ -191,33 +195,33 @@ function renderWordSearchUI(chosen) {
     const container = document.getElementById('game-play-container');
     container.innerHTML = `
         <div class="pastel-card bg-white p-3 md:p-4 flex flex-col items-center">
-            <div class="flex items-center justify-between w-full max-w-[380px] mb-2 gap-1.5">
-                <span id="ws-timer" class="text-xs md:text-sm font-black text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">⏱️ 00:00</span>
-                <button id="ws-hint-btn" onclick="wsUseHint()" class="text-xs md:text-sm font-black text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 pastel-btn">💡 Gợi ý (${wsHintsLeft})</button>
-                <button onclick="wsGenerateAndRender()" class="text-xs md:text-sm font-black text-white bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 px-2.5 py-1 rounded-full shadow-sm pastel-btn">🔄 Chơi lại</button>
+            <div class="flex items-center justify-center flex-wrap w-full max-w-[760px] mb-2 gap-2">
+                <span id="ws-timer" class="text-xl md:text-xl font-black text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-200">⏱️ 00:00</span>
+                <button id="ws-hint-btn" onclick="wsUseHint()" class="text-xl md:text-xl font-black text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200 pastel-btn">💡 Gợi ý (${wsHintsLeft})</button>
+                <button onclick="wsGenerateAndRender()" class="text-xl md:text-xl font-black text-white bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 px-2.5 py-1 rounded-full shadow-sm pastel-btn">🔄 Chơi lại</button>
             </div>
-            <p class="text-sm md:text-base font-bold text-gray-500 mb-1">Kéo qua các ô để nối thành 1 từ tiếng Anh nhé!</p>
-            <p class="text-xs text-indigo-400 font-bold mb-2">💡 Từ giấu theo ${(WS_DIFFICULTIES[wsCurrentDifficulty] || {}).dirsLabel || 'ngang, dọc'}, có thể đọc xuôi hoặc ngược</p>
+            <p class="text-xl md:text-xl font-bold text-gray-500 mb-1">Kéo qua các ô để nối thành 1 từ tiếng Anh nhé!</p>
+            <p class="text-xl text-indigo-400 font-bold mb-2">💡 Từ giấu theo ${(WS_DIFFICULTIES[wsCurrentDifficulty] || {}).dirsLabel || 'ngang, dọc'}, có thể đọc xuôi hoặc ngược</p>
             <!-- Word Search: match the Class 1 two-column layout without changing gameplay. -->
             <style>
                 #ws-main-layout { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-                #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; display: flex; justify-content: center; }
+                #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; display: flex; justify-content: flex-start; }
                 #ws-main-layout #ws-wordlist { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; align-content: flex-start; gap: 8px; width: 100%; min-width: 0; }
-                #ws-wordlist > .ws-word-pill { display: inline-flex; flex: 0 0 auto; align-items: center; max-width: 100%; min-height: 36px; padding: 7px 12px; border-radius: 999px; line-height: 1.35; font-size: 15px; }
+                #ws-wordlist > .ws-word-pill { display: inline-flex; flex: 0 0 auto; align-items: center; max-width: 100%; min-height: 36px; padding: 7px 12px; border-radius: 999px; line-height: 1.35; font-size:20px; }
                 @media (min-width: 768px) {
-                    #ws-main-layout { display: grid !important; grid-template-columns: minmax(0, 400px) minmax(0, 200px); column-gap: 24px; align-items: start; justify-content: center; max-width: 100%; }
-                    #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; }
+                    #ws-main-layout { display: grid !important; grid-template-columns: minmax(0, 400px) minmax(0, 260px); column-gap: 24px; align-items: start; justify-content: center; max-width: 100%; }
+                    #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; justify-content: center; }
                     #ws-main-layout #ws-wordlist { display: flex !important; flex-direction: column !important; flex-wrap: nowrap !important; align-items: stretch !important; align-content: flex-start !important; justify-content: flex-start !important; gap: 8px !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; }
-                    #ws-wordlist > .ws-word-pill { display: flex !important; flex: 0 0 auto !important; width: 100% !important; height: auto !important; min-height: 38px; max-width: 100%; justify-content: flex-end !important; align-items: center !important; text-align: right !important; padding: 8px 12px; border-radius: 12px; overflow-wrap: anywhere; font-size: 17px; }
+                    #ws-wordlist > .ws-word-pill { display: flex !important; flex: 0 0 auto !important; width: 100% !important; height: auto !important; min-height: 38px; max-width: 100%; justify-content: flex-end !important; align-items: center !important; text-align: right !important; padding: 8px 12px; border-radius: 12px; overflow-wrap: anywhere; font-size:20px; }
                 }
             </style>
             <div id="ws-main-layout" class="w-full max-w-[760px] mb-2">
-                <div class="ws-board-wrap">
-                    <div id="ws-grid" class="grid gap-1 mb-2 md:mb-0" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: 400px; width: 100%; touch-action: none; user-select: none;"></div>
+                <div class="ws-board-wrap overflow-x-auto">
+                    <div id="ws-grid" class="grid gap-1 mb-2 md:mb-0" style="grid-template-columns: repeat(${wsSize}, 1fr); max-width: 400px; min-width: 330px; width: 100%; touch-action: none; user-select: none;"></div>
                 </div>
                 <div id="ws-wordlist" class="mb-2 md:mb-0"></div>
             </div>
-            <p id="ws-status" class="w-full max-w-[760px] text-sm font-bold text-pink-500 text-center min-h-[18px]"></p>
+            <p id="ws-status" class="w-full max-w-[760px] text-xl font-bold text-pink-500 text-center min-h-[18px]"></p>
         </div>`;
 
     const gridEl = document.getElementById('ws-grid');
@@ -226,14 +230,14 @@ function renderWordSearchUI(chosen) {
             const cell = document.createElement('div');
             cell.textContent = wsGrid[r][c];
             cell.dataset.r = r; cell.dataset.c = c;
-            cell.className = 'ws-cell aspect-square flex items-center justify-center text-sm md:text-lg font-black rounded-lg bg-white text-gray-700 cursor-pointer border-2 border-pink-100 transition-transform duration-150';
+            cell.className = 'ws-cell aspect-square flex items-center justify-center text-xl md:text-xl font-black rounded-lg bg-white text-gray-700 cursor-pointer border-2 border-pink-100 transition-transform duration-150';
             gridEl.appendChild(cell);
         }
     }
 
     const wordlistEl = document.getElementById('ws-wordlist');
     wordlistEl.innerHTML = chosen.map(item => `
-        <span id="ws-pill-${item.w}" class="ws-word-pill text-sm md:text-base font-bold bg-white border-2 border-pink-200 text-gray-600 transition-all duration-300">${escapeHtml(item.vi)}</span>
+        <span id="ws-pill-${item.w}" class="ws-word-pill text-xl md:text-xl font-bold bg-white border-2 border-pink-200 text-gray-600 transition-all duration-300">${escapeHtml(item.vi)}</span>
     `).join('');
 
     wsBindEvents(gridEl);
@@ -347,7 +351,7 @@ function wsFinishGame(total, gridEl, statusEl) {
     gridEl.classList.add('pointer-events-none'); // đã xong hết -> khoá không cho kéo chọn thêm nữa
     const hintBtn = document.getElementById('ws-hint-btn');
     if (hintBtn) hintBtn.classList.add('opacity-40', 'pointer-events-none');
-    statusEl.className = 'text-sm md:text-base font-black text-emerald-600 text-center mt-1';
+    statusEl.className = 'text-xl md:text-xl font-black text-emerald-600 text-center mt-1';
     statusEl.textContent = `🎉 Xuất sắc! Bé đã tìm hết ${total} từ trong ${mm}:${ss} (dùng ${wsHintsUsed} gợi ý)! Bấm "Chơi lại" để thử ván mới nhé.`;
 }
 
@@ -398,9 +402,6 @@ function wsBindEvents(gridEl) {
 
 
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["word-search"] = function() {
-    wsReleaseWindowListeners_();
-    clearInterval(wsTimerInterval);
-    wsTimerInterval = null;
-};
+
+return Object.freeze({ handlers:Object.freeze({wsReleaseWindowListeners_: wsReleaseWindowListeners_, startWordSearchGame: startWordSearchGame, wsRenderTopicScreen: wsRenderTopicScreen, wsChooseTopic: wsChooseTopic, renderWordSearchDifficultyScreen: renderWordSearchDifficultyScreen, wsToggleRules: wsToggleRules, wsStartWithDifficulty: wsStartWithDifficulty, wsGenerateAndRender: wsGenerateAndRender, wsTryPlaceWord: wsTryPlaceWord, wsUpdateTimerDisplay: wsUpdateTimerDisplay, renderWordSearchUI: renderWordSearchUI, wsUseHint: wsUseHint, wsCellKey: wsCellKey, wsGetCellFromPoint: wsGetCellFromPoint, wsClearTempHighlight: wsClearTempHighlight, wsHighlightPath: wsHighlightPath, wsPathBetween: wsPathBetween, wsCheckMatch: wsCheckMatch, wsMarkFound: wsMarkFound, wsFinishGame: wsFinishGame, wsBindEvents: wsBindEvents}), stop(){ try { clearTimeout(wsTimerInterval); clearInterval(wsTimerInterval); } catch (_) {} try { wsReleaseWindowListeners_(); } catch (_) {} } });
+}

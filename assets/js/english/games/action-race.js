@@ -1,3 +1,8 @@
+/* Epsilon Edu Class 2: isolated native ES module for action-race. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, showLoadingOverlay, shuffleArray, speakEnglish, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
+let arOptions_ = [];
 // ==========================================
 // GAME 9: ACTION RACE
 // Nguon du lieu: 10.3 Action Verbs Grammar Point.
@@ -67,14 +72,14 @@ function arEnsureStyles() {
 
 function arRenderStart() {
     clearInterval(arTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-sky-50 via-white to-orange-50 border-2 border-sky-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1">🏎️💨</div>
                 <h3 class="text-xl md:text-2xl font-black text-sky-600">Action Race</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Chọn đúng động từ hành động để xe tăng tốc và về đích trước đối thủ!</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-sky-200 rounded-full text-sm font-black text-sky-700">📚 Dữ liệu: 10.3 Action Verbs · ${arAllPool.length} câu</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Chọn đúng động từ hành động để xe tăng tốc và về đích trước đối thủ!</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-sky-200 rounded-full text-xl font-black text-sky-700">📚 Dữ liệu: 10.3 Action Verbs · ${arAllPool.length} câu</div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
                 ${Object.entries(AR_LEVELS).map(([key, lv], i) => {
@@ -84,13 +89,13 @@ function arRenderStart() {
                         'bg-orange-50 border-orange-200 text-orange-700'
                     ][i];
                     return `<button onclick="arStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} chặng đua</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${arEsc(lv.note)}</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} chặng đua</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${arEsc(lv.note)}</div>
                     </button>`;
                 }).join('')}
             </div>
-            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3 text-center text-sm md:text-base font-bold text-amber-800">
+            <div class="mt-4 max-w-2xl mx-auto rounded-2xl bg-amber-50 border border-amber-200 px-4 py-3 text-center text-xl md:text-xl font-bold text-amber-800">
                 💡 Trả lời sai không mất câu: đối thủ sẽ tăng tốc, còn bé vẫn được chọn lại.
             </div>
         </div>`;
@@ -119,7 +124,7 @@ function arStartLevel(level) {
     arRivalProgress = 2;
     clearInterval(arTimerInterval);
     arTimerInterval = taEnglishGameInterval(arUpdateTimer, 1000);
-    headerLevel3ClickHandler = arRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(arRenderStart);
     arNextRound();
 }
 
@@ -164,24 +169,24 @@ function arRenderRound() {
     const total = arPool.length;
     const sentence = arExtractSentence(arCurrent.question_text);
     const options = arGetOptions(arCurrent, lv.options);
-    window.__arOptions = options;
+    arOptions_ = options;
 
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="ar-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-sky-50 border border-sky-200 rounded-full text-sm font-black text-sky-700">🏁 Chặng ${arRound + 1}/${total}</span>
-                <span id="ar-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-sm font-black text-amber-700">⭐ ${arScore}</span>
+                <span id="ar-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-sky-50 border border-sky-200 rounded-full text-xl font-black text-sky-700">🏁 Chặng ${arRound + 1}/${total}</span>
+                <span id="ar-score" class="px-3 py-1 bg-amber-50 border border-amber-200 rounded-full text-xl font-black text-amber-700">⭐ ${arScore}</span>
             </div>
 
             ${arRenderTrack()}
 
             <div class="rounded-2xl border-2 border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-fuchsia-50 p-4 md:p-5 mt-3">
-                <div class="text-center text-xs md:text-sm font-black text-indigo-500 uppercase tracking-wide mb-2">Chọn động từ để hoàn thành câu</div>
-                <div class="text-center text-lg md:text-2xl font-black text-slate-800 leading-relaxed">${arEsc(sentence)}</div>
+                <div class="text-center text-xl md:text-xl font-black text-indigo-500 uppercase tracking-wide mb-2">Chọn động từ để hoàn thành câu</div>
+                <div class="text-center text-xl md:text-2xl font-black text-slate-800 leading-relaxed">${arEsc(sentence)}</div>
                 <div class="flex justify-center gap-2 flex-wrap mt-3">
-                    <button onclick="arSpeakSentence(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm">🔊 Nghe câu</button>
-                    <button onclick="arShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-sm">💡 Gợi ý (${arHintsLeft})</button>
+                    <button onclick="arSpeakSentence(false)" class="pastel-btn px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl">🔊 Nghe câu</button>
+                    <button onclick="arShowHint()" class="pastel-btn px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-xl">💡 Gợi ý (${arHintsLeft})</button>
                 </div>
             </div>
 
@@ -193,15 +198,15 @@ function arRenderRound() {
                         'bg-amber-50 border-amber-200 text-amber-700',
                         'bg-emerald-50 border-emerald-200 text-emerald-700'
                     ][i % 4];
-                    return `<button id="ar-answer-${i}" onclick="arChoose(${i})" class="ar-answer pastel-btn min-h-[58px] rounded-2xl border-2 ${cls} px-4 py-3 text-base md:text-lg font-black">${arVerbIcon(opt)} ${arEsc(opt)}</button>`;
+                    return `<button id="ar-answer-${i}" onclick="arChoose(${i})" class="ar-answer pastel-btn min-h-[58px] rounded-2xl border-2 ${cls} px-4 py-3 text-xl md:text-xl font-black">${arVerbIcon(opt)} ${arEsc(opt)}</button>`;
                 }).join('')}
             </div>
 
             <div class="flex items-center justify-center gap-2 flex-wrap mt-3">
-                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-sm">🔥 Chuỗi đúng: ${arStreak}</span>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">💥 Lỗi: ${arWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-xl">🔥 Chuỗi đúng: ${arStreak}</span>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">💥 Lỗi: ${arWrong}</span>
             </div>
-            <p id="ar-status" class="min-h-[30px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="ar-status" class="min-h-[30px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     arUpdateTimer();
 }
@@ -212,13 +217,13 @@ function arRenderTrack() {
     return `
         <div class="rounded-2xl border-2 border-sky-100 bg-gradient-to-b from-sky-100 via-sky-50 to-emerald-50 p-3 overflow-hidden relative">
             <div class="absolute right-3 top-1 text-3xl ar-flag">🏁</div>
-            <div class="text-xs font-black text-slate-500 mb-1">BÉ</div>
+            <div class="text-xl font-black text-slate-500 mb-1">BÉ</div>
             <div class="relative h-14 rounded-xl bg-slate-600 overflow-hidden border-2 border-slate-500">
                 <div class="ar-road absolute inset-0 opacity-80"></div>
                 <div class="absolute right-[7%] top-0 bottom-0 w-2 bg-white/80"></div>
                 <div id="ar-player-car" class="ar-car absolute top-1/2 -translate-y-1/2 text-4xl z-10" style="left:${p}%">🏎️<span id="ar-flame-holder" class="absolute right-full top-1/2 -translate-y-1/2 text-xl pointer-events-none"></span></div>
             </div>
-            <div class="text-xs font-black text-slate-500 mt-2 mb-1">ĐỐI THỦ</div>
+            <div class="text-xl font-black text-slate-500 mt-2 mb-1">ĐỐI THỦ</div>
             <div class="relative h-12 rounded-xl bg-slate-500 overflow-hidden border-2 border-slate-400">
                 <div class="ar-road absolute inset-0 opacity-70"></div>
                 <div class="absolute right-[7%] top-0 bottom-0 w-2 bg-white/80"></div>
@@ -240,7 +245,7 @@ function arGetOptions(q, count) {
 
 function arChoose(index) {
     if (arLocked) return;
-    const options = window.__arOptions || [];
+    const options = arOptions_ || [];
     const picked = String(options[index] || '').trim();
     const answer = String(arCurrent.answer || '').trim();
     const btn = document.getElementById(`ar-answer-${index}`);
@@ -262,7 +267,7 @@ function arChoose(index) {
             btn.classList.add('bg-emerald-100','border-emerald-400','text-emerald-800');
         }
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-emerald-600';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-emerald-600';
             status.textContent = bonus ? `✅ Chuẩn! +${100 + bonus} điểm · TURBO!` : '✅ Chuẩn! +100 điểm · TURBO!';
         }
         arAnimateCars(true);
@@ -283,7 +288,7 @@ function arChoose(index) {
             btn.disabled = true;
         }
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-rose-500';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-rose-500';
             status.textContent = '💥 Chưa đúng! Đối thủ tăng tốc rồi, chọn lại nhé!';
         }
         arAnimateCars(false);
@@ -316,7 +321,7 @@ function arShowHint() {
     const status = document.getElementById('ar-status');
     if (arHintsLeft <= 0) {
         if (status) {
-            status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-gray-400';
+            status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-gray-400';
             status.textContent = '💡 Bé đã dùng hết gợi ý của chặng đua này rồi.';
         }
         return;
@@ -324,7 +329,7 @@ function arShowHint() {
     arHintsLeft--;
     const hint = String(arCurrent.hint || '').trim();
     if (status) {
-        status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-600';
+        status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-600';
         status.textContent = hint || `💡 Động từ đúng là hành động phù hợp nhất với câu này.`;
     }
     const buttons = [...document.querySelectorAll('button')];
@@ -350,16 +355,16 @@ function arFinish() {
         <div class="pastel-card bg-white p-5 md:p-6 text-center overflow-hidden">
             <div class="text-7xl mb-2">${medal}</div>
             <h3 class="text-2xl md:text-3xl font-black ${playerWins ? 'text-emerald-600' : 'text-orange-600'}">${playerWins ? 'Về đích rồi!' : 'Suýt nữa bắt kịp!'}</h3>
-            <p class="text-sm md:text-base font-bold text-gray-600 mt-1">${playerWins ? 'Chiếc xe động từ của bé đã hoàn thành đường đua.' : 'Luyện thêm một lượt để vượt đối thủ nhé!'}</p>
+            <p class="text-xl md:text-xl font-bold text-gray-600 mt-1">${playerWins ? 'Chiếc xe động từ của bé đã hoàn thành đường đua.' : 'Luyện thêm một lượt để vượt đối thủ nhé!'}</p>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-4">
-                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-xs font-bold text-amber-600">Điểm</div><div class="text-xl font-black text-amber-700">${arScore}</div></div>
-                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xs font-bold text-emerald-600">Độ chính xác</div><div class="text-xl font-black text-emerald-700">${accuracy}%</div></div>
-                <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-200 p-3"><div class="text-xs font-bold text-fuchsia-600">Chuỗi tốt nhất</div><div class="text-xl font-black text-fuchsia-700">${arBestStreak}</div></div>
-                <div class="rounded-2xl bg-sky-50 border border-sky-200 p-3"><div class="text-xs font-bold text-sky-600">Thời gian</div><div class="text-xl font-black text-sky-700">${arFormatTime(elapsed)}</div></div>
+                <div class="rounded-2xl bg-amber-50 border border-amber-200 p-3"><div class="text-xl font-bold text-amber-600">Điểm</div><div class="text-xl font-black text-amber-700">${arScore}</div></div>
+                <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3"><div class="text-xl font-bold text-emerald-600">Độ chính xác</div><div class="text-xl font-black text-emerald-700">${accuracy}%</div></div>
+                <div class="rounded-2xl bg-fuchsia-50 border border-fuchsia-200 p-3"><div class="text-xl font-bold text-fuchsia-600">Chuỗi tốt nhất</div><div class="text-xl font-black text-fuchsia-700">${arBestStreak}</div></div>
+                <div class="rounded-2xl bg-sky-50 border border-sky-200 p-3"><div class="text-xl font-bold text-sky-600">Thời gian</div><div class="text-xl font-black text-sky-700">${arFormatTime(elapsed)}</div></div>
             </div>
             <div class="mt-5 flex justify-center gap-2 flex-wrap">
-                <button onclick="arStartLevel('${arDifficulty}')" class="pastel-btn px-5 py-2.5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-black text-sm md:text-base shadow-md">🏎️ Đua lại</button>
-                <button onclick="arRenderStart()" class="pastel-btn px-5 py-2.5 rounded-2xl bg-white border-2 border-slate-200 text-slate-700 font-black text-sm md:text-base">⚙️ Chọn mức khác</button>
+                <button onclick="arStartLevel('${arDifficulty}')" class="pastel-btn px-5 py-2.5 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-black text-xl md:text-xl shadow-md">🏎️ Đua lại</button>
+                <button onclick="arRenderStart()" class="pastel-btn px-5 py-2.5 rounded-2xl bg-white border-2 border-slate-200 text-slate-700 font-black text-xl md:text-xl">⚙️ Chọn mức khác</button>
             </div>
         </div>`;
 }
@@ -410,5 +415,6 @@ function arEsc(value) {
         .replace(/'/g, '&#039;');
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["action-race"]=function(){try{clearTimeout(arTimerInterval);clearInterval(arTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startActionRaceGame: startActionRaceGame, arEnsureStyles: arEnsureStyles, arRenderStart: arRenderStart, arStartLevel: arStartLevel, arBuildBalancedPool: arBuildBalancedPool, arNextRound: arNextRound, arRenderRound: arRenderRound, arRenderTrack: arRenderTrack, arGetOptions: arGetOptions, arChoose: arChoose, arAnimateCars: arAnimateCars, arShowHint: arShowHint, arSpeakSentence: arSpeakSentence, arFinish: arFinish, arExtractSentence: arExtractSentence, arWordCount: arWordCount, arVerbIcon: arVerbIcon, arUpdateTimer: arUpdateTimer, arFormatTime: arFormatTime, arEsc: arEsc}), stop(){ try { clearTimeout(arTimerInterval); clearInterval(arTimerInterval); } catch (_) {} } });
+}

@@ -1,3 +1,8 @@
+/* Epsilon Edu Class 2: isolated native ES module for sentence-doctor. No browser globals. */
+export function createEnglishGame(gameCtx) {
+'use strict';
+const { document, window, confetti, ensureMiniGameLearningReady, hideLoadingOverlay, playAudio, showLoadingOverlay, shuffleArray, speakEnglishText, taEnglishDialog, taEnglishGameInterval, taEnglishGameTimeout } = gameCtx;
+let sdocCureOptions_ = [];
 // ==========================================
 // GAME 8: SENTENCE DOCTOR
 // Nguon du lieu: 8.2 Grammar Choice.
@@ -65,14 +70,14 @@ function sdocEnsureStyles() {
 
 function sdocRenderStart() {
     clearInterval(sdocTimerInterval);
-    headerLevel3ClickHandler = null;
+    gameCtx.setHeaderLevel3ClickHandler(null);
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-4 md:p-5">
             <div class="bg-gradient-to-r from-rose-50 via-white to-cyan-50 border-2 border-rose-100 rounded-2xl p-4 text-center mb-4">
                 <div class="text-6xl mb-1">🩺🐰</div>
                 <h3 class="text-xl md:text-2xl font-black text-rose-600">Sentence Doctor</h3>
-                <p class="text-sm md:text-base text-gray-600 font-bold mt-1">Câu đang bị “ốm” vì một lỗi ngữ pháp. Tìm chỗ sai rồi chọn thuốc đúng để chữa câu nhé!</p>
-                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-rose-200 rounded-full text-sm font-black text-rose-600">📚 Dữ liệu: 8.2 Grammar Choice · ${sdocAllPool.length} câu</div>
+                <p class="text-xl md:text-xl text-gray-600 font-bold mt-1">Câu đang bị “ốm” vì một lỗi ngữ pháp. Tìm chỗ sai rồi chọn thuốc đúng để chữa câu nhé!</p>
+                <div class="mt-2 inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 border border-rose-200 rounded-full text-xl font-black text-rose-600">📚 Dữ liệu: 8.2 Grammar Choice · ${sdocAllPool.length} câu</div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
                 ${Object.entries(SDOC_LEVELS).map(([key, lv], i) => {
@@ -82,15 +87,15 @@ function sdocRenderStart() {
                         'bg-rose-50 border-rose-200 text-rose-700'
                     ][i];
                     return `<button onclick="sdocStartLevel('${key}')" class="pastel-btn rounded-2xl border-2 ${cls} p-4 text-center">
-                        <div class="text-lg font-black">${lv.label}</div>
-                        <div class="text-sm font-bold mt-1">${lv.rounds} bệnh án</div>
-                        <div class="text-xs font-bold opacity-75 mt-1">${sdocEsc(lv.note)}</div>
+                        <div class="text-xl font-black">${lv.label}</div>
+                        <div class="text-xl font-bold mt-1">${lv.rounds} bệnh án</div>
+                        <div class="text-xl font-bold opacity-75 mt-1">${sdocEsc(lv.note)}</div>
                     </button>`;
                 }).join('')}
             </div>
             <div class="mt-4 max-w-2xl mx-auto grid grid-cols-2 gap-2 text-center">
-                <div class="rounded-xl bg-amber-50 border border-amber-100 px-3 py-2 text-sm font-bold text-amber-700">🔍 Bước 1<br><span class="font-black">Chẩn đoán lỗi</span></div>
-                <div class="rounded-xl bg-cyan-50 border border-cyan-100 px-3 py-2 text-sm font-bold text-cyan-700">💊 Bước 2<br><span class="font-black">Chọn thuốc chữa</span></div>
+                <div class="rounded-xl bg-amber-50 border border-amber-100 px-3 py-2 text-xl font-bold text-amber-700">🔍 Bước 1<br><span class="font-black">Chẩn đoán lỗi</span></div>
+                <div class="rounded-xl bg-cyan-50 border border-cyan-100 px-3 py-2 text-xl font-bold text-cyan-700">💊 Bước 2<br><span class="font-black">Chọn thuốc chữa</span></div>
             </div>
         </div>`;
 }
@@ -113,7 +118,7 @@ function sdocStartLevel(level) {
     sdocLocked = false;
     clearInterval(sdocTimerInterval);
     sdocTimerInterval = taEnglishGameInterval(sdocUpdateTimer, 1000);
-    headerLevel3ClickHandler = sdocRenderStart;
+    gameCtx.setHeaderLevel3ClickHandler(sdocRenderStart);
     sdocNextCase();
 }
 
@@ -137,9 +142,9 @@ function sdocRenderCase() {
     document.getElementById('game-play-container').innerHTML = `
         <div class="pastel-card bg-white p-3.5 md:p-5 overflow-hidden">
             <div class="flex items-center justify-between gap-2 flex-wrap mb-3">
-                <span id="sdoc-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-sm font-black text-slate-600">⏱️ 00:00</span>
-                <span class="px-3 py-1 bg-rose-50 border border-rose-200 rounded-full text-sm font-black text-rose-700">📋 Bệnh án ${sdocRound + 1}/${total}</span>
-                <span id="sdoc-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-sm font-black text-emerald-700">⭐ ${sdocScore}</span>
+                <span id="sdoc-timer" class="px-3 py-1 bg-slate-50 border border-slate-200 rounded-full text-xl font-black text-slate-600">⏱️ 00:00</span>
+                <span class="px-3 py-1 bg-rose-50 border border-rose-200 rounded-full text-xl font-black text-rose-700">📋 Bệnh án ${sdocRound + 1}/${total}</span>
+                <span id="sdoc-score" class="px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xl font-black text-emerald-700">⭐ ${sdocScore}</span>
             </div>
 
             <div class="rounded-2xl border-2 border-cyan-100 bg-gradient-to-r from-cyan-50 via-white to-rose-50 p-3 md:p-4 mb-3">
@@ -150,40 +155,40 @@ function sdocRenderCase() {
                     </div>
                     <div class="min-w-0 flex-1">
                         <div class="flex items-center justify-between gap-2">
-                            <div class="text-xs uppercase tracking-wide text-gray-400 font-black">Sức khỏe câu</div>
-                            <div class="text-sm font-black ${sdocStage === 'cure' ? 'text-cyan-600' : 'text-rose-500'}">${sdocStage === 'cure' ? 'Đã chẩn đoán ✓' : 'Đang cần bác sĩ!'}</div>
+                            <div class="text-xl uppercase tracking-wide text-gray-400 font-black">Sức khỏe câu</div>
+                            <div class="text-xl font-black ${sdocStage === 'cure' ? 'text-cyan-600' : 'text-rose-500'}">${sdocStage === 'cure' ? 'Đã chẩn đoán ✓' : 'Đang cần bác sĩ!'}</div>
                         </div>
                         <div class="h-3 bg-white rounded-full border border-slate-200 overflow-hidden mt-1.5">
                             <div class="h-full bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 transition-all duration-500" style="width:${Math.max(8, health)}%"></div>
                         </div>
-                        <div class="text-sm font-bold text-gray-500 mt-1">${health}% hồ sơ đã chữa xong</div>
+                        <div class="text-xl font-bold text-gray-500 mt-1">${health}% hồ sơ đã chữa xong</div>
                     </div>
                 </div>
             </div>
 
             <div id="sdoc-case-card" class="rounded-2xl border-2 ${sdocStage === 'diagnose' ? 'border-rose-100 bg-rose-50/35' : 'border-cyan-100 bg-cyan-50/35'} p-4 md:p-5 mb-3">
-                <div class="text-center text-sm font-black ${sdocStage === 'diagnose' ? 'text-rose-600' : 'text-cyan-700'} mb-3">
+                <div class="text-center text-xl font-black ${sdocStage === 'diagnose' ? 'text-rose-600' : 'text-cyan-700'} mb-3">
                     ${sdocStage === 'diagnose' ? '🔍 BƯỚC 1: Chạm vào từ/cụm từ làm câu bị sai' : '💊 BƯỚC 2: Chọn từ đúng để chữa câu'}
                 </div>
                 ${sdocStage === 'diagnose' ? sdocRenderTokenSentence() : sdocRenderCureStage()}
                 <div class="mt-3 flex justify-center gap-2 flex-wrap">
-                    <button onclick="sdocShowHint()" class="px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-sm pastel-btn">💡 Gợi ý (${sdocHintsLeft})</button>
-                    ${sdocStage === 'cure' ? `<button onclick="sdocSpeakPatient()" class="px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-sm pastel-btn">🔊 Nghe câu đang sai</button>` : ''}
+                    <button onclick="sdocShowHint()" class="px-4 py-1.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 font-black text-xl pastel-btn">💡 Gợi ý (${sdocHintsLeft})</button>
+                    ${sdocStage === 'cure' ? `<button onclick="sdocSpeakPatient()" class="px-4 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-black text-xl pastel-btn">🔊 Nghe câu đang sai</button>` : ''}
                 </div>
             </div>
 
             <div class="flex items-center justify-center gap-2 flex-wrap">
-                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-sm">🔥 Chuỗi đúng: ${sdocStreak}</span>
-                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-sm">🩹 Nhầm: ${sdocWrong}</span>
+                <span class="px-3 py-1.5 rounded-full bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-700 font-black text-xl">🔥 Chuỗi đúng: ${sdocStreak}</span>
+                <span class="px-3 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 font-black text-xl">🩹 Nhầm: ${sdocWrong}</span>
             </div>
-            <p id="sdoc-status" class="min-h-[30px] text-center text-sm md:text-base font-black mt-2"></p>
+            <p id="sdoc-status" class="min-h-[30px] text-center text-xl md:text-xl font-black mt-2"></p>
         </div>`;
     sdocUpdateTimer();
 }
 
 function sdocRenderTokenSentence() {
     return `<div id="sdoc-token-row" class="flex flex-wrap items-center justify-center gap-2 max-w-4xl mx-auto py-2">
-        ${sdocTokens.map((t, i) => `<button onclick="sdocDiagnose(${i})" id="sdoc-token-${i}" class="sdoc-token rounded-xl border-2 border-slate-200 bg-white hover:border-rose-300 hover:bg-rose-50 px-3 py-2 text-lg md:text-xl font-black text-slate-700 shadow-sm">${sdocEsc(t.text)}</button>`).join('')}
+        ${sdocTokens.map((t, i) => `<button onclick="sdocDiagnose(${i})" id="sdoc-token-${i}" class="sdoc-token rounded-xl border-2 border-slate-200 bg-white hover:border-rose-300 hover:bg-rose-50 px-3 py-2 text-xl md:text-xl font-black text-slate-700 shadow-sm">${sdocEsc(t.text)}</button>`).join('')}
     </div>`;
 }
 
@@ -198,10 +203,10 @@ function sdocRenderCureStage() {
     } else {
         options = shuffleArray(options);
     }
-    window.__sdocCureOptions = options;
+    sdocCureOptions_ = options;
     return `
         <div class="text-center mb-3">
-            <div class="inline-flex items-center gap-2 rounded-xl bg-white border border-rose-100 px-4 py-2 text-base md:text-lg font-black text-slate-700">
+            <div class="inline-flex items-center gap-2 rounded-xl bg-white border border-rose-100 px-4 py-2 text-xl md:text-xl font-black text-slate-700">
                 <span class="line-through decoration-rose-500 decoration-2 text-rose-500">${sdocEsc(sdocWrongOption)}</span>
                 <span>→</span><span class="text-cyan-600">?</span>
             </div>
@@ -214,7 +219,7 @@ function sdocRenderCureStage() {
                     'bg-amber-50 border-amber-200 text-amber-700',
                     'bg-emerald-50 border-emerald-200 text-emerald-700'
                 ][i % 4];
-                return `<button id="sdoc-cure-${i}" onclick="sdocCure(${i})" class="pastel-btn min-h-[56px] rounded-2xl border-2 ${cls} px-4 py-3 text-base md:text-lg font-black">💊 ${sdocEsc(opt)}</button>`;
+                return `<button id="sdoc-cure-${i}" onclick="sdocCure(${i})" class="pastel-btn min-h-[56px] rounded-2xl border-2 ${cls} px-4 py-3 text-xl md:text-xl font-black">💊 ${sdocEsc(opt)}</button>`;
             }).join('')}
         </div>`;
 }
@@ -229,7 +234,7 @@ function sdocDiagnose(index) {
         playAudio('correct');
         sdocRenderCase();
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-cyan-700'; status.textContent = `✅ Chẩn đoán đúng: “${sdocWrongOption}” đang làm câu bị sai.`; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-cyan-700'; status.textContent = `✅ Chẩn đoán đúng: “${sdocWrongOption}” đang làm câu bị sai.`; }
     } else {
         sdocWrong++;
         sdocStreak = 0;
@@ -239,13 +244,13 @@ function sdocDiagnose(index) {
             taEnglishGameTimeout(() => btn.classList.remove('sdoc-shake', 'border-rose-400', 'bg-rose-50'), 450);
         }
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-rose-600'; status.textContent = '🩹 Chỗ này chưa phải lỗi ngữ pháp, bác sĩ thử lại nhé!'; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-rose-600'; status.textContent = '🩹 Chỗ này chưa phải lỗi ngữ pháp, bác sĩ thử lại nhé!'; }
     }
 }
 
 function sdocCure(index) {
     if (sdocLocked || sdocStage !== 'cure') return;
-    const options = window.__sdocCureOptions || [];
+    const options = sdocCureOptions_ || [];
     const chosen = String(options[index] || '').trim();
     const answer = String(sdocCurrent.answer || '').trim();
     const btn = document.getElementById(`sdoc-cure-${index}`);
@@ -255,11 +260,11 @@ function sdocCure(index) {
         sdocStreak++;
         sdocBestStreak = Math.max(sdocBestStreak, sdocStreak);
         playAudio('correct');
-        if (btn) btn.className = 'sdoc-heal min-h-[56px] rounded-2xl border-2 bg-emerald-100 border-emerald-400 text-emerald-700 px-4 py-3 text-base md:text-lg font-black shadow-sm';
+        if (btn) btn.className = 'sdoc-heal min-h-[56px] rounded-2xl border-2 bg-emerald-100 border-emerald-400 text-emerald-700 px-4 py-3 text-xl md:text-xl font-black shadow-sm';
         sdocShowHealEffect();
         const correctSentence = sdocExtractSentence(sdocCurrent.question_text).replace('______', answer);
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-emerald-700'; status.innerHTML = `✅ Khỏi bệnh! <span class="text-slate-700">${sdocEsc(correctSentence)}</span>`; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-emerald-700'; status.innerHTML = `✅ Khỏi bệnh! <span class="text-slate-700">${sdocEsc(correctSentence)}</span>`; }
         taEnglishGameTimeout(() => { try { speakEnglishText(correctSentence); } catch (_) {} }, 250);
         taEnglishGameTimeout(() => { sdocRound++; sdocNextCase(); }, 1750);
     } else {
@@ -273,14 +278,14 @@ function sdocCure(index) {
             taEnglishGameTimeout(() => btn.classList.remove('sdoc-shake'), 420);
         }
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-rose-600'; status.textContent = '💊 Thuốc này chưa đúng. Thử loại khác nhé!'; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-rose-600'; status.textContent = '💊 Thuốc này chưa đúng. Thử loại khác nhé!'; }
     }
 }
 
 function sdocShowHint() {
     if (sdocHintsLeft <= 0 || sdocLocked) {
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-600'; status.textContent = '💡 Bé đã dùng hết gợi ý ở mức này rồi.'; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-600'; status.textContent = '💡 Bé đã dùng hết gợi ý ở mức này rồi.'; }
         return;
     }
     sdocHintsLeft--;
@@ -291,10 +296,10 @@ function sdocShowHint() {
             if (el) { el.classList.add('ring-2','ring-amber-300','bg-amber-50'); taEnglishGameTimeout(() => el.classList.remove('ring-2','ring-amber-300','bg-amber-50'), 1600); }
         });
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-700'; status.textContent = '💡 Cô vừa soi đèn vào vùng đang có lỗi.'; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-700'; status.textContent = '💡 Cô vừa soi đèn vào vùng đang có lỗi.'; }
     } else {
         const ans = String(sdocCurrent.answer || '').trim().toLowerCase();
-        const opts = window.__sdocCureOptions || [];
+        const opts = sdocCureOptions_ || [];
         const wrongIdx = opts.map((o,i) => String(o).trim().toLowerCase() !== ans ? i : -1).filter(i => i >= 0);
         if (wrongIdx.length) {
             const i = wrongIdx[Math.floor(Math.random()*wrongIdx.length)];
@@ -302,7 +307,7 @@ function sdocShowHint() {
             if (el) { el.disabled = true; el.classList.add('opacity-30','line-through'); }
         }
         const status = document.getElementById('sdoc-status');
-        if (status) { status.className = 'min-h-[30px] text-center text-sm md:text-base font-black mt-2 text-amber-700'; status.textContent = '💡 Cô đã loại giúp 1 loại thuốc sai.'; }
+        if (status) { status.className = 'min-h-[30px] text-center text-xl md:text-xl font-black mt-2 text-amber-700'; status.textContent = '💡 Cô đã loại giúp 1 loại thuốc sai.'; }
     }
     // update hint count without resetting stage state
     document.querySelectorAll('button').forEach(() => {});
@@ -372,12 +377,12 @@ function sdocFinish() {
         <div class="pastel-card bg-white p-5 md:p-7 text-center">
             <div class="text-7xl mb-2">🏥✨</div>
             <h3 class="text-2xl md:text-3xl font-black text-emerald-600">Phòng khám hoàn thành!</h3>
-            <p class="text-base text-gray-600 font-bold mt-2">Bác sĩ đã chữa xong ${sdocPool.length} câu ngữ pháp.</p>
+            <p class="text-xl text-gray-600 font-bold mt-2">Bác sĩ đã chữa xong ${sdocPool.length} câu ngữ pháp.</p>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 max-w-3xl mx-auto mt-5">
-                <div class="rounded-2xl bg-amber-50 border-2 border-amber-100 p-3"><div class="text-2xl">⭐</div><div class="text-xl font-black text-amber-700">${sdocScore}</div><div class="text-xs font-bold text-gray-500">Điểm</div></div>
-                <div class="rounded-2xl bg-rose-50 border-2 border-rose-100 p-3"><div class="text-2xl">🩹</div><div class="text-xl font-black text-rose-600">${sdocWrong}</div><div class="text-xs font-bold text-gray-500">Lượt nhầm</div></div>
-                <div class="rounded-2xl bg-fuchsia-50 border-2 border-fuchsia-100 p-3"><div class="text-2xl">🔥</div><div class="text-xl font-black text-fuchsia-700">${sdocBestStreak}</div><div class="text-xs font-bold text-gray-500">Chuỗi tốt nhất</div></div>
-                <div class="rounded-2xl bg-cyan-50 border-2 border-cyan-100 p-3"><div class="text-2xl">⏱️</div><div class="text-xl font-black text-cyan-700">${Math.floor(elapsed/60)}:${String(elapsed%60).padStart(2,'0')}</div><div class="text-xs font-bold text-gray-500">Thời gian</div></div>
+                <div class="rounded-2xl bg-amber-50 border-2 border-amber-100 p-3"><div class="text-2xl">⭐</div><div class="text-xl font-black text-amber-700">${sdocScore}</div><div class="text-xl font-bold text-gray-500">Điểm</div></div>
+                <div class="rounded-2xl bg-rose-50 border-2 border-rose-100 p-3"><div class="text-2xl">🩹</div><div class="text-xl font-black text-rose-600">${sdocWrong}</div><div class="text-xl font-bold text-gray-500">Lượt nhầm</div></div>
+                <div class="rounded-2xl bg-fuchsia-50 border-2 border-fuchsia-100 p-3"><div class="text-2xl">🔥</div><div class="text-xl font-black text-fuchsia-700">${sdocBestStreak}</div><div class="text-xl font-bold text-gray-500">Chuỗi tốt nhất</div></div>
+                <div class="rounded-2xl bg-cyan-50 border-2 border-cyan-100 p-3"><div class="text-2xl">⏱️</div><div class="text-xl font-black text-cyan-700">${Math.floor(elapsed/60)}:${String(elapsed%60).padStart(2,'0')}</div><div class="text-xl font-bold text-gray-500">Thời gian</div></div>
             </div>
             <div class="mt-5 flex justify-center gap-3 flex-wrap">
                 <button onclick="sdocStartLevel('${sdocDifficulty}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black pastel-btn">🔁 Chơi lại</button>
@@ -390,5 +395,6 @@ function sdocEsc(v) {
     return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-window.CLASS2_ENGLISH_GAME_STOPPERS = window.CLASS2_ENGLISH_GAME_STOPPERS || {};
-window.CLASS2_ENGLISH_GAME_STOPPERS["sentence-doctor"]=function(){try{clearTimeout(sdocTimerInterval);clearInterval(sdocTimerInterval)}catch(_){};};
+
+return Object.freeze({ handlers:Object.freeze({startSentenceDoctorGame: startSentenceDoctorGame, sdocEnsureStyles: sdocEnsureStyles, sdocRenderStart: sdocRenderStart, sdocStartLevel: sdocStartLevel, sdocNextCase: sdocNextCase, sdocRenderCase: sdocRenderCase, sdocRenderTokenSentence: sdocRenderTokenSentence, sdocRenderCureStage: sdocRenderCureStage, sdocDiagnose: sdocDiagnose, sdocCure: sdocCure, sdocShowHint: sdocShowHint, sdocShowHealEffect: sdocShowHealEffect, sdocSpeakPatient: sdocSpeakPatient, sdocExtractSentence: sdocExtractSentence, sdocBuildTokens: sdocBuildTokens, sdocWordCount: sdocWordCount, sdocUpdateTimer: sdocUpdateTimer, sdocFinish: sdocFinish, sdocEsc: sdocEsc}), stop(){ try { clearTimeout(sdocTimerInterval); clearInterval(sdocTimerInterval); } catch (_) {} } });
+}
