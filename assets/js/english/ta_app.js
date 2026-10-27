@@ -1643,6 +1643,15 @@ function updateNavTabs(level2Title, level2Icon, level3Title, level4Title, level3
         } else if (!isVocabularyReview && !isReadingReview && !isPictureReview && typeof level3ClickHandler === 'function') {
             back = level3ClickHandler;
         }
+        // In Mini Games, clicking the game-name breadcrumb returns to that
+        // game's own starting screen (not the overall Mini Games catalog).
+        if (mainKey === 'games') {
+            // Use the active game's stable ID; keep the title fallback for older callers.
+            // Every one of the 12 game breadcrumbs goes back to its own start screen.
+            const selectedGame = MINIGAME_LIST.find(game => game.id === taEnglishCurrentGameKey_)
+                || MINIGAME_LIST.find(game => game.title === String(level3Title).trim());
+            if (selectedGame) back = () => openGamePlay(selectedGame.id);
+        }
         crumbs.push({
             text:englishBreadcrumbShortName_(level3Title, isVocabularyReview || isReadingReview || isPictureReview ? 'review-branch' : 'normal'),
             full:String(level3Title),
@@ -1663,13 +1672,18 @@ function updateNavTabs(level2Title, level2Icon, level3Title, level4Title, level3
             return;
         }
         const isLeaf = index === crumbs.length - 1;
-        const canNavigate = !isLeaf && typeof crumb.go === 'function';
+        // Game names are the final breadcrumb but must remain clickable.
+        const gameRootLink = isLeaf && mainKey === 'games' && index === 1;
+        const canNavigate = typeof crumb.go === 'function' && (!isLeaf || gameRootLink);
         node.label.textContent = crumb.text;
         node.btn.title = crumb.full;
         node.btn.setAttribute('aria-label', canNavigate ? `Quay về ${crumb.full}` : crumb.full);
         node.btn.onclick = canNavigate ? () => {stopSpeaking();crumb.go();} : null;
-        node.btn.toggleAttribute('data-navigate', canNavigate);
-        if (isLeaf) node.btn.setAttribute('aria-current','page');
+        // The stylesheet targets [data-navigate="true"]; toggleAttribute() writes
+        // an empty value, making a clickable game tab look inactive.
+        if (canNavigate) node.btn.setAttribute('data-navigate', 'true');
+        else node.btn.removeAttribute('data-navigate');
+        if (isLeaf && !canNavigate) node.btn.setAttribute('aria-current','page');
         else node.btn.removeAttribute('aria-current');
         node.wrap.classList.remove('hidden');
         node.wrap.classList.add('flex');
@@ -5825,7 +5839,7 @@ function openMiniGameHub() {
 // Đường dẫn file JS riêng của từng game — chỉ tải về máy khi bé THẬT SỰ bấm vào game đó,
 // không bắt tải sẵn hết 12 game ngay từ đầu (giữ app.js gọn nhẹ dù sau này thêm bao nhiêu game).
 const GAME_SCRIPT_MAP = {
-    'word-search': 'assets/js/english/games/word-search.js?v=class2-direct-esm-20261027',
+    'word-search': 'assets/js/english/games/word-search.js?v=class2-wordsearch-ui-20261028',
     'word-scramble': 'assets/js/english/games/word-scramble.js?v=class2-direct-esm-20261027',
     'bingo': 'assets/js/english/games/bingo.js?v=class2-direct-esm-20261027',
     'fishing-game': 'assets/js/english/games/fishing-game.js?v=class2-direct-esm-20261027',
