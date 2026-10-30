@@ -5839,10 +5839,10 @@ function openMiniGameHub() {
 // Đường dẫn file JS riêng của từng game — chỉ tải về máy khi bé THẬT SỰ bấm vào game đó,
 // không bắt tải sẵn hết 12 game ngay từ đầu (giữ app.js gọn nhẹ dù sau này thêm bao nhiêu game).
 const GAME_SCRIPT_MAP = {
-    'word-search': 'assets/js/english/games/word-search.js?v=class2-wordsearch-ui-20261028',
+    'word-search': 'assets/js/english/games/word-search.js?v=class2-ws-hintfix-20261030',
     'word-scramble': 'assets/js/english/games/word-scramble.js?v=class2-direct-esm-20261027',
     'bingo': 'assets/js/english/games/bingo.js?v=class2-direct-esm-20261027',
-    'fishing-game': 'assets/js/english/games/fishing-game.js?v=class2-direct-esm-20261027',
+    'fishing-game': 'assets/js/english/games/fishing-game.js?v=class2-fg-hitbox-20261030',
     'sentence-train': 'assets/js/english/games/sentence-train.js?v=class2-direct-esm-20261027',
     'grammar-river': 'assets/js/english/games/grammar-river.js?v=class2-direct-esm-20261027',
     'qa-bridge': 'assets/js/english/games/qa-bridge.js?v=class2-direct-esm-20261027',
@@ -5858,7 +5858,7 @@ let taCurrentGameApi_ = null;
 let taCurrentGameHandlers_ = [];
 function taModuleGameHelpers_() {
  return {
-  document, window,
+  document, window, confetti,
   MINIGAME_TOPIC_PALETTES, ensureMiniGameLearningReady, ensureMiniGameVocabReady,
   escapeHtml, fetchAllQuestionsFlat, getMiniGamePaletteOrder, getMiniGameTopicGroups,
   getMiniGameVocabPool, getWordSearchVocabPool, headerLevel3ClickHandler,
