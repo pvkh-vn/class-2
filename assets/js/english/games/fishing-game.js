@@ -151,7 +151,7 @@ function renderFishingPlayShell() {
             </div>
             <div id="fg-pond" class="relative overflow-hidden w-full border-2 border-sky-300 rounded-2xl mb-2" style="max-width:720px; min-height:clamp(340px, 50vw, 400px); background: linear-gradient(to bottom, #bae6fd 0%, #7dd3fc 60%, #fde68a 100%);">
                 <div id="fg-pond-deco" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
-                <div id="fg-fish-layer" class="relative z-10 h-full px-6 py-5 flex flex-wrap gap-3 md:gap-4 items-center justify-center content-center" style="min-height:clamp(340px, 50vw, 400px); max-width:580px; margin-inline:auto;"></div>
+                <div id="fg-fish-layer" class="relative z-10 h-full px-4 py-5 flex flex-wrap gap-2.5 md:gap-3 items-center justify-center content-center" style="min-height:clamp(340px, 50vw, 400px); max-width:580px; margin-inline:auto;"></div>
             </div>
             <p id="fg-status" class="text-xl font-bold text-sky-500 text-center min-h-[18px]"></p>
         </div>`;
@@ -260,10 +260,12 @@ function fgRenderRound() {
 
     const fishLayerEl = document.getElementById('fg-fish-layer');
     fishLayerEl.innerHTML = fgCurrentRound.fish.map((f, i) => `
-        <button id="fg-fish-${i}" onclick="fgHandleFishClick(${i})"
-            style="animation-delay: ${(i * 0.45).toFixed(2)}s"
-            class="fg-fish-btn fg-answer-swim-${i % 3} pastel-btn flex items-center gap-1 px-2 py-1.5 rounded-2xl border-2 font-black text-xl md:text-xl shadow-sm transition-colors duration-150 whitespace-normal break-words max-w-full ${FG_FISH_COLORS[i % FG_FISH_COLORS.length]}">
-            <span class="text-xl">🐟</span><span>${escapeHtml(f.w)}</span>
+        <button id="fg-fish-${i}" type="button" onclick="fgHandleFishClick(${i})"
+            class="fg-fish-hitbox flex items-center justify-center rounded-2xl max-w-full">
+            <span class="fg-fish-btn fg-answer-swim-${i % 3} inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-2xl border-2 font-black text-xl md:text-xl shadow-sm whitespace-normal break-words max-w-full ${FG_FISH_COLORS[i % FG_FISH_COLORS.length]}"
+                style="animation-delay: ${(i * 0.45).toFixed(2)}s">
+                <span class="text-xl">🐟</span><span class="min-w-0 break-words" style="overflow-wrap:anywhere;">${escapeHtml(f.w)}</span>
+            </span>
         </button>
     `).join('');
 }
@@ -278,31 +280,50 @@ function fgInjectSwimStyleOnce() {
     style.textContent = `
         @keyframes fgAnswerSwim0 {
             0%   { transform: translate(0, 0) rotate(0deg); }
-            20%  { transform: translate(26px, -22px) rotate(-7deg); }
-            45%  { transform: translate(-20px, -30px) rotate(6deg); }
-            70%  { transform: translate(-28px, 12px) rotate(-6deg); }
-            90%  { transform: translate(15px, 24px) rotate(5deg); }
+            20%  { transform: translate(12px, -10px) rotate(-7deg); }
+            45%  { transform: translate(-11px, -15px) rotate(6deg); }
+            70%  { transform: translate(-14px, 7px) rotate(-6deg); }
+            90%  { transform: translate(9px, 12px) rotate(5deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
         }
         @keyframes fgAnswerSwim1 {
             0%   { transform: translate(0, 0) rotate(0deg); }
-            25%  { transform: translate(-28px, 14px) rotate(6deg); }
-            50%  { transform: translate(-8px, -28px) rotate(-5deg); }
-            75%  { transform: translate(22px, -8px) rotate(7deg); }
+            25%  { transform: translate(-14px, 8px) rotate(6deg); }
+            50%  { transform: translate(-7px, -14px) rotate(-5deg); }
+            75%  { transform: translate(12px, -5px) rotate(7deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
         }
         @keyframes fgAnswerSwim2 {
             0%   { transform: translate(0, 0) rotate(0deg); }
-            30%  { transform: translate(20px, 22px) rotate(-6deg); }
-            60%  { transform: translate(28px, -16px) rotate(6deg); }
-            85%  { transform: translate(-20px, -10px) rotate(-5deg); }
+            30%  { transform: translate(12px, 10px) rotate(-6deg); }
+            60%  { transform: translate(14px, -8px) rotate(6deg); }
+            85%  { transform: translate(-11px, -7px) rotate(-5deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
         }
-        .fg-fish-btn { will-change: transform; }
+        /* The hitbox stays fixed; only the visible fish swims. */
+        /* Compact invisible tap target: follows word length; no transparent card/shadow. */
+        .fg-fish-hitbox {
+            position: relative;
+            display: inline-flex;
+            flex: 0 1 auto;
+            align-items: center;
+            justify-content: center;
+            min-height: 58px;
+            max-width: 100%;
+            padding: 3px 5px;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+        .fg-fish-hitbox:focus-visible { outline: 3px solid #0284c7; outline-offset: 2px; }
+        .fg-fish-btn { will-change: transform; pointer-events: none; }
         .fg-answer-swim-0 { animation: fgAnswerSwim0 3.4s ease-in-out infinite; }
         .fg-answer-swim-1 { animation: fgAnswerSwim1 3.9s ease-in-out infinite; }
         .fg-answer-swim-2 { animation: fgAnswerSwim2 3.6s ease-in-out infinite; }
-        .fg-fish-btn:active { animation-play-state: paused; }
+        .fg-fish-hitbox:hover .fg-fish-btn,
+        .fg-fish-hitbox:active .fg-fish-btn { animation-play-state: paused; }
 
         @keyframes fgSway {
             0%, 100% { transform: rotate(-7deg); }
@@ -331,12 +352,14 @@ function fgHandleFishClick(fishIndex) {
     const fish = fgCurrentRound.fish[fishIndex];
     const btn = document.getElementById('fg-fish-' + fishIndex);
     const statusEl = document.getElementById('fg-status');
+    if (!fish || !btn || !statusEl) return;
+    const fishVisual = btn.querySelector('.fg-fish-btn') || btn;
 
     if (fish.isCorrect) {
         fgCurrentRound.locked = true;
         fgScore++;
-        btn.style.animation = 'none'; // dừng bơi hẳn khi đã bắt được, để hiệu ứng phóng to (scale-110) hiện rõ
-        btn.classList.add('bg-emerald-300', 'border-emerald-500', 'text-emerald-900', 'scale-110');
+        fishVisual.style.animation = 'none'; // dừng bơi hẳn khi đã bắt được, để hiệu ứng phóng to (scale-110) hiện rõ
+        fishVisual.classList.add('bg-emerald-300', 'border-emerald-500', 'text-emerald-900', 'scale-110');
         document.getElementById('fg-score').textContent = `✅ ${fgScore}`;
         statusEl.className = 'text-xl font-black text-emerald-600 text-center min-h-[18px]';
         statusEl.textContent = `🎉 Câu đúng rồi! "${fish.w}" nghĩa là "${fish.vi}"`;
@@ -347,15 +370,15 @@ function fgHandleFishClick(fishIndex) {
         taEnglishGameTimeout(fgNextRound, 1100);
     } else {
         fgWrongCount++;
-        btn.style.animation = 'none'; // tạm dừng bơi trong lúc chớp đỏ/chìm xuống, để hiệu ứng hiện rõ
-        btn.classList.add('bg-rose-300', 'border-rose-500', 'opacity-50', 'translate-y-2');
+        fishVisual.style.animation = 'none'; // tạm dừng bơi trong lúc chớp đỏ/chìm xuống, để hiệu ứng hiện rõ
+        fishVisual.classList.add('bg-rose-300', 'border-rose-500', 'opacity-50', 'translate-y-2');
         statusEl.className = 'text-xl font-bold text-rose-500 text-center min-h-[18px]';
         statusEl.textContent = `Chưa đúng, con cá đó lặn mất rồi, thử con khác nhé!`;
         playAudio('wrong');
         taEnglishGameTimeout(() => {
             if (btn) {
-                btn.classList.remove('bg-rose-300', 'border-rose-500', 'opacity-50', 'translate-y-2');
-                btn.style.animation = ''; // bỏ khoá -> quay lại bơi bình thường theo class .fg-fish-btn
+                fishVisual.classList.remove('bg-rose-300', 'border-rose-500', 'opacity-50', 'translate-y-2');
+                fishVisual.style.animation = ''; // bỏ khoá -> quay lại bơi bình thường theo class .fg-fish-btn
             }
         }, 700);
     }

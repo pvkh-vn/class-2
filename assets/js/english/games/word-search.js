@@ -249,6 +249,15 @@ function renderWordSearchUI(chosen) {
                 #game-play-title.ws-title-with-level .ws-level-badge { flex:0 0 auto; }
                 #game-play-title.ws-title-with-level { overflow-wrap:anywhere; }
                 @media (max-width:640px) { .ws-title-header-with-level { flex-wrap:wrap; row-gap:8px; } }
+                /* Flash the hinted cell above compiled utility backgrounds (including bg-white). */
+                #ws-grid .ws-hint-cell {
+                    background-color: #fcd34d !important;
+                    border-color: #d97706 !important;
+                    color: #78350f !important;
+                    box-shadow: 0 0 0 3px rgba(251,191,36,.55), 0 0 18px rgba(245,158,11,.52);
+                    position: relative;
+                    z-index: 2;
+                }
                 #ws-main-layout { display: flex; flex-direction: column; align-items: center; gap: 10px; }
                 #ws-main-layout .ws-board-wrap { width: 100%; min-width: 0; display: flex; justify-content: flex-start; }
                 #ws-main-layout #ws-wordlist { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; align-content: flex-start; gap: 8px; width: 100%; min-width: 0; }
@@ -294,17 +303,25 @@ function wsUseHint() {
     if (!remaining.length) return;
     const word = remaining[Math.floor(Math.random() * remaining.length)];
     const cells = wsSolutions[word];
-    if (!cells) return;
+    if (!cells?.length) return;
+    const gridEl = document.getElementById('ws-grid');
+    const hintBtn = document.getElementById('ws-hint-btn');
+    const [r, c] = cells[0];
+    const el = gridEl?.children[r * wsSize + c];
+    if (!el || !hintBtn) return;
+
+    // Compiled Tailwind puts bg-white AFTER bg-amber-300. Use a scoped hint
+    // class to keep the first letter visibly highlighted without changing
+    // the selection grid, found words, or answer validation.
     wsHintsLeft--;
     wsHintsUsed++;
-    document.getElementById('ws-hint-btn').textContent = `💡 Gợi ý (${wsHintsLeft})`;
-    if (wsHintsLeft <= 0) document.getElementById('ws-hint-btn').classList.add('opacity-40', 'pointer-events-none');
-
-    const gridEl = document.getElementById('ws-grid');
-    const [r, c] = cells[0];
-    const el = gridEl.children[r * wsSize + c];
-    el.classList.add('bg-amber-300', 'scale-110');
-    taEnglishGameTimeout(() => { if (!wsPlacedCells[wsCellKey(r, c)]) el.classList.remove('bg-amber-300', 'scale-110'); }, 1500);
+    hintBtn.textContent = `💡 Gợi ý (${wsHintsLeft})`;
+    if (wsHintsLeft <= 0) hintBtn.classList.add('opacity-40', 'pointer-events-none');
+    el.classList.add('ws-hint-cell', 'scale-110');
+    taEnglishGameTimeout(() => {
+        if (!el.isConnected) return;
+        el.classList.remove('ws-hint-cell', 'scale-110');
+    }, 1800);
 }
 
 function wsCellKey(r, c) { return r + '_' + c; }
